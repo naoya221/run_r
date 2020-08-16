@@ -1,7 +1,7 @@
 <div class="container">
   <%= form_with(model: @tweet, local: true) do |f| %>
     <h3>投稿する</h3>
-    <%= f.text_area :content, placeholder: "投稿文", rows: "10" %>
+    <%= f.text_area :content, placeholder: "投稿したい文を入力してください", rows: "10" %>
     <%= f.submit "SEND" %>
   <% end %>
 </div>

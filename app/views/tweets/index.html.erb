@@ -1,3 +1,11 @@
-<% @tweets.each do |tweet| %>
-  <p><%= tweet.content %></p>
-<% end %>
+<div class="container">
+  <%= link_to new_tweet_path  do %>
+    <p>
+      <button type="button" class="btn btn-primary btn-lg">投稿する</button>
+    </p>
+  <% end %>
+
+  <% @tweets.each do |tweet| %>
+    <p><%= tweet.content %></p>
+  <% end %>
+</div>
