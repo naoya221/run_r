@@ -1,0 +1,5 @@
+<%= form_with(model: @tweet, local: true) do |f| %>
+  <h3>編集する</h3>
+  <%= f.text_area :content, placeholder: "編集したい文を入力してください", rows: "10" %>
+  <%= f.submit "SEND" %>
+<% end %>
