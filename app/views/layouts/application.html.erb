@@ -19,12 +19,13 @@
       <%#ログインしているかで表示切替%>
         <% if user_signed_in? %>
           <div class="">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to current_user.nickname, "#" %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
           </div>
         <% else %>
-          <div class="">
-            <%= link_to "ログイン", new_user_session_path, class: "" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "" %>
+          <div class="#">
+            <%= link_to 'ログイン', new_user_session_path %>
+            <%= link_to '新規登録',new_user_registration_path %>
           </div>
         <% end %>
         <%#ログインしているかで表示切替%>
