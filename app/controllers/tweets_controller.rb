@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_params, only: [ :show, :destroy, :edit, :update]
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @tweets = Tweet.all
@@ -45,5 +46,11 @@ class TweetsController < ApplicationController
 
   def tweet_params
     params.require(:tweet).permit(:content)
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to root_path
+    end
   end
 end

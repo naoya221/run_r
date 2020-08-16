@@ -20,7 +20,6 @@
         <% if user_signed_in? %>
           <div class="">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <%= link_to "投稿する", new_tweet_path, class: "" %>
           </div>
         <% else %>
           <div class="">
