@@ -6,6 +6,8 @@
   <% end %>
 
   <% @tweets.each do |tweet| %>
-    <p><%= tweet.content %></p>
+    <%= link_to tweet_path(tweet.id)  do%>
+      <p><%= tweet.content %></p>
+    <% end %>    
   <% end %>
 </div>
