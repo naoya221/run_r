@@ -5,13 +5,15 @@
 
 <p><%= @tweet.content%></p>
 
-<%= link_to tweet_path(@tweet.id), method: :delete do %>
-  <p>
-    <button type="button" class="btn btn-primary btn-lg">削除する</button>
-  </p>
-<% end %>
-<%= link_to edit_tweet_path(@tweet.id) do %>
-  <p>
-    <button type="button" class="btn btn-primary btn-lg">編集する</button>
-  </p>
+<% if user_signed_in? && current_user.id == @tweet.user_id %>
+  <%= link_to tweet_path(@tweet.id), method: :delete do %>
+    <p>
+      <button type="button" class="btn btn-primary btn-lg">削除する</button>
+    </p>
+  <% end %>
+  <%= link_to edit_tweet_path(@tweet.id) do %>
+    <p>
+      <button type="button" class="btn btn-primary btn-lg">編集する</button>
+    </p>
+  <% end %>
 <% end %>
