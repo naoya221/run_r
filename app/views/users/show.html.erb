@@ -1,0 +1,4 @@
+<h3><%= @nickname %>さんの投稿一覧</h3>
+<% @tweets.each do |tweet| %>
+    <p><%= tweet.content %></p>
+<% end %>
