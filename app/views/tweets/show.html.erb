@@ -1,3 +1,10 @@
+<h4>投稿詳細ページ</h4>
+<p>
+  <%= link_to "(ユーザー名：#{@tweet.user.nickname})", user_path(@tweet.user_id) %>
+</p>
+
+<p><%= @tweet.content%></p>
+
 <%= link_to tweet_path(@tweet.id), method: :delete do %>
   <p>
     <button type="button" class="btn btn-primary btn-lg">削除する</button>
@@ -8,5 +15,3 @@
     <button type="button" class="btn btn-primary btn-lg">編集する</button>
   </p>
 <% end %>
-
-<%= @tweet.content%>

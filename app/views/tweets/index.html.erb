@@ -5,7 +5,8 @@
 <% end %>
 
 <% @tweets.each do |tweet| %>
-  <%= link_to tweet_path(tweet.id)  do%>
-    <p><%= tweet.content %></p>
-  <% end %>
+  <p>
+    <%= link_to "#{tweet.content}", tweet_path(tweet.id) %>
+    <%= link_to "(ユーザー名：#{tweet.user.nickname})", user_path(tweet.user_id) %>
+  </p>
 <% end %>
