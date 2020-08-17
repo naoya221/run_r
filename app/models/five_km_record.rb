@@ -1,0 +1,2 @@
+class FiveKmRecord < ApplicationRecord
+end
