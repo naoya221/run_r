@@ -19,12 +19,15 @@
 <% end %>
 
 
-<%= form_with model: @message do |f| %>
-  <%= f.text_field :text %>
+<%= form_with url: tweet_messages_path(@tweet.id) do |f| %>
+  <%= f.text_field :text, placeholder: "コメントを入力" %>
   <%= f.submit '送信' %>
 <% end %>
-<div id='messages'>
-  <% @messages.reverse_each do |message| %> 
-    <p><%= message.text %></p>
-  <% end %>
-</div>
+
+<br>  
+<h5>＜コメント一覧＞</h5>
+  <div id='messages'>
+    <% @messages.reverse_each do |message| %>
+      <p><%= message.text %></p>
+    <% end %>
+  </div>
