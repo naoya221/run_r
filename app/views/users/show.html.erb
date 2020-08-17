@@ -1,4 +1,7 @@
 <h4><%= @nickname %>さんのマイページ</h4>
+<br><br><br><br><br><br>
+
+<h5>＜<%= @nickname %>さんの投稿一覧＞</h5>
 <% @tweets.each do |tweet| %>
     <p><%= link_to "#{tweet.content}", tweet_path(tweet.id) %></p>
 <% end %>
