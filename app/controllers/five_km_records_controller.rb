@@ -1,0 +1,2 @@
+class FiveKmRecordsController < ApplicationController
+end
