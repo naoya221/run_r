@@ -15,9 +15,25 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
       <a class="navbar-brand" href="/">Top</a>
+
+      <%#ログインしているかで表示切替%>
+        <% if user_signed_in? %>
+          <div class><%= "こんにちは#{current_user.nickname}さん" %></div>
+          <%= link_to "マイページへ", user_path(current_user.id) %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <div class="#">
+            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "新規登録",new_user_registration_path %>
+          </div>
+        <% end %>
+        <%#ログインしているかで表示切替%>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+        
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -38,7 +54,9 @@
     </nav>
 
     <div class="container">
+    
       <%= yield %>
+
     </div>
 
     <!-- Optional JavaScript -->
