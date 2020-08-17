@@ -1,9 +1,12 @@
 <h4>投稿詳細ページ</h4>
+<br><br><br>
+
 <p>
-  <%= link_to "(ユーザー名：#{@tweet.user.nickname})", user_path(@tweet.user_id) %>
+  <%= link_to "(投稿者：#{@tweet.user.nickname})", user_path(@tweet.user_id) %>
 </p>
 
-<p><%= @tweet.content%></p>
+<h2><%= @tweet.content%></h2>
+<br><br><br>
 
 <% if user_signed_in? && current_user.id == @tweet.user_id %>
   <%= link_to tweet_path(@tweet.id), method: :delete do %>
@@ -24,10 +27,21 @@
   <%= f.submit '送信' %>
 <% end %>
 
-<br>  
+<br><br><br>  
 <h5>＜コメント一覧＞</h5>
+<br>
   <div id='messages'>
     <% @messages.reverse_each do |message| %>
-      <p><%= message.text %></p>
+      <% if @tweet.id == message.tweet_id%>
+        <p>
+          <%= message.text %><br>
+          <% if user_signed_in? != true || current_user.id != message.user_id %>
+            <%= link_to "#{message.user.nickname}さん", user_path(message.user_id) %>
+          <% else %>
+            <%= link_to "あなた", user_path(message.user_id) %>
+          <% end %> 
+          のコメントです<br><br>
+        </p>
+      <% end %>  
     <% end %>
   </div>

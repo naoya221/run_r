@@ -20,7 +20,7 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @messages = Message.all
+    @messages = Message.includes(:tweet, :user)
     @message = Message.new
   end
 

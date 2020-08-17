@@ -1,12 +1,23 @@
+<h4>Topページ</h4>
+<br><br><br><br><br><br>
+
 <%= link_to new_tweet_path  do %>
   <p>
     <button type="button" class="btn btn-primary btn-lg">投稿する</button>
   </p>
 <% end %>
 
+<br>
+<h5>＜投稿一覧＞</h5>
+<br>
 <% @tweets.each do |tweet| %>
   <p>
-    <%= link_to "#{tweet.content}", tweet_path(tweet.id) %>
-    <%= link_to "(ユーザー名：#{tweet.user.nickname})", user_path(tweet.user_id) %>
+    <%= link_to "#{tweet.content}", tweet_path(tweet.id) %><br>
+    <% if user_signed_in? != true || current_user.id != tweet.user_id %>
+      <%= link_to "#{tweet.user.nickname}さん", user_path(tweet.user_id) %>
+    <% else %>
+      <%= link_to "あなた", user_path(tweet.user_id) %>
+    <% end %>
+    の投稿です<br><br>
   </p>
 <% end %>
