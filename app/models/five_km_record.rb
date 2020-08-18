@@ -1,6 +1,7 @@
 class FiveKmRecord < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :hour
+  belongs_to :user  
 
   #空の投稿を保存できないようにする
   #validates :hour, presence: true

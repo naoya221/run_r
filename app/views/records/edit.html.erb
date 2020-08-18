@@ -1,0 +1,9 @@
+<h4>自己ベスト編集ページ</h4>
+
+<%= form_with url: user_five_km_record_path(@user), method: :put, local: true do |f| %>
+  <div>
+    自己ベストを入力してください
+    <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>
+    <%= f.submit "編集" %>
+  </div>
+<% end %>

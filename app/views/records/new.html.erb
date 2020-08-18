@@ -1,7 +1,9 @@
-<%= form_with model:@five_km_record, local: true do |f| %>
+<h4>自己ベスト登録ページ</h4>
+
+<%= form_with url: user_five_km_records_path(@user), local: true do |f| %>
   <div>
     自己ベストを入力してください
     <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>
-    <%= f.submit "更新" %>
+    <%= f.submit "登録" %>
   </div>
 <% end %>

@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :tweets
   has_many :comments
+  has_one :five_km_record 
 end
