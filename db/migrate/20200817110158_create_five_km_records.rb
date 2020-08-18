@@ -4,6 +4,7 @@ class CreateFiveKmRecords < ActiveRecord::Migration[6.0]
       t.integer   :hour_id
       t.integer   :minute_id
       t.integer   :second_id
+      t.integer   :user_id
       t.timestamps
     end
   end
