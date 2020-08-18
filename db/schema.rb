@@ -13,9 +13,9 @@
 ActiveRecord::Schema.define(version: 2020_08_17_110158) do
 
   create_table "five_km_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "hour_id", null: false
-    t.integer "minute_id", null: false
-    t.integer "second_id", null: false
+    t.integer "hour_id"
+    t.integer "minute_id"
+    t.integer "second_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
