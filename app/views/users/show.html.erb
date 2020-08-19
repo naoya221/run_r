@@ -1,4 +1,29 @@
 <h4><%= @nickname %>さんのマイページ</h4>
+<br><br><br>
+<p>
+5kmの自己ベスト
+<%= "#{@five_km_record.hour[:name]}時間" %>
+<%= "#{@five_km_record.minute[:name]}分" %>
+<%= "#{@five_km_record.second[:name]}秒" %>
+</p>
+<p>
+10kmの自己ベスト
+<%= "#{@ten_km_record.hour[:name]}時間" %>
+<%= "#{@ten_km_record.minute[:name]}分" %>
+<%= "#{@ten_km_record.second[:name]}秒" %>
+</p>
+<p>
+ハーフの自己ベスト
+<%= "#{@half_record.hour[:name]}時間" %>
+<%= "#{@half_record.minute[:name]}分" %>
+<%= "#{@half_record.second[:name]}秒" %>
+</p>
+<p>
+フルの自己ベスト
+<%= "#{@full_record.hour[:name]}時間" %>
+<%= "#{@full_record.minute[:name]}分" %>
+<%= "#{@full_record.second[:name]}秒" %>
+</p>
 
 <p>
     <%= link_to "自己ベスト登録", new_record_path %>
