@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_001702) do
+ActiveRecord::Schema.define(version: 2020_08_19_002843) do
 
   create_table "five_km_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "hour_id"
@@ -20,6 +20,26 @@ ActiveRecord::Schema.define(version: 2020_08_18_001702) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_five_km_records_on_user_id"
+  end
+
+  create_table "full_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "hour_id"
+    t.integer "minute_id"
+    t.integer "second_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_full_records_on_user_id"
+  end
+
+  create_table "half_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "hour_id"
+    t.integer "minute_id"
+    t.integer "second_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_half_records_on_user_id"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -35,6 +55,16 @@ ActiveRecord::Schema.define(version: 2020_08_18_001702) do
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ten_km_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "hour_id"
+    t.integer "minute_id"
+    t.integer "second_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_ten_km_records_on_user_id"
   end
 
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -59,7 +89,10 @@ ActiveRecord::Schema.define(version: 2020_08_18_001702) do
   end
 
   add_foreign_key "five_km_records", "users"
+  add_foreign_key "full_records", "users"
+  add_foreign_key "half_records", "users"
   add_foreign_key "messages", "tweets"
   add_foreign_key "messages", "users"
+  add_foreign_key "ten_km_records", "users"
   add_foreign_key "tweets", "users"
 end

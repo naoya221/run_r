@@ -1,5 +1,5 @@
-class FiveKmRecord < ApplicationRecord
-  
+class HalfRecord  < ApplicationRecord
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :hour
   belongs_to_active_hash :minute

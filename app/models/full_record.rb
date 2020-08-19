@@ -1,4 +1,4 @@
-class FiveKmRecord < ApplicationRecord
+class FullRecord < ApplicationRecord
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :hour
