@@ -1,8 +1,8 @@
-class FiveKmRecordsController < ApplicationController
-  
+class HalfRecordsController < ApplicationController
+
   def create
-    @five_km_record = FiveKmRecord.new(permit_params)
-    if @five_km_record.save
+    @half_km_record = HalfKmRecord.new(permit_params)
+    if @half_km_record.save
       redirect_to user_path(current_user.id)
     else
       redirect_to new_record_path
@@ -10,8 +10,8 @@ class FiveKmRecordsController < ApplicationController
   end
 
   def update
-    @five_km_record = FiveKmRecord.where(user_id: current_user.id)
-    if @five_km_record.update(permit_params)
+    @half_km_record = HalfKmRecord.where(user_id: current_user.id)
+    if @half_km_record.update(permit_params)
       redirect_to user_path(current_user.id)
     else
       redirect_to root_path
@@ -23,5 +23,5 @@ class FiveKmRecordsController < ApplicationController
   def permit_params
     params.permit(:hour_id, :minute_id, :second_id).merge(user_id: current_user.id)
   end
-  
+
 end
