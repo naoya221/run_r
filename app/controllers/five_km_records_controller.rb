@@ -21,6 +21,6 @@ class FiveKmRecordsController < ApplicationController
   private
 
   def permit_params
-    params.permit(:hour_id).merge(user_id: current_user.id)
+    params.permit(:hour_id, :minute_id, :second_id).merge(user_id: current_user.id)
   end
 end

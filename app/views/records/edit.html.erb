@@ -1,9 +1,21 @@
 <h4>自己ベスト編集ページ</h4>
+<br><br>
 
-<%= form_with url: user_five_km_record_path(@user), method: :put, local: true do |f| %>
+<%= form_with url: user_five_km_record_path(user_id: current_user.id), method: :put, local: true do |f| %>
   <div>
-    自己ベストを入力してください
-    <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>
+    <p>
+      5kmの自己ベストを入力
+    </p>
+    <br>
+    <p>
+      <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
+    </p>
+    <p>
+      <%= f.collection_select(:minute_id, Hour.all, :id, :name, {}) %>分
+    </p>  
+    <p>
+      <%= f.collection_select(:second_id, Hour.all, :id, :name, {}) %>秒
+    </p>  
     <%= f.submit "編集" %>
   </div>
 <% end %>
