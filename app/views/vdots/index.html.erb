@@ -1,6 +1,35 @@
 <h4>＜距離別の難易度＞</h4>
-
-
+<br>
+<% VdotPace.all.each do |vdot_pace| %>
+  <p>
+    <%= "vdot：#{vdot_pace.vdot}" %>
+    |
+    <%= "5km：#{vdot_pace.five_km}" %>
+    |
+    <%= "10km：#{vdot_pace.ten_km}" %>
+    |
+    <%= "ハーフ：#{vdot_pace.half}" %>
+    |
+    <%= "フル：#{vdot_pace.full}" %>
+  </p>
+<% end %>
+<br><br><br>
 
 
 <h4>＜難易度別の練習目安ペース＞</h4>
+<br>
+<% VdotRecord.all.each do |vdot_record| %>
+    <p>
+      <%= "vdot：#{vdot_record.vdot}" %>
+      |
+      <%= "軽いジョギング：#{vdot_record.e_pace}" %>
+      |
+      <%= "フルマラソンの本番想定ペース（20km~）：#{vdot_record.m_pace}" %>
+    </p>
+    <p>
+      <%= "ペース走（20分間または、3〜5km前後）：#{vdot_record.t_pace_twenty}" %>
+      |
+      <%= "ペース走（40分間または、6〜10km前後）：#{vdot_record.t_pace_forty}" %>
+    </p>
+    <br>
+  <% end %>
