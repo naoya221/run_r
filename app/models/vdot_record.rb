@@ -1,0 +1,2 @@
+class VdotRecord < ApplicationRecord
+end
