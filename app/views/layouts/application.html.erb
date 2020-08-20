@@ -19,7 +19,8 @@
       <%#ログインしているかで表示切替%>
         <% if user_signed_in? %>
           <div class><%= "こんにちは#{current_user.nickname}さん" %></div>
-          <%= link_to "マイページへ", user_path(current_user.id) %>
+          <%= link_to "マイページ", user_path(current_user.id) %>
+          <%= link_to "練習", vdots_path %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <% else %>
           <div class="#">

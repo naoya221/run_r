@@ -11,4 +11,5 @@ Rails.application.routes.draw do
     resources :full_records,  only: [:create, :update]
   end
   resources :records,  only: [:new, :edit] 
+  resources :vdots,  only: [:index] 
 end

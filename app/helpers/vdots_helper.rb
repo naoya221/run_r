@@ -1,0 +1,2 @@
+module VdotsHelper
+end
