@@ -1,0 +1,2 @@
+class VdotsController < ApplicationController
+end
