@@ -1,0 +1,2 @@
+module FiveKmRecordsHelper
+end

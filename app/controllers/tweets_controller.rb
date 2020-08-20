@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_params, only: [ :show, :destroy, :edit, :update]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC")
@@ -50,9 +50,4 @@ class TweetsController < ApplicationController
     params.require(:tweet).permit(:content).merge(user_id: current_user.id)
   end
 
-  def move_to_index
-    unless user_signed_in?
-      redirect_to root_path
-    end
-  end
 end

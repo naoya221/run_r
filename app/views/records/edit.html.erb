@@ -1,0 +1,86 @@
+<h4>自己ベスト編集ページ</h4>
+<br><br>
+
+<% if FiveKmRecord.where(user_id:current_user.id).present? %>
+  <%= form_with url: user_five_km_record_path(user_id: current_user.id), method: :put, local: true do |f| %>
+    <div>
+      <p>
+        5kmの自己ベストを編集
+      </p>
+      <br>
+      <p>
+        <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
+      </p>
+      <p>
+        <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>分
+      </p>  
+      <p>
+        <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>秒
+      </p>  
+      <%= f.submit "編集" %>
+    </div>
+  <% end %>
+<% end %>
+  
+<% if TenKmRecord.where(user_id:current_user.id).present? %>
+  <%= form_with url: user_ten_km_record_path(user_id: current_user.id), method: :put, local: true do |f| %>
+    <div>
+      <p>
+        10kmの自己ベストを編集
+      </p>
+      <br>
+      <p>
+        <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
+      </p>
+      <p>
+        <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>分
+      </p>  
+      <p>
+        <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>秒
+      </p>  
+      <%= f.submit "編集" %>
+    </div>
+  <% end %>
+<% end %>  
+
+<% if HalfRecord.where(user_id:current_user.id).present? %>
+  <%= form_with url: user_half_record_path(user_id: current_user.id), method: :put, local: true do |f| %>
+    <div>
+      <p>
+        ハーフマラソンの自己ベストを編集
+      </p>
+      <br>
+      <p>
+        <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
+      </p>
+      <p>
+        <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>分
+      </p>  
+      <p>
+        <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>秒
+      </p>  
+      <%= f.submit "編集" %>
+    </div>
+  <% end %>
+<% end %>
+
+<% if FullRecord.where(user_id:current_user.id).present? %>
+  <%= form_with url: user_full_record_path(user_id: current_user.id), method: :put, local: true do |f| %>
+    <div>
+      <p>
+        フルマラソンの自己ベストを編集
+      </p>
+      <br>
+      <p>
+        <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
+      </p>
+      <p>
+        <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>分
+      </p>  
+      <p>
+        <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>秒
+      </p>  
+      <%= f.submit "編集" %>
+    </div>
+  <% end %>
+<% end %>  

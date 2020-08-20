@@ -4,5 +4,11 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :messages, only: [:create]
   end
-  resources :users, only: :show
+  resources :users, only: :show do
+    resources :five_km_records,  only: [:create, :update]
+    resources :ten_km_records,  only: [:create, :update]
+    resources :half_records,  only: [:create, :update]
+    resources :full_records,  only: [:create, :update]
+  end
+  resources :records,  only: [:new, :edit] 
 end
