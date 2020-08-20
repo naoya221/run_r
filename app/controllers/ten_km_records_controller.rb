@@ -1,8 +1,8 @@
 class TenKmRecordsController < ApplicationController
 
   def create
-    @ten_km_record = TenKmRecord.new(permit_params)
-    if @ten_km_record.save
+    ten_km_record = TenKmRecord.new(permit_params)
+    if ten_km_record.save
       redirect_to user_path(current_user.id)
     else
       redirect_to new_record_path
@@ -10,8 +10,8 @@ class TenKmRecordsController < ApplicationController
   end
 
   def update
-    @ten_km_record = TenKmRecord.where(user_id: current_user.id)
-    if @ten_km_record.update(permit_params)
+    ten_km_record = TenKmRecord.where(user_id: current_user.id)
+    if ten_km_record.update(permit_params)
       redirect_to user_path(current_user.id)
     else
       redirect_to root_path

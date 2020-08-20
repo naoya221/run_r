@@ -1,8 +1,8 @@
 class FullRecordsController < ApplicationController
 
   def create
-    @full_record = FullRecord.new(permit_params)
-    if @full_record.save
+    full_record = FullRecord.new(permit_params)
+    if full_record.save
       redirect_to user_path(current_user.id)
     else
       redirect_to new_record_path
@@ -10,8 +10,8 @@ class FullRecordsController < ApplicationController
   end
 
   def update
-    @full_record = FullRecord.where(user_id: current_user.id)
-    if @full_record.update(permit_params)
+    full_record = FullRecord.where(user_id: current_user.id)
+    if full_record.update(permit_params)
       redirect_to user_path(current_user.id)
     else
       redirect_to root_path

@@ -1,78 +1,96 @@
 <h4>自己ベスト登録ページ</h4>
 <br><br>
 
-<%= form_with url: user_five_km_records_path(@user), local: true do |f| %>
-  <div>
-    <p>
-      5kmの自己ベストを登録
-    </p>
-    <br>
-    <p>
-      <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
-    </p>
-    <p>
-      <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>分
-    </p>
-    <p>
-      <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>秒
-    </p>
-    <%= f.submit "登録" %>
-  </div>
+<% unless FiveKmRecord.where(user_id:current_user.id).present? %>
+  <%= form_with url: user_five_km_records_path(@user), local: true do |f| %>
+    <div>
+      <p>
+        5kmの自己ベストを登録
+      </p>
+      <br>
+      <p>
+        <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
+      </p>
+      <p>
+        <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>分
+      </p>
+      <p>
+        <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>秒
+      </p>
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
 <% end %>
 
-<%= form_with url: user_ten_km_records_path(@user), local: true do |f| %>
-  <div>
-    <p>
-      10kmの自己ベストを登録
-    </p>
-    <br>
-    <p>
-      <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
-    </p>
-    <p>
-      <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>分
-    </p>
-    <p>
-      <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>秒
-    </p>
-    <%= f.submit "登録" %>
-  </div>
+<% unless TenKmRecord.where(user_id:current_user.id).present? %>
+  <%= form_with url: user_ten_km_records_path(@user), local: true do |f| %>
+    <div>
+      <p>
+        10kmの自己ベストを登録
+      </p>
+      <br>
+      <p>
+        <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
+      </p>
+      <p>
+        <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>分
+      </p>
+      <p>
+        <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>秒
+      </p>
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
 <% end %>
 
-<%= form_with url: user_half_records_path(@user), local: true do |f| %>
-  <div>
-    <p>
-      ハーフマラソンの自己ベストを登録
-    </p>
-    <br>
-    <p>
-      <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
-    </p>
-    <p>
-      <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>分
-    </p>
-    <p>
-      <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>秒
-    </p>
-    <%= f.submit "登録" %>
-  </div>
+<% unless HalfRecord.where(user_id:current_user.id).present? %>
+  <%= form_with url: user_half_records_path(@user), local: true do |f| %>
+    <div>
+      <p>
+        ハーフマラソンの自己ベストを登録
+      </p>
+      <br>
+      <p>
+        <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
+      </p>
+      <p>
+        <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>分
+      </p>
+      <p>
+        <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>秒
+      </p>
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
 <% end %>
 
-<%= form_with url: user_full_records_path(@user), local: true do |f| %>
-  <div>
-    <p>
-      フルマラソンの自己ベストを登録
-    </p>
-    <br>
-    <p>
-      <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
-    </p>
-    <p>
-      <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>分
-    </p>
-    <p>
-      <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>秒
-    </p>
-    <%= f.submit "登録" %>
-  </div>
+<% unless FullRecord.where(user_id:current_user.id).present? %>
+  <%= form_with url: user_full_records_path(@user), local: true do |f| %>
+    <div>
+      <p>
+        フルマラソンの自己ベストを登録
+      </p>
+      <br>
+      <p>
+        <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>時間
+      </p>
+      <p>
+        <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>分
+      </p>
+      <p>
+        <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>秒
+      </p>
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
 <% end %>
+
+<% if FiveKmRecord.where(user_id:current_user.id).present? &&
+      TenKmRecord.where(user_id:current_user.id).present?  &&
+      HalfRecord.where(user_id:current_user.id).present?   &&
+      FullRecord.where(user_id:current_user.id).present? %>
+
+  <p>全ての自己ベストを登録済みです！</p>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+
+<% end %>  

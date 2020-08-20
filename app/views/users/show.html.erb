@@ -2,35 +2,45 @@
 <br><br><br>
 <p>
 5kmの自己ベスト
-<%= "#{@five_km_record.hour[:name]}時間" %>
-<%= "#{@five_km_record.minute[:name]}分" %>
-<%= "#{@five_km_record.second[:name]}秒" %>
+<% if FiveKmRecord.where(user_id: params[:id]).present? %>
+    <%= "#{@five_km_record.hour[:name]}時間" %>
+    <%= "#{@five_km_record.minute[:name]}分" %>
+    <%= "#{@five_km_record.second[:name]}秒" %>
+<% end %>
 </p>
 <p>
 10kmの自己ベスト
-<%= "#{@ten_km_record.hour[:name]}時間" %>
-<%= "#{@ten_km_record.minute[:name]}分" %>
-<%= "#{@ten_km_record.second[:name]}秒" %>
+<% if TenKmRecord.where(user_id: params[:id]).present? %>
+    <%= "#{@ten_km_record.hour[:name]}時間" %>
+    <%= "#{@ten_km_record.minute[:name]}分" %>
+    <%= "#{@ten_km_record.second[:name]}秒" %>
+<% end %>
 </p>
 <p>
 ハーフの自己ベスト
-<%= "#{@half_record.hour[:name]}時間" %>
-<%= "#{@half_record.minute[:name]}分" %>
-<%= "#{@half_record.second[:name]}秒" %>
+<% if HalfRecord.where(user_id: params[:id]).present? %>
+    <%= "#{@half_record.hour[:name]}時間" %>
+    <%= "#{@half_record.minute[:name]}分" %>
+    <%= "#{@half_record.second[:name]}秒" %>
+<% end %>
 </p>
 <p>
 フルの自己ベスト
-<%= "#{@full_record.hour[:name]}時間" %>
-<%= "#{@full_record.minute[:name]}分" %>
-<%= "#{@full_record.second[:name]}秒" %>
+<% if FullRecord.where(user_id: params[:id]).present? %>
+    <%= "#{@full_record.hour[:name]}時間" %>
+    <%= "#{@full_record.minute[:name]}分" %>
+    <%= "#{@full_record.second[:name]}秒" %>
+<% end %>
 </p>
 
-<p>
-    <%= link_to "自己ベスト登録", new_record_path %>
-</p>
-<p>
-    <%= link_to "自己ベスト編集", edit_record_path %>
-</p>
+<% if user_signed_in? && @user.id == current_user.id %>
+    <p>
+        <%= link_to "自己ベスト登録", new_record_path %>
+    </p>
+    <p>
+        <%= link_to "自己ベスト編集", edit_record_path %>
+    </p>
+<% end %>
 
 <br><br><br><br><br><br>
 
