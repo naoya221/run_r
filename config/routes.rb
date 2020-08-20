@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
   resources :users, only: :show do
+    resources :vdots,  only: [:index]
     resources :five_km_records,  only: [:create, :update]
     resources :ten_km_records,  only: [:create, :update]
     resources :half_records,  only: [:create, :update]
