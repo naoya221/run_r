@@ -32,7 +32,9 @@
     <%= "#{@full_record.second[:name]}秒" %>
 <% end %>
 </p>
-
+<p>
+    <%= link_to "#{@nickname}さんのVDOT", user_vdots_path(@user) %>
+</p>
 <% if user_signed_in? && @user.id == current_user.id %>
     <p>
         <%= link_to "自己ベスト登録", new_record_path %>
