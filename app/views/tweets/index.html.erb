@@ -1,23 +1,31 @@
-<h4>Topページ</h4>
-<br><br><br><br><br><br>
+<div class="linear-gray p-5 rounded">
+  <h3 class="bg-secondary p-3 text-white rounded">Topページ</h3>
+  <br><br><br><br><br><br>
 
-<%= link_to new_tweet_path  do %>
-  <p>
-    <button type="button" class="btn btn-primary btn-lg">投稿する</button>
-  </p>
-<% end %>
+  <%= link_to new_tweet_path  do %>
+    <p>
+      <button type="button" class="btn btn-success btn-lg">投稿する</button>
+    </p>
+  <% end %>
+</div>   
 
 <br>
-<h5>＜投稿一覧＞</h5>
-<br>
-<% @tweets.each do |tweet| %>
-  <p>
-    <%= link_to "#{tweet.content}", tweet_path(tweet.id) %><br>
-    <% if user_signed_in? != true || current_user.id != tweet.user_id %>
-      <%= link_to "#{tweet.user.nickname}さん", user_path(tweet.user_id) %>
-    <% else %>
-      <%= link_to "あなた", user_path(tweet.user_id) %>
-    <% end %>
-    の投稿です<br><br>
-  </p>
-<% end %>
+<div class="linear-gray p-5 rounded">
+  <h3 class="bg-secondary p-3 text-white rounded">投稿一覧</h3>
+  <br>
+
+  <% @tweets.each do |tweet| %>
+    <div class="bg-light p-2 rounded">
+      <%= link_to "#{tweet.content}", tweet_path(tweet.id) %><br>
+      <% if user_signed_in? != true || current_user.id != tweet.user_id %>
+        <%= link_to "#{tweet.user.nickname}さん", user_path(tweet.user_id) %>
+      <% else %>
+        <%= link_to "あなた", user_path(tweet.user_id) %>
+      <% end %>
+      の投稿です
+    </div>  
+      <br><br>
+    
+  <% end %>
+  
+</div>  

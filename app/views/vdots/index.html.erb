@@ -1,60 +1,62 @@
-<h4>＜距離別の難易度＞</h4>
-<br>
-<% VdotRecord.all.each do |vdot_record| %>
-  <div class="row">
-    <div class="">
-      <%= "vdot：#{vdot_record.vdot}" %>
-    </div>  
-      |
-    <div class="vdot-five"> 
-      <%= "5km：#{vdot_record.five_km_minute}分" %>
-      <%= "#{vdot_record.five_km_second}秒" %>
-    </div>  
-      |
-    <div class="vdot-ten">  
-      <%= "10km：#{vdot_record.ten_km_minute}分" %>
-      <%= "#{vdot_record.ten_km_second}秒" %>
-    </div>  
-      |
-    <div class="vdot-half">  
-      <%= "ハーフ：#{vdot_record.half_hour}時間" %>
-      <%= "#{vdot_record.half_minute}分" %>
-      <%= "#{vdot_record.half_second}秒" %>
-    </div>   
-      |
-    <div class="vdot-full">  
-      <%= "フル：#{vdot_record.full_hour}時間" %>
-      <%= "#{vdot_record.full_minute}分" %>
-      <%= "#{vdot_record.full_second}秒" %>
-    </div>  
-  </div>
-<% end %>
+<div class="bg-success p-5">
+  <h4>＜距離別の難易度＞</h4>
+  <br>
+  <% VdotRecord.all.each do |vdot_record| %>
+    <div class="row">
+      <div class="">
+        <%= "vdot：#{vdot_record.vdot}" %>
+      </div>  
+        |
+      <div class="vdot-five"> 
+        <%= "5km：#{vdot_record.five_km_minute}分" %>
+        <%= "#{vdot_record.five_km_second}秒" %>
+      </div>  
+        |
+      <div class="vdot-ten">  
+        <%= "10km：#{vdot_record.ten_km_minute}分" %>
+        <%= "#{vdot_record.ten_km_second}秒" %>
+      </div>  
+        |
+      <div class="vdot-half">  
+        <%= "ハーフ：#{vdot_record.half_hour}時間" %>
+        <%= "#{vdot_record.half_minute}分" %>
+        <%= "#{vdot_record.half_second}秒" %>
+      </div>   
+        |
+      <div class="vdot-full">  
+        <%= "フル：#{vdot_record.full_hour}時間" %>
+        <%= "#{vdot_record.full_minute}分" %>
+        <%= "#{vdot_record.full_second}秒" %>
+      </div>  
+    </div>
+  <% end %>
+</div>  
 <br><br><br>
 
-
-<h4>＜難易度別の練習目安ペース＞</h4>
-<br>
-<% VdotPace.all.each do |vdot_pace| %>
-  <div class="d-flex">
-    <div class = "five">5km</div>
-    <div class = "ten">10km</div>
-    <div class = "half">ハーフ</div>
-    <div class = "full">フル</div>
-  </div>  
-  <div class="vdot-pace">
-    <%= "vdot：#{vdot_pace.vdot}" %>
-    |
-    <%= "軽いジョギング：#{vdot_pace.e_pace}" %>
-    |
-    <%= "フルマラソンの本番想定ペース（20km~）：#{vdot_pace.m_pace}" %>
-    <br>
-    <%= "ペース走（20分間または、3〜5km前後）：#{vdot_pace.t_pace_twenty}" %>
-    |
-    <%= "ペース走（40分間または、6〜10km前後）：#{vdot_pace.t_pace_forty}" %>
-  </div>
+<div class="bg-light p-5">
+  <h4>＜難易度別の練習目安ペース＞</h4>
   <br>
+  <% VdotPace.all.each do |vdot_pace| %>
+    <div class="d-flex">
+      <div class = "five">5km</div>
+      <div class = "ten">10km</div>
+      <div class = "half">ハーフ</div>
+      <div class = "full">フル</div>
+    </div>  
+    <div class="vdot-pace">
+      <%= "vdot：#{vdot_pace.vdot}" %>
+      |
+      <%= "軽いジョギング：#{vdot_pace.e_pace}" %>
+      |
+      <%= "フルマラソンの本番想定ペース（20km~）：#{vdot_pace.m_pace}" %>
+      <br>
+      <%= "ペース走（20分間または、3〜5km前後）：#{vdot_pace.t_pace_twenty}" %>
+      |
+      <%= "ペース走（40分間または、6〜10km前後）：#{vdot_pace.t_pace_forty}" %>
+    </div>
+    <br>
   <% end %>
-
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
