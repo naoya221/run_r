@@ -1,23 +1,33 @@
-<h4>Topページ</h4>
-<br><br><br><br><br><br>
-
-<%= link_to new_tweet_path  do %>
-  <p>
-    <button type="button" class="btn btn-primary btn-lg">投稿する</button>
-  </p>
-<% end %>
-
 <br>
-<h5>＜投稿一覧＞</h5>
-<br>
-<% @tweets.each do |tweet| %>
-  <p>
-    <%= link_to "#{tweet.content}", tweet_path(tweet.id) %><br>
-    <% if user_signed_in? != true || current_user.id != tweet.user_id %>
-      <%= link_to "#{tweet.user.nickname}さん", user_path(tweet.user_id) %>
-    <% else %>
-      <%= link_to "あなた", user_path(tweet.user_id) %>
-    <% end %>
-    の投稿です<br><br>
-  </p>
-<% end %>
+<div class="top-title display-4 text-center">Welcome to Run Record</div>
+
+<br><br><br><br><br><br><br>
+<h2 class="bg-secondary p-3 text-white rounded">アニメーション予定</h2>
+<br><br><br><br><br>
+
+<div class="content bg-transparent p-5 rounded">  
+  <%= link_to new_tweet_path  do %>
+    <p>
+      <button type="button" class="btn btn-success btn-lg">投稿する</button>
+    </p>
+  <% end %>
+  <br>
+
+  <% @tweets.each do |tweet| %>
+    <div class="bg-light p-2 mb-5 rounded">
+      <div class="h5">
+        <%= link_to "#{tweet.content}", tweet_path(tweet.id) %><br>
+      </div>  
+      <div class="text-right">
+        投稿者：
+        <% if user_signed_in? != true || current_user.id != tweet.user_id %>
+          <%= link_to "#{tweet.user.nickname}", user_path(tweet.user_id) %>
+        <% else %>
+          <%= link_to "あなた", user_path(tweet.user_id) %>
+        <% end %>
+      </div>
+    </div>  
+    
+  <% end %>
+  
+</div>  
