@@ -1,8 +1,11 @@
-<div class="bg-success p-5">
-  <h4>＜距離別の難易度＞</h4>
-  <br>
+<div class="title-box">
+  <div class="page-title">距離別の難易度</div>
+</div>
+<br>
+
+<div class="content p-5">
   <% VdotRecord.all.each do |vdot_record| %>
-    <div class="row">
+    <div class="row bg-light p-4 mb-3 rounded">
       <div class="">
         <%= "vdot：#{vdot_record.vdot}" %>
       </div>  
@@ -33,9 +36,13 @@
 </div>  
 <br><br><br>
 
-<div class="bg-light p-5">
-  <h4>＜難易度別の練習目安ペース＞</h4>
+<div class="title-box">
+  <div class="page-title">難易度別の練習目安ペース</div>
+</div>
+
   <br>
+
+<div class="content p-5">  
   <% VdotPace.all.each do |vdot_pace| %>
     <div class="d-flex">
       <div class = "five">5km</div>
@@ -43,7 +50,7 @@
       <div class = "half">ハーフ</div>
       <div class = "full">フル</div>
     </div>  
-    <div class="vdot-pace">
+    <div class="vdot-pace bg-light p-4 rounded">
       <%= "vdot：#{vdot_pace.vdot}" %>
       |
       <%= "軽いジョギング：#{vdot_pace.e_pace}" %>
@@ -69,23 +76,23 @@
     $(".full").hide();
       
     $(".vdot-five").eq(<%= @five_vdot %>).css("background-color", "pink");
-    $(".vdot-pace").eq(<%= @five_vdot %>).css("border", "5px solid lightgray");
+    $(".vdot-pace").eq(<%= @five_vdot %>).css("border", "5px solid rgb(163, 98, 18)");
     $(".five").eq(<%= @five_vdot %>).css("background-color", "pink");
     $(".five").eq(<%= @five_vdot %>).show();
 
     $(".vdot-ten").eq(<%= @ten_vdot %>).css("background-color", "lightgreen");
-    $(".vdot-pace").eq(<%= @ten_vdot %>).css("border", "5px solid lightgray");
+    $(".vdot-pace").eq(<%= @ten_vdot %>).css("border", "5px solid rgb(163, 98, 18)");
     $(".ten").eq(<%= @ten_vdot %>).css("background-color", "lightgreen");
     $(".ten").eq(<%= @ten_vdot %>).show();
 
 
     $(".vdot-half").eq(<%= @half_vdot %>).css("background-color", "lightblue");
-    $(".vdot-pace").eq(<%= @half_vdot %>).css("border", "5px solid lightgray");
+    $(".vdot-pace").eq(<%= @half_vdot %>).css("border", "5px solid rgb(163, 98, 18)");
     $(".half").eq(<%= @half_vdot %>).css("background-color", "lightblue");
     $(".half").eq(<%= @half_vdot %>).show();
 
     $(".vdot-full").eq(<%= @full_vdot %>).css("background-color", "yellow");
-    $(".vdot-pace").eq(<%= @full_vdot %>).css("border", "5px solid lightgray");
+    $(".vdot-pace").eq(<%= @full_vdot %>).css("border", "5px solid rgb(163, 98, 18)");
     $(".full").eq(<%= @full_vdot %>).css("background-color", "yellow");
     $(".full").eq(<%= @full_vdot %>).show();
 

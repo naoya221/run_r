@@ -1,47 +1,72 @@
-<h4>投稿詳細ページ</h4>
-<br><br><br>
-
-<p>
-  <%= link_to "(投稿者：#{@tweet.user.nickname})", user_path(@tweet.user_id) %>
-</p>
-
-<h2><%= @tweet.content%></h2>
-<br><br><br>
-
-<% if user_signed_in? && current_user.id == @tweet.user_id %>
-  <%= link_to tweet_path(@tweet.id), method: :delete do %>
-    <p>
-      <button type="button" class="btn btn-primary btn-lg">削除する</button>
-    </p>
-  <% end %>
-  <%= link_to edit_tweet_path(@tweet.id) do %>
-    <p>
-      <button type="button" class="btn btn-primary btn-lg">編集する</button>
-    </p>
-  <% end %>
-<% end %>
-
-
-<%= form_with url: tweet_messages_path(@tweet.id) do |f| %>
-  <%= f.text_field :text, placeholder: "コメントを入力" %>
-  <%= f.submit '送信' %>
-<% end %>
-
-<br><br><br>  
-<h5>＜コメント一覧＞</h5>
 <br>
+
+<div class="bg-light p-5 rounded">
+      <div class="h3">
+        <%= @tweet.content %>
+      </div>  
+      <div class="text-right">
+        投稿者：
+          <%= link_to "#{@tweet.user.nickname}", user_path(@tweet.user_id) %>
+      </div>
+</div>
+
+<br><br>
+
+<div class="d-flex">
+    <% if user_signed_in? && current_user.id == @tweet.user_id %>
+      <div class="m-2">
+        <%= link_to edit_tweet_path(@tweet.id), method: :delete do %>
+          <button type="button" class="btn btn-primary btn-lg">編集する</button>
+        <% end %> 
+      </div>
+      <div class="m-2">
+           <%= link_to tweet_path(@tweet.id), method: :delete do %>
+            <button type="button" class="btn btn-primary btn-lg">削除する</button>
+          <% end %>
+      </div>    
+    <% end %>      
+</div>
+            
+            
+
+<br><br><br><br><br><br><br><br>
+
+
+<br><br><br>
+
+<div class="d-flex">
+  <div class="title-box pb-0">
+    <div class="page-title pb-2">コメント一覧</div>
+  </div> 
+  <div class="">
+      <%= form_with url: tweet_messages_path(@tweet.id) do |f| %>
+        <%= f.text_area :text, placeholder: "コメントを入力" %>
+        <%= f.submit '送信' %>
+      <% end %>
+  </div>
+</div>
+
+<br>
+
+<div class="content p-5">
   <div id='messages'>
     <% @messages.reverse_each do |message| %>
       <% if @tweet.id == message.tweet_id%>
-        <p>
+        <div class="bg-light p-2 mb-4 rounded">
           <%= message.text %><br>
           <% if user_signed_in? != true || current_user.id != message.user_id %>
-            <%= link_to "#{message.user.nickname}さん", user_path(message.user_id) %>
+            <div class="text-right">
+              <%= link_to "#{message.user.nickname}さん", user_path(message.user_id) %>
+              のコメントです
+            </div>  
           <% else %>
-            <%= link_to "あなた", user_path(message.user_id) %>
+            <div class="text-right">
+              <%= link_to "あなた", user_path(message.user_id) %>
+              のコメントです
+            </div>  
           <% end %> 
-          のコメントです<br><br>
-        </p>
+        </div>
       <% end %>  
     <% end %>
   </div>
+</div>  
