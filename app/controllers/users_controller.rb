@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if TenKmRecord.where(user_id: params[:id]).present?  
       ten_km_record_id_hash = TenKmRecord.where(user_id: params[:id])
       ten_km_record_id = ten_km_record_id_hash.ids
-      @ten_km_record = FiveKmRecord.find(ten_km_record_id[0])
+      @ten_km_record = TenKmRecord.find(ten_km_record_id[0])
     end
     if HalfRecord.where(user_id: params[:id]).present?
       half_record_id_hash = HalfRecord.where(user_id: params[:id])
