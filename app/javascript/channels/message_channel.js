@@ -10,7 +10,7 @@ consumer.subscriptions.create("MessageChannel", {
   },
 
   received(data) {
-    const html = `<p>${data.content.text}(コメントしました)</p>`;
+    const html = `<p class="bg-light p-2 pb-4 mb-4 rounded">${data.content.text}　　(コメントしました)</p>`;
     const messages = document.getElementById('messages');
     const newMessage = document.getElementById('message_text');
     messages.insertAdjacentHTML('afterbegin', html);
