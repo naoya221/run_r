@@ -18,6 +18,17 @@ class HalfRecordsController < ApplicationController
     end
   end
 
+  def destroy
+    half_record = HalfRecord.where(user_id: current_user.id)
+    half_record = half_record.ids
+    half_record = HalfRecord.find(half_record[0])
+    if half_record.destroy
+      redirect_to user_path(current_user.id)
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def permit_params
