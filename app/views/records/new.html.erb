@@ -1,3 +1,13 @@
+<% if flash[:notice_five_new] %>
+  <p class="flash-message"><%= flash[:notice_five_new] %></p>
+<% elsif flash[:notice_ten_new] %>
+  <p class="flash-message"><%= flash[:notice_ten_new] %></p>
+<% elsif flash[:notice_half_new] %>
+  <p class="flash-message"><%= flash[:notice_half_new] %></p>
+<% elsif flash[:notice_full_new] %>
+  <p class="flash-message"><%= flash[:notice_full_new] %></p>
+<% end %>
+
 <% unless FiveKmRecord.where(user_id:current_user.id).present? %>
   <div class="content p-5">
     <%= form_with url: user_five_km_records_path(@user), local: true do |f| %>
@@ -5,19 +15,23 @@
         <div class="title-box">
           <div class="page-title">5kmのベストタイムを登録</div>
         </div>
+        
         <br>
-        <p>
-          <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>　: 時間
-        </p>
-        <p>
-          <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>：分
-        </p>
-        <p>
-          <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>：秒
-        </p>
-        <%= f.submit "登録" %>
+
+        <div class="record-items">
+          <div class="record-item">
+            <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
+          </div>
+          <div class="record-item">
+            <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
+          </div>
+          <div class="record-item">
+            <%= f.submit "登録", class: "btn btn-success text-white" %>
+          </div>
+        </div>  
       </div>
     <% end %>
+
   </div>  
   <br><br><br> 
 <% end %>
@@ -29,19 +43,23 @@
         <div class="title-box">
           <div class="page-title">10kmのベストタイムを登録</div>
         </div>
+       
         <br>
-        <p>
-          <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>　: 時間
-        </p>
-        <p>
-          <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>：分
-        </p>
-        <p>
-          <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>：秒
-        </p>
-        <%= f.submit "登録" %>
+
+        <div class="record-items">
+          <div class="record-item">
+            <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
+          </div>
+          <div class="record-item">
+            <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
+          </div>
+          <div class="record-item">
+            <%= f.submit "登録", class: "btn btn-success text-white" %>
+          </div>
+        </div>  
       </div>
     <% end %>
+
   </div> 
   <br><br><br> 
 <% end %>
@@ -53,19 +71,26 @@
         <div class="title-box">
           <div class="page-title">ハーフマラソンのベストタイムを登録</div>
         </div>
+        
         <br>
-        <p>
-          <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>　: 時間
-        </p>
-        <p>
-          <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>：分
-        </p>
-        <p>
-          <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>：秒
-        </p>
-        <%= f.submit "登録" %>
+
+        <div class="record-items">
+          <div class="record-item">
+            <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
+          </div>
+          <div class="record-item">
+            <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
+          </div>
+          <div class="record-item">
+            <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
+          </div>
+          <div class="record-item">
+            <%= f.submit "登録", class: "btn btn-success text-white" %>
+          </div>
+        </div>  
       </div>
     <% end %>
+
   </div> 
   <br><br><br> 
 <% end %>
@@ -77,19 +102,26 @@
         <div class="title-box">
           <div class="page-title">フルマラソンのベストタイムを登録</div>
         </div>
+        
         <br>
-        <p>
-          <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}) %>　: 時間
-        </p>
-        <p>
-          <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}) %>：分
-        </p>
-        <p>
-          <%= f.collection_select(:second_id, Second.all, :id, :name, {}) %>：秒
-        </p>
-        <%= f.submit "登録" %>
+
+        <div class="record-items">
+          <div class="record-item">
+            <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
+          </div>
+          <div class="record-item">
+            <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
+          </div>
+          <div class="record-item">
+            <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
+          </div>
+          <div class="record-item">
+            <%= f.submit "登録", class: "btn btn-success text-white" %>
+          </div>
+        </div>  
       </div>
     <% end %>
+
   </div>  
 <% end %>
 
