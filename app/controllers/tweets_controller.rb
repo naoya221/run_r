@@ -4,6 +4,9 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.includes(:user).order("created_at DESC")
+    if user_signed_in?
+      @user = User.find(current_user.id)
+    end
   end
 
   def new
@@ -13,6 +16,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
+      flash[:notice_tweet_new] = "　　　　投稿しました！　　　　"
       redirect_to root_path
     else
       render :new
@@ -25,8 +29,12 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    @tweet.destroy
-    redirect_to root_path
+    if @tweet.destroy
+      flash[:notice_tweet_destroy] = "　　　投稿を削除しました！　　　"
+      redirect_to root_path
+    else
+      render :show
+    end
   end
 
   def edit
@@ -34,6 +42,7 @@ class TweetsController < ApplicationController
 
   def update
     if @tweet.update(tweet_params)
+      flash[:notice_tweet_edit] = "　　　投稿を編集しました！　　　"
       redirect_to root_path
     else
       render :edit

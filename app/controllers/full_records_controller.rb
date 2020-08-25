@@ -3,16 +3,18 @@ class FullRecordsController < ApplicationController
   def create
     full_record = FullRecord.new(permit_params)
     if full_record.save
-      redirect_to user_path(current_user.id)
-    else
+      flash[:notice_full_new] = "フルのべストタイムを登録しました！"
       redirect_to new_record_path
+    else
+      redirect_to root_path
     end
   end
 
   def update
     full_record = FullRecord.where(user_id: current_user.id)
     if full_record.update(permit_params)
-      redirect_to user_path(current_user.id)
+      flash[:notice_full_edit] = "フルのべストタイムを編集しました！"
+      redirect_to edit_record_path
     else
       redirect_to root_path
     end
@@ -23,6 +25,7 @@ class FullRecordsController < ApplicationController
     full_record = full_record.ids
     full_record = FullRecord.find(full_record[0])
     if full_record.destroy
+      flash[:notice_full_de] = "フルのべストタイムを削除しました！"
       redirect_to user_path(current_user.id)
     else
       redirect_to root_path
