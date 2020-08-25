@@ -10,7 +10,19 @@
   <p class="flash-message"><%= flash[:notice_tweet_edit] %></p>
 <% end %>
 
-<div class="top-title display-4 text-center">Welcome to Run Record</div>
+<div class="top-title">
+
+    <div class="top-title-left">
+      <div>Welcome&nbsp;</div>
+      <div>to</div>
+    </div>  
+
+    <div class="top-title-right">
+        <div>Run&nbsp;</div>
+        <div>Record</div>
+    </div>
+
+</div>
 
 <br><br><br><br><br><br><br>
 <h2 class="bg-secondary p-3 text-white rounded">アニメーション予定</h2>
@@ -28,7 +40,7 @@
   <% end %>
 
   <% @tweets.each do |tweet| %>
-    <div class="bg-light p-2 mb-5 rounded">
+    <div class="bg-content-item p-2 mb-5 rounded">
       <div class="h5 link">
         <%= link_to "#{tweet.content}", tweet_path(tweet.id), class: "link" %><br>
       </div>  
