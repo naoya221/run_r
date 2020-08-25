@@ -5,7 +5,7 @@ a:hover {
   text-decoration: none;
 }
 
-.abc{
+.back-ground {
  background: url("/images/3664950_m.png");
  height: 100%;
  background-size: cover;
@@ -48,16 +48,17 @@ a:hover {
   padding: 0.5em 1em;
   margin: 2em 0;
   color: #474747;
-  background: rgb(10, 61, 6);/*背景色*/
-  border-left: double 7px #855c05;/*左線*/
-  border-right: double 7px #855c05;/*右線*/
+  background: rgb(10, 61, 6);
+  border-left: double 7px #e09e0d;
+  border-right: double 7px #e09e0d;
 }
 
 .content {
   position: relative;
-  padding: 0.25em 1em;
-  border-top: solid 2px rgb(196, 153, 103);
-  border-bottom: solid 2px rgb(196, 153, 103);
+  padding: 1em 2em;
+  border-top: solid 2px rgb(161, 125, 84);
+  border-bottom: solid 2px rgb(161, 125, 84);
+
 }
 
 .content:before, .content:after {
@@ -67,7 +68,7 @@ a:hover {
   width: 2px;
   height: -webkit-calc(100% + 14px);
   height: calc(100% + 14px);
-  background-color: rgb(196, 153, 103);
+  background-color: rgb(161, 125, 84);
 }
 
 .content:before {
@@ -88,4 +89,65 @@ a {
 
 .pulldown-time {
   color: white;
+}
+
+.time-box {
+  padding: 0.3em 0.5em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #35bd7d;
+  background: #FFF;
+  border: solid 3px #35bd7d;
+  border-radius: 10px;
+}
+
+.vdot-number {
+  font-weight: bold;
+  color: #35bd7d;
+}
+
+.hide-list{
+  padding: 0.5em 2em;
+}
+
+.flash-message{
+  display: inline-block;
+  color: white;
+  background-color: orange;
+  padding: 1em;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.header-item {
+  padding: 3px 0;
+  margin-left: 10px;
+}
+
+
+
+@media (min-width: 767px) {
+
+  .responsive-d-flex {
+    display: flex;
+  }
+
+  .record-items{
+    display: flex;
+  }
+
+  .record-item{
+    margin: 0 15px;
+    font-size: large;
+  }
+
+}
+
+@media (max-width: 766px) {
+  
+  .record-item{
+    margin: 20px 0;
+    font-size: large;
+  }
+
 }
