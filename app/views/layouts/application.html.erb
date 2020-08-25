@@ -8,7 +8,7 @@
   
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
   </head>
 
   <body>
@@ -16,6 +16,8 @@
       <%= link_to root_path do %>
         <button type="button" class="btn btn-success btn-lg text-white nav-link">Run Record</button>
       <% end %>
+
+      
       
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,43 +27,60 @@
         <ul class="navbar-nav mr-auto">
           <%#ログインしているかで表示切替%>
           <% if user_signed_in? %>
-            <li class="nav-item ">
-              <%= link_to "your Mypage", user_path(current_user.id), class: "text-white nav-link" %>
+            <li class="nav-item header-item link">
+              <%= link_to "Nickname：#{current_user.nickname}", user_path(current_user.id), class: "text-white nav-link" %>
             </li>
-            <li class="nav-item"> 
+            <li class="nav-item header-item link"> 
               <%= link_to "VDOT", user_vdots_path(current_user.id), class: "text-white nav-link" %>
             </li> 
-            <li class="nav-item"> 
+            <li class="nav-item header-item link"> 
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "text-white nav-link" %>
-            </li>  
+            </li>
           <% else %>
-            <li class="nav-item"> 
+            <li class="nav-item header-item link"> 
               <%= link_to "VDOT", vdots_path, class: "text-white nav-link" %>
             </li> 
-            <li class="nav-item">
+            <li class="nav-item header-item link">
               <%= link_to "Log in", new_user_session_path, class: "text-white nav-link" %>
             </li>
-            <li class="nav-item">   
+            <li class="nav-item header-item link">
               <%= link_to "Sign up",new_user_registration_path, class: "text-white nav-link" %>
             </li>
           <% end %>
           <%#ログインしているかで表示切替%>
         </ul>
       </div>
+
     </nav>
 
-    <div class="abc p-5">
-      <div class="p-5">
-        
-      
-        <%= yield %>
+    <div class="back-ground"> 
 
-      </div>
+      <br><br><br><br>
+
+      <div class="container">
+        
+          <%= yield %>
+      
+      </div> 
+
+      <br><br><br>
+
     </div>
 
-    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
     <script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+
+    <script>
+      $(function(){
+        $(".link").mouseover(function () {
+          $(this).css("opacity", "0.7");
+        });
+        $(".link").mouseout(function () {
+          $(this).css("opacity", "1");
+        });
+      });
+    </script>
+
   </body>
 </html>
