@@ -1,6 +1,6 @@
 <br>
 
-<div class="bg-light p-5 rounded">
+<div class="bg-content-item p-5 rounded">
       <div class="h3">
         <%= @tweet.content %>
       </div>  
@@ -63,7 +63,7 @@
   <div id='messages'>
     <% @messages.reverse_each do |message| %>
       <% if @tweet.id == message.tweet_id%>
-        <div class="bg-light p-2 mb-4 rounded">
+        <div class="bg-content-item p-2 mb-4 rounded">
           <%= message.text %><br>
           <% if user_signed_in? != true || current_user.id != message.user_id %>
             <div class="text-right">

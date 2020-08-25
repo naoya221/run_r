@@ -1,3 +1,4 @@
+
 <% if user_signed_in? %>
     
     <% if current_user.id == @user.id%>
@@ -26,8 +27,7 @@
   <div class="mr-3">
   <canvas id="graph-area" height="300" width="660"></canvas>
   </div>
-  <div class="d-flex justify-content-between mt-5 text-white bg-secondary p-3 ml-2 rounded">
-     
+  <div class="graph-bar bg-content-item">
     <div>
       5km：<%= @vdot_record_five.vdot %>
     </div>
@@ -59,7 +59,7 @@
 <div class="content">
   <br>
   <% @vdot_records.each do |vdot_record| %>
-    <div class="bg-light p-4 mb-3 rounded">
+    <div class="bg-content-item p-4 mb-3 rounded">
 
       <div class="vdot-number">
         <%= "vdot：#{vdot_record.vdot}" %>
@@ -123,7 +123,7 @@
       <div class = "half hide-list">ハーフ</div>
       <div class = "full hide-list">フル</div>
     </div>  
-    <div class="vdot-pace bg-light p-4 rounded">
+    <div class="vdot-pace bg-content-item p-4 rounded">
 
       <div class="vdot-number"><%= "vdot：#{vdot_pace.vdot}" %></div>
 
@@ -167,9 +167,9 @@
         datasets : [
           {
               label: "緑データ",
-              fillColor : "rgba(92,220,92,0.2)", // 線から下端までを塗りつぶす色
-              strokeColor : "rgba(92,220,92,1)", // 折れ線の色
-              pointColor : "rgba(92,220,92,1)",  // ドットの塗りつぶし色
+              fillColor : "rgba(92,220,92,0.6)", // 線から下端までを塗りつぶす色
+              strokeColor : "#f79235", // 折れ線の色
+              pointColor : "#f79235",  // ドットの塗りつぶし色
               pointStrokeColor : "white",        // ドットの枠線色
               pointHighlightFill : "yellow",     // マウスが載った際のドットの塗りつぶし色
               pointHighlightStroke : "green",    // マウスが載った際のドットの枠線色
