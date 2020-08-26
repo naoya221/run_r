@@ -8,6 +8,18 @@
   <p class="flash-message"><%= flash[:notice_full_edit] %></p>
 <% end %>
 
+<% if flash[:notice_five_de] %>
+  <p class="flash-message"><%= flash[:notice_five_de] %></p>
+<% elsif flash[:notice_ten_de] %>
+  <p class="flash-message"><%= flash[:notice_ten_de] %></p>
+<% elsif flash[:notice_half_de] %>
+  <p class="flash-message"><%= flash[:notice_half_de] %></p>
+<% elsif flash[:notice_full_de] %>
+  <p class="flash-message"><%= flash[:notice_full_de] %></p>
+<% end %>
+
+
+
 <% if FiveKmRecord.where(user_id:current_user.id).present? %>
   <div class="content p-5">
     <%= form_with url: user_five_km_record_path(user_id: current_user.id), method: :put, local: true do |f| %>
@@ -19,16 +31,16 @@
         <br>
 
         <div class="record-items">
-          <div class="record-item">
+          <div class="record-item mr-3 mt-3">
             <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
           </div>
-          <div class="record-item">
+          <div class="record-item mr-5  mt-3">
             <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
           </div>
-          <div class="record-item">
+          <div class="record-item mr-3  mt-3">
             <%= f.submit "編集", class: "btn btn-success text-white" %>
           </div>
-          <div class="record-item">
+          <div class="record-item  mt-3">
             <%= link_to  user_five_km_record_path(user_id: current_user.id), method: :delete do %>
               <button type="button" class="btn btn-success text-white">削除</button>
             <% end %>
@@ -54,16 +66,16 @@
         <br>
 
         <div class="record-items">
-          <div class="record-item">
+          <div class="record-item mr-3 mt-3">
             <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
           </div>
-          <div class="record-item">
+          <div class="record-item mr-5 mt-3">
             <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
           </div>
-          <div class="record-item">
+          <div class="record-item mr-3 mt-3">
             <%= f.submit "編集", class: "btn btn-success text-white" %>
           </div>
-          <div class="record-item">
+          <div class="record-item mt-3">
             <%= link_to  user_ten_km_record_path(user_id: current_user.id), method: :delete do %>
               <button type="button" class="btn btn-success text-white">削除</button>
             <% end %>
@@ -87,19 +99,19 @@
         <br>
 
         <div class="record-items">
-          <div class="record-item">
+          <div class="record-item mr-3 mt-3">
             <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
           </div>
-          <div class="record-item">
+          <div class="record-item mr-3 mt-3">
             <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
           </div>
-          <div class="record-item">
+          <div class="record-item mr-5 mt-3">
             <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
           </div>
-          <div class="record-item">
+          <div class="record-item mr-3 mt-3">
             <%= f.submit "編集", class: "btn btn-success text-white" %>
           </div>
-          <div class="record-item">
+          <div class="record-item mt-3">
             <%= link_to  user_half_record_path(user_id: current_user.id), method: :delete do %>
               <button type="button" class="btn btn-success text-white">削除</button>
             <% end %>
@@ -123,19 +135,19 @@
         <br>
 
         <div class="record-items">
-          <div class="record-item">
+          <div class="record-item mr-3 mt-3">
             <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
           </div>
-          <div class="record-item">
+          <div class="record-item mr-3 mt-3">
             <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
           </div>
-          <div class="record-item">
+          <div class="record-item mr-5 mt-3">
             <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
           </div>
-          <div class="record-item">
+          <div class="record-item mr-3 mt-3">
             <%= f.submit "編集", class: "btn btn-success text-white" %>
           </div>
-          <div class="record-item">
+          <div class="record-item mt-3">
             <%= link_to  user_full_record_path(user_id: current_user.id), method: :delete do %>
               <button type="button" class="btn btn-success text-white">削除</button>
             <% end %>

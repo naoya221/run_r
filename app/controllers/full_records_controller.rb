@@ -26,7 +26,7 @@ class FullRecordsController < ApplicationController
     full_record = FullRecord.find(full_record[0])
     if full_record.destroy
       flash[:notice_full_de] = "フルのべストタイムを削除しました！"
-      redirect_to user_path(current_user.id)
+      redirect_to edit_record_path
     else
       redirect_to root_path
     end

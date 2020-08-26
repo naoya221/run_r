@@ -26,7 +26,7 @@ class TenKmRecordsController < ApplicationController
     ten_km_record = TenKmRecord.find(ten_km_record[0])
     if ten_km_record.destroy
       flash[:notice_ten_de] = "10kmのべストタイムを削除しました！"
-      redirect_to user_path(current_user.id)
+      redirect_to edit_record_path
     else
       redirect_to root_path
     end
