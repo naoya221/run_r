@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>  
+  <head>
+    <title>Run Record</title>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>Run Record</title>
   
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    
+
+    
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top border-bottom border-whit">
+  <div class="back-ground">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top border-bottom border-white w-100">
       <%= link_to root_path do %>
         <button type="button" class="btn btn-success btn-lg text-white nav-link">Run Record</button>
       <% end %>
@@ -53,24 +62,20 @@
 
     </nav>
 
-    <div class="back-ground"> 
+   
 
       <br><br><br><br>
 
       <div class="container">
-        
+          
           <%= yield %>
       
       </div> 
 
-      <br><br><br>
+    
 
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
-    <script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
-
+  </div>
+    
     <script>
       $(function(){
         $(".link").mouseover(function () {
@@ -79,7 +84,15 @@
         $(".link").mouseout(function () {
           $(this).css("opacity", "1");
         });
+
+        $('.slider').slick({
+          dots: true,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          arrows: false
+        });
       });
+
     </script>
 
   </body>
