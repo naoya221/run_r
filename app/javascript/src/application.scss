@@ -1,5 +1,12 @@
+
+@import "slick-theme"; 
+@import "slick";
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+* {
+  box-sizing: border-box;
+}
 
 a:hover {
   text-decoration: none;
@@ -9,7 +16,7 @@ a:hover {
  background: url("/images/3664950_m.png");
  height: 100%;
  background-size: cover;
-
+ padding-bottom: 50px;
 }
 
 .linear-gray {
@@ -141,7 +148,7 @@ a {
 .graph-bar{
   display: flex;
   justify-content: space-between;
-  color: rgb(231, 164, 39);
+  color: rgb(32, 31, 28);
   font-weight: bold;
   border-radius: 4px;
   padding: 10px;
@@ -150,12 +157,13 @@ a {
 }
 
 .top-title {
-  /* フォントサイズなどを任意で指定する */
-  font-size: 80px;
   font-family: Times New Roman;
-   
+  font-size: 80px;
+  padding: 20px 0;
+  text-align: center;
+
   /* 背景グラデーションを指定・幅を 200% にしておく */
-  background: linear-gradient(to right, rgb(255, 248, 240) 0%, rgb(245, 217, 180) 14.28%, rgb(250, 194, 121) 28.56%, rgb(243, 156, 42) 42.85%, rgb(245, 158, 44) 57.14%, rgb(243, 190, 121) 71.42%, rgb(252, 222, 182) 85.71%, rgb(241, 240, 239) 100%) 0% center / 200% auto;
+  background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(250, 215, 170) 14.28%, rgb(247, 176, 85) 28.56%, rgb(255, 145, 0) 42.85%, rgb(255, 145, 0) 57.14%, rgb(248, 177, 85) 71.42%, rgb(248, 214, 170) 85.71%, rgb(255, 255, 255) 100%) 0% center / 200% auto;
   
   /* 背景画像を文字でマスクする */
           background-clip: text;
@@ -175,55 +183,21 @@ a {
 }
 
 
+// 以下レスポンシブ
 
 @media (min-width: 801px) {
 
   .top-title {
-    margin: 0 120px;
-  }
-
-  .top-title-left {
     display: flex;
+    justify-content: center;
   }
-
-  .top-title-right {
-    display: flex;
-    justify-content: flex-end;
-   
-  }
-
-  .responsive-d-flex {
-    display: flex;
-  }
-
-  .record-items{
-    display: flex;
-  }
-
-  .record-item{
-    margin: 0 15px;
-    font-size: large;
-  }
-
-  .signup-form {
-    width: 50%;
-  }
-
+  
 }
 
 
 @media (max-width: 800px) {
 
-  .top-title-left {
-    display: flex;
-  }
-
-  .top-title-right {
-    display: flex;
-    justify-content: flex-end;
-   
-  }
-
+  
   .responsive-d-flex {
     display: flex;
   }
@@ -244,16 +218,6 @@ a {
 }
 
 @media (max-width: 480px) {
-
-  .top-title-left {
-    text-align: center;
-  }
-
-  .top-title-right {
-    text-align: center;
-  }
-
-  
   .record-item{
     margin: 20px 0;
     font-size: large;
