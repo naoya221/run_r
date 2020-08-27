@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :messages, only: [:create]
   end
-  resources :users, only: :show do
+  resources :users, only: [:show, :edit, :update] do
     resources :vdots,  only: [:index]
     resources :five_km_records,  only: [:create, :update, :destroy]
     resources :ten_km_records,  only: [:create, :update, :destroy]

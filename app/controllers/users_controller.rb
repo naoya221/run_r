@@ -1,14 +1,25 @@
 class UsersController < ApplicationController
   before_action :params_present
-
+  before_action :set_params
 
   def show
-    @user = User.find(params[:id])
     @nickname = @user.nickname
     @tweets = @user.tweets
   end
 
+  def edit
+    
+  end
+
+  def update
+    
+  end
+
   private
+
+  def set_params
+    @user = User.find(params[:id])
+  end
 
   def params_present
     if FiveKmRecord.where(user_id: params[:id]).present?
