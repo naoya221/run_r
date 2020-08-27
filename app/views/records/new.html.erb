@@ -79,7 +79,7 @@
             <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
           </div>
           <div class="record-item mr-3 mt-3">
-            <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
+            <%= f.collection_select(:minute_id, Minute.where(id:[*0..59]), :id, :name, {}, class: "p-2") %>：分
           </div>
           <div class="record-item mr-5 mt-3">
             <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
@@ -110,7 +110,7 @@
             <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
           </div>
           <div class="record-item mr-3 mt-3">
-            <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
+            <%= f.collection_select(:minute_id, Minute.where(id:[*0..59]), :id, :name, {}, class: "p-2") %>：分
           </div>
           <div class="record-item mr-5 mt-3">
             <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
