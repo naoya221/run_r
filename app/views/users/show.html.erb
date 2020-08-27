@@ -1,3 +1,13 @@
+ <%= form_with url: user_registration_path(@user), method: :put, local: true do |f| %>
+
+
+      <%= f.label :プロフィール画像 %><br/>
+      　　　　　　　　　　　　　　<%= f.file_field :image %>
+   
+
+      <%= f.submit "更新", class: "btn btn-success text-white btn-lg  mt-2" %>
+    <% end %> 
+
 <div class="title-box">
     <div class="page-title"><%= "nickname：#{@nickname}" %></div>
 </div>
@@ -7,10 +17,20 @@
         <button type="button" class="btn btn-success text-white nav-link">ユーザー情報編集</button>
     <% end %>
 </div>
+
+<div class="show-image">
+    <% if @user.image.present? %>
+       <img src=<%= @user.image %> class = "icon_image">
+    <% else %>
+        <img src="/images/staff1.jpg" class = "icon_image">
+    <% end %>    
+</div>
+
+
 <br><br>
 
 
-<div class="content">
+<div>
     <br>
     <p class="user-record-text">
         <%= "#{@nickname} さんのベストタイム" %>
@@ -104,7 +124,7 @@
 </div>
 <br>
 
-<div class="content">
+<div>
     <% @tweets.each do |tweet| %>
         <div class="bg-content-item p-2 mt-3 rounded">
             <%= link_to "#{tweet.content}", tweet_path(tweet.id), class: "link" %>

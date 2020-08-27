@@ -1,15 +1,29 @@
 <div class="title-box mb-5">
     <div class="page-title">
-      <%= "#{@nickname} さんのユーザー編集ページ" %>
+      <%= "#{@user.nickname} さんのユーザー編集ページ" %>
     </div>
 </div>
 
 <br>
-    
-    
+
+<div class="edit-image"> 
+  <% if @user.image.present? %>
+    <img src=<%= @user.image %> class = "icon_image">
+  <% else %>
+    <img src="/images/staff1.jpg" class = "icon_image">
+  <% end %>  
+</div>
+
+
 <div class="sign-login-bg">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put } )do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field  form-label mb-4">
+      <%= f.label :プロフィール画像 %><br/>
+      　　　　　　　　　　　　　　<%= f.file_field :image %>
+    </div>
+
 
     <div class="field form-label mb-4">
       <%= f.label :nickname %><br>( 最大文字数 10 )<br/>
@@ -23,7 +37,7 @@
 
     <div class="field form-label mb-4">
       <%= f.label :password（旧） %><br/>(以前までのpassword)<br/>
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
+      <%= f.password_field :current_password, autocomplete: "signup-form p-2" %>
     </div>
 
     <div class="field form-label mb-4">

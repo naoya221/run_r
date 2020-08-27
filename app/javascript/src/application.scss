@@ -262,10 +262,66 @@ a {
   background-color: rgba(32, 31, 28, 0.3);
   border-radius: 50px;
   padding: 20px;
+  text-align: center;
 }
 
+.show-image {
+  display: flex;
+  justify-content: center;
+}
 
+.edit-image {
+  padding: 30px;
+  text-align: center;
 
+}
+
+.icon_image {
+  width: 250px;
+  height: 300px;
+  //サイズ指定
+  border-radius: 200px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+}
+
+.tweet-index-image-icon {
+  width: 70px;
+  height: 100px;
+  border-radius: 30px;
+  margin: 10px 0;
+}
+
+.tweet-index-content {
+  padding: 70px;
+  margin: 0 80px 100px 80px;
+}
+
+.tweet-index-contents {
+  display: block;
+  width: 70%;
+  padding: 10px 10px 0 10px;
+  margin: 20px 0 20px 30px;
+}
+
+.tweet-show-image-icon {
+  width: 150px;
+  height: 200px;
+  border-radius: 100px;
+  margin: 10px 0;
+}
+
+.tweet-show-content {
+  display: block;
+  width: 70%;
+  padding: 20px 20px 0px 20px;
+  margin: 20px 0 20px 30px;
+}
+
+.tweet-show-flex {
+  display: flex;
+}
 
 
 // 以下レスポンシブ
@@ -297,7 +353,43 @@ a {
   }
 
   .bg-content-item {
-    margin: 0 20px;
+    margin: 20px;
+  }
+
+
+  .tweet-index-image-icon {
+    width: 70px;
+    height: 100px;
+    border-radius: 30px;
+    margin: 10px 0 20px 0;
+  }
+
+  .tweet-index-content {
+    padding: 30px 0 20px 40px;
+    margin: 0 20px 20px 20px;
+  }
+
+
+  .tweet-index-contents {
+    margin:20px 0 30px 30px;
+  }
+
+  .tweet-show-image-icon {
+    width: 70px;
+    height: 110px;
+    border-radius: 60px;
+    margin: 35px 15px 20px 20px;
+  }
+  
+  .tweet-show-content {
+    display: block;
+    width: 70%;
+    padding: 10px 10px 0px 10px;
+    margin: 20px 0 20px 30px;
+  }
+  
+  .tweet-show-flex {
+    display: flex;
   }
 
 }
@@ -322,7 +414,40 @@ a {
   }
 
   .bg-content-item {
-    margin: 0 0px;
+    margin: 10px;
   }
 
+  .tweet-index-content {
+    padding: 10px 0 20px 20px;
+  }
+
+
+  .tweet-index-contents {
+    margin:10px 0 10px 10px;
+  }
+
+  .tweet-show-image {
+    display: flex;
+    justify-content: center;
+  }
+  
+
+  .tweet-show-image-icon {
+    width: 70px;
+    height: 110px;
+    border-radius: 60px;
+    justify-content: center;
+  }
+  
+  .tweet-show-content {
+    display: block;
+    width: 90%;
+    padding: 10px 10px 0px 10px;
+    margin: 20px; 
+  }
+
+  .tweet-show-flex {
+    display: block;
+  }
+  
 }

@@ -9,7 +9,7 @@
 <% end %>
 
 <% unless FiveKmRecord.where(user_id:current_user.id).present? %>
-  <div class="content p-5">
+  <div class="p-5">
     <%= form_with url: user_five_km_records_path(@user), local: true do |f| %>
       <div class="pulldown-time">
         <div class="title-box">
@@ -37,7 +37,7 @@
 <% end %>
 
 <% unless TenKmRecord.where(user_id:current_user.id).present? %>
-  <div class="content p-5">
+  <div class="p-5">
     <%= form_with url: user_ten_km_records_path(@user), local: true do |f| %>
       <div class="pulldown-time">
         <div class="title-box">
@@ -65,7 +65,7 @@
 <% end %>
 
 <% unless HalfRecord.where(user_id:current_user.id).present? %>
-  <div class="content p-5">
+  <div class="p-5">
     <%= form_with url: user_half_records_path(@user), local: true do |f| %>
       <div class="pulldown-time">
         <div class="title-box">
@@ -96,7 +96,7 @@
 <% end %>
 
 <% unless FullRecord.where(user_id:current_user.id).present? %>
-  <div class="content p-5">
+  <div class="p-5">
     <%= form_with url: user_full_records_path(@user), local: true do |f| %>
       <div class="pulldown-time">
         <div class="title-box">
@@ -130,7 +130,7 @@
       HalfRecord.where(user_id:current_user.id).present?   &&
       FullRecord.where(user_id:current_user.id).present? %>
   <br><br>    
-  <div class="content p-5">
+  <div class="p-5">
     <h2 class="text-white pb-5">全てのベストタイムを登録済みです！</h2>
     <p>
       <%= link_to user_path(current_user.id) do %>
