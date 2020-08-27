@@ -6,6 +6,6 @@ class FullRecord < ApplicationRecord
   belongs_to_active_hash :second
   belongs_to :user  
 
-
+  validates :user, uniqueness: true
   
 end
