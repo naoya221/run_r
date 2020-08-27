@@ -1,14 +1,4 @@
- <%= form_with url: user_registration_path(@user), method: :put, local: true do |f| %>
-
-
-      <%= f.label :プロフィール画像 %><br/>
-      　　　　　　　　　　　　　　<%= f.file_field :image %>
-   
-
-      <%= f.submit "更新", class: "btn btn-success text-white btn-lg  mt-2" %>
-    <% end %> 
-
-<div class="title-box">
+ <div class="title-box">
     <div class="page-title"><%= "nickname：#{@nickname}" %></div>
 </div>
 

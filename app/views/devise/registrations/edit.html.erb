@@ -35,21 +35,6 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "signup-form p-2" %>
     </div>
 
-    <div class="field form-label mb-4">
-      <%= f.label :password（旧） %><br/>(以前までのpassword)<br/>
-      <%= f.password_field :current_password, autocomplete: "signup-form p-2" %>
-    </div>
-
-    <div class="field form-label mb-4">
-      <%= f.label :password（新） %><br>( 6 文字以上の 半角英数字 必須です )<br/>
-      <%= f.password_field :password, autocomplete: "new-password", class: "signup-form p-2" %>
-    </div>
-
-    <div class="field form-label mb-4">
-      <%= f.label :password（新）確認 %><br>( 6 文字以上の 半角英数字 必須です )<br/>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "signup-form p-2" %>
-    </div>
-
     <div class="actions">
       <%= f.submit "更新", class: "btn btn-success text-white btn-lg  mt-2" %>
       <%= link_to "戻る", :back, class: "btn btn-success text-white btn-lg  mt-2 ml-3" %>
