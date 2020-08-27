@@ -225,6 +225,27 @@ a {
   display: flex;
 }
 
+.user-record-text {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 5px;
+
+  /* 背景グラデーションを指定・幅を 200% にしておく */
+  background: linear-gradient(to right, rgb(255, 174, 0) 0%, rgb(253, 202, 90) 14.28%, rgb(248, 224, 171) 28.56%, rgb(255, 255, 255) 42.85%, rgb(255, 255, 255) 57.14%, rgb(255, 228, 169) 71.42%, rgb(255, 204, 95) 85.71%, rgb(255, 174, 0) 100%) 0% center / 200% auto;
+  
+  /* 背景画像を文字でマスクする */
+          background-clip: text;
+  -webkit-background-clip: text;
+  
+  /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
+          text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  
+  /* アニメーション指定 */
+  animation: example 4s linear infinite;
+}
+
 
 
 

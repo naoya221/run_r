@@ -2,8 +2,20 @@
     <div class="page-title"><%= "nickname：#{@nickname}" %></div>
 </div>
 
+<div class="m-2 mb-5">
+    <%= link_to edit_user_path(@user) do %>
+        <button type="button" class="btn btn-success text-white nav-link">ユーザー情報編集</button>
+    <% end %>
+</div>
+<br><br>
+
+
 <div class="content">
     <br>
+    <p class="user-record-text">
+        <%= "#{@nickname} さんのベストタイム" %>
+    <p>
+
     <div class="content-item p-2 rounded border border-warning">
         <div class="d-flex  align-items-center justify-content-between">
             5km &nbsp; Record
