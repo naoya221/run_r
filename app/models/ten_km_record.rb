@@ -5,5 +5,10 @@ class TenKmRecord < ApplicationRecord
   belongs_to_active_hash :second
   belongs_to :user
 
+  with_options presence: true do 
+    validates :minute_id
+    validates :second_id
+    validates :user
+  end
   
 end

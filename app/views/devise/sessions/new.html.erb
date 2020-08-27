@@ -7,19 +7,19 @@
 <div class="content">
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="w-100">
+    <div class="w-100 text-white">
       <div class="field">
-        <%= f.label :email, class: "form-label text-white" %><br/>
+        <%= f.label :email, class: "form-label" %><br/><em>( @ が必須です )</em><br/>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "p-2 w-25" %>
       </div>
 
       <div class="field mt-4">
-        <%= f.label :password, class: "form-label text-white" %><br/>
+        <%= f.label :password, class: "form-label"  %><br/><em>( 6 文字以上の 半角英数字 必須です )</em><br/>
         <%= f.password_field :password, autocomplete: "current-password", class: "p-2 w-25" %>
       </div>
 
       <div class="actions mt-5">
-        <%= f.submit "ログインする", class: "btn btn-success text-white btn-lg" %>
+        <%= f.submit "ログインする", class: "btn btn-success btn-lg" %>
       </div>
     </div>  
   <% end %>

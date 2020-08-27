@@ -8,5 +8,7 @@ class User < ApplicationRecord
   has_one :ten_km_record
   has_one :half_record
   has_one :full_record
+
+  validates :nickname, presence: true, length: { maximum: 10 }
   
 end
