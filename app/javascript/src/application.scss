@@ -246,6 +246,24 @@ a {
   animation: example 4s linear infinite;
 }
 
+.user-edit-title {
+  color: rgb(255, 207, 102);
+  background-color: rgba(88, 88, 88, 0.4);
+  border: 2px solid rgb(255, 207, 102);
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 30px;
+  margin-top: 40px; 
+  padding: 5px;
+}
+
+.sign-login-bg {
+  color: rgb(255, 255, 255);
+  background-color: rgba(32, 31, 28, 0.3);
+  border-radius: 50px;
+  padding: 20px;
+}
+
 
 
 

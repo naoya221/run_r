@@ -1,24 +1,24 @@
 class UsersController < ApplicationController
-  before_action :params_present
+  before_action :params_present, only: [:show]
   before_action :set_params
+  before_action :set_nickname
 
   def show
-    @nickname = @user.nickname
     @tweets = @user.tweets
-  end
-
-  def edit
-    
-  end
-
-  def update
-    
   end
 
   private
 
   def set_params
     @user = User.find(params[:id])
+  end
+
+  def set_nickname
+    @nickname = @user.nickname
+  end
+
+  def permit_params
+    params.require(:user).permit(:nickname)
   end
 
   def params_present
