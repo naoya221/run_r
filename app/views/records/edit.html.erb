@@ -32,10 +32,10 @@
 
         <div class="record-items">
           <div class="record-item mr-3 mt-3">
-            <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
+            <%= f.collection_select(:minute_id, Minute.all, :id, :name, {selected: @five_record.minute_id }, class: "p-2") %>：分
           </div>
           <div class="record-item mr-5  mt-3">
-            <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
+            <%= f.collection_select(:second_id, Second.all, :id, :name, {selected: @five_record.second_id }, class: "p-2") %>：秒
           </div>
           <div class="record-item mr-3  mt-3">
             <%= f.submit "編集", class: "btn btn-success text-white" %>
@@ -67,10 +67,10 @@
 
         <div class="record-items">
           <div class="record-item mr-3 mt-3">
-            <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
+            <%= f.collection_select(:minute_id, Minute.all, :id, :name, {selected: @ten_record.minute_id }, class: "p-2") %>：分
           </div>
           <div class="record-item mr-5 mt-3">
-            <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
+            <%= f.collection_select(:second_id, Second.all, :id, :name, {selected: @ten_record.second_id }, class: "p-2") %>：秒
           </div>
           <div class="record-item mr-3 mt-3">
             <%= f.submit "編集", class: "btn btn-success text-white" %>
@@ -100,13 +100,13 @@
 
         <div class="record-items">
           <div class="record-item mr-3 mt-3">
-            <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
+            <%= f.collection_select(:hour_id, Hour.all, :id, :name, {selected: @half_record.hour_id }, class: "p-2") %>　: 時間
           </div>
           <div class="record-item mr-3 mt-3">
-            <%= f.collection_select(:minute_id, Minute.where(id:[*0..59]), :id, :name, {}, class: "p-2") %>：分
+            <%= f.collection_select(:minute_id, Minute.where(id:[*0..59]), :id, :name, {selected: @half_record.minute_id }, class: "p-2") %>：分
           </div>
           <div class="record-item mr-5 mt-3">
-            <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
+            <%= f.collection_select(:second_id, Second.all, :id, :name, {selected: @half_record.second_id }, class: "p-2") %>：秒
           </div>
           <div class="record-item mr-3 mt-3">
             <%= f.submit "編集", class: "btn btn-success text-white" %>
@@ -136,13 +136,13 @@
 
         <div class="record-items">
           <div class="record-item mr-3 mt-3">
-            <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
+            <%= f.collection_select(:hour_id, Hour.all, :id, :name, {selected: @full_record.hour_id }, class: "p-2") %>　: 時間
           </div>
           <div class="record-item mr-3 mt-3">
-            <%= f.collection_select(:minute_id, Minute.where(id:[*0..59]), :id, :name, {}, class: "p-2") %>：分
+            <%= f.collection_select(:minute_id, Minute.where(id:[*0..59]), :id, :name, {selected: @full_record.minute_id }, class: "p-2") %>：分
           </div>
           <div class="record-item mr-5 mt-3">
-            <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
+            <%= f.collection_select(:second_id, Second.all, :id, :name, {selected: @full_record.second_id }, class: "p-2") %>：秒
           </div>
           <div class="record-item mr-3 mt-3">
             <%= f.submit "編集", class: "btn btn-success text-white" %>
