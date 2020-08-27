@@ -59,6 +59,9 @@ gem 'pry-rails'
 gem 'devise'
 gem 'active_hash'
 gem 'jquery-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'image_processing'
 
 group :production do
   gem 'rails_12factor'

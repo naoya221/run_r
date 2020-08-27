@@ -2,6 +2,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  mount_uploader :image, ImageUploader       
+
   has_many :tweets
   has_many :messages
   has_one :five_km_record
