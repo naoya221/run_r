@@ -11,7 +11,7 @@ describe User do
       end
     end
 
-    context '新規登録がうまくいかないとき' do
+    context 'ユーザー新規登録がうまくいかないとき' do
       it 'nicknameが空だと登録できない' do
         @user.nickname = ''
         @user.valid?
