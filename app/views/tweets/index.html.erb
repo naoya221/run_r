@@ -1,34 +1,65 @@
-<br>
-<div class="top-title display-4 text-center">Welcome to Run Record</div>
+<% if flash[:notice_tweet_new] %>
+  <p class="flash-message"><%= flash[:notice_tweet_new] %></p>
+<% end %>
+<% if flash[:notice_tweet_destroy] %>
+  <p class="flash-message"><%= flash[:notice_tweet_destroy] %></p>
+<% end %>
+<% if flash[:notice_tweet_edit] %>
+  <p class="flash-message"><%= flash[:notice_tweet_edit] %></p>
+<% end %>
 
-<br><br><br><br><br><br><br>
-<h2 class="bg-secondary p-3 text-white rounded">アニメーション予定</h2>
-<br><br><br><br><br>
+<div class="top-title">
+  <div>&nbsp;&nbsp;Run&nbsp;</div>
+  <div>&nbsp;Record</div>
+</div>
 
-<div class="content bg-transparent p-5 rounded">  
-  <%= link_to new_tweet_path  do %>
-    <p>
-      <button type="button" class="btn btn-success btn-lg">投稿する</button>
-    </p>
+</div>
+
+<br><br>
+ 
+    <ul class="slider">
+      <li>
+        <img src="/images/1.png" alt="slick-img">
+      </li>
+      <li>
+        <img src="/images/2.png" alt="slick-img">
+      </li>
+      <li>
+        <img src="/images/3.png" alt="slick-img">
+      </li>
+    </ul>
+
+<br><br><br>
+
+<div class="content p-5 m-5 rounded">
+
+  <% if user_signed_in? %>
+    <%= link_to new_tweet_path  do %>
+      <p>
+        <button type="button" class="btn btn-success btn-lg">投稿する</button>
+      </p>
+    <% end %>
+    <br>
   <% end %>
-  <br>
 
 
   <% @tweets.each do |tweet| %>
-    <div class="bg-light p-2 mb-5 rounded">
-      <div class="h5">
-        <%= link_to "#{tweet.content}", tweet_path(tweet.id) %><br>
+    <div class="bg-content-item p-2 mb-5 rounded">
+      <div class="h5 link">
+        <%= link_to "#{tweet.content}", tweet_path(tweet.id), class: "link" %><br>
       </div>  
       <div class="text-right">
         投稿者：
         <% if user_signed_in? != true || current_user.id != tweet.user_id %>
-          <%= link_to "#{tweet.user.nickname}", user_path(tweet.user_id) %>
+          <%= link_to "#{tweet.user.nickname}", user_path(tweet.user_id), class: "link" %>
         <% else %>
-          <%= link_to "あなた", user_path(tweet.user_id) %>
+          <%= link_to "あなた", user_path(tweet.user_id), class: "link" %>
         <% end %>
       </div>
     </div>  
     
   <% end %>
-  
-</div>  
+</div> 
+
+
+

@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2020_08_19_002843) do
 
   create_table "five_km_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "hour_id"
     t.integer "minute_id"
     t.integer "second_id"
     t.bigint "user_id", null: false
@@ -52,13 +51,7 @@ ActiveRecord::Schema.define(version: 2020_08_19_002843) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "ten_km_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "hour_id"
     t.integer "minute_id"
     t.integer "second_id"
     t.bigint "user_id", null: false

@@ -1,15 +1,22 @@
+
+@import "slick-theme"; 
+@import "slick";
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+* {
+  box-sizing: border-box;
+}
 
 a:hover {
   text-decoration: none;
 }
 
-.abc{
+.back-ground {
  background: url("/images/3664950_m.png");
  height: 100%;
  background-size: cover;
-
+ padding-bottom: 50px;
 }
 
 .linear-gray {
@@ -28,14 +35,7 @@ a:hover {
   background-color: lightgray;
 }
 
-.top-title  {
-  font-size: 80px;
-  font-family: cursive;
-  color: rgb(245, 210, 165);
-}
-
 .page-title {
-  // font-family: ;
   color: white;
   display: inline-block;
   font-size: 30px;
@@ -48,16 +48,17 @@ a:hover {
   padding: 0.5em 1em;
   margin: 2em 0;
   color: #474747;
-  background: rgb(10, 61, 6);/*背景色*/
-  border-left: double 7px #855c05;/*左線*/
-  border-right: double 7px #855c05;/*右線*/
+  background: rgb(10, 61, 6);
+  border-left: double 7px #e09e0d;
+  border-right: double 7px #e09e0d;
 }
 
 .content {
   position: relative;
-  padding: 0.25em 1em;
-  border-top: solid 2px rgb(196, 153, 103);
-  border-bottom: solid 2px rgb(196, 153, 103);
+  padding: 1em 2em;
+  border-top: solid 2px rgb(161, 125, 84);
+  border-bottom: solid 2px rgb(161, 125, 84);
+
 }
 
 .content:before, .content:after {
@@ -67,7 +68,7 @@ a:hover {
   width: 2px;
   height: -webkit-calc(100% + 14px);
   height: calc(100% + 14px);
-  background-color: rgb(196, 153, 103);
+  background-color: rgb(161, 125, 84);
 }
 
 .content:before {
@@ -88,4 +89,201 @@ a {
 
 .pulldown-time {
   color: white;
+}
+
+.time-box {
+  padding: 0.3em 0.5em;
+  margin: 2em 0;
+  font-weight: bold;
+  color: #38c9f5;
+  border-radius: 10px;
+  border: solid 3px #38c9f5;
+  border-radius: 10px;
+}
+
+.vdot-number {
+  display: inline-block;
+  font-weight: bold;
+  color: #f79235;
+  border-radius: 10px;
+  border: solid 3px #f79235;
+  padding: 0.3em 0.5em;
+  margin-bottom: 1em;
+}
+
+.hide-list{
+  padding: 0.5em 2em;
+}
+
+.flash-message{
+  display: inline-block;
+  color: white;
+  background-color: orange;
+  padding: 1em;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.header-item {
+  padding: 3px 0;
+  margin-left: 10px;
+}
+
+.form-label {
+  font-family: MS UI Gothic;
+}
+
+.shared-link {
+  color: white;
+  font-weight: bold;
+  padding: 8px;border-radius: 2px;
+  background-color: rgba(3, 75, 19, 0.6);
+  border-radius: 4px;
+}
+
+.bg-content-item {
+  background-color: rgba(241, 249, 252, 0.9);
+  margin: 0 60px;
+}
+
+.content-item {
+  background-color: rgba(241, 249, 252, 0.9);
+}
+
+
+
+.graph-bar{
+  display: flex;
+  justify-content: space-between;
+  color: rgb(32, 31, 28);
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px 10px 30px 10px;
+}
+
+.vdot-b-t {
+  border-top: 2px solid #f79235;
+  padding-top: 5px;
+}
+
+.vdot-five {
+  background-color: pink;
+}
+
+.vdot-ten {
+  background-color: violet;
+}
+
+.vdot-half {
+  background-color: lightblue;
+}
+
+.vdot-full {
+  background-color: gold;
+}
+
+
+.top-title {
+  font-family: Times New Roman;
+  font-size: 80px;
+  padding: 20px 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  /* 背景グラデーションを指定・幅を 200% にしておく */
+  background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(250, 215, 170) 14.28%, rgb(247, 176, 85) 28.56%, rgb(255, 145, 0) 42.85%, rgb(255, 145, 0) 57.14%, rgb(248, 177, 85) 71.42%, rgb(248, 214, 170) 85.71%, rgb(255, 255, 255) 100%) 0% center / 200% auto;
+  
+  /* 背景画像を文字でマスクする */
+          background-clip: text;
+  -webkit-background-clip: text;
+  
+  /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
+          text-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
+  
+  /* アニメーション指定 */
+  animation: example 4s linear infinite;
+}
+
+/* 背景の横位置をズラす */
+@keyframes example {
+  to { background-position-x: 200%; }
+}
+
+.record-item{
+  margin-bottom: 20px;
+  font-size: large;
+}
+
+.responsive-d-flex {
+  display: flex;
+}
+
+.record-items{
+  display: flex;
+}
+
+
+
+
+
+// 以下レスポンシブ
+
+@media (max-width: 800px) {
+
+  .top-title {
+    text-align: center;
+    display: block;
+  }
+
+  .responsive-d-flex {
+    display: inline-block;
+  }
+
+  .record-items{
+    display: inline-block;
+  }
+
+  
+
+  .record-item{
+    margin: 0 15px;
+    font-size: large;
+  }
+
+  .signup-form {
+    width: 50%;
+  }
+
+  .bg-content-item {
+    margin: 0 20px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .responsive-d-flex {
+    display: inline-block;
+  }
+
+  .record-items{
+    display: inline-block;
+  }
+
+  .record-item{
+    margin: 20px 0;
+    font-size: large;
+  }
+
+  .signup-form {
+    width: 75%;
+  }
+
+  .bg-content-item {
+    margin: 0 0px;
+  }
+
 }
