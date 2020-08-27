@@ -4,7 +4,7 @@
 
 <div class="content">
     <br>
-    <div class="bg-content-item p-2 rounded border border-warning">
+    <div class="content-item p-2 rounded border border-warning">
         <div class="d-flex  align-items-center justify-content-between">
             5km &nbsp; Record
               <div>
@@ -94,7 +94,7 @@
 
 <div class="content">
     <% @tweets.each do |tweet| %>
-        <div class="bg-content-item p-2 rounded">
+        <div class="bg-content-item p-2 mt-3 rounded">
             <%= link_to "#{tweet.content}", tweet_path(tweet.id), class: "link" %>
         </div>
         <br>

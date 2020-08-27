@@ -143,7 +143,14 @@ a {
 
 .bg-content-item {
   background-color: rgba(241, 249, 252, 0.9);
+  margin: 0 60px;
 }
+
+.content-item {
+  background-color: rgba(241, 249, 252, 0.9);
+}
+
+
 
 .graph-bar{
   display: flex;
@@ -250,6 +257,10 @@ a {
     width: 50%;
   }
 
+  .bg-content-item {
+    margin: 0 20px;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -269,6 +280,10 @@ a {
 
   .signup-form {
     width: 75%;
+  }
+
+  .bg-content-item {
+    margin: 0 0px;
   }
 
 }
