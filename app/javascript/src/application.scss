@@ -159,7 +159,7 @@ a {
   font-weight: bold;
   border-radius: 4px;
   padding: 10px;
-  margin: 10px 10px 30px 10px;
+  margin: 0px 10px 30px 10px;
 }
 
 .vdot-b-t {
@@ -277,7 +277,7 @@ a {
 }
 
 .icon_image {
-  width: 250px;
+  width: 300px;
   height: 300px;
   //サイズ指定
   border-radius: 200px;
@@ -287,9 +287,9 @@ a {
 }
 
 .tweet-index-image-icon {
-  width: 70px;
+  width: 100px;
   height: 100px;
-  border-radius: 30px;
+  border-radius: 60px;
   margin: 10px 0;
 }
 
@@ -306,7 +306,7 @@ a {
 }
 
 .tweet-show-image-icon {
-  width: 150px;
+  width: 200px;
   height: 200px;
   border-radius: 100px;
   margin: 10px 0;
@@ -323,8 +323,89 @@ a {
   display: flex;
 }
 
+// 吹き出し
+
+.balloon3-right-btm {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 15px 1.5em 0;
+  padding: 0 5px;
+  width: 400px;
+  height: 150px;
+  line-height: 90px;
+  text-align: center;
+  color: #FFF;
+  font-size: 20px;
+  font-weight: bold;
+  background: rgba(248, 198, 122, 0.9);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.user-show-btn-group {
+  display: flex;
+}
+
+.user-show-btn {
+  margin: 20px;
+}
+
+.mini-group {
+  position: relative;
+  float: right;
+  margin-left: 60px;
+}
+
+.user-show-mini {
+  position: absolute;
+  top: 200px;
+  right: -30px;
+}
+
+.user-show-mini-icon {
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  
+} 
+
+.text {
+  font-size: 15px;
+}
+
+.text-center {
+  margin-top: -55px;
+  padding: 0px;
+}
+
+.text-bottom {
+  margin-top: -55px;
+}
+
+.vdot-dropdown {
+  float: right;
+  margin: 0 40px 40px 0px;
+  padding: 10px;
+}
+
+.dropdown-menu {
+  margin: 300px 40px 0 0;
+  background-color: rgb(248, 221, 186);
+}
+
+.dropdown-i {
+  margin: 10px 5px 30px 30px;
+}
+
+
+
 
 // 以下レスポンシブ
+@media (max-width: 1000px) {
+  .responsive-d-flex {
+    display: inline-block;
+  }
+}
 
 @media (max-width: 800px) {
 
@@ -358,9 +439,9 @@ a {
 
 
   .tweet-index-image-icon {
-    width: 70px;
+    width: 100px;
     height: 100px;
-    border-radius: 30px;
+    border-radius: 60px;
     margin: 10px 0 20px 0;
   }
 
@@ -375,7 +456,7 @@ a {
   }
 
   .tweet-show-image-icon {
-    width: 70px;
+    width: 110px;
     height: 110px;
     border-radius: 60px;
     margin: 35px 15px 20px 20px;
@@ -390,6 +471,31 @@ a {
   
   .tweet-show-flex {
     display: flex;
+  }
+
+  .balloon3-right-btm {
+    width: 300px;
+    height: 130px;
+  }
+
+
+  .user-show-mini {
+    position: absolute;
+    top: 170px;
+    right: -20px;
+  }
+
+
+  .user-show-mini-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    
+  } 
+  
+  .text {
+    font-size: 10px;
+    margin-top: -10px;
   }
 
 }
@@ -433,7 +539,7 @@ a {
   
 
   .tweet-show-image-icon {
-    width: 70px;
+    width: 110px;
     height: 110px;
     border-radius: 60px;
     justify-content: center;
@@ -449,5 +555,31 @@ a {
   .tweet-show-flex {
     display: block;
   }
+
+  .user-show-btn {
+    margin: 10px 5px;
+  }
+
+  .mini-group {
+    margin-left: 5px;
+  }
+
+  .user-show-mini {
+    position: absolute;
+    top: 170px;
+    right: 0px;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-menu {
+    margin: 300px 0 0 0;
+    background-color: rgb(245, 214, 173);
+    position: absolute;
+    left: -50px;
+  }
+
   
 }
