@@ -1,14 +1,27 @@
 <br>
 
-<div class="content-item p-5 rounded">
+<div class="tweet-show-flex">
+
+  <div class="tweet-show-image"> 
+    <% if @tweet.user.image.present? %>
+       <img src=<%= @tweet.user.image %> class = "tweet-show-image-icon">
+    <% else %>
+        <img src="/images/dog2.png" class = "tweet-show-image-icon">
+    <% end %>   
+  </div>
+
+  <div class="content-item tweet-show-content rounded">
       <div class="h3">
         <%= @tweet.content %>
       </div>  
+      <br><br><br>
+      
       <div class="text-right">
         投稿者：
-          <%= link_to "#{@tweet.user.nickname}", user_path(@tweet.user_id), class: "link" %>
+          <%= link_to "#{@tweet.user.nickname}", user_path(@tweet.user_id), class: "mb-0 link" %>
       </div>
-</div>
+  </div>
+</div>  
 
 <br><br>
 
@@ -59,7 +72,7 @@
 
 <br>
 
-<div class="content p-5">
+<div class="p-5">
   <div id='messages'>
     <% @messages.reverse_each do |message| %>
       <% if @tweet.id == message.tweet_id%>

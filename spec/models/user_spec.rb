@@ -6,9 +6,24 @@ describe User do
 
   describe 'ユーザー新規登録' do
     context '新規登録がうまくいくとき' do
-      it "nicknameとemail、passwordとpassword_confirmationが存在すれば登録できる" do
+      it "nicknameとemail、passwordとpassword_confirmation、画像が存在すれば登録できる" do
         expect(@user).to be_valid
       end
+      it "画像が空でも登録できる" do
+        @user.image = ""
+        expect(@user).to be_valid
+      end
+      it "passwordが数字だけでも登録できる" do
+        @user.password = '123456'
+        @user.password_confirmation = '123456'
+        expect(@user).to be_valid
+      end
+      it "passwordが英語だけでも登録できる" do
+        @user.password = 'abcdef'
+        @user.password_confirmation = 'abcdef'
+        expect(@user).to be_valid
+      end
+
     end
 
     context 'ユーザー新規登録がうまくいかないとき' do
@@ -55,17 +70,11 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
-      it 'passwordが半角数字だけでは登録できない' do
-        @user.password = '123456'
-        @user.password_confirmation = '123456'
+      it 'passwordとpassword_confirmation一致していないと登録できない' do
+        @user.password = '123abc'
+        @user.password_confirmation = 'abc123'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password には英字と数字の両方を含めて設定してください')
-      end
-      it 'passwordが半角英字だけでは登録できない' do
-        @user.password = 'aaabbb'
-        @user.password_confirmation = 'aaabbb'
-        @user.valid?
-        expect(@user.errors.full_messages).to include('Password には英字と数字の両方を含めて設定してください')
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
     end
   end

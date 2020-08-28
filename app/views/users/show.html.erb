@@ -2,9 +2,31 @@
     <div class="page-title"><%= "nickname：#{@nickname}" %></div>
 </div>
 
-<div class="content">
+<div class="m-2 mb-5">
+    <%= link_to edit_user_registration_path(@user) do %>
+        <button type="button" class="btn btn-success text-white nav-link">ユーザー情報編集</button>
+    <% end %>
+</div>
+
+<div class="show-image">
+    <% if @user.image.present? %>
+       <img src=<%= @user.image %> class = "icon_image">
+    <% else %>
+        <img src="/images/dog2.png" class = "icon_image">
+    <% end %>    
+</div>
+
+
+<br><br>
+
+
+<div>
     <br>
-    <div class="content-item p-2 rounded border border-warning">
+    <p class="user-record-text">
+        <%= "#{@nickname} さんのベストタイム" %>
+    <p>
+
+    <div class="content-item show-top-content p-2 rounded">
         <div class="d-flex  align-items-center justify-content-between">
             5km &nbsp; Record
               <div>
@@ -56,43 +78,61 @@
     <br><br>
 
     <div class="responsive-d-flex">
-        <div class="m-2 mb-4">
-            <%= link_to user_vdots_path(@user) do %>
-                <button type="button" class="btn btn-success text-white nav-link">VDOT</button>
+        <div class="user-show-btn-group">
+            <div class="user-show-btn">
+                <%= link_to user_vdots_path(@user) do %>
+                    <button type="button" class="btn btn-success text-white nav-link">VDOT</button>
+                <% end %>
+            </div>
+            <% if user_signed_in? && @user.id == current_user.id %>
+
+                <div class="user-show-btn">
+                    <%= link_to new_record_path do %>
+                        <button type="button" class="btn btn-success text-white nav-link">登録</button>
+                    <% end %>
+                </div>
+                
+                <div class="user-show-btn">
+                    <%= link_to edit_record_path do %>
+                        <button type="button" class="btn btn-success text-white nav-link">編集</button>
+                    <% end %>
+                </div>
+
+                <div class="user-show-btn">
+                    <%= link_to edit_record_path do %>
+                        <button type="button" class="btn btn-success text-white nav-link">削除</button>
+                    <% end %>
+                </div>
+
             <% end %>
         </div>
-        <% if user_signed_in? && @user.id == current_user.id %>
 
-            <div class="m-2 mb-4">
-                <%= link_to new_record_path do %>
-                    <button type="button" class="btn btn-success text-white nav-link">登録</button>
-                <% end %>
+        <div class="mini-group">
+            <div class="balloon3-right-btm">
+                  <div class="text">
+                    <div class="text-top">ベストタイムを登録すると、VDOTページにて</div>
+                    <div class="text-center">ベストタイムがどれくらいのレベルか確認できます</div>
+                    <div class="text-bottom">練習の目安ペースも見れますよ！</div>
+                  </div>
             </div>
-            
-            <div class="m-2 mb-4">
-                <%= link_to edit_record_path do %>
-                    <button type="button" class="btn btn-success text-white nav-link">編集</button>
-                <% end %>
+            <div class="user-show-mini">
+                <img src="/images/dog1.png" class = "user-show-mini-icon">
             </div>
+        </div>
 
-            <div class="m-2 mb-4">
-                <%= link_to edit_record_path do %>
-                    <button type="button" class="btn btn-success text-white nav-link">削除</button>
-                <% end %>
-            </div>
+    </div>
 
-        <% end %>
-    </div>  
 </div>
-      
-<br><br>
+
+
+<br><br><br><br><br><br>
 
 <div class="title-box">
     <div class="page-title"><%= @nickname %>さんの投稿一覧</div>
 </div>
 <br>
 
-<div class="content">
+<div>
     <% @tweets.each do |tweet| %>
         <div class="bg-content-item p-2 mt-3 rounded">
             <%= link_to "#{tweet.content}", tweet_path(tweet.id), class: "link" %>

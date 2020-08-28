@@ -27,11 +27,23 @@
       <li>
         <img src="/images/3.png" alt="slick-img">
       </li>
+      <li>
+        <img src="/images/4.png" alt="slick-img">
+      </li>
+      <li>
+        <img src="/images/5.png" alt="slick-img">
+      </li>
+      <li>
+        <img src="/images/6.png" alt="slick-img">
+      </li>
+      <li>
+        <img src="/images/7.png" alt="slick-img">
+      </li>
     </ul>
 
 <br><br><br>
 
-<div class="content p-5 m-5 rounded">
+<div class="tweet-index-content rounded">
 
   <% if user_signed_in? %>
     <%= link_to new_tweet_path  do %>
@@ -44,19 +56,30 @@
 
 
   <% @tweets.each do |tweet| %>
-    <div class="bg-content-item p-2 mb-5 rounded">
-      <div class="h5 link">
-        <%= link_to "#{tweet.content}", tweet_path(tweet.id), class: "link" %><br>
-      </div>  
-      <div class="text-right">
-        投稿者：
-        <% if user_signed_in? != true || current_user.id != tweet.user_id %>
-          <%= link_to "#{tweet.user.nickname}", user_path(tweet.user_id), class: "link" %>
-        <% else %>
-          <%= link_to "あなた", user_path(tweet.user_id), class: "link" %>
-        <% end %>
-      </div>
-    </div>  
+    <div class="d-flex align-items-center justify-content-center mr-5">
+       <div class="tweet-index-image"> 
+          <% if tweet.user.image.present? %>
+            <img src=<%= tweet.user.image %> class = "tweet-index-image-icon">
+          <% else %>
+            <img src="/images/dog2.png" class = "tweet-index-image-icon">
+          <% end %>
+       </div>
+
+      <div class="tweet-index-contents bg-content-item rounded">
+        <div class="h5 link">
+          <%= link_to "#{tweet.content}", tweet_path(tweet.id), class: "link" %><br>
+        </div>  
+        <br>
+        <div class="text-right">
+          投稿者：
+          <% if user_signed_in? != true || current_user.id != tweet.user_id %>
+            <%= link_to "#{tweet.user.nickname}", user_path(tweet.user_id), class: "link" %>
+          <% else %>
+            <%= link_to "あなた", user_path(tweet.user_id), class: "link" %>
+          <% end %>
+        </div>
+      </div> 
+    </div>
     
   <% end %>
 </div> 

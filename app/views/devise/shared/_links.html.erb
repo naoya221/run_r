@@ -4,13 +4,13 @@
 
   <div class="mr-3">
     <%- if controller_name != 'sessions' %>
-      <%= link_to "Log in", new_session_path(resource_name), class: "shared-link link" %><br/>
+      <%= link_to "ログインページへ", new_session_path(resource_name), class: "shared-link link" %><br/>
     <% end %>
   </div>
 
   <div class="mr-3">
     <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-      <%= link_to "Sign up", new_registration_path(resource_name), class: "shared-link link" %><br />
+      <%= link_to "新規登録ページへ", new_registration_path(resource_name), class: "shared-link link" %><br />
     <% end %>
   </div>
 
