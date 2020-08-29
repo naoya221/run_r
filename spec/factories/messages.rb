@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :message do
-    text     {"naoya"}
+    text     {Faker::Lorem.sentence}
     
     association :user
     association :tweet
