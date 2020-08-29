@@ -1,0 +1,69 @@
+<% if user_signed_in? %>
+    
+    <% if current_user.id == @user.id%>
+        <div class="title-box mb-5">
+            <div class="page-title">あなたのvdot</div>
+        </div>
+        <br>
+    <% else %>
+      <div class="title-box mb-5">
+        <div class="page-title"><%= "#{@user.nickname}さんのvdot" %></div>
+      </div>
+      <br>
+    <% end %>
+
+<% elsif @user.present? %>
+      <div class="title-box mb-5">
+        <div class="page-title"><%= "#{@user.nickname}さんのvdot" %></div>
+      </div>
+      <br>
+<% end %>
+
+<div class="dropdown">
+  <button class="vdot-dropdown btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    目安ペースの説明
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <div class="dropdown-i">
+        J：<br>軽いジョギングでのペース。<br>気分転換や体をほぐしたりと疲れを<br>取るような目的に。<br>ダイエットにもおすすめ。
+      </div>
+      <div class="dropdown-i">
+        M：<br>フルマラソン本番での目安ペース。<br>または、フルやハーフの練習として<br>20km前後の長い距離を走る時の目安に。<br>短い距離が得意な方や、フルマラソンを<br>走ったことがない方は＋10〜20<br>してください。
+      </div>
+      <div class="dropdown-i">
+        T-40：<br>足の辛さよりも、呼吸が辛くなり<br>ペースダウンする人向けの目安ペース。<br>10kmのタイムを伸ばしたい人向け。<br>他の距離を重視する方でも必要に<br>応じて取り入れてください。
+      </div>
+      <div class="dropdown-i">
+        T-20：<br>上記のT-40と同じ目的での<br>目安ペース。ただしこちらは,<br>より速いペースで20分間<br>走るので、5kmのタイムを伸ばしたい<br>人向け。10kmを重視する方でも必要に<br>応じて取り入れてください。<br>(ハーフやフルを重視する方は<br>上記のT-40の方をおすすめします)
+      </div>
+      <div class="ml-4 btn btn-secondary">
+        閉じる
+      </div>
+  </div>
+</div>
+
+<br><br><br>
+
+<% if @user.present? && @five_vdot.present? && @ten_vdot.present? && @half_vdot.present? && @full_vdot.present? %>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
+
+  <div class="mr-3">
+  <canvas id="graph-area" height="30" width="100"></canvas>
+  </div>
+  <div class="graph-bar bg-content-item">
+    <div>
+      5km：<%= @vdot_record_five.vdot %>
+    </div>
+    <div>
+      10km：<%= @vdot_record_ten.vdot %>
+    </div>
+    <div>
+      ハーフ：<%= @vdot_record_half.vdot %>
+    </div>
+    <div>
+      フル：<%= @vdot_record_full.vdot %>
+    </div>
+  </div>
+
+<% end %>
