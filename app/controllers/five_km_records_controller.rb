@@ -1,4 +1,5 @@
 class FiveKmRecordsController < ApplicationController
+  before_action :five_km_record, only: [:update, :destroy]
   
   def create
     five_km_record = FiveKmRecord.new(permit_params)
@@ -11,7 +12,6 @@ class FiveKmRecordsController < ApplicationController
   end
 
   def update
-    five_km_record = FiveKmRecord.where(user_id: current_user.id)
     if five_km_record.update(permit_params)
       flash[:notice_five_edit] = "5kmのベストタイムを編集しました！"
       redirect_to edit_record_path
@@ -21,7 +21,6 @@ class FiveKmRecordsController < ApplicationController
   end
 
   def destroy
-    five_km_record = FiveKmRecord.where(user_id: current_user.id)
     five_km_record = five_km_record.ids
     five_km_record = FiveKmRecord.find(five_km_record[0])
     if five_km_record.destroy
@@ -36,6 +35,10 @@ class FiveKmRecordsController < ApplicationController
 
   def permit_params
     params.permit(:hour_id, :minute_id, :second_id).merge(user_id: current_user.id)
+  end
+
+  def five_km_record
+    five_km_record = FiveKmRecord.where(user_id: current_user.id)
   end
   
 end

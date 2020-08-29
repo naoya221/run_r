@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :params_present, only: [:show]
+  before_action :params_present
   before_action :set_params
   before_action :set_nickname
 

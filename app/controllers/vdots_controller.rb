@@ -1,7 +1,6 @@
 class VdotsController < ApplicationController
 
   def index
-
     @vdot_records = VdotRecord.all
     @vdot_paces = VdotPace.all
 
