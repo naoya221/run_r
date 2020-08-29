@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'コメント投稿', type: :system do
   before do
     @tweet = FactoryBot.create(:tweet)
-    @message = FactoryBot.build(:message)
+    @message = Faker::Lorem.sentence
   end
 
   # ログインしていないユーザーは、コメント投稿フォームが表示されないことを確認済み
