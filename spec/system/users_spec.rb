@@ -27,7 +27,8 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       }.to change { User.count }.by(1)
       # トップページへ遷移する
       expect(current_path).to eq root_path
-      # ログアウトボタンが表示されていて、ログインボタンや新規登録ボタンが表示されていない
+      # マイページへのボタン・ログアウトボタンが表示されていて、ログインボタンや新規登録ボタンが表示されていない
+      expect(page).to have_content("Nickname：#{@user.nickname}")
       expect(page).to have_content('Log out')
       expect(page).to have_no_content('Log in')
       expect(page).to have_no_content('Sign up')
