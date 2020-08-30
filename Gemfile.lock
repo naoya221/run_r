@@ -530,6 +530,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   fog
+  fog-aws
   image_processing
   jbuilder (~> 2.7)
   jquery-rails
