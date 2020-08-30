@@ -64,11 +64,10 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'image_processing'
 gem "aws-sdk-s3", require: false
-gem 'fog'
+gem 'fog-aws'
 
 
 group :production do
   gem 'rails_12factor'
-  gem 'fog-aws'
   gem 'unicorn', '5.4.1'
 end 
