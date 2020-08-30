@@ -70,4 +70,5 @@ gem 'fog'
 group :production do
   gem 'rails_12factor'
   gem 'fog-aws'
+  gem 'unicorn', '5.4.1'
 end 
