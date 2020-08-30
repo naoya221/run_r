@@ -63,6 +63,9 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'image_processing'
+gem "aws-sdk-s3", require: false
+gem 'fog'
+
 
 group :production do
   gem 'rails_12factor'
