@@ -323,7 +323,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   fog-aws
-  image_processing
+  image_processing (~> 1.2)
   jbuilder (~> 2.7)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
