@@ -6,17 +6,18 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :fog
 
-  if Rails.env.production?
-    CarrierWave.configure do |config|
-      config.fog_credentials = {
-        # Amazon S3用の設定
-        :provider              => 'AWS',
-        :region                => 'ap-northeast-1',
-        :aws_access_key_id     => 'AKIAYSADISSPSXZX3AWE',
-        :aws_secret_access_key => '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'
-      }
-      config.fog_directory     =  '32naoya25'
+
+  CarrierWave.configure do |config|
+    config.fog_credentials = {
+      provider: 'AWS',
+      aws_access_key_id: 'AKIAYSADISSPSXZX3AWE',
+      aws_secret_access_key: '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',
+      region: 'ap-northeast-1'
+    }
+  
+    config.fog_directory  = '32naoya25'
   end
+
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
