@@ -513,32 +513,8 @@ a {
 
 
   .top-title {
-    font-family: Times New Roman;
-    font-size: 80px;
-    padding: 20px 0;
-    text-align: center;
     display: block;
-    justify-content: center;
-  
-    /* 背景グラデーションを指定・幅を 200% にしておく */
-    background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(250, 215, 170) 14.28%, rgb(247, 176, 85) 28.56%, rgb(255, 145, 0) 42.85%, rgb(255, 145, 0) 57.14%, rgb(248, 177, 85) 71.42%, rgb(248, 214, 170) 85.71%, rgb(255, 255, 255) 100%) 0% center / 200% auto;
-    
-    // /* 背景画像を文字でマスクする */
-    -webkit-background-clip: text;
-    
-    /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
-    -webkit-text-fill-color: transparent;
-    
-    /* アニメーション指定 */
-    animation: example 4s linear infinite;
   }
-  
-  /* 背景の横位置をズラす */
-  @keyframes example {
-    to { background-position-x: 200%; }
-  }
-  
-
 
   .responsive-d-flex {
     display: inline-block;
