@@ -185,7 +185,7 @@ a {
 
 
 .top-title {
-  font-family: Times New Roman;
+  // font-family: Times New Roman;
   font-size: 80px;
   padding: 20px 0;
   text-align: center;
@@ -420,7 +420,7 @@ a {
 @media (max-width: 800px) {
 
   .top-title {
-    display: inline-block;
+    display: block;
   }
 
   .responsive-d-flex {
@@ -513,7 +513,7 @@ a {
 
 
   .top-title {
-    display: inline-block;
+    display: block;
   }
 
 
