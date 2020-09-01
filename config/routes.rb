@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   end
   resources :records,  only: [:new, :edit] 
   resources :vdots,  only: [:index] 
+
+  mount ActionCable.server => '/cable'
 end
