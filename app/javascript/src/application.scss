@@ -200,7 +200,6 @@ a {
   -webkit-background-clip: text;
   
   /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
-          text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
   
   /* アニメーション指定 */
@@ -239,7 +238,6 @@ a {
   -webkit-background-clip: text;
   
   /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
-          text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
   
   /* アニメーション指定 */
@@ -514,6 +512,13 @@ a {
 }
 
 @media (max-width: 480px) {
+
+
+  .top-title {
+    text-align: center;
+    display: block;
+  }
+
 
   .responsive-d-flex {
     display: inline-block;
