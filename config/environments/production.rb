@@ -43,7 +43,7 @@ Rails.application.configure do
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
   config.action_cable.url = 'wss://app_name.com/cable'
-  config.action_cable.allowed_request_origins = [ 'http://app_name.com', /http:\/\/app_name.*/ ]
+  config.action_cable.allowed_request_origins = [ 'https://app_name.com', /https:\/\/app_name.*/ ]
   ActionCable.server.config.disable_request_forgery_protection = true
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
