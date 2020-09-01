@@ -195,8 +195,7 @@ a {
   /* 背景グラデーションを指定・幅を 200% にしておく */
   background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(250, 215, 170) 14.28%, rgb(247, 176, 85) 28.56%, rgb(255, 145, 0) 42.85%, rgb(255, 145, 0) 57.14%, rgb(248, 177, 85) 71.42%, rgb(248, 214, 170) 85.71%, rgb(255, 255, 255) 100%) 0% center / 200% auto;
   
-  /* 背景画像を文字でマスクする */
-          background-clip: text;
+  // /* 背景画像を文字でマスクする */
   -webkit-background-clip: text;
   
   /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
