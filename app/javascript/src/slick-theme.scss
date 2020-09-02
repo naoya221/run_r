@@ -125,6 +125,7 @@
     bottom: -25px;
 
     display: block;
+    // display: none;
 
     // width: 100%;
     padding: 0;
@@ -138,7 +139,8 @@
 {
     position: relative;
 
-    display: inline-block;
+    // display: inline-block;
+    display: none;
 
     width: 20px;
     height: 20px;

@@ -8,31 +8,25 @@
   box-sizing: border-box;
 }
 
+
+a {
+  font-family: MS UI Gothic;
+}
+
 a:hover {
   text-decoration: none;
 }
 
 .back-ground {
+  height: 100%;
+  background-color: rgb(228, 247, 222);
+  padding-bottom: 50px;
+ }
+
+.back-ground-forest {
  background: url("/images/3664950_m.png");
  height: 100%;
  background-size: cover;
- padding-bottom: 50px;
-}
-
-.linear-gray {
-  background-image: linear-gradient(
-    -45deg,
-    rgba(255,255,255,0) 0%, rgba(255,255,255,0.0) 25%,
-    rgba(255,255,255,0.4) 25%, rgba(255,255,255,0.4) 50%,
-    rgba(255,255,255,0) 50%, rgba(255,255,255,0.0) 75%,
-    rgba(255,255,255,0.4) 75%, rgba(255,255,255,0.4) 100%
-  );
-  background-size: 10px 10px;
-  background-repeat: repeat;
-}
-
-.linear-gray {
-  background-color: lightgray;
 }
 
 .page-title {
@@ -53,38 +47,86 @@ a:hover {
   border-right: double 7px #e09e0d;
 }
 
-.content {
-  position: relative;
-  padding: 1em 2em;
-  border-top: solid 2px rgb(161, 125, 84);
-  border-bottom: solid 2px rgb(161, 125, 84);
-
-}
-
-.content:before, .content:after {
-  content: '';
-  position: absolute;
-  top: -7px;
-  width: 2px;
-  height: -webkit-calc(100% + 14px);
-  height: calc(100% + 14px);
-  background-color: rgb(161, 125, 84);
-}
-
-.content:before {
-  left: 7px;
-}
-
-.content:after {
-  right: 7px;
-}
-
-a {
-  font-family: MS UI Gothic;
-}
-
 .btn-lg {
   font-family: Times New Roman;
+}
+
+.slide-content {
+  height: 480px;
+  width: 100vw;
+  background-color: rgb(252, 245, 237);
+}
+
+.slide-image {
+  position: relative;
+}
+
+.slide-title {
+  position: absolute;
+  top: 60px;
+  left: 45px;
+  z-index: 10;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 5px;
+  margin: 5px;
+  
+}
+
+.slide-text {
+  margin-top: 45px;
+  margin-left: 10px;
+}
+
+.slide-text h4 {
+  background: linear-gradient(transparent 30%, rgb(243, 193, 136));
+  display: inline-block;
+}
+
+
+.tweet-index-container {
+  padding: 10px;
+}
+
+.tweet-index-content-size {
+  max-width: 360px
+}
+
+.bg-tweet-index-content {
+  // height: 35vh;
+  padding: 5px;
+  background-color: lightblue;
+  margin-bottom: 20px;
+}
+
+.place-image {
+  width: 27vh;
+  height: 25vh;
+}
+
+.tweet-index-image-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 60px;
+  margin: 10px 0;
+}
+
+.tweet-index-content {
+  width: 15vh;
+  height: 30vh;
+}
+
+.tweet-index-place {
+  background-color: rgb(245, 206, 161);
+  display: inline-block;
+  padding: 5px 30px;
+}
+
+.tweet-index-text {
+  padding: 10px 10px 0 10px;
+  margin: 0 0 5px 15px;
+  width: 90%;
 }
 
 .pulldown-time {
@@ -143,7 +185,6 @@ a {
 
 .bg-content-item {
   background-color: rgba(241, 249, 252, 0.9);
-  margin: 0 60px;
 }
 
 .content-item {
@@ -183,33 +224,6 @@ a {
   background-color: gold;
 }
 
-
-.top-title {
-  font-family: Times New Roman;
-  font-size: 80px;
-  padding: 20px 0;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-
-  /* 背景グラデーションを指定・幅を 200% にしておく */
-  background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(250, 215, 170) 14.28%, rgb(247, 176, 85) 28.56%, rgb(255, 145, 0) 42.85%, rgb(255, 145, 0) 57.14%, rgb(248, 177, 85) 71.42%, rgb(248, 214, 170) 85.71%, rgb(255, 255, 255) 100%) 0% center / 200% auto;
-  
-  // /* 背景画像を文字でマスクする */
-  -webkit-background-clip: text;
-  
-  /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
-  -webkit-text-fill-color: transparent;
-  
-  /* アニメーション指定 */
-  animation: example 4s linear infinite;
-}
-
-/* 背景の横位置をズラす */
-@keyframes example {
-  to { background-position-x: 200%; }
-}
-
 .record-item{
   margin-bottom: 20px;
   font-size: large;
@@ -241,6 +255,11 @@ a {
   
   /* アニメーション指定 */
   animation: example 4s linear infinite;
+}
+
+/* 背景の横位置をズラす */
+@keyframes example {
+  to { background-position-x: 200%; }
 }
 
 .user-edit-title {
@@ -283,24 +302,7 @@ a {
   //タテヨコ比を変えないままトリミング
 }
 
-.tweet-index-image-icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 60px;
-  margin: 10px 0;
-}
 
-.tweet-index-content {
-  padding: 70px;
-  margin: 0 80px 100px 80px;
-}
-
-.tweet-index-contents {
-  display: block;
-  width: 70%;
-  padding: 10px 10px 0 10px;
-  margin: 20px 0 20px 30px;
-}
 
 .tweet-show-image-icon {
   width: 200px;
@@ -442,9 +444,9 @@ a {
     width: 50%;
   }
 
-  .bg-content-item {
-    margin: 20px;
-  }
+  // .bg-content-item {
+  //   margin: 20px;
+  // }
 
 
   .tweet-index-image-icon {
@@ -454,15 +456,9 @@ a {
     margin: 10px 0 20px 0;
   }
 
-  .tweet-index-content {
-    padding: 30px 0 20px 40px;
-    margin: 0 20px 20px 20px;
-  }
 
 
-  .tweet-index-contents {
-    margin:20px 0 30px 30px;
-  }
+ 
 
   .tweet-show-image-icon {
     width: 110px;
@@ -537,14 +533,9 @@ a {
     margin: 10px;
   }
 
-  .tweet-index-content {
-    padding: 10px 0 20px 20px;
-  }
 
 
-  .tweet-index-contents {
-    margin:10px 0 10px 10px;
-  }
+ 
 
   .tweet-show-image {
     display: flex;
