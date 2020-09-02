@@ -54,7 +54,7 @@ a:hover {
 .slide-content {
   height: 480px;
   width: 100vw;
-  background-color: rgb(252, 245, 237);
+  background-color: rgb(255, 255, 255);
 }
 
 .slide-image {
@@ -80,7 +80,7 @@ a:hover {
 }
 
 .slide-text h4 {
-  background: linear-gradient(transparent 30%, rgb(243, 193, 136));
+  background: linear-gradient(transparent 30%, rgb(92, 215, 236));
   display: inline-block;
 }
 
@@ -118,9 +118,10 @@ a:hover {
 }
 
 .tweet-index-place {
-  background-color: rgb(245, 206, 161);
+  background-color: rgb(253, 211, 169);
   display: inline-block;
   padding: 5px 30px;
+
 }
 
 .tweet-index-text {
@@ -128,6 +129,71 @@ a:hover {
   margin: 0 0 5px 15px;
   width: 90%;
 }
+
+.tweet-show-container {
+  padding-top: 100px;
+}
+
+.tweet-show-image {
+  width: 90vw;
+  height: 60vw;
+  max-width: 850px;
+  max-height: 500px;
+}
+
+.tweet-show-place-name {
+  padding: 10px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.tweet-show-profile {
+  text-align: center;
+  display: inline-block;
+  padding: 30px;
+}
+
+.tweet-show-profile-bg {
+  background-color: white;
+  padding: 10px 5px 5px;
+  
+}
+
+.tweet-show-image-icon {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  // margin: 20px;
+}
+
+.tweet-show-btn {
+  display: flex;
+  margin-top: 30px;
+}
+
+.tweet-show-place-texts {
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 30px 20px 20px;
+}
+
+.map {
+  width: 60vw;
+  height: 35vw;
+  background-color: rgb(238, 147, 147);
+  margin: 30px 20px 20px;
+ }
+ 
+.message {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+
+}
+
 
 .pulldown-time {
   color: white;
@@ -164,6 +230,7 @@ a:hover {
   padding: 1em;
   border-radius: 10px;
   font-weight: bold;
+  z-index: 10;
 }
 
 .header-item {
@@ -237,6 +304,16 @@ a:hover {
   display: flex;
 }
 
+.icon_image {
+  width: 300px;
+  height: 300px;
+  //サイズ指定
+  border-radius: 200px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+}
+
 .user-record-text {
   color: white;
   font-weight: bold;
@@ -292,40 +369,7 @@ a:hover {
 
 }
 
-.icon_image {
-  width: 300px;
-  height: 300px;
-  //サイズ指定
-  border-radius: 200px;
-  //画像を丸くする
-  object-fit: cover;
-  //タテヨコ比を変えないままトリミング
-}
 
-
-
-.tweet-show-image-icon {
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
-  margin: 10px 0;
-}
-
-.tweet-show-content {
-  display: block;
-  width: 70%;
-  padding: 20px 20px 0px 20px;
-  margin: 20px 0 20px 30px;
-}
-
-.tweet-show-flex {
-  display: flex;
-}
-
-.show-top-content {
-  border: 5px solid rgb(214, 158, 35);
-  background-color: rgba(255, 255, 255, 0.8);
-}
 
 // 吹き出し
 
@@ -473,10 +517,11 @@ a:hover {
     padding: 10px 10px 0px 10px;
     margin: 20px 0 20px 30px;
   }
-  
-  .tweet-show-flex {
-    display: flex;
+
+  .tweet-show-btn {
+    display: block;
   }
+
 
   .balloon3-right-btm {
     width: 300px;
