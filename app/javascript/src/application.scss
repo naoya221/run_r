@@ -55,6 +55,7 @@ a:hover {
   height: 480px;
   width: 100vw;
   background-color: rgb(255, 255, 255);
+  margin-top: 40px;
 }
 
 .slide-image {
@@ -231,6 +232,7 @@ a:hover {
   border-radius: 10px;
   font-weight: bold;
   z-index: 10;
+  margin-top: 75px;
 }
 
 .header-item {
@@ -339,6 +341,11 @@ a:hover {
   to { background-position-x: 200%; }
 }
 
+.user-container {
+  background-color: rgb(228, 247, 222);
+
+}
+
 .user-edit-title {
   color: rgb(255, 207, 102);
   background-color: rgba(88, 88, 88, 0.4);
@@ -357,10 +364,33 @@ a:hover {
   padding: 20px;
   text-align: center;
 }
+.user-top-content {
+  background-color: rgb(228, 247, 222);
+  padding-top: 30px;
+}
+
+.user-profile {
+  background-color: lightblue;
+  padding: 10px;
+  border-radius: 10px;
+}
 
 .show-image {
   display: flex;
   justify-content: center;
+}
+
+.user-show-name-parent {
+  text-align: center;
+}
+
+.user-show-name {
+  padding: 5px;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 30px;
+  background-color: white;
+  color: rgb(94, 94, 94);
 }
 
 .edit-image {
@@ -376,13 +406,13 @@ a:hover {
 .balloon3-right-btm {
   position: relative;
   display: inline-block;
-  margin: 1.5em 15px 1.5em 0;
+  margin: 5px;
   padding: 0 5px;
   width: 400px;
   height: 150px;
   line-height: 90px;
   text-align: center;
-  color: #FFF;
+  color: rgb(94, 94, 94);
   font-size: 20px;
   font-weight: bold;
   background: rgba(248, 198, 122, 0.9);
@@ -390,32 +420,24 @@ a:hover {
   box-sizing: border-box;
 }
 
+.user-record-group {
+  font-weight: bold;
+  font-family: Times New Roman;
+  color: rgb(94, 94, 94);
+  font-size: 25px;
+}
+
 .user-show-btn-group {
   display: flex;
 }
 
 .user-show-btn {
-  margin: 20px;
+  margin: 5px;
 }
 
 .mini-group {
-  position: relative;
   float: right;
-  margin-left: 60px;
 }
-
-.user-show-mini {
-  position: absolute;
-  top: 200px;
-  right: -30px;
-}
-
-.user-show-mini-icon {
-  width: 150px;
-  height: 150px;
-  border-radius: 100px;
-  
-} 
 
 .text {
   font-size: 15px;
@@ -488,11 +510,6 @@ a:hover {
     width: 50%;
   }
 
-  // .bg-content-item {
-  //   margin: 20px;
-  // }
-
-
   .tweet-index-image-icon {
     width: 100px;
     height: 100px;
@@ -516,6 +533,10 @@ a:hover {
     width: 70%;
     padding: 10px 10px 0px 10px;
     margin: 20px 0 20px 30px;
+  }
+
+  .user-show-btn-group {
+    display: block;
   }
 
   .tweet-show-btn {
