@@ -1,42 +1,93 @@
-<div class="title-box">
-    <div class="page-title"><%= "nickname：#{@nickname}" %></div>
-</div>
+<div class="user-top-content mt-5">
+    <div class="m-2 mb-5">
+        <%= link_to edit_user_registration_path(@user) do %>
+            <button type="button" class="btn btn-success text-white nav-link">ユーザー情報編集</button>
+        <% end %>
+    </div>
 
-<div class="m-2 mb-5">
-    <%= link_to edit_user_registration_path(@user) do %>
-        <button type="button" class="btn btn-success text-white nav-link">ユーザー情報編集</button>
-    <% end %>
-</div>
+    <div class="d-flex justify-content-center">
+        <div class="user-profile">
+            <div class="show-image">
+                <% if @user.image.present? %>
+                    <img src=<%= @user.image %> class = "icon_image">
+                <% else %>
+                    <img src="/images/dog2.png" class = "icon_image">
+                <% end %>    
+            </div>
 
-<div class="show-image">
-    <% if @user.image.present? %>
-       <img src=<%= @user.image %> class = "icon_image">
-    <% else %>
-        <img src="/images/dog2.png" class = "icon_image">
-    <% end %>    
-</div>
-
-
-<br><br>
-
-
-<div>
-    <br>
-    <p class="user-record-text">
-        <%= "#{@nickname} さんのベストタイム" %>
-    <p>
-
-
-    <%= render "render/user/show_records"%>
-
+            <div class="user-show-name-parent">
+                <div class="user-show-name"><%= " #{@nickname} " %></div>
+            </div>
+        </div>    
+    </div> 
 
     <br><br>
 
-    <div class="responsive-d-flex">
+</div>
+
+<br>
+<div class="user-record-text ml-5">
+    <%= "#{@nickname} さんのベストタイム" %>
+</div>
+
+
+<div class="user-container p-2 pt-5 pb-3 rounded">
+    <div class="user-record-group">
+        <div class="d-flex align-items-center justify-content-around mb-2">
+            5km &nbsp;　 Record
+            <div>
+                <% if FiveKmRecord.where(user_id: params[:id]).present? %>
+                    　　　<%= "#{@five_km_record.minute[:name]}分" %>
+                    <%= "#{@five_km_record.second[:name]}秒" %>
+                <% end %>  
+            </div>
+            <div></div><div></div><div></div>
+        </div>     
+        
+        <div class="d-flex align-items-center justify-content-around mb-2">
+            10km 　Record
+            <div>
+                <% if TenKmRecord.where(user_id: params[:id]).present? %>
+                    　　　<%= "#{@ten_km_record.minute[:name]}分" %>
+                    <%= "#{@ten_km_record.second[:name]}秒" %>
+                <% end %>
+            </div>
+            <div></div><div></div><div></div>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-around mb-2">
+            Half &nbsp;　 Record&nbsp;
+            <div>
+                <% if HalfRecord.where(user_id: params[:id]).present? %>
+                    <%= "#{@half_record.hour[:name]}時間" %>
+                    <%= "#{@half_record.minute[:name]}分" %>
+                    <%= "#{@half_record.second[:name]}秒" %>
+                <% end %>
+            </div>
+            <div></div><div></div><div></div>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-around mb-2">
+            Full &nbsp;&nbsp;　 Record&nbsp;
+            <div>
+                <% if FullRecord.where(user_id: params[:id]).present? %>
+                    <%= "#{@full_record.hour[:name]}時間" %>
+                    <%= "#{@full_record.minute[:name]}分" %>
+                    <%= "#{@full_record.second[:name]}秒" %>
+                <% end %>
+            </div>
+            <div></div><div></div><div></div>
+        </div>
+    </div>
+    
+
+    <br><br>
+
+    <div class="d-flex justify-content-around">
         <div class="user-show-btn-group">
             <div class="user-show-btn">
                 <%= link_to user_vdots_path(@user) do %>
-                    <button type="button" class="btn btn-success text-white nav-link">VDOT</button>
+                    <button type="button" class="btn btn-success bg-info border-none text-white nav-link">練習</button>
                 <% end %>
             </div>
             <% if user_signed_in? && @user.id == current_user.id %>
@@ -55,7 +106,7 @@
 
                 <div class="user-show-btn">
                     <%= link_to edit_record_path do %>
-                        <button type="button" class="btn btn-success text-white nav-link">削除</button>
+                        <button type="button" class="btn btn-success bg-warning border-none text-white nav-link">削除</button>
                     <% end %>
                 </div>
 
@@ -64,34 +115,26 @@
 
         <div class="mini-group">
             <div class="balloon3-right-btm">
-                  <div class="text">
-                    <div class="text-top">ベストタイムを登録すると、VDOTページにて</div>
+                  <div class="text f-f-monospace">
+                    <div class="text-top">ベストタイムを登録すると、練習ページにて</div>
                     <div class="text-center">ベストタイムがどれくらいのレベルか確認できます</div>
-                    <div class="text-bottom">練習の目安ペースも見れますよ！</div>
+                    <div class="text-bottom">また、練習の目安ペースも表示されます</div>
                   </div>
-            </div>
-            <div class="user-show-mini">
-                <img src="/images/dog1.png" class = "user-show-mini-icon">
             </div>
         </div>
 
     </div>
 
-</div>
+    <br>
 
+    <div class="titles">&nbsp;<%= @nickname %> さんの投稿一覧</div>
+    
+    <br>
 
-<br><br><br><br><br><br>
+    
+    <%= render "render/tweets"%>  
 
-<div class="title-box">
-    <div class="page-title"><%= @nickname %>さんの投稿一覧</div>
-</div>
-<br>
+      
+    <br>
 
-<div>
-    <% @tweets.each do |tweet| %>
-        <div class="bg-content-item p-2 mt-3 rounded">
-            <%= link_to "#{tweet.content}", tweet_path(tweet.id), class: "link" %>
-        </div>
-        <br>
-    <% end %>
 </div>

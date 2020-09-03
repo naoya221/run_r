@@ -1,20 +1,21 @@
+<div class="vdot-container f-f-monospace">
 
-
-<%= render "render/vdot/graph" %>
-
-
-
-
-<%= render "render/vdot/users_vdot" %>
+  <%= render "render/graph" %>
 
 
 
-<br><br><br>
+
+  <%= render "render/users_vdot" %>
 
 
 
-<%= render "render/vdot/records_paces" %>
+  <br><br><br>
 
+
+
+  <%= render "render/records_paces" %>
+
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -23,7 +24,7 @@
 
   <script type="text/javascript">
     const lineChartData = {
-        labels : ["", "", "", "" ],
+        labels : ["　　　　5km：<%= @vdot_record_five.vdot %>", "10km：<%= @vdot_record_ten.vdot %>", "ハーフ：<%= @vdot_record_half.vdot %>", " フル：<%= @vdot_record_full.vdot %>" ],
         datasets : [
           {
               label: "緑データ",
@@ -37,14 +38,14 @@
                       <%= @vdot_record_ten.vdot %>,
                       <%= @vdot_record_half.vdot %>,
                       <%= @vdot_record_full.vdot %> ]       // 各点の値
-                          
           },
         ]
     }
 
     window.onload = function(){
         const ctx = document.getElementById("graph-area").getContext("2d");
-        window.myLine = new Chart(ctx).Line(lineChartData,{
+        window.myLine = new Chart(ctx
+        ).Line(lineChartData,{
         responsive : true
         });
     };

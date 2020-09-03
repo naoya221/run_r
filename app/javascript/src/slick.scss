@@ -120,28 +120,26 @@
 
 // 以下カスタマイズ
 
-.slick-slide img {
+.slider {
     height: 40vw;
-    width: 70vh;
+    width: 50vw;
     max-height: 400px;
     max-width: 500px;
-    margin:0 auto;
+}
+
+.slick-slide img {
+    height: 40vw;
+    width: 50vw;
+    max-height: 400px;
+    max-width: 500px;
   }
 
 @media (max-width: 800px) {
 
-    .slick-slide img {
-        height: 40vh; //ポイント1
-        width: 50vh;
-        }
+    
 
-  }
+}
 
   @media (max-width: 480px) {
 
-    .slick-slide img {
-        height: 70vw; //ポイント1
-        width: 70vw;
-        }
-
-  }
+}

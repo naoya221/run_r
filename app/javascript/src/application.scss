@@ -8,98 +8,425 @@
   box-sizing: border-box;
 }
 
-a:hover {
-  text-decoration: none;
-}
-
-.back-ground {
- background: url("/images/3664950_m.png");
- height: 100%;
- background-size: cover;
- padding-bottom: 50px;
-}
-
-.linear-gray {
-  background-image: linear-gradient(
-    -45deg,
-    rgba(255,255,255,0) 0%, rgba(255,255,255,0.0) 25%,
-    rgba(255,255,255,0.4) 25%, rgba(255,255,255,0.4) 50%,
-    rgba(255,255,255,0) 50%, rgba(255,255,255,0.0) 75%,
-    rgba(255,255,255,0.4) 75%, rgba(255,255,255,0.4) 100%
-  );
-  background-size: 10px 10px;
-  background-repeat: repeat;
-}
-
-.linear-gray {
-  background-color: lightgray;
-}
-
-.page-title {
-  color: white;
-  display: inline-block;
-  font-size: 30px;
-  margin: 0; 
-  padding: 0;
-}
-
-.title-box{
-  display: inline-block;
-  padding: 0.5em 1em;
-  margin: 2em 0;
-  color: #474747;
-  background: rgb(10, 61, 6);
-  border-left: double 7px #e09e0d;
-  border-right: double 7px #e09e0d;
-}
-
-.content {
-  position: relative;
-  padding: 1em 2em;
-  border-top: solid 2px rgb(161, 125, 84);
-  border-bottom: solid 2px rgb(161, 125, 84);
-
-}
-
-.content:before, .content:after {
-  content: '';
-  position: absolute;
-  top: -7px;
-  width: 2px;
-  height: -webkit-calc(100% + 14px);
-  height: calc(100% + 14px);
-  background-color: rgb(161, 125, 84);
-}
-
-.content:before {
-  left: 7px;
-}
-
-.content:after {
-  right: 7px;
-}
 
 a {
   font-family: MS UI Gothic;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .btn-lg {
   font-family: Times New Roman;
 }
 
+.f-f-monospace {
+  font-family: monospace;
+}
+
+.border-none {
+  border: none;
+}
+
+.titles {
+  background: linear-gradient(transparent 30%, rgb(247, 200, 71));
+  display: inline-block;
+  color: rgb(70, 69, 69);
+  display: inline-block;
+  font-size: 40px;
+  font-family: monospace;
+  margin-bottom: 30px;
+}
+
+.flash-message{
+  display: inline-block;
+  color: white;
+  background-color: orange;
+  padding: 1em;
+  border-radius: 10px;
+  font-weight: bold;
+  z-index: 10;
+  margin-top: 75px;
+}
+
+// トップページ
+
+.back-ground {
+  height: 100%;
+  background-color: rgb(228, 247, 222);
+  padding-bottom: 50px;
+ }
+
+.slide-content {
+  height: 480px;
+  width: 100vw;
+  background-color: rgb(255, 255, 255);
+  margin-top: 40px;
+}
+
+.slide-image {
+  position: relative;
+}
+
+.slide-title {
+  position: absolute;
+  top: 60px;
+  left: 45px;
+  z-index: 10;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 5px;
+  margin: 5px;
+  
+}
+
+.slide-text {
+  margin-top: 45px;
+  margin-left: 10px;
+}
+
+.slide-text h4 {
+  background: linear-gradient(transparent 30%, rgb(247, 200, 71));
+  display: inline-block;
+}
+
+
+.tweet-index-container {
+  padding: 10px;
+}
+
+.tweet-index-content-size {
+  max-width: 360px
+}
+
+.bg-tweet-index-content {
+  padding: 5px;
+  background-color: lightblue;
+  margin-bottom: 20px;
+}
+
+.place-image {
+  width: 27vh;
+  height: 25vh;
+}
+
+.tweet-index-image-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 60px;
+  margin: 10px 0;
+}
+
+.tweet-index-content {
+  width: 15vh;
+  height: 30vh;
+}
+
+.tweet-index-place {
+  background-color: rgb(253, 211, 169);
+  display: inline-block;
+  padding: 5px 30px;
+
+}
+
+.tweet-index-text {
+  padding: 10px 10px 0 10px;
+  margin: 0 0 5px 15px;
+  width: 90%;
+}
+
+
+// 投稿詳細ページ
+
+.tweet-show-container {
+  padding-top: 100px;
+}
+
+.tweet-show-image {
+  width: 90vw;
+  height: 60vw;
+  max-width: 850px;
+  max-height: 500px;
+}
+
+.tweet-show-place-name {
+  padding: 10px;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.tweet-show-profile {
+  text-align: center;
+  display: inline-block;
+  padding: 30px;
+}
+
+.tweet-show-profile-bg {
+  background-color: white;
+  padding: 10px 5px 5px;
+  
+}
+
+.tweet-show-image-icon {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
+
+.tweet-show-btn {
+  display: flex;
+  margin-top: 30px;
+}
+
+.tweet-show-place-texts {
+  background-color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 30px 20px 20px;
+}
+
+.map {
+  width: 60vw;
+  height: 35vw;
+  background-color: rgb(238, 147, 147);
+  margin: 30px 20px 20px;
+ }
+ 
+.message {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+
+// ユーザー詳細ページ
+
+.user-container {
+  background-color: rgb(228, 247, 222);
+}
+
+.user-top-content {
+  background-color: rgb(228, 247, 222);
+  padding-top: 30px;
+}
+
+.user-profile {
+  background-color: rgb(146, 227, 241);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.show-image {
+  display: flex;
+  justify-content: center;
+}
+
+.user-show-name-parent {
+  text-align: center;
+}
+
+.user-show-name {
+  padding: 5px;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 30px;
+  background-color: white;
+  color: rgb(94, 94, 94);
+}
+
+.icon_image {
+  width: 300px;
+  height: 300px;
+  border-radius: 200px;
+  object-fit: cover; //タテヨコ比を変えないままトリミング
+}
+
+.user-record-text {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 5px;
+  /* 背景グラデーションを指定・幅を 200% にしておく */
+  background: linear-gradient(to right, rgb(255, 174, 0) 0%, rgb(253, 202, 90) 14.28%, rgb(248, 224, 171) 28.56%, rgb(255, 255, 255) 42.85%, rgb(255, 255, 255) 57.14%, rgb(255, 228, 169) 71.42%, rgb(255, 204, 95) 85.71%, rgb(255, 174, 0) 100%) 0% center / 200% auto;
+  /* 背景画像を文字でマスクする */
+          background-clip: text;
+  -webkit-background-clip: text;
+  /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
+  -webkit-text-fill-color: transparent;
+  /* アニメーション指定 */
+  animation: example 4s linear infinite;
+}
+
+/* 背景の横位置をズラす */
+@keyframes example {
+  to { background-position-x: 200%; }
+}
+
+.balloon3-right-btm {     // 吹き出し
+  position: relative;
+  display: inline-block;
+  margin: 5px;
+  padding: 0 5px;
+  width: 400px;
+  height: 150px;
+  line-height: 90px;
+  text-align: center;
+  color: rgb(94, 94, 94);
+  font-size: 20px;
+  font-weight: bold;
+  background: rgba(248, 198, 122, 0.9);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.user-record-group {
+  font-weight: bold;
+  font-family: Times New Roman;
+  color: rgb(94, 94, 94);
+  font-size: 25px;
+}
+
+.user-show-btn-group {
+  display: flex;
+}
+
+.user-show-btn {
+  margin: 5px;
+}
+
+.mini-group {
+  float: right;
+}
+
+.text {
+  font-size: 15px;
+}
+
+.text-center {
+  margin-top: -55px;
+  padding: 0px;
+}
+
+.text-bottom {
+  margin-top: -55px;
+}
+
+
+// 新規登録・ログイン・ユーザー編集
+
+
+.user-forms-container {
+  background-color: rgb(228, 247, 222);
+  padding: 100px 20px 50px;
+}
+
+.user-forms-content {
+  display: inline-block;
+  color: rgb(75, 73, 73);
+  background-color: rgb(146, 227, 241);
+  border-radius: 50px;
+  padding: 20px;
+  text-align: center;
+}
+
+.edit-image {
+  padding: 30px;
+  text-align: center;
+
+}
+
+
+// ベストタイム登録・編集
+
+.record-container {
+  background-color: rgb(228, 247, 222);
+  min-height: 100vh;
+}
+
 .pulldown-time {
   color: white;
 }
 
-.time-box {
-  padding: 0.3em 0.5em;
-  margin: 2em 0;
-  font-weight: bold;
-  color: #38c9f5;
+.record-content {
+  display: inline-block;
+  background-color: rgb(122, 226, 245);
+  padding: 20px 25px 28px;
   border-radius: 10px;
-  border: solid 3px #38c9f5;
-  border-radius: 10px;
+  margin:20px 0 0 8px;
+  font-family: monospace;
 }
+
+.record-item{
+  margin-bottom: 0 15px 20px 15px;
+  font-size: large;
+}
+
+.responsive-d-flex {
+  display: flex;
+}
+
+// VDOTページ
+
+.vdot-container {
+  background-color: rgb(228, 247, 222);
+  padding: 100px 20px 20px;
+}
+
+.vdot-top-message {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.graph-area-parent {
+  display: flex;
+  justify-content: center;
+}
+
+#graph-area {
+  max-width: 800px;
+  max-height: 260px;
+  width: 50vw;
+  height: 15vw;
+  padding: 0 80px;
+  margin-bottom: 100px;
+}
+
+.vdot-dropdown {
+  float: right;
+  padding: 10px;
+}
+
+.dropdown-menu {
+  background-color: rgb(186, 234, 248);
+  margin: 350px 20px 0 0 ;
+}
+
+.dropdown-lists {
+  position: fixed;
+  top: 80px;
+  right: 40px;
+}
+
+.dropdown-i {
+  padding: 10px 0 10px 25px;
+  border-bottom: 1px solid rgb(161, 160, 159);
+}
+
+.vdot-content {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.pace-margin {
+  margin-left: 5px;
+}
+
 
 .vdot-number {
   display: inline-block;
@@ -111,17 +438,13 @@ a {
   margin-bottom: 1em;
 }
 
-.hide-list{
-  padding: 0.5em 2em;
+.hide-lists {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.flash-message{
-  display: inline-block;
-  color: white;
-  background-color: orange;
-  padding: 1em;
-  border-radius: 10px;
-  font-weight: bold;
+.hide-list{
+  padding: 5px 7px;
 }
 
 .header-item {
@@ -143,23 +466,10 @@ a {
 
 .bg-content-item {
   background-color: rgba(241, 249, 252, 0.9);
-  margin: 0 60px;
 }
 
 .content-item {
   background-color: rgba(241, 249, 252, 0.9);
-}
-
-
-
-.graph-bar{
-  display: flex;
-  justify-content: space-between;
-  color: rgb(32, 31, 28);
-  font-weight: bold;
-  border-radius: 4px;
-  padding: 10px;
-  margin: 0px 10px 30px 10px;
 }
 
 .vdot-b-t {
@@ -184,233 +494,11 @@ a {
 }
 
 
-.top-title {
-  font-family: Times New Roman;
-  font-size: 80px;
-  padding: 20px 0;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-
-  /* 背景グラデーションを指定・幅を 200% にしておく */
-  background: linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(250, 215, 170) 14.28%, rgb(247, 176, 85) 28.56%, rgb(255, 145, 0) 42.85%, rgb(255, 145, 0) 57.14%, rgb(248, 177, 85) 71.42%, rgb(248, 214, 170) 85.71%, rgb(255, 255, 255) 100%) 0% center / 200% auto;
-  
-  // /* 背景画像を文字でマスクする */
-  -webkit-background-clip: text;
-  
-  /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
-  -webkit-text-fill-color: transparent;
-  
-  /* アニメーション指定 */
-  animation: example 4s linear infinite;
-}
-
-/* 背景の横位置をズラす */
-@keyframes example {
-  to { background-position-x: 200%; }
-}
-
-.record-item{
-  margin-bottom: 20px;
-  font-size: large;
-}
-
-.responsive-d-flex {
-  display: flex;
-}
-
-.record-items{
-  display: flex;
-}
-
-.user-record-text {
-  color: white;
-  font-weight: bold;
-  font-size: 30px;
-  padding: 5px;
-
-  /* 背景グラデーションを指定・幅を 200% にしておく */
-  background: linear-gradient(to right, rgb(255, 174, 0) 0%, rgb(253, 202, 90) 14.28%, rgb(248, 224, 171) 28.56%, rgb(255, 255, 255) 42.85%, rgb(255, 255, 255) 57.14%, rgb(255, 228, 169) 71.42%, rgb(255, 204, 95) 85.71%, rgb(255, 174, 0) 100%) 0% center / 200% auto;
-  
-  /* 背景画像を文字でマスクする */
-          background-clip: text;
-  -webkit-background-clip: text;
-  
-  /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
-  -webkit-text-fill-color: transparent;
-  
-  /* アニメーション指定 */
-  animation: example 4s linear infinite;
-}
-
-.user-edit-title {
-  color: rgb(255, 207, 102);
-  background-color: rgba(88, 88, 88, 0.4);
-  border: 2px solid rgb(255, 207, 102);
-  border-radius: 10px;
-  display: inline-block;
-  font-size: 30px;
-  margin-top: 40px; 
-  padding: 5px;
-}
-
-.sign-login-bg {
-  color: rgb(255, 255, 255);
-  background-color: rgba(32, 31, 28, 0.3);
-  border-radius: 50px;
-  padding: 20px;
-  text-align: center;
-}
-
-.show-image {
-  display: flex;
-  justify-content: center;
-}
-
-.edit-image {
-  padding: 30px;
-  text-align: center;
-
-}
-
-.icon_image {
-  width: 300px;
-  height: 300px;
-  //サイズ指定
-  border-radius: 200px;
-  //画像を丸くする
-  object-fit: cover;
-  //タテヨコ比を変えないままトリミング
-}
-
-.tweet-index-image-icon {
-  width: 100px;
-  height: 100px;
-  border-radius: 60px;
-  margin: 10px 0;
-}
-
-.tweet-index-content {
-  padding: 70px;
-  margin: 0 80px 100px 80px;
-}
-
-.tweet-index-contents {
-  display: block;
-  width: 70%;
-  padding: 10px 10px 0 10px;
-  margin: 20px 0 20px 30px;
-}
-
-.tweet-show-image-icon {
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
-  margin: 10px 0;
-}
-
-.tweet-show-content {
-  display: block;
-  width: 70%;
-  padding: 20px 20px 0px 20px;
-  margin: 20px 0 20px 30px;
-}
-
-.tweet-show-flex {
-  display: flex;
-}
-
-.show-top-content {
-  border: 5px solid rgb(214, 158, 35);
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-// 吹き出し
-
-.balloon3-right-btm {
-  position: relative;
-  display: inline-block;
-  margin: 1.5em 15px 1.5em 0;
-  padding: 0 5px;
-  width: 400px;
-  height: 150px;
-  line-height: 90px;
-  text-align: center;
-  color: #FFF;
-  font-size: 20px;
-  font-weight: bold;
-  background: rgba(248, 198, 122, 0.9);
-  border-radius: 50%;
-  box-sizing: border-box;
-}
-
-.user-show-btn-group {
-  display: flex;
-}
-
-.user-show-btn {
-  margin: 20px;
-}
-
-.mini-group {
-  position: relative;
-  float: right;
-  margin-left: 60px;
-}
-
-.user-show-mini {
-  position: absolute;
-  top: 200px;
-  right: -30px;
-}
-
-.user-show-mini-icon {
-  width: 150px;
-  height: 150px;
-  border-radius: 100px;
-  
-} 
-
-.text {
-  font-size: 15px;
-}
-
-.text-center {
-  margin-top: -55px;
-  padding: 0px;
-}
-
-.text-bottom {
-  margin-top: -55px;
-}
-
-.vdot-dropdown {
-  float: right;
-  margin: 0 40px 40px 0px;
-  padding: 10px;
-}
-
-.dropdown-menu {
-  margin: 300px 40px 0 0;
-  background-color: rgb(248, 221, 186);
-}
-
-.dropdown-i {
-  margin: 10px 5px 30px 30px;
-}
-
-.record-item {
-  margin: 0 15px;
-  font-size: large;
-}
-
-
-
-
-
 
 
 // 以下レスポンシブ
+
+
 @media (max-width: 1000px) {
   .responsive-d-flex {
     display: inline-block;
@@ -442,11 +530,6 @@ a {
     width: 50%;
   }
 
-  .bg-content-item {
-    margin: 20px;
-  }
-
-
   .tweet-index-image-icon {
     width: 100px;
     height: 100px;
@@ -454,15 +537,9 @@ a {
     margin: 10px 0 20px 0;
   }
 
-  .tweet-index-content {
-    padding: 30px 0 20px 40px;
-    margin: 0 20px 20px 20px;
-  }
 
 
-  .tweet-index-contents {
-    margin:20px 0 30px 30px;
-  }
+ 
 
   .tweet-show-image-icon {
     width: 110px;
@@ -477,10 +554,15 @@ a {
     padding: 10px 10px 0px 10px;
     margin: 20px 0 20px 30px;
   }
-  
-  .tweet-show-flex {
-    display: flex;
+
+  .user-show-btn-group {
+    display: block;
   }
+
+  .tweet-show-btn {
+    display: block;
+  }
+
 
   .balloon3-right-btm {
     width: 300px;
@@ -537,14 +619,9 @@ a {
     margin: 10px;
   }
 
-  .tweet-index-content {
-    padding: 10px 0 20px 20px;
-  }
 
 
-  .tweet-index-contents {
-    margin:10px 0 10px 10px;
-  }
+ 
 
   .tweet-show-image {
     display: flex;
