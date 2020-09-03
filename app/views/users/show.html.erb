@@ -87,7 +87,7 @@
         <div class="user-show-btn-group">
             <div class="user-show-btn">
                 <%= link_to user_vdots_path(@user) do %>
-                    <button type="button" class="btn btn-success text-white nav-link">練習</button>
+                    <button type="button" class="btn btn-success bg-info border-none text-white nav-link">練習</button>
                 <% end %>
             </div>
             <% if user_signed_in? && @user.id == current_user.id %>
@@ -106,7 +106,7 @@
 
                 <div class="user-show-btn">
                     <%= link_to edit_record_path do %>
-                        <button type="button" class="btn btn-success text-white nav-link">削除</button>
+                        <button type="button" class="btn btn-success bg-warning border-none text-white nav-link">削除</button>
                     <% end %>
                 </div>
 
