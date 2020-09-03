@@ -316,10 +316,10 @@ a:hover {
 }
 
 
-// ユーザー編集
+// 新規登録・ログイン・ログアウト・ユーザー編集
 
 
-.user-edit-container {
+.user-forms-container {
   background-color: rgb(228, 247, 222);
   padding: 100px 20px 50px;
 }
@@ -399,7 +399,6 @@ a:hover {
 .vdot-dropdown {
   float: right;
   padding: 10px;
-  margin-top: 10px;
 }
 
 .dropdown-menu {
