@@ -1,19 +1,49 @@
-<div class="title-box">
-  <div class="page-title">　編集する　</div>
+<div class="forms-container">
+
+  <div class="titles">投稿編集ページ</div>
+
+  <br><br><br>
+
+  <div class="d-flex justify-content-center mt-5 mb-5">
+    <div class="forms-content p-5">
+
+      <%= form_with(model: @tweet, local: true) do |f| %>
+        <div class="m-3"> 
+          <%= f.label :場所の名前 %><br>
+          <%= f.text_field :place_name, placeholder: "例）〇〇公園", class: "w-75 p-2 mb-5 rounded" %>
+        </div> 
+
+        <div class="m-3"> 
+          <%= f.label :場所の画像  %><br>
+          <%= f.file_field :place_image, placeholder: "画像の url", class: "w-75 p-2 mb-5 rounded" %>
+        </div> 
+
+        <div class="m-3"> 
+        <%= f.label :場所の存在する県 %><br>
+          <%= f.text_field :prefecture, placeholder: "例）〇〇県", class: "w-75 p-2 mb-5 rounded" %>
+        </div> 
+
+        <div class="m-3"> 
+          <%= f.label :場所の存在する市  %><br>
+          <%= f.text_field :city, placeholder: "例）〇〇市", class: "w-75 p-2 mb-5 rounded" %>
+        </div> 
+
+        <div class="m-3"> 
+          <%= f.label :住所の続き %><br>
+          <%= f.text_field :address, placeholder: "例）〇〇区〇〇町１ー１", class: "w-75 p-2 mb-5 rounded" %>
+        </div> 
+
+        <div class="m-3"> 
+          <%= f.label :何かひとこと %><br>
+          <%= f.text_area :content, placeholder: "例）緑が多くて素敵な公園です", rows: "6", class: "w-75 p-2 mb-5 rounded" %>
+        </div> 
+
+        <div class="">
+            <%= f.submit "編集", class: "btn btn-success text-white btn-lg" %>
+        </div> 
+      <% end %>
+
+    </div>
+  </div>
+
 </div>
-
-<br><br><br>
-
-<div class="">
-  <%= form_with(model: @tweet, local: true) do |f| %>
-    <div class="">
-        <%= f.submit "編集", class: "btn btn-success text-white btn-lg" %>
-    </div> 
-    <br>
-    <div class=""> 
-      <%= f.text_area :content, placeholder: "編集したい文を入力してください", rows: "6", class: "w-75 p-2 rounded" %>
-    </div> 
-  <% end %>
-</div>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

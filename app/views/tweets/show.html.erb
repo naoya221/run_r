@@ -3,13 +3,13 @@
   <div class="">
     <div class="d-flex justify-content-center">
       <div class="">
-        <img src="/images/place1.png" class = "tweet-show-image">
+        <img src=<%= @tweet.place_image %> class = "tweet-show-image">
       </div>
     </div>
 
     <div class="tweet-show-place-name">
       <div class="">
-        大宮第三公園
+       <%= @tweet.place_name %>
       </div>  
     </div>
   </div>  
@@ -50,11 +50,15 @@
 
       <div>
         <div class="tweet-show-place-texts">
+          <strong>ひとこと ：　</strong>
           <%= @tweet.content %>
         </div>
 
         <div class="tweet-show-place-texts">
-            <strong>住所</strong>：埼玉県さいたま市見沼区
+            <strong>住所 ：　</strong>
+            <%= @tweet.prefecture %> 
+            <%= @tweet.city %> 
+            <%= @tweet.address %> 
         </div>
         <div class="map">
            MAP
@@ -64,9 +68,7 @@
     </div>  
 
     <div class="m-4">
-      <div class="title-box pb-0">
-        <div class="page-title pb-2">コメント一覧</div>
-      </div> 
+      <div class="titles p-2">コメント一覧</div>
 
       <br>
 
