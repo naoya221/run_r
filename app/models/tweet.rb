@@ -2,6 +2,8 @@ class Tweet < ApplicationRecord
   belongs_to :user
   has_many :messages,  dependent: :destroy
 
+  mount_uploader :place_image, ImageUploader
+
   with_options presence: true do 
     validates :content
     validates :prefecture,     null: false
