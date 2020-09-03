@@ -1,8 +1,8 @@
 class CreateTenKmRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :ten_km_records do |t|
-      t.integer   :minute_id
-      t.integer   :second_id
+      t.integer    :minute_id
+      t.integer    :second_id
       t.references :user,  null: false, foreign_key: true
       t.timestamps
     end

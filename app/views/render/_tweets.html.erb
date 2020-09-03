@@ -27,20 +27,20 @@
             </div>
 
             <div class="mt-1 ml-1 text-dark">
-              埼玉県<br>さいたま市
+              <%= "#{tweet.address}" %>
             </div>  
           </div>
           
             <div class="">
               <%= link_to tweet_path(tweet.id) do %>
-                <img src="/images/place1.png" class = "place-image link">
+                <img src=<%= tweet.place_image %> class = "place-image link">
               <% end %>  
             </div>
         </div>  
 
         <div class="d-flex justify-content-center mb-2">
           <div class="tweet-index-place rounded">
-            大宮第三公園
+            <%= "#{tweet.place_name}" %>
           </div>  
         </div> 
     

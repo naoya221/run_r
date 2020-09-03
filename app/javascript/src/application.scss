@@ -50,6 +50,20 @@ a:hover {
   margin-top: 75px;
 }
 
+.forms-container {
+  background-color: rgb(228, 247, 222);
+  padding: 100px 20px 50px;
+}
+
+.forms-content {
+  display: inline-block;
+  color: rgb(75, 73, 73);
+  background-color: rgb(146, 227, 241);
+  border-radius: 50px;
+  padding: 20px;
+  text-align: center;
+}
+
 // トップページ
 
 .back-ground {
@@ -317,21 +331,6 @@ a:hover {
 
 
 // 新規登録・ログイン・ユーザー編集
-
-
-.user-forms-container {
-  background-color: rgb(228, 247, 222);
-  padding: 100px 20px 50px;
-}
-
-.user-forms-content {
-  display: inline-block;
-  color: rgb(75, 73, 73);
-  background-color: rgb(146, 227, 241);
-  border-radius: 50px;
-  padding: 20px;
-  text-align: center;
-}
 
 .edit-image {
   padding: 30px;
