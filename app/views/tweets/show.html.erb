@@ -60,8 +60,8 @@
         </div>
 
 
-        
-        <div id='map' class="map">
+        <div id="map"></div>(地図を表示)
+        <%# <div id='map' class="map"> %>
         </div>
 
       </div>  
@@ -115,39 +115,41 @@
 </div>  
 
 
-<script type="text/javascript">
-  function initMap() {
-    // latitude,longitudeから位置を特定
-    var test ={lat: <%= @tweet.latitude %>, lng: <%= @tweet.longitude %>};
-    var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 15, 
-              center: test
-              });
-    var transitLayer = new google.maps.TransitLayer();
-    transitLayer.setMap(map);
-
-    var contentString = '住所：<%= @tweet.address %>';
-    var infowindow = new google.maps.InfoWindow({
-      content: contentString
-    });
-
-    //  Map上の指定した位置にピンを挿して表示する
-    var marker = new google.maps.Marker({
-                  position:test,
-                  map: map,
-                  title: contentString
-                 });
-
-     marker.addListener('click', function() {
-       infowindow.open(map, marker);
-     });
-  }
-</script>
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%=ENV['GOOGLE_MAP_API_KEY']%>&callback=initMap">
-</script>
-
-<style type="text/css">
-  #map { height: 400px;
-         width: 500px;}
+<style>
+#map{
+  height: 150px;
+  width:270px;
+}
 </style>
+
+<script type="text/javascript">
+    function initMap() {
+
+        var test ={lat: <%= @tweet.latitude %>, lng: <%= @tweet.longitude %>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 15,
+            center: test
+        });
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map);
+
+        var contentString = '住所：<%= @tweet.address %>';
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position:test,
+            map: map,
+            title: contentString
+        });
+
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+    }
+</script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+</script>
