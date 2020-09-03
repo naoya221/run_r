@@ -31,4 +31,3 @@ yarn-debug.log*
 .yarn-integrity
 
 /.env
-/config/initializers/carrierwave.rb
