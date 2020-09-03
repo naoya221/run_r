@@ -9,3 +9,4 @@ CarrierWave.configure do |config|
   config.fog_directory  = '32naoya25'
   config.cache_storage = :fog
 end
+ 
