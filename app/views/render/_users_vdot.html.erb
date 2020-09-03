@@ -1,280 +1,275 @@
+<div class="row">
 
-<%# 5km %>
-<% if @five_vdot.present? %>
-  <div class="content-item p-4 mb-3 rounded">
+  <div class="col-xl-6">
+    <%# 5km %>
+    <% if @five_vdot.present? %>
+      <div class="vdot-content content-item p-4 mb-3 rounded">
 
-      <div class="vdot-number">
-        <%= "vdot：#{@vdot_record_five.vdot}" %>
+          <div class="vdot-number">
+            <%= "vdot：#{@vdot_record_five.vdot}" %>
+          </div>
+
+          <br>
+          <p class="vdot-b-t"><strong>5kmの目指すべきタイムと、同レベルの他種目のタイムです！</strong></p>
+
+          <div class="vdot-five d-flex align-items-center justify-content-around"> 
+            5km　　　　　　　　　　　
+            <div>
+              <%= "#{@vdot_record_five.five_km_minute}分" %>
+              <%= "#{@vdot_record_five.five_km_second}秒" %>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-around">
+            10km　　　　　　　　　
+            <div>
+              <%= "#{@vdot_record_five.ten_km_minute}分" %>
+              <%= "#{@vdot_record_five.ten_km_second}秒" %>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-around">  
+            ハーフ
+            <div>
+              <%= "#{@vdot_record_five.half_hour}時間" %>
+              <%= "#{@vdot_record_five.half_minute}分" %>
+              <%= "#{@vdot_record_five.half_second}秒" %>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-around">  
+            フル　　　
+            <div>
+              <%= "#{@vdot_record_five.full_hour}時間" %>
+              <%= "#{@vdot_record_five.full_minute}分" %>
+              <%= "#{@vdot_record_five.full_second}秒" %>
+            </div>
+          </div>
+
+          <br>
+          <p class="vdot-b-t"><strong>5kmの記録を向上させるための練習目安ペースです！</strong></p>
+
+          <div class="d-flex justify-content-around">
+            <div>
+              <%= "J：#{@vdot_pace_five.e_pace} /km" %>
+            </div>
+            <div class="pace-margin">
+              <%= "M：#{@vdot_pace_five.m_pace} /km" %>
+            </div>
+            <div class="pace-margin">
+              <%= "T20：#{@vdot_pace_five.t_pace_twenty} /km" %>
+            </div>
+            <div class="pace-margin">
+              <%= "T40：#{@vdot_pace_five.t_pace_forty} /km" %>
+            </div>
+          </div>  
+
       </div>
+    <% end %>
+  </div>  
 
-      <br>
-      <p class="vdot-b-t">・5kmの目指すべきタイムと、同レベルの他種目のタイムです！</p>
+  <div class="col-xl-6">
+    <%# 10km %>
+    <% if @ten_vdot.present? %>
+      <div class="vdot-content content-item p-4 mb-3 rounded">
 
-      <div class="vdot-five d-flex align-items-center justify-content-between"> 
-        5km　　　&nbsp;&nbsp;
-        <div>
-          <%= "#{@vdot_record_five.five_km_minute}分" %>
-          <%= "#{@vdot_record_five.five_km_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
+          <div class="vdot-number">
+            <%= "vdot：#{@vdot_record_ten.vdot}" %>
+          </div>
+
+          <br>
+          <p class="vdot-b-t"><strong>10kmの目指すべきタイムと、同レベルの他種目のタイムです！</strong></p>
+
+          <div class="d-flex align-items-center justify-content-around"> 
+            5km　　　　　　　　　　　
+            <div>
+              <%= "#{@vdot_record_ten.five_km_minute}分" %>
+              <%= "#{@vdot_record_ten.five_km_second}秒" %>
+            </div>
+          </div>
+
+          <div class="vdot-ten d-flex align-items-center justify-content-around">
+            10km　　　　　　　　　
+            <div>
+              <%= "#{@vdot_record_ten.ten_km_minute}分" %>
+              <%= "#{@vdot_record_ten.ten_km_second}秒" %>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-around">  
+            ハーフ
+            <div>
+              <%= "#{@vdot_record_ten.half_hour}時間" %>
+              <%= "#{@vdot_record_ten.half_minute}分" %>
+              <%= "#{@vdot_record_ten.half_second}秒" %>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-around">  
+            フル　　　
+            <div>
+              <%= "#{@vdot_record_ten.full_hour}時間" %>
+              <%= "#{@vdot_record_ten.full_minute}分" %>
+              <%= "#{@vdot_record_ten.full_second}秒" %>
+            </div>
+          </div>
+
+          <br>
+          <p class="vdot-b-t"><strong>10kmの記録を向上させるための練習目安ペースです！</strong></p>
+
+          <div class="d-flex justify-content-around">
+            <div>
+              <%= "J：#{@vdot_pace_ten.e_pace} /km" %>
+            </div>
+            <div>
+              <%= "M：#{@vdot_pace_ten.m_pace} /km" %>
+            </div>
+            <div>
+              <%= "T20：#{@vdot_pace_ten.t_pace_twenty} /km" %>
+            </div>
+            <div>
+              <%= "T40：#{@vdot_pace_ten.t_pace_forty} /km" %>
+            </div>
+          </div>  
+
       </div>
+    <% end %>
+  </div>   
 
-      <div class="d-flex align-items-center justify-content-between">
-        10km　　&nbsp;&nbsp;&nbsp;&nbsp;
-        <div>
-          <%= "#{@vdot_record_five.ten_km_minute}分" %>
-          <%= "#{@vdot_record_five.ten_km_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
+  <div class="col-xl-6">
+    <%# half %>
+    <% if @half_vdot.present? %>
+      <div class="vdot-content content-item p-4 mb-3 rounded">
+
+          <div class="vdot-number">
+            <%= "vdot：#{@vdot_record_half.vdot}" %>
+          </div>
+
+          <br>
+          <p class="vdot-b-t"><strong>ハーフの目指すべきタイムと、同レベルの他種目のタイムです！</strong></p>
+
+          <div class="d-flex align-items-center justify-content-around"> 
+            5km　　　　　　　　　　　
+            <div>
+              <%= "#{@vdot_record_half.five_km_minute}分" %>
+              <%= "#{@vdot_record_half.five_km_second}秒" %>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-around">
+            10km　　　　　　　　　
+            <div>
+              <%= "#{@vdot_record_half.ten_km_minute}分" %>
+              <%= "#{@vdot_record_half.ten_km_second}秒" %>
+            </div>
+          </div>
+
+          <div class="vdot-half d-flex align-items-center justify-content-around">  
+            ハーフ
+            <div>
+              <%= "#{@vdot_record_half.half_hour}時間" %>
+              <%= "#{@vdot_record_half.half_minute}分" %>
+              <%= "#{@vdot_record_half.half_second}秒" %>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-around">  
+            フル　　　
+            <div>
+              <%= "#{@vdot_record_half.full_hour}時間" %>
+              <%= "#{@vdot_record_half.full_minute}分" %>
+              <%= "#{@vdot_record_half.full_second}秒" %>
+            </div>
+          </div>
+
+          <br>
+          <p class="vdot-b-t"><strong>ハーフの記録を向上させるための練習目安ペースです！</strong></p>
+
+          <div class="d-flex justify-content-around">
+            <div>
+              <%= "J：#{@vdot_pace_half.e_pace} /km" %>
+            </div>
+            <div>
+              <%= "M：#{@vdot_pace_half.m_pace} /km" %>
+            </div>
+            <div>
+              <%= "T20：#{@vdot_pace_half.t_pace_twenty} /km" %>
+            </div>
+            <div>
+              <%= "T40：#{@vdot_pace_half.t_pace_forty} /km" %>
+            </div>
+          </div>  
+
       </div>
+    <% end %>
+  </div>   
 
-      <div class="d-flex align-items-center justify-content-between">  
-        ハーフ
-        <div>
-          <%= "#{@vdot_record_five.half_hour}時間" %>
-          <%= "#{@vdot_record_five.half_minute}分" %>
-          <%= "#{@vdot_record_five.half_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
+  <div class="col-xl-6">
+    <%# full %>
+    <% if @full_vdot.present? %>
+      <div class="vdot-content content-item p-4 mb-3 rounded">
+
+          <div class="vdot-number">
+            <%= "vdot：#{@vdot_record_full.vdot}" %>
+          </div>
+
+          <br>
+          <p class="vdot-b-t"><strong>フルの目指すべきタイムと、同レベルの他種目のタイムです！</strong></p>
+
+          <div class="d-flex align-items-center justify-content-around"> 
+            5km　　　　　　　　　　　
+            <div>
+              <%= "#{@vdot_record_full.five_km_minute}分" %>
+              <%= "#{@vdot_record_full.five_km_second}秒" %>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-around">
+            10km　　　　　　　　　
+            <div>
+              <%= "#{@vdot_record_full.ten_km_minute}分" %>
+              <%= "#{@vdot_record_full.ten_km_second}秒" %>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-around">  
+            ハーフ
+            <div>
+              <%= "#{@vdot_record_full.half_hour}時間" %>
+              <%= "#{@vdot_record_full.half_minute}分" %>
+              <%= "#{@vdot_record_full.half_second}秒" %>
+            </div>
+          </div>
+
+          <div class="vdot-full d-flex align-items-center justify-content-around">  
+            フル　　　
+            <div>
+              <%= "#{@vdot_record_full.full_hour}時間" %>
+              <%= "#{@vdot_record_full.full_minute}分" %>
+              <%= "#{@vdot_record_full.full_second}秒" %>
+            </div>
+          </div>
+
+          <br>
+          <p class="vdot-b-t"><strong>フルの記録向上させるための練習目安ペースです！</strong></p>
+
+          <div class="d-flex justify-content-around">
+            <div>
+              <%= "J：#{@vdot_pace_full.e_pace} /km" %>
+            </div>
+            <div>
+              <%= "M：#{@vdot_pace_full.m_pace} /km" %>
+            </div>
+            <div>
+              <%= "T20：#{@vdot_pace_full.t_pace_twenty} /km" %>
+            </div>
+            <div>
+              <%= "T40：#{@vdot_pace_full.t_pace_forty} /km" %>
+            </div>
+          </div>  
+
       </div>
+    <% end %>
+  </div>   
 
-      <div class="d-flex align-items-center justify-content-between">  
-        フル&nbsp;&nbsp;&nbsp;
-        <div>
-          <%= "#{@vdot_record_five.full_hour}時間" %>
-          <%= "#{@vdot_record_five.full_minute}分" %>
-          <%= "#{@vdot_record_five.full_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <br>
-      <p class="vdot-b-t">・5kmの記録を向上させるための練習目安ペースです！</p>
-
-      <div class="d-flex justify-content-between ">
-        <div>
-          <%= "J：#{@vdot_pace_five.e_pace} /km" %>
-        </div>
-        <div>
-          <%= "M：#{@vdot_pace_five.m_pace} /km" %>
-        </div>
-        <div>
-          <%= "T20：#{@vdot_pace_five.t_pace_twenty} /km" %>
-        </div>
-        <div>
-          <%= "T40：#{@vdot_pace_five.t_pace_forty} /km" %>
-        </div>
-      </div>  
-
-  </div>
-<% end %>
-
-<%# 10km %>
-<% if @ten_vdot.present? %>
-  <div class="content-item p-4 mb-3 rounded">
-
-      <div class="vdot-number">
-        <%= "vdot：#{@vdot_record_ten.vdot}" %>
-      </div>
-
-      <br>
-      <p class="vdot-b-t">・10kmの目指すべきタイムと、同レベルの他種目のタイムです！</p>
-
-      <div class="d-flex align-items-center justify-content-between"> 
-        5km　　　&nbsp;&nbsp;
-        <div>
-          <%= "#{@vdot_record_ten.five_km_minute}分" %>
-          <%= "#{@vdot_record_ten.five_km_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <div class="vdot-ten d-flex align-items-center justify-content-between">
-        10km　　&nbsp;&nbsp;&nbsp;&nbsp;
-        <div>
-          <%= "#{@vdot_record_ten.ten_km_minute}分" %>
-          <%= "#{@vdot_record_ten.ten_km_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <div class="d-flex align-items-center justify-content-between">  
-        ハーフ
-        <div>
-          <%= "#{@vdot_record_ten.half_hour}時間" %>
-          <%= "#{@vdot_record_ten.half_minute}分" %>
-          <%= "#{@vdot_record_ten.half_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <div class="d-flex align-items-center justify-content-between">  
-        フル&nbsp;&nbsp;&nbsp;
-        <div>
-          <%= "#{@vdot_record_ten.full_hour}時間" %>
-          <%= "#{@vdot_record_ten.full_minute}分" %>
-          <%= "#{@vdot_record_ten.full_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <br>
-      <p class="vdot-b-t">・10kmの記録を向上させるための練習目安ペースです！</p>
-
-      <div class="d-flex justify-content-between ">
-        <div>
-          <%= "J：#{@vdot_pace_ten.e_pace} /km" %>
-        </div>
-        <div>
-          <%= "M：#{@vdot_pace_ten.m_pace} /km" %>
-        </div>
-        <div>
-          <%= "T20：#{@vdot_pace_ten.t_pace_twenty} /km" %>
-        </div>
-        <div>
-          <%= "T40：#{@vdot_pace_ten.t_pace_forty} /km" %>
-        </div>
-      </div>  
-
-  </div>
-<% end %>  
-
-<%# half %>
-<% if @half_vdot.present? %>
-  <div class="content-item p-4 mb-3 rounded">
-
-      <div class="vdot-number">
-        <%= "vdot：#{@vdot_record_half.vdot}" %>
-      </div>
-
-      <br>
-      <p class="vdot-b-t">・ハーフの目指すべきタイムと、同レベルの他種目のタイムです！</p>
-
-      <div class="d-flex align-items-center justify-content-between"> 
-        5km　　　&nbsp;&nbsp;
-        <div>
-          <%= "#{@vdot_record_half.five_km_minute}分" %>
-          <%= "#{@vdot_record_half.five_km_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <div class="d-flex align-items-center justify-content-between">
-        10km　　&nbsp;&nbsp;&nbsp;&nbsp;
-        <div>
-          <%= "#{@vdot_record_half.ten_km_minute}分" %>
-          <%= "#{@vdot_record_half.ten_km_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <div class="vdot-half d-flex align-items-center justify-content-between">  
-        ハーフ
-        <div>
-          <%= "#{@vdot_record_half.half_hour}時間" %>
-          <%= "#{@vdot_record_half.half_minute}分" %>
-          <%= "#{@vdot_record_half.half_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <div class="d-flex align-items-center justify-content-between">  
-        フル&nbsp;&nbsp;&nbsp;
-        <div>
-          <%= "#{@vdot_record_half.full_hour}時間" %>
-          <%= "#{@vdot_record_half.full_minute}分" %>
-          <%= "#{@vdot_record_half.full_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <br>
-      <p class="vdot-b-t">・ハーフの記録を向上させるための練習目安ペースです！</p>
-
-      <div class="d-flex justify-content-between ">
-        <div>
-          <%= "J：#{@vdot_pace_half.e_pace} /km" %>
-        </div>
-        <div>
-          <%= "M：#{@vdot_pace_half.m_pace} /km" %>
-        </div>
-        <div>
-          <%= "T20：#{@vdot_pace_half.t_pace_twenty} /km" %>
-        </div>
-        <div>
-          <%= "T40：#{@vdot_pace_half.t_pace_forty} /km" %>
-        </div>
-      </div>  
-
-  </div>
-<% end %>  
-
-<%# full %>
-<% if @full_vdot.present? %>
-  <div class="content-item p-4 mb-3 rounded">
-
-      <div class="vdot-number">
-        <%= "vdot：#{@vdot_record_full.vdot}" %>
-      </div>
-
-      <br>
-      <p class="vdot-b-t">・フルの目指すべきタイムと、同レベルの他種目のタイムです！</p>
-
-      <div class="d-flex align-items-center justify-content-between"> 
-        5km　　　&nbsp;&nbsp;
-        <div>
-          <%= "#{@vdot_record_full.five_km_minute}分" %>
-          <%= "#{@vdot_record_full.five_km_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <div class="d-flex align-items-center justify-content-between">
-        10km　　&nbsp;&nbsp;&nbsp;&nbsp;
-        <div>
-          <%= "#{@vdot_record_full.ten_km_minute}分" %>
-          <%= "#{@vdot_record_full.ten_km_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <div class="d-flex align-items-center justify-content-between">  
-        ハーフ
-        <div>
-          <%= "#{@vdot_record_full.half_hour}時間" %>
-          <%= "#{@vdot_record_full.half_minute}分" %>
-          <%= "#{@vdot_record_full.half_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <div class="vdot-full d-flex align-items-center justify-content-between">  
-        フル&nbsp;&nbsp;&nbsp;
-        <div>
-          <%= "#{@vdot_record_full.full_hour}時間" %>
-          <%= "#{@vdot_record_full.full_minute}分" %>
-          <%= "#{@vdot_record_full.full_second}秒" %>
-        </div>
-        <div></div><div></div><div></div>
-      </div>
-
-      <br>
-      <p class="vdot-b-t">・フルの記録向上させるための練習目安ペースです！</p>
-
-      <div class="d-flex justify-content-between ">
-        <div>
-          <%= "J：#{@vdot_pace_full.e_pace} /km" %>
-        </div>
-        <div>
-          <%= "M：#{@vdot_pace_full.m_pace} /km" %>
-        </div>
-        <div>
-          <%= "T20：#{@vdot_pace_full.t_pace_twenty} /km" %>
-        </div>
-        <div>
-          <%= "T40：#{@vdot_pace_full.t_pace_forty} /km" %>
-        </div>
-      </div>  
-
-  </div>
-<% end %>  
+</div>      

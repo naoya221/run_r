@@ -21,6 +21,10 @@ a:hover {
   font-family: Times New Roman;
 }
 
+.f-f-monospace {
+  font-family: monospace;
+}
+
 .titles {
   background: linear-gradient(transparent 30%, rgb(247, 200, 71));
   display: inline-block;
@@ -29,6 +33,17 @@ a:hover {
   font-size: 40px;
   font-family: monospace;
   margin-bottom: 30px;
+}
+
+.flash-message{
+  display: inline-block;
+  color: white;
+  background-color: orange;
+  padding: 1em;
+  border-radius: 10px;
+  font-weight: bold;
+  z-index: 10;
+  margin-top: 75px;
 }
 
 // トップページ
@@ -83,7 +98,6 @@ a:hover {
 }
 
 .bg-tweet-index-content {
-  // height: 35vh;
   padding: 5px;
   background-color: lightblue;
   margin-bottom: 20px;
@@ -118,6 +132,7 @@ a:hover {
   margin: 0 0 5px 15px;
   width: 90%;
 }
+
 
 // 投稿詳細ページ
 
@@ -155,7 +170,6 @@ a:hover {
   width: 200px;
   height: 200px;
   border-radius: 100px;
-  // margin: 20px;
 }
 
 .tweet-show-btn {
@@ -182,8 +196,8 @@ a:hover {
   margin-bottom: 20px;
   border: 1px solid black;
   border-radius: 5px;
-
 }
+
 
 // ユーザー詳細ページ
 
@@ -333,6 +347,10 @@ a:hover {
   min-height: 100vh;
 }
 
+.pulldown-time {
+  color: white;
+}
+
 .record-content {
   display: inline-block;
   background-color: rgb(122, 226, 245);
@@ -353,19 +371,65 @@ a:hover {
 
 // VDOTページ
 
-.pulldown-time {
-  color: white;
+.vdot-container {
+  background-color: rgb(228, 247, 222);
+  padding: 100px 20px 20px;
 }
 
-.time-box {
-  padding: 0.3em 0.5em;
-  margin: 2em 0;
-  font-weight: bold;
-  color: #38c9f5;
-  border-radius: 10px;
-  border: solid 3px #38c9f5;
-  border-radius: 10px;
+.vdot-top-message {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 20px;
 }
+
+.graph-area-parent {
+  display: flex;
+  justify-content: center;
+}
+
+#graph-area {
+  max-width: 800px;
+  max-height: 260px;
+  width: 50vw;
+  height: 15vw;
+  padding: 0 80px;
+  margin-bottom: 100px;
+}
+
+.vdot-dropdown {
+  float: right;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.dropdown-menu {
+  background-color: rgb(248, 221, 186);
+  margin: 350px 20px 0 0 ;
+
+}
+
+.dropdown-lists {
+  position: fixed;
+  top: 80px;
+  right: 40px;
+}
+
+.dropdown-i {
+  // margin: 10px 5px 30px 30px;
+  padding: 10px 0 10px 25px;
+  border-bottom: 1px solid rgb(161, 160, 159);
+}
+
+.vdot-content {
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.pace-margin {
+  margin-left: 5px;
+}
+
 
 .vdot-number {
   display: inline-block;
@@ -377,19 +441,13 @@ a:hover {
   margin-bottom: 1em;
 }
 
-.hide-list{
-  padding: 0.5em 2em;
+.hide-lists {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.flash-message{
-  display: inline-block;
-  color: white;
-  background-color: orange;
-  padding: 1em;
-  border-radius: 10px;
-  font-weight: bold;
-  z-index: 10;
-  margin-top: 75px;
+.hide-list{
+  padding: 5px 7px;
 }
 
 .header-item {
@@ -417,16 +475,6 @@ a:hover {
   background-color: rgba(241, 249, 252, 0.9);
 }
 
-.graph-bar{
-  display: flex;
-  justify-content: space-between;
-  color: rgb(32, 31, 28);
-  font-weight: bold;
-  border-radius: 4px;
-  padding: 10px;
-  margin: 0px 10px 30px 10px;
-}
-
 .vdot-b-t {
   border-top: 2px solid #f79235;
   padding-top: 5px;
@@ -448,29 +496,12 @@ a:hover {
   background-color: gold;
 }
 
-.vdot-dropdown {
-  float: right;
-  margin: 0 40px 40px 0px;
-  padding: 10px;
-}
-
-.dropdown-menu {
-  margin: 300px 40px 0 0;
-  background-color: rgb(248, 221, 186);
-}
-
-.dropdown-i {
-  margin: 10px 5px 30px 30px;
-}
-
-
-
-
-
 
 
 
 // 以下レスポンシブ
+
+
 @media (max-width: 1000px) {
   .responsive-d-flex {
     display: inline-block;
