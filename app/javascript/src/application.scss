@@ -37,6 +37,8 @@ a:hover {
   font-size: 40px;
   font-family: monospace;
   margin-bottom: 30px;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .flash-message{
@@ -52,7 +54,8 @@ a:hover {
 
 .forms-container {
   background-color: rgb(228, 247, 222);
-  padding: 100px 20px 50px;
+  padding: 80px 20px 50px;
+  text-align: center;
 }
 
 .forms-content {
@@ -61,7 +64,6 @@ a:hover {
   background-color: rgb(146, 227, 241);
   border-radius: 50px;
   padding: 20px;
-  text-align: center;
 }
 
 // トップページ
@@ -499,10 +501,6 @@ a:hover {
 
 @media (max-width: 800px) {
 
-  .slide-image {
-    margin: 0 auto;
-  }
-
   .slide-text {
     display: block;
     margin: 10px auto;
@@ -589,7 +587,6 @@ a:hover {
     text-align: center;
   }
 
-
   .slide-text h4 {
     display: inline-block;
     font-size: 25px;
@@ -599,6 +596,19 @@ a:hover {
     font-size: 13px;
     display: block;
     margin: 10px auto;
+  }
+
+  .forms-container {
+    padding: 80px 20px 50px;
+    text-align: center;
+  }
+
+  .forms-content {
+    padding: 10px;
+  }
+
+  .forms-content {
+    padding: 0;
   }
   
   .responsive-d-flex {
