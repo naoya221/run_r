@@ -8,10 +8,10 @@ class Tweet < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   with_options presence: true do 
-    validates :place_name,     null: false
+    validates :place_name,     null: false,   length: { maximum: 16 }
     validates :place_image,    null: false
     validates :content,        null: false,   length: { maximum: 100 }
-    validates :address,        null: false
+    validates :address,        null: false,   length: { maximum: 30 }
     validates :user
   end
 
