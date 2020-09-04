@@ -122,10 +122,15 @@
 }
 </style>
 
-<script type="text/javascript">
-    function initMap() {
 
-        var test ={lat: <%= @tweet.latitude %>, lng: <%= @tweet.longitude %>};
+
+
+
+<script type="text/javascript">
+
+
+    function initMap() {
+        var test ={lat: 37.0173, lng: 140.861};
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
             center: test
@@ -148,8 +153,11 @@
             infowindow.open(map, marker);
         });
     }
+    
+    
 </script>
 
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+
+<script 
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer>
 </script>
