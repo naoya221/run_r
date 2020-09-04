@@ -67,33 +67,13 @@ a:hover {
 // トップページ
 
 .back-ground {
-  height: 100%;
   background-color: rgb(228, 247, 222);
   padding-bottom: 50px;
  }
 
 .slide-content {
-  height: 480px;
-  width: 100vw;
   background-color: rgb(255, 255, 255);
   margin-top: 40px;
-}
-
-.slide-image {
-  position: relative;
-}
-
-.slide-title {
-  position: absolute;
-  top: 60px;
-  left: 45px;
-  z-index: 10;
-  color: white;
-  font-weight: bold;
-  font-size: 30px;
-  padding: 5px;
-  margin: 5px;
-  
 }
 
 .slide-text {
@@ -104,15 +84,15 @@ a:hover {
 .slide-text h4 {
   background: linear-gradient(transparent 30%, rgb(247, 200, 71));
   display: inline-block;
+  font-size: 30px;
 }
 
-
-.tweet-index-container {
-  padding: 10px;
+.tweet-btn {
+  margin: 0 0 70px 30px;
 }
 
 .tweet-index-content-size {
-  max-width: 360px
+  max-width: 335px
 }
 
 .bg-tweet-index-content {
@@ -122,8 +102,8 @@ a:hover {
 }
 
 .place-image {
-  width: 27vh;
-  height: 25vh;
+  width: 25vh;
+  height: 23vh;
 }
 
 .tweet-index-image-icon {
@@ -519,8 +499,17 @@ a:hover {
 
 @media (max-width: 800px) {
 
-  .top-title {
+  .slide-image {
+    margin: 0 auto;
+  }
+
+  .slide-text {
     display: block;
+    margin: 10px auto;
+  }
+  
+  .tweet-btn {
+    text-align: center;
   }
 
   .responsive-d-flex {
@@ -531,8 +520,6 @@ a:hover {
     display: inline-block;
   }
 
-  
-
   .record-item {
     margin: 0 15px;
     font-size: large;
@@ -540,18 +527,7 @@ a:hover {
 
   .signup-form {
     width: 50%;
-  }
-
-  .tweet-index-image-icon {
-    width: 100px;
-    height: 100px;
-    border-radius: 60px;
-    margin: 10px 0 20px 0;
-  }
-
-
-
- 
+  } 
 
   .tweet-show-image-icon {
     width: 110px;
@@ -605,11 +581,26 @@ a:hover {
 
 @media (max-width: 480px) {
 
-
-  .top-title {
-    display: block;
+  .slide-image {
+    margin-left: 0;
   }
 
+  .tweet-btn {
+    text-align: center;
+  }
+
+
+  .slide-text h4 {
+    display: inline-block;
+    font-size: 25px;
+  }  
+  
+  .slide-text {
+    font-size: 13px;
+    display: block;
+    margin: 10px auto;
+  }
+  
   .responsive-d-flex {
     display: inline-block;
   }
@@ -630,10 +621,6 @@ a:hover {
   .bg-content-item {
     margin: 10px;
   }
-
-
-
- 
 
   .tweet-show-image {
     display: flex;
