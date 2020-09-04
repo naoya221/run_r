@@ -400,20 +400,25 @@ a:hover {
   padding: 10px;
 }
 
+.vdot-left-btn {
+  margin-right: 20px;
+}
+
 .dropdown-menu {
   background-color: rgb(186, 234, 248);
   margin: 350px 20px 0 0 ;
 }
 
-.dropdown-lists {
-  position: fixed;
-  top: 80px;
-  right: 40px;
-}
-
-.dropdown-i {
+.dropdown-list {
   padding: 10px 0 10px 25px;
   border-bottom: 1px solid rgb(161, 160, 159);
+}
+
+.dropdown-vdot {
+  padding: 10px 0 10px 25px;
+  margin-bottom: 160px;
+  margin-top: 0;
+  max-height: 0;
 }
 
 .vdot-content {
