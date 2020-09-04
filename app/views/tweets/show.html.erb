@@ -126,7 +126,7 @@
 
     function initMap() {
 
-        var test ={ lat: 37.0173, lng: 140.861 };
+        var test ={ lat: <%= @tweet.latitude %>, lng: <%= @tweet.longitude %> };
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 15,
             center: test
