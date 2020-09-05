@@ -8,7 +8,6 @@
   box-sizing: border-box;
 }
 
-
 a {
   font-family: MS UI Gothic;
 }
@@ -66,7 +65,9 @@ a:hover {
   padding: 20px;
 }
 
+
 // トップページ
+
 
 .back-ground {
   background-color: rgb(228, 247, 222);
@@ -139,15 +140,14 @@ a:hover {
 
 // 投稿詳細ページ
 
+
 .tweet-show-container {
   padding-top: 100px;
 }
 
-.tweet-show-image {
-  width: 90vw;
-  height: 60vw;
-  max-width: 850px;
-  max-height: 500px;
+.tweet-show-place-image { 
+  width: 550px;
+  height: 350px;
 }
 
 .tweet-show-place-name {
@@ -157,48 +157,108 @@ a:hover {
   font-weight: bold;
 }
 
-.tweet-show-profile {
-  text-align: center;
-  display: inline-block;
-  padding: 30px;
+.tweet-show-middle-container {
+  padding: 0 20px;
 }
 
-.tweet-show-profile-bg {
-  background-color: white;
-  padding: 10px 5px 5px;
-  
-}
-
-.tweet-show-image-icon {
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
-}
-
-.tweet-show-btn {
+.tweet-show-middle-contents {
   display: flex;
-  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.tweet-show-left-contents {
+  height: 440px;
+}
+
+.tweet-show-left-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 50px;
 }
 
 .tweet-show-place-texts {
   background-color: white;
   padding: 10px;
+  font-size: large;
   border-radius: 4px;
-  margin: 30px 20px 20px;
+  height: 150px;
+  margin-right: 0;
+  margin-top: 50px;
+  max-width: 500px;
 }
 
-.map {
-  width: 60vw;
-  height: 35vw;
-  background-color: rgb(238, 147, 147);
-  margin: 30px 20px 20px;
- }
- 
+.tweet-show-profile {
+  padding-left: 40px;
+  text-align: center;
+}
+
+.tweet-user {
+  background-color: white;
+  padding: 10px 20px 14px;
+  border-radius: 5px;
+  margin: 10px 0px 0 10px;
+  display: inline-block;
+  color: rgb(58, 57, 57);
+  font-weight: bold;
+}
+
+.tweet-show-image-icon {
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  margin-bottom: 20px;
+}
+
+.tweet-show-btn {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.tweet-show-delete-btn {
+  margin-right: 15px;
+  margin-top: 48px;
+}
+
+// .prefecture {
+  // margin-right: 10px;
+// }
+
+.address {
+  background-color: white;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 15px;
+  padding: 10px 0;
+  width: 500px;
+  max-height:50px;
+  font-size: 18px;
+}
+
+#map{
+  height: 440px;
+  width: 500px;
+  margin-top: 30px;
+}
+
+// .message-group {
+//  text-align: start;
+// }
+
+
+.massage-form {
+  margin: 20px 0 40px;
+  max-width: 600px;
+  width: 50vw;
+}
+
 .message {
   padding: 10px;
-  margin-bottom: 20px;
+  margin: 30px;
   border: 1px solid black;
   border-radius: 5px;
+  max-width: 500px;
 }
 
 
@@ -349,9 +409,11 @@ a:hover {
   font-family: monospace;
 }
 
-.record-item{
-  margin-bottom: 0 15px 20px 15px;
+.record-item {
+  margin-bottom: 0 15px 25px 15px;
   font-size: large;
+  padding: 15px;
+  margin-bottom: 13px;
 }
 
 .responsive-d-flex {
@@ -494,9 +556,59 @@ a:hover {
 
 
 @media (max-width: 1000px) {
+
   .responsive-d-flex {
     display: inline-block;
   }
+
+
+  .tweet-show-middle-contents {
+    display: block;
+  }
+
+  .tweet-show-left-contents {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+  }
+
+  .tweet-show-left-content {
+    justify-content: space-around;
+    margin-top: 0;
+  }
+
+  .tweet-show-profile {
+    margin-top: 10px;
+  }
+
+  .tweet-show-place-texts {
+    margin: 10px auto;
+    width: 95vw;
+    max-width: 1000px;
+  }
+
+  .address {
+    margin: 20px auto;
+    width: 95vw;
+  }
+
+  #map {
+    margin: 30px auto 0 auto;
+    width: 95vw;
+    height: 450px;
+  }
+
+  .tweet-show-btn {
+    display: block;
+    text-align: center;
+  }
+
+  .tweet-show-delete-btn {
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+
+
 }
 
 @media (max-width: 800px) {
@@ -514,14 +626,66 @@ a:hover {
     display: inline-block;
   }
 
+  .tweet-show-place-image { 
+    width: 400px;
+    height: 250px;
+  }
+
+  .tweet-show-place-name {
+    font-size: 25px;
+  }
+
+  .tweet-show-middle-contents {
+    display: block;
+  }
+
+  .tweet-show-left-contents {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+  }
+  
+
+  .tweet-show-left-content {
+    justify-content: space-around;
+    margin-top: 0;
+  }
+
+  .tweet-show-profile {
+    margin-bottom: 10px;
+  }
+
+  .tweet-show-place-texts {
+    margin: 10px auto;
+    width: 92vw;
+    max-width: 1000px;
+  }
+
+  .address {
+    margin: 20px auto;
+    width: 92vw;
+  }
+
+  #map {
+    margin: 30px auto 0 auto;
+    width: 92vw;
+    height: 400px;
+  }
+
+  .massage-form {
+    margin: 20px 0 40px;
+    max-width: 600px;
+    width: 50vw;
+  }
+
   .record-items{
     display: inline-block;
   }
 
-  .record-item {
-    margin: 0 15px;
-    font-size: large;
-  }
+  // .record-item {
+  //   margin: 0 15px;
+  //   font-size: large;
+  // }
 
   .signup-form {
     width: 50%;
@@ -541,14 +705,16 @@ a:hover {
     margin: 20px 0 20px 30px;
   }
 
+  .tweet-show-btn {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
   .user-show-btn-group {
     display: block;
   }
-
-  .tweet-show-btn {
-    display: block;
-  }
-
 
   .balloon3-right-btm {
     width: 300px;
@@ -610,6 +776,20 @@ a:hover {
   .forms-content {
     padding: 0;
   }
+
+  .tweet-show-place-image { 
+    width: 300px;
+    height: 200px;
+  }
+
+  .tweet-show-place-name {
+    font-size: 20px;
+  }
+
+  .tweet-show-btn {
+    display: inline-block;
+    margin-top: 30px;
+  }
   
   .responsive-d-flex {
     display: inline-block;
@@ -619,9 +799,30 @@ a:hover {
     display: inline-block;
   }
 
+  #map {
+    margin: 20px auto;
+    width: 90vw;
+    height: 300px;
+  }
+
+  .tweet-show-place-texts {
+    margin: 10px auto;
+    width: 90vw;
+  }
+
+  .address {
+    margin: 20px auto;
+    width: 90vw;
+  }
+
+  .massage-form {
+    height: 80px;
+  }
+
   .record-item{
-    margin: 20px 0;
-    font-size: large;
+   padding: 5px;
+   margin-top: 10px;
+   margin-bottom: 0;
   }
 
   .signup-form {
@@ -647,9 +848,8 @@ a:hover {
   
   .tweet-show-content {
     display: block;
-    width: 90%;
-    padding: 10px 10px 0px 10px;
-    margin: 20px; 
+    padding: 10px 0;
+    margin: 10px; 
   }
 
   .tweet-show-flex {

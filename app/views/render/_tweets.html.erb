@@ -7,7 +7,7 @@
 
           <%= link_to user_path(tweet.user_id), class: "link" do %>
             <div class="tweet-index-content">
-              <div class="bg-white mr-1">
+              <div class="bg-white mr-1 rounded">
                 <div class="tweet-index-image"> 
                     <% if tweet.user.image.present? %>
                       <img src=<%= tweet.user.image %> class = "tweet-index-image-icon ml-1">
@@ -33,7 +33,7 @@
           
           <div class="">
             <%= link_to tweet_path(tweet.id) do %>
-              <img src=<%= tweet.place_image %> class = "place-image link">
+              <img src=<%= tweet.place_image %> class = "place-image link rounded">
             <% end %>  
           </div>
          
