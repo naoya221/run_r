@@ -1,31 +1,31 @@
 <div class="row justify-content-around f-f-monospace">
   <% @tweets.each do |tweet| %>
 
-    <div class="tweet-index-content-size col-md-6 col-lg-4 ">
+    <div class="tweet-index-content-size col-md-6 col-lg-4">
       <div class="bg-tweet-index-content">
-        <div class="d-flex text-white">
+        <div class="d-flex">
 
           <%= link_to user_path(tweet.user_id), class: "link" do %>
             <div class="tweet-index-content">
-              <div class="bg-white mr-1 rounded">
+              <div class="mr-1 rounded">
                 <div class="tweet-index-image"> 
                     <% if tweet.user.image.present? %>
-                      <img src=<%= tweet.user.image %> class = "tweet-index-image-icon ml-1">
+                      <img src=<%= tweet.user.image %> class = "tweet-index-image-icon">
                     <% else %>
-                      <img src="/images/dog2.png" class = "tweet-index-image-icon ml-1">
+                      <img src="/images/dog2.png" class = "tweet-index-image-icon">
                     <% end %>
                 </div>
 
-                <div class="ml-3">
+                <div class="">
                     <% if user_signed_in? != true || current_user.id != tweet.user_id %>
-                      <div class="text-dark ml-2"><strong><%= "#{tweet.user.nickname}さん" %></strong></div>
+                      <div class="tweet-index-nickname"><strong><%= "#{tweet.user.nickname}" %></strong></div>
                     <% else %>
-                      <div class="text-dark ml-2"><strong>あなた</strong></div>
+                      <div class="tweet-index-nickname"><strong>あなた</strong></div>
                     <% end %>
                 </div>
               </div>
 
-              <div class="mt-1 ml-1 text-dark">
+              <div class="tweet-index-address">
                 <%= "#{tweet.address}" %>
               </div>  
             </div>
