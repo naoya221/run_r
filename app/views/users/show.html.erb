@@ -35,7 +35,7 @@
 
 <div class="user-record-group">
     <div class="d-flex align-items-center justify-content-around mb-2">
-        5km &nbsp;　 Record
+        5km &nbsp; Record
         <div>
             <% if FiveKmRecord.where(user_id: params[:id]).present? %>
                 　　　<%= "#{@five_km_record.minute[:name]}分" %>
@@ -46,7 +46,7 @@
     </div>     
     
     <div class="d-flex align-items-center justify-content-around mb-2">
-        10km 　Record
+        10km Record
         <div>
             <% if TenKmRecord.where(user_id: params[:id]).present? %>
                 　　　<%= "#{@ten_km_record.minute[:name]}分" %>
@@ -57,7 +57,7 @@
     </div>
 
     <div class="d-flex align-items-center justify-content-around mb-2">
-        Half &nbsp;　 Record&nbsp;
+        Half &nbsp; Record&nbsp;
         <div>
             <% if HalfRecord.where(user_id: params[:id]).present? %>
                 <%= "#{@half_record.hour[:name]}時間" %>
@@ -69,7 +69,7 @@
     </div>
 
     <div class="d-flex align-items-center justify-content-around mb-2">
-        Full &nbsp;&nbsp;　 Record&nbsp;
+        Full &nbsp;&nbsp; Record&nbsp;
         <div>
             <% if FullRecord.where(user_id: params[:id]).present? %>
                 <%= "#{@full_record.hour[:name]}時間" %>
@@ -129,7 +129,7 @@
 
 <div class="user-bottom-container p-2 pt-5 pb-3 rounded">
 
-    <div class="titles">&nbsp;<%= @nickname %> さんの投稿一覧</div>
+    <div class="titles user-show-title">&nbsp;<%= @nickname %> さんの投稿一覧</div>
     
     <br>
 

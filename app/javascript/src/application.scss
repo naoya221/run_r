@@ -331,7 +331,6 @@ a:hover {
 }
 
 .balloon3-right-btm {     // 吹き出し
-  position: relative;
   display: inline-block;
   margin: 5px;
   padding: 0 5px;
@@ -343,8 +342,7 @@ a:hover {
   font-size: 20px;
   font-weight: bold;
   background: rgba(248, 198, 122, 0.9);
-  border-radius: 50%;
-  box-sizing: border-box;
+  border-radius: 30px;
 }
 
 .user-record-group {
@@ -860,6 +858,14 @@ a:hover {
     margin: 10px 5px;
   }
 
+
+.balloon3-right-btm {     // 吹き出し
+  width: 250px;
+  height: 150px;
+  border-radius: 30px;
+}
+
+
   .mini-group {
     margin-left: 5px;
   }
@@ -868,6 +874,10 @@ a:hover {
     position: absolute;
     top: 170px;
     right: 0px;
+  }
+
+  .user-show-title {
+    font-size: 25px;
   }
 
   .dropdown {
