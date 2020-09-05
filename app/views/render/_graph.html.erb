@@ -1,15 +1,13 @@
-
-
 <% if user_signed_in? %>
     
     <% if current_user.id == @user.id %>
-        <div class="titles">あなた にオススメの練習</div>
+        <div class="titles vdot-title">あなた にオススメの練習</div>
         <% unless @five_vdot.present? && @ten_vdot.present? && @half_vdot.present? && @full_vdot.present? %>
           <div class="vdot-top-message">ベストタイムを登録するとオススメの練習が表示されます ！</div>
         <% end %>
         <br>
     <% else %>
-        <div class="titles"><%= "#{@user.nickname} さんにオススメの練習" %></div>
+        <div class="titles vdot-title"><%= "#{@user.nickname} さんにオススメの練習" %></div>
         <% unless @five_vdot.present? && @ten_vdot.present? && @half_vdot.present? && @full_vdot.present? %>
           <div class="vdot-top-message">ベストタイムを登録するとオススメの練習が表示されます ！</div>
         <% end %>
@@ -17,7 +15,7 @@
     <% end %>
 
 <% elsif @user.present? %>
-    <div class="titles"><%= "#{@user.nickname}さんのvdot" %></div>
+    <div class="titles vdot-title"><%= "#{@user.nickname}さんのvdot" %></div>
     <br>
 <% end %>
 
