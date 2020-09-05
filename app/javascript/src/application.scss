@@ -113,12 +113,22 @@ a:hover {
   width: 100px;
   height: 100px;
   border-radius: 60px;
-  margin: 10px 0;
+  margin-bottom: 5px;
 }
 
 .tweet-index-content {
-  width: 15vh;
-  height: 30vh;
+  text-align: center;
+}
+
+.tweet-index-nickname {
+  font-size: 12px;
+  color: black;
+}
+
+.tweet-index-address {
+  margin: 10px;
+  color: black;
+  font-size: 10px;
 }
 
 .tweet-index-place {
