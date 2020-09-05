@@ -3,7 +3,7 @@
   <div class="">
     <div class="d-flex justify-content-center">
       <div class="">
-        <img src=<%= @tweet.place_image %> class = "tweet-show-image">
+        <img src=<%= @tweet.place_image %> class = "tweet-show-place-image">
       </div>
     </div>
 
@@ -14,80 +14,91 @@
     </div>
   </div>  
 
-  <div class="back-ground">
+  <div class="back-ground tweet-show-middle-container pb-5">
 
-    <div class="d-flex justify-content-around">
-      <div class="tweet-show-profile"> 
-        <div class="tweet-show-profile-bg"> 
-          <% if @tweet.user.image.present? %>
-            <img src=<%= @tweet.user.image %> class = "tweet-show-image-icon">
-          <% else %>
-              <img src="/images/dog2.png" class = "tweet-show-image-icon">
+    <div class="tweet-show-middle-contents">
+
+      <div class="tweet-show-left-contents">      
+
+        <div class="tweet-show-left-content"> 
+
+          <%= link_to user_path(@tweet.user_id), class: "link" do %>
+            <div class="tweet-show-profile"> 
+              <div class="">
+                <% if @tweet.user.image.present? %>
+                  <img src=<%= @tweet.user.image %> class = "tweet-show-image-icon">
+                <% else %>
+                    <img src="/images/dog2.png" class = "tweet-show-image-icon">
+                <% end %> 
+              </div>    
+            
+              <div class="tweet-user mt-3 mb-0">
+                投稿者：<%= "#{@tweet.user.nickname}" %>
+              </div>    
+            </div>
           <% end %>   
-        
-          <div class="mt-3">
-            投稿者：
-            <%= link_to "#{@tweet.user.nickname}", user_path(@tweet.user_id), class: "link" %>
-          </div>
 
           <div class="tweet-show-btn">
             <% if user_signed_in? && current_user.id == @tweet.user_id %>
-              <div class="m-2"> 
+              <div class="tweet-show-edit-btn mt-5"> 
                 <%= link_to edit_tweet_path(@tweet.id) do %>
-                  <button type="button" class="btn btn-success text-white btn-lg">編集する</button>
+                  <button type="button" class="btn btn-success text-white btn-lg">編集</button>
                 <% end %>
               </div>    
             
-              <div class="m-2">
+              <div class="tweet-show-delete-btn ml-3">
                 <%= link_to tweet_path(@tweet.id), method: :delete do %>
-                  <button type="button" class="btn btn-success text-white btn-lg">削除する</button>
+                  <button type="button" class="btn btn-success text-white btn-lg">削除</button>
                 <% end %>
               </div>    
             <% end %>  
-          </div>      
-        </div>
-      </div>
+          </div> 
+           
+        </div>  
 
-      <div>
         <div class="tweet-show-place-texts">
-          <strong>ひとこと ：　</strong>
           <%= @tweet.content %>
         </div>
 
-        <div class="tweet-show-place-texts">
-            <strong>住所 ：　</strong>
-            <%= @tweet.address %> 
-        </div>
+      </div>    
 
 
-        <div id="map"></div>(地図を表示)
-        <%# <div id='map' class="map"> %>
-        </div>
 
-      </div>  
+     
+      <div class="address">
+        <strong>　　住所 ：　</strong>
+        <%= @tweet.address %> 
+      
+        <div id='map' class="map"></div>
 
-    </div>  
-
-    <div class="m-4 mt-0">
-      <div class="titles p-2">コメント一覧</div>
-
-      <br>
-
-      <% if user_signed_in? %>
-        <%= form_with url: tweet_messages_path(@tweet.id) do |f| %>
-        <div class="d-flex align-items-center">
-          <div class="w-50">
-            <%= f.text_area :text, placeholder: "コメントを入力", class: "p-2 w-100 rounded" %>
-          </div>  
-          <div class="record-item">
-            <%= f.submit "コメント", class: "btn btn-success text-white p-3 ml-5" %>
-          </div>
-        </div>  
-        <% end %>
-      <% end %>
+      </div>
     </div>
 
-    <div class="p-5">
+
+
+    <br>
+
+    <div class="message-group">
+      <div class="m-4 mt-5">
+        <div class="titles p-2 pr-3 mt-5">コメント一覧</div>
+
+        <br>
+
+        <% if user_signed_in? %>
+          <%= form_with url: tweet_messages_path(@tweet.id) do |f| %>
+          <div class="d-flex align-items-center">
+            <div class="">
+              <%= f.text_area :text, placeholder: "コメントを入力", class: "massage-form p-2 rounded" %>
+            </div>  
+            <div class="record-item">
+              <%= f.submit "コメント", class: "record-item btn btn-success text-white" %>
+            </div>
+          </div>  
+          <% end %>
+        <% end %>
+      </div>
+
+
       <div id='messages'>
         <% @messages.reverse_each do |message| %>
           <% if @tweet.id == message.tweet_id%>
@@ -108,22 +119,15 @@
           <% end %>  
         <% end %>
       </div>
-    </div>  
+   </div> 
+
 
 
   </div>
 </div>  
 
 
-<style>
-#map{
-  height: 150px;
-  width:270px;
-}
-</style>
-
 <script type="text/javascript">
-
     function initMap() {
 
         var test ={ lat: <%= @tweet.latitude %>, lng: <%= @tweet.longitude %> };
@@ -154,3 +158,4 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
 </script>
+

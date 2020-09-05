@@ -1,15 +1,13 @@
-
-
 <% if user_signed_in? %>
     
     <% if current_user.id == @user.id %>
-        <div class="titles">あなた にオススメの練習</div>
+        <div class="titles vdot-title">あなた にオススメの練習</div>
         <% unless @five_vdot.present? && @ten_vdot.present? && @half_vdot.present? && @full_vdot.present? %>
           <div class="vdot-top-message">ベストタイムを登録するとオススメの練習が表示されます ！</div>
         <% end %>
         <br>
     <% else %>
-        <div class="titles"><%= "#{@user.nickname} さんにオススメの練習" %></div>
+        <div class="titles vdot-title"><%= "#{@user.nickname} さんにオススメの練習" %></div>
         <% unless @five_vdot.present? && @ten_vdot.present? && @half_vdot.present? && @full_vdot.present? %>
           <div class="vdot-top-message">ベストタイムを登録するとオススメの練習が表示されます ！</div>
         <% end %>
@@ -17,7 +15,7 @@
     <% end %>
 
 <% elsif @user.present? %>
-    <div class="titles"><%= "#{@user.nickname}さんのvdot" %></div>
+    <div class="titles vdot-title"><%= "#{@user.nickname}さんのvdot" %></div>
     <br>
 <% end %>
 
@@ -26,23 +24,39 @@
     目安ペースの説明
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <%# <div class="dropdown-lists"> %>
-      <div class="dropdown-i">
+      <div class="dropdown-list">
         J ペース ：<br><br>軽いジョギングでのペース。<br>気分転換や体をほぐしたりと疲れを<br>取るような目的に。<br>ダイエットにもおすすめ。
       </div>
-      <div class="dropdown-i">
+      <div class="dropdown-list">
         M ペース ：<br><br>フルマラソン本番での目安ペース。<br>または、フルやハーフの練習として<br>20km前後の長い距離を走る時の目安に。<br>短い距離が得意な方や、フルマラソンを<br>走ったことがない方は＋10〜20<br>してください。
       </div>
-      <div class="dropdown-i">
+      <div class="dropdown-list">
         T-40 ペース ：<br><br>足の辛さよりも、呼吸が辛くなり<br>ペースダウンする人向けの目安ペース。<br>10kmのタイムを伸ばしたい人向け。<br>他の距離を重視する方でも必要に<br>応じて取り入れてください。
       </div>
-      <div class="dropdown-i">
+      <div class="dropdown-list">
         T-20 ペース ：<br><br>上記のT-40と同じ目的での<br>目安ペース。ただしこちらは,<br>より速いペースで20分間<br>走るので、5kmのタイムを伸ばしたい<br>人向け。10kmを重視する方でも必要に<br>応じて取り入れてください。<br>(ハーフやフルを重視する方は<br>上記のT-40の方をおすすめします)
       </div>
       <div class="mt-2 ml-4 btn btn-secondary">
         閉じる
       </div>
-    <%# </div>   %>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button class="vdot-dropdown vdot-left-btn btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    VDOTとは
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div class="dropdown-vdot">
+      走力レベルの指標です。<br>
+      数字が大きくなるほど走力が高いということになります。<br>
+      正式には「V-dot-O2max」（最大酸素摂取量)<br>
+      等サイトでは vdot 30〜54（フルマラソンのタイムが<br>
+      3時間〜5時間のレベル帯） まで取り扱っております。<br>
+      <div class="mt-3 btn btn-secondary">
+        閉じる
+      </div>
+     </div>
   </div>
 </div>
 

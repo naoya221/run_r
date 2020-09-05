@@ -10,50 +10,53 @@
     <p class="flash-message"><%= flash[:notice_tweet_edit] %></p>
   <% end %>
   
-  <div class="slide-content d-flex">
+  <div class="slide-content row justify-content-between">
 
-    <div class="slide-image">
-      <div class="slide-title">
-       <%# もうランニングに迷わない！ %>
-      </div> 
+    <div class="slide-image ">
       <ul class="slider mt-5">
         <li>
-          <img src="/images/place1-lg.png" alt="slick-img">
+          <img src="/images/place2.png" alt="slick-img">
+        </li>
+         <li>
+          <img src="/images/tweet-show.png" alt="slick-img">
         </li>
         <li>
-          <img src="/images/place2-lg.png" alt="slick-img">
+          <img src="/images/menu.png" alt="slick-img">
         </li>
         <li>
-          <img src="/images/place3-lg.png" alt="slick-img">
+          <img src="/images/map.png" alt="slick-img">
         </li>
       </ul>
     </div>
 
     <div class="slide-text">
       <h4>もうランニングで悩まない！</h4><br><br>
-      いつも近所でランニング、飽きてきてモチベーション上がらないなぁ。<br>
-      大会にエントリーしたけど何していいか分からない。<br>
-      ランニングのアプリ使ってるけど、◯kmを◯分かかって、<br>
-      1kmあたり◯秒ペース、これってどうなの？<br><br>
+      いつも近所でランニング、飽きた！<br>
+      大会にエントリーしたけど何していいの？<br>
+      ランニングのアプリ使ってるけど、<br>
+      ◯kmを◯分かかって、1kmあたり◯秒ペース、<br>
+      これってどうなの？<br><br>
       <strong>Run Record</strong> はこんな悩みを持つ方にぴったり！<br>
-      あなたの近所にある<strong>隠れたランニングコース</strong>が見つかるかもしれません。<br>
+      あなたの近所にある<strong>隠れたランニングコース</strong>が<br>
+      見つかるかもしれません。<br>
       お休みの日にちょっと遠出してみるのも良いでしょう。<br><br>
-      またどれくらいの距離・ペースで走っていいか分からない方、<br>
-      <strong>ベストタイムを登録</strong>するだけであなたの目的に<strong>最適なペース</strong>が表示されます。<br><br>
+      また、適切な練習がわからない方、<br>
+      <strong>ベストタイムを登録</strong>するだけであなたの目的に<strong><br>
+      最適なペース</strong>が距離別で表示されます。<br><br>
     </div>
+
+    <div></div>
 
   </div>  
 
   <br><br><br>
 
-  <div class="tweet-index-container">
-
     <div class="rounded">
 
       <% if user_signed_in? %>
         <%= link_to new_tweet_path  do %>
-          <p>
-            <button type="button" class="btn btn-success btn-lg">みんなにお気に入りコースを教えてあげよう！</button>
+          <p  class="tweet-btn">
+            <button type="button" class="btn btn-success btn-lg">お気に入りコースを<br>シェアしよう！</button>
           </p>
         <% end %>
       <% end %>
@@ -62,9 +65,7 @@
       <%= render "render/tweets"%> 
 
 
-    </div>
-
-  </div>   
+    </div> 
 
 </div>  
 

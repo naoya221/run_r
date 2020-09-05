@@ -128,18 +128,40 @@
 }
 
 .slick-slide img {
-    height: 40vw;
-    width: 50vw;
+    height: 35vw;
+    width: 45vw;
     max-height: 400px;
     max-width: 500px;
   }
 
 @media (max-width: 800px) {
 
-    
+.slider {
+    height: 400px;
+    width: 650px;
+
+}
+
+.slick-slide img {
+    height: 400px;
+    width: 650px;
+  
+
+    }
 
 }
 
   @media (max-width: 480px) {
+
+.slider {
+    height: 70vw;
+    width: 95vw;
+    
+}
+
+.slick-slide img {
+    height: 70vw;
+    width: 95vw;
+    }
 
 }
