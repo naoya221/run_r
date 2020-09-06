@@ -12,7 +12,7 @@ class Tweet < ApplicationRecord
       Tweet
         .where('place_name LIKE(?)', "%#{search}%")
         .or(Tweet.where('address LIKE(?)', "%#{search}%"))
-        .or(Tweet.where('address LIKE(?)', "%#{search}%"))
+        .or(Tweet.where('content LIKE(?)', "%#{search}%"))
     else
       Tweet.all
     end
