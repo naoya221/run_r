@@ -5,7 +5,7 @@ if (document.URL.match( /new/ ) && document.URL.match( /tweets/ ) || document.UR
     document.getElementById('preview').addEventListener('change', function(e){
 
       const imageContent = document.querySelector('img');
-      if (document.URL.match( /new/ ) && document.URL.match( /tweets/ )|| document.URL.match( /edit/ ) && document.URL.match( /tweets/ )){
+      if (document.URL.match( /edit/ ) && document.URL.match( /tweets/ )){
 
         if (imageContent){
           imageContent.remove();

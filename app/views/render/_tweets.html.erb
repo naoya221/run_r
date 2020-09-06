@@ -7,7 +7,7 @@
 
           <%= link_to user_path(tweet.user_id), class: "link" do %>
             <div class="tweet-index-content">
-              <div class="mr-1 rounded">
+              <div>
                 <div class="tweet-index-image"> 
                     <% if tweet.user.image.present? %>
                       <img src=<%= tweet.user.image %> class = "tweet-index-image-icon">
@@ -16,7 +16,7 @@
                     <% end %>
                 </div>
 
-                <div class="">
+                <div>
                     <% if user_signed_in? != true || current_user.id != tweet.user_id %>
                       <div class="tweet-index-nickname"><strong><%= "#{tweet.user.nickname}" %></strong></div>
                     <% else %>
