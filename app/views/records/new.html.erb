@@ -14,22 +14,23 @@
     <div class="p-5">
       <%= form_with url: user_five_km_records_path(@user), local: true do |f| %>
         <div class="pulldown-time mt-5">
-          <div class="titles">5kmのベストタイムを登録</div>
+          <div class="titles record-title">5kmのベストタイム</div>
           
           <br>
 
           <div class="record-content">
-            <div class="d-flex text-dark">
+            <div class="record-items text-dark">
               <div class="record-item mr-3 mt-3">
                 <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
               </div>
               <div class="record-item mr-5 mt-3">
                 <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
               </div>
-              <div class="record-item mt-3">
-                <%= f.submit "登録", class: "btn btn-success text-white" %>
-              </div>
             </div> 
+
+            <div class="mt-1">
+              <%= f.submit "登録", class: "record-btn btn btn-success text-white" %>
+            </div>
           </div>   
         </div>
       <% end %>
@@ -42,22 +43,23 @@
     <div class="p-5">
       <%= form_with url: user_ten_km_records_path(@user), local: true do |f| %>
         <div class="pulldown-time">
-          <div class="titles">10kmのベストタイムを登録</div>
+          <div class="titles record-title">10kmのベストタイム</div>
        
           <br>
 
           <div class="record-content">
-            <div class="d-flex text-dark">
+            <div class="record-items text-dark">
               <div class="record-item mr-3 mt-3">
                 <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
               </div>
               <div class="record-item mr-5 mt-3">
                 <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
               </div>
-              <div class="record-item mt-3">
-                <%= f.submit "登録", class: "btn btn-success text-white" %>
-              </div>
-            </div>  
+            </div>   
+
+            <div class="mt-1">
+              <%= f.submit "登録", class: "record-btn btn btn-success text-white" %>
+            </div>
           </div>  
         </div>
       <% end %>
@@ -70,12 +72,12 @@
     <div class="p-5">
       <%= form_with url: user_half_records_path(@user), local: true do |f| %>
         <div class="pulldown-time">
-          <div class="titles">ハーフマラソンのベストタイムを登録</div>
+          <div class="titles record-title">ハーフのベストタイム</div>
           
           <br>
 
           <div class="record-content">
-            <div class="d-flex text-dark">
+            <div class="record-items text-dark">
               <div class="record-item mr-3 mt-3">
                 <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
               </div>
@@ -85,10 +87,11 @@
               <div class="record-item mr-5 mt-3">
                 <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
               </div>
-              <div class="record-item mt-3">
-                <%= f.submit "登録", class: "btn btn-success text-white" %>
-              </div>
-            </div>  
+            </div> 
+
+            <div class="mt-1">
+              <%= f.submit "登録", class: "record-btn btn btn-success text-white" %>
+            </div>
           </div>  
         </div>
       <% end %>
@@ -101,12 +104,12 @@
     <div class="p-5">
       <%= form_with url: user_full_records_path(@user), local: true do |f| %>
         <div class="pulldown-time">
-          <div class="titles">フルマラソンのベストタイムを登録</div>
+          <div class="titles record-title">フルのベストタイム</div>
           
           <br>
 
           <div class="record-content">
-            <div class="d-flex text-dark">
+            <div class="record-items text-dark">
               <div class="record-item mr-3 mt-3">
                 <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
               </div>
@@ -116,10 +119,11 @@
               <div class="record-item mr-5 mt-3">
                 <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
               </div>
-              <div class="record-item mt-3">
-                <%= f.submit "登録", class: "btn btn-success text-white" %>
-              </div>
-            </div>  
+            </div> 
+
+            <div class="mt-1">
+              <%= f.submit "登録", class: "record-btn btn btn-success text-white" %>
+            </div> 
           </div>  
         </div>
       <% end %>
@@ -132,13 +136,15 @@
         HalfRecord.where(user_id:current_user.id).present?   &&
         FullRecord.where(user_id:current_user.id).present? %>
     <br><br>    
-    <div class="record-content mt-5 ml-4 p-5">
-      <h2 class="text-dark pb-5">全てのベストタイムを登録済みです！</h2>
-      <p>
-        <%= link_to user_path(current_user.id) do %>
-          <button type="button" class="btn btn-success btn-lg">マイページへ</button>
-        <% end %>  
-      </p>
+    <div class="record-content mt-5 ml-4 mr-4 p-5">
+      <div>
+        <h2 class="record-hide-text text-dark pb-5">全てのベストタイムを登録済みです！</h2>
+        <p>
+          <%= link_to user_path(current_user.id) do %>
+            <button type="button" class="btn btn-success btn-lg">マイページへ</button>
+          <% end %>  
+        </p>
+      </div>  
     </div>
   <% end %>  
   

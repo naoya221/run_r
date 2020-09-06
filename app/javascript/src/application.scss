@@ -421,12 +421,22 @@ a:hover {
 }
 
 .record-content {
-  display: inline-block;
+  display: flex;
   background-color: rgb(122, 226, 245);
   padding: 20px 25px 28px;
   border-radius: 10px;
   margin:20px 0 0 8px;
   font-family: monospace;
+  max-width: 700px;
+  align-items: center;
+}
+
+.record-hide-text {
+  font-size: 35px;
+ }
+
+.record-items {
+  display: flex;
 }
 
 .record-item {
@@ -711,8 +721,26 @@ a:hover {
     width: 50vw;
   }
 
+  .record-title {
+    font-size: 35px;
+  }
+
+  .record-content {
+    display: flex;
+    align-items: flex-end;
+    max-width: 450px;
+  }
+
+  .record-hide-text {
+   font-size: 21px;
+  }
+
   .record-items{
     display: inline-block;
+  }
+
+  .record-btn {
+    margin-bottom: 27px;
   }
 
   .signup-form {
@@ -867,11 +895,24 @@ a:hover {
     height: 80px;
   }
 
+  .record-content {
+    display: inline-block;
+    min-width: 250px;
+  }
+
+  .record-title {
+    font-size: 27px;
+  }
+
   .record-item{
    padding: 5px;
    margin-top: 10px;
    margin-bottom: 0;
   }
+
+  .record-hide-text {
+    font-size: 15px;
+   }
 
   .signup-form {
     width: 75%;
@@ -943,6 +984,11 @@ a:hover {
 
   .user-show-title {
     font-size: 25px;
+  }
+
+  .record-btn {
+    margin-top: 20px;
+    margin-left: 5px;
   }
 
   .vdot-title {
