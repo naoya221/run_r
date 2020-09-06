@@ -15,8 +15,11 @@
 
         <div class="m-3"> 
           <%= f.label :場所の画像  %><br>
-          <%= f.file_field :place_image, placeholder: "画像の url", class: "w-100 p-1 mb-5 rounded" %>
+          <%= f.file_field :place_image, id: "preview", class: "w-100 p-1 mb-5 rounded" %>
         </div> 
+
+        <img src=<%= @tweet.place_image %> class = "before_image">
+        <div id="image-list"></div>
 
         <div class="m-3"> 
           <%= f.label :住所（３０字以内） %><br>
