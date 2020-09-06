@@ -94,6 +94,20 @@ a:hover {
   margin: 0 0 70px 30px;
 }
 
+.search-input {
+  width: 40%;
+}
+
+.search-btn {
+  background-color: rgb(101, 190, 245);
+  color: white;
+  border-style: none;
+  padding: 9px 20px;
+  margin-left: 20px;
+  font-size: large;
+  border-radius: 5px;
+}
+
 .tweet-index-content-size {
   max-width: 340px;
 }
@@ -656,6 +670,10 @@ a:hover {
 
 @media (max-width: 800px) {
 
+  .slide-text h4 {
+    font-size: 35px;
+  }
+
   .slide-text {
     display: block;
     margin: 10px auto;
@@ -663,6 +681,14 @@ a:hover {
   
   .tweet-btn {
     text-align: center;
+  }
+
+  .search-form {
+    text-align: center;
+  }
+
+  .search-input {
+    width: 60%;
   }
 
   .responsive-d-flex {
@@ -833,6 +859,8 @@ a:hover {
     display: block;
     margin: 10px auto;
   }
+
+  
 
   .forms-container {
     padding: 80px 20px 50px;
