@@ -29,7 +29,7 @@ a:hover {
 }
 
 .titles {
-  background: linear-gradient(transparent 30%, rgb(247, 200, 71));
+  background: linear-gradient(transparent 20%, rgb(255, 215, 105));
   display: inline-block;
   color: rgb(70, 69, 69);
   display: inline-block;
@@ -134,7 +134,7 @@ a:hover {
 .tweet-index-place {
   background-color: rgb(253, 211, 169);
   display: inline-block;
-  padding: 5px 30px;
+  padding: 10px 30px 5px 30px;
   font-weight: bold;
   font-size: 15px;
   color: rgb(68, 67, 67);
@@ -168,7 +168,7 @@ a:hover {
 }
 
 .tweet-show-middle-container {
-  padding: 0 20px;
+  padding: 0 20px 200px 20px;
 }
 
 .tweet-show-middle-contents {
@@ -230,9 +230,17 @@ a:hover {
   margin-top: 48px;
 }
 
-// .prefecture {
-  // margin-right: 10px;
-// }
+.tweet-show-info {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+  color: rgb(94, 94, 94);
+  font-size: 20px;
+  font-weight: bold;
+  background: rgba(248, 198, 122, 0.9);
+  border-radius: 10px;
+}
 
 .address {
   background-color: white;
@@ -252,9 +260,9 @@ a:hover {
   margin-top: 30px;
 }
 
-// .message-group {
-//  text-align: start;
-// }
+.message-group {
+ padding-top: 10px;
+}
 
 
 .massage-form {
@@ -340,7 +348,7 @@ a:hover {
   to { background-position-x: 200%; }
 }
 
-.balloon3-right-btm {     // 吹き出し
+.balloon3-right-btm {
   display: inline-block;
   margin: 5px;
   padding: 0 5px;
@@ -595,6 +603,11 @@ a:hover {
 
   .tweet-show-profile {
     margin-top: 10px;
+    text-align: center;
+  }
+
+  .tweet-show-info {
+    margin-bottom: 50px;
   }
 
   .tweet-show-place-texts {
@@ -880,12 +893,17 @@ a:hover {
     margin: 10px 5px;
   }
 
+  .tweet-show-info {
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
 
-.balloon3-right-btm {     // 吹き出し
-  width: 250px;
-  height: 150px;
-  border-radius: 30px;
-}
+
+  .balloon3-right-btm {     // 吹き出し
+    width: 250px;
+    height: 150px;
+    border-radius: 30px;
+  }
 
 
   .mini-group {
