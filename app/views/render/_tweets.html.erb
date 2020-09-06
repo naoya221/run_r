@@ -1,3 +1,12 @@
+<div class="paginate-parent">
+  <div class="paginate">
+    <%= paginate @tweets %>
+  </div>
+ </div>    
+
+<br>
+
+
 <div class="row justify-content-around f-f-monospace">
   <% @tweets.each do |tweet| %>
 
@@ -52,4 +61,12 @@
     </div>
     
   <% end %>
+</div>  
+
+<br>
+
+<div class="paginate-parent">
+  <div class="paginate">
+    <%= paginate @tweets %>
+  </div>
 </div>  

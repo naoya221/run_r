@@ -113,6 +113,20 @@ a:hover {
   border-radius: 5px;
 }
 
+.paginate-parent {
+  text-align: center;
+}
+
+.paginate {
+  margin-left: 25px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  padding: 15px 20px 0;
+  border: 3px solid rgb(44, 185, 231);
+  border-radius: 5px;
+  display: inline-block;
+}
+
 .tweet-index-content-size {
   max-width: 340px;
 }
