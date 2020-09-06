@@ -21,8 +21,10 @@
 
         <div class="field  form-label mb-4">
           <%= f.label :プロフィール画像 %><br/>
-          　　　　　　　　　　　　　　<%= f.file_field :image %>
+          　　　　<%= f.file_field :image, id: "preview" %>
         </div>
+
+        <div id="image-list"></div>
 
 
         <div class="field form-label mb-4">
