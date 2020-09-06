@@ -9,9 +9,10 @@ class Tweet < ApplicationRecord
   
   def self.search(search)
     if search != ""
-      Tweet.where('place_name LIKE(?)', "%#{search}%")
-      Tweet.where('address LIKE(?)', "%#{search}%")
-      Tweet.where('content LIKE(?)', "%#{search}%")
+      Tweet
+        .where('place_name LIKE(?)', "%#{search}%")
+        .or(Tweet.where('address LIKE(?)', "%#{search}%"))
+        .or(Tweet.where('address LIKE(?)', "%#{search}%"))
     else
       Tweet.all
     end
