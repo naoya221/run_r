@@ -33,7 +33,7 @@
               </div>    
             
               <div class="tweet-user mt-3 mb-0">
-                投稿者：<%= "#{@tweet.user.nickname}" %>
+                <%= "#{@tweet.user.nickname}" %>
               </div>    
             </div>
           <% end %>   
@@ -51,7 +51,12 @@
                   <button type="button" class="btn btn-success text-white btn-lg">削除</button>
                 <% end %>
               </div>    
+            <% else %>  
+              <div class="tweet-show-info">
+                自分の投稿のみ<br>編集・削除できます
+              </div>
             <% end %>  
+
           </div> 
            
         </div>  
@@ -61,20 +66,14 @@
         </div>
 
       </div>    
-
-
-
      
       <div class="address">
         <strong>　　住所 ：　</strong>
-        <%= @tweet.address %> 
-      
+          <%= @tweet.address %> 
         <div id='map' class="map"></div>
-
       </div>
+
     </div>
-
-
 
     <br>
 
