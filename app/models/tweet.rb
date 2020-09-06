@@ -6,6 +6,16 @@ class Tweet < ApplicationRecord
   mount_uploader :place_image, ImageUploader
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+  
+  def self.search(search)
+    if search != ""
+      Tweet.where('place_name LIKE(?)', "%#{search}%")
+      Tweet.where('address LIKE(?)', "%#{search}%")
+      Tweet.where('content LIKE(?)', "%#{search}%")
+    else
+      Tweet.all
+    end
+  end
 
   with_options presence: true do 
     validates :place_name,     null: false,   length: { maximum: 16 }
