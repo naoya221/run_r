@@ -113,6 +113,15 @@ a:hover {
   border-radius: 5px;
 }
 
+.paginate-parent {
+  text-align: center;
+}
+
+.paginate {
+  display: inline-block;
+  font-size: 25px;
+}
+
 .tweet-index-content-size {
   max-width: 340px;
 }
@@ -865,7 +874,9 @@ a:hover {
     margin: 10px auto;
   }
 
-  
+  .paginate {
+    font-size: 15px;
+  }
 
   .forms-container {
     padding: 80px 20px 50px;
