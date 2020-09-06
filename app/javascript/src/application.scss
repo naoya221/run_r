@@ -262,7 +262,7 @@ a:hover {
 }
 
 .message-group {
- padding-top: 300px;
+ padding-top: 50px;
 }
 
 
@@ -846,10 +846,15 @@ a:hover {
   }
 
   .address {
-    margin: 20px auto 40px auto;
+    margin: 20px auto;
     width: 90vw;
     font-size: 10px;
   }
+
+  .message-group {
+    padding-top: 200px;
+   }
+   
 
   .massage-form {
     height: 80px;
@@ -955,5 +960,5 @@ a:hover {
     height: 35vw;
   }
 
-  
+
 }
