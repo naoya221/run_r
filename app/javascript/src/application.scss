@@ -95,7 +95,7 @@ a:hover {
 }
 
 .tweet-index-content-size {
-  max-width: 340px
+  max-width: 340px;
 }
 
 .bg-tweet-index-content {
@@ -129,6 +129,7 @@ a:hover {
   margin: 10px;
   color: black;
   font-size: 10px;
+  height: 50px;
 } 
 
 .tweet-index-place {
@@ -252,7 +253,7 @@ a:hover {
   padding: 10px 0;
   width: 500px;
   max-height:50px;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 #map{
@@ -694,7 +695,6 @@ a:hover {
   .address {
     margin: 20px auto;
     width: 92vw;
-    font-size: 14px;
   }
 
   #map {
