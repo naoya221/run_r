@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_nickname
 
   def show
-    @tweets = @user.tweets
+    @tweets = @user.tweets.page(params[:page]).per(8).order("created_at DESC")
   end
 
   private
