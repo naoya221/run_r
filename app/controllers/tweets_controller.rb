@@ -3,7 +3,8 @@ class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search]
 
   def index
-    @tweets = Tweet.includes(:user).order("created_at DESC")
+    # @tweets = Tweet.order("created_at DESC")
+    @tweets = Tweet.includes(:user).page(params[:page]).per(8)
     if user_signed_in?
       @user = User.find(current_user.id)
     end
