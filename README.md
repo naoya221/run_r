@@ -54,6 +54,7 @@ password ：111111<br>
 
 ### ユーザー管理機能
 ・ユーザー情報の登録・編集・削除<br>
+<br>
 ・ベストタイム（5km、10km、ハーフ、フル）の登録・編集・削除（<br>
 <br>
 
@@ -75,16 +76,28 @@ password ：111111<br>
 ・画像投稿時のプレビュー機能<br>
 <br>
 
+# 環境・使用技術
+### フロントエンド
+・Bootstrap 4.5.0<br>
+<br>
+・SCSS<br>
+<br> 
+・JavaScript、jQuery<br>
 
+### バックエンド
+・Ruby <br>
+<br>
+・Ruby on Rails <br>
 
+### 開発環境
+・MySQL2<br>
 
-
-
-
-
-
-
-
+### 本番環境
+・AWS (EC2、RDS for MySQL、S3)<br>
+<br>
+・MySQL2<br>
+<br>
+・Nginx<br>
 
 # テーブル設計
 
