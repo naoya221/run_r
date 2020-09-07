@@ -83,15 +83,10 @@ password ：111111<br>
 
 ### お気に入りのランニングコースを投稿
 ・ログインします。（テスト用アカウント　　email：a@a、　password：111111)<br>
-<br>
 ・「お気に入りコースをシェアしよう」をクリック。<br>
-<br>
 ・各項目を入力して「投稿」ボタンをクリック。投稿が完了。<br>
-<br>
 ・投稿一覧の一番上に入力した情報が表示される。<br>
-<br>
 ・ランニングコースの画像をクリック。<br>
-<br>
 ・先ほど入力した住所の位置がGoogleMapにピン留めされた状態で表示される。<br>
 
 ### ユーザー管理機能
@@ -119,50 +114,33 @@ password ：111111<br>
 # 環境・使用技術
 ### フロントエンド
 ・Bootstrap 4.5.0<br>
-<br>
 ・SCSS<br>
-<br> 
 ・JavaScript、jQuery<br>
 
 ### バックエンド
 ・Ruby <br>
-<br>
 ・Ruby on Rails <br>
 
 ### 開発環境
 ・MySQL2<br>
-・
 
 ### 本番環境
 ・AWS (EC2、RDS for MySQL、S3)<br>
-<br>
 ・MySQL2<br>
-<br>
 ・Nginx<br>
 
 ### 導入したパッケージ類
 'pry-rails'<br>
-<br>
 'devise'<br>
-<br>
 'active_hash'<br>
-<br>
 'jquery-rails'<br>
-<br>
 'carrierwave'<br>
-<br>
 'mini_magick'<br>
-<br>
 'image_processing', '~> 1.2'<br>
-<br>
 'aws-sdk-s3', require: false<br>
-<br>
 'fog-aws'<br>
-<br>
 'geocoder'<br>
-<br>
 'dotenv-rails'<br>
-<br>
 'kaminari'<br>
 
 # テーブル設計
