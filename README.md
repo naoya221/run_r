@@ -122,7 +122,7 @@ password ：111111<br>
 # テーブル設計
 
 ### ER図
-<img src="/images/er.png">
+<img width="738" alt="スクリーンショット 2020-09-07 18 37 04" src="https://user-images.githubusercontent.com/68312425/92374231-68fc8c00-f13a-11ea-96e9-bf93a73ad3de.png">
 
 ## users テーブル
 
