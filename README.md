@@ -1,32 +1,7 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-# Run Record 
-<br>
+#### README
 
 # 概要
+「Run Record」<br>
 気晴らしや適度な運動習慣でランニングを楽しむ方から、競技思考の方まで様々な目的を持つ<br>
 ランナーをサポートするサービスです。PC、スマートフォンどちらでもお使い頂けます。<br>
 
