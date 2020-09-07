@@ -122,8 +122,7 @@ password ：111111<br>
 # テーブル設計
 
 ### ER図
-images/er.png
-
+<img src="/images/er.png">
 
 ## users テーブル
 
