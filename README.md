@@ -61,9 +61,9 @@ password ：111111<br>
 ### 走力・ランニングペース確認機能
 ・登録したベストタイムから、各距離の得意不得意をグラフ化して表示。<br>
 <br>
-・登録したベストタイムから、ランニングのペースを目的別に4種類表示。<br>
+・登録したベストタイムから、ランニング時の推奨ぺースを目的別に4種類表示。<br>
 <br>
-・距離別の走力レベル表、走力別のランニングペース表の一覧を表示<br>
+・距離別の走力レベル表、走力別の推奨ペース表の一覧を表示<br>
 <br>
 ・専門用語に対する説明文の表示<br>
 <br>
@@ -75,6 +75,7 @@ password ：111111<br>
 <br>
 ・画像投稿時のプレビュー機能<br>
 <br>
+・ランニングコース投稿一覧の検索機能<br>
 
 # 環境・使用技術
 ### フロントエンド
@@ -98,6 +99,44 @@ password ：111111<br>
 ・MySQL2<br>
 <br>
 ・Nginx<br>
+
+# 使用方法
+※他のユーザーの投稿や各ユーザーのベストタイムに対応する推奨ペースなど、<br>
+ 基本的な閲覧はログイン無しで可能。<br>
+### お気に入りのランニングコースを投稿
+・ログインします。（email：a@a、　password：111111)<br>
+<br>
+・「お気に入りコースをシェアしよう」をクリック。<br>
+<br>
+・各フォーム入力して「投稿」ボタンクリック。投稿が完了。<br>
+<br>
+・投稿一覧の一番上に入力した情報が表示される。<br>
+<br>
+・ランニングコースの画像をクリック。<br>
+<br>
+・先ほど入力した住所の位置がGoogleMapにピン留めされた状態で表示される。<br>
+
+### ユーザー管理機能
+・トップページの固定ヘッダーの「ユーザー名：さん」をクリック。マイページへ。<br>
+<br>
+・画面中部にある登録ボタンをクリック。<br>
+<br>
+・ベストタイムをプルダウンより選択し、「登録」ボタンクリック。ベストタイムが登録される。<br>
+<br>
+・登録されたタイムはマイページにて表示される。<br>
+
+### 走力・ランニングペース確認機能
+・ベストタイムが登録されているユーザーのプロフィール画像（投稿一覧等から）をクリック。<br>
+<br>
+・クリックしたユーザーのマイページへ遷移するので、画面中部の「練習」ボタンをクリック。<br>
+<br>
+・画面最上部にグラフが表示されている。（左から5km、10km、ハーフ、フル）<br>
+<br>
+・グラフの位置が上にある程、その距離の走力レベルが高い。<br>
+<br>
+・グラフのすぐ下に、距離別の走力レベル表、走力別の推奨ペースを合わせて表示。<br>
+<br>
+・さらにその下には走力レベル表・推奨ペース表の一覧を全て表示。<br>
 
 # テーブル設計
 
@@ -216,81 +255,3 @@ password ：111111<br>
 - belongs_to_active_hash :minute
 - belongs_to_active_hash :second
 - belongs_to :user
-
-
-
-
-
-
-
-
-<!-- # テーブル設計 -->
-
-## users テーブル
-
-| Column                | Type    | Options     |
-| --------------------- | ------- | ----------- |
-| nickname              | string  | null: false |
-| email                 | string  | null: false |
-| password              | string  | null: false |
-| password_confirmation | string  | null: false |
-| family_name           | string  | null: false |
-| first_name            | string  | null: false |
-| family_name_kana      | string  | null: false |
-| first_name_kana       | string  | null: false |
-| birthday              | date    | null: false |
-
-
-### Association
-
-- has_many :items
-- has_many :buys
-
-## items テーブル
-
-| Column             | Type       | Options                       |
-| ------------------ | ---------- | ----------------------------- |
-| name               | string     | null: false                   |
-| content            | text       | null: false                   |
-| category_id        | integer    | null: false                   | 
-| condition_id       | integer    | null: false                   |
-| delivery_fee_id    | integer    | null: false                   |
-| prefecture_id      | integer    | null: false                   |
-| days_until_ship_id | integer    | null: false                   |
-| price              | integer    | null: false                   |
-| user               | references | null: false, foreign_key:true |
-| sall               | boolean    | default: false                |
-
-### Association
-
-- belongs_to :user
-- has_one :address
-- has_one :buy
-
-## addresses テーブル
-
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| postal_code   | integer    | null: false                    |
-| prefecture_id | integer    | null: false                    |   
-| city          | string     | null: false                    |
-| address_name  | string     | null: false                    |
-| building_name | string     |                                |
-| phone_number  | integer    | null: false                    |
-| item          | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :item
-
-## buys テーブル
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| item     | references | null: false, foreign_key: true |
-| user     | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :item
