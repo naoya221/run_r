@@ -6,3 +6,12 @@ ja:
       previous: "&lsaquo; 　前　"
       next: "　次 &rsaquo;　"
       truncate: "..."
+  activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+     tweet:
+       place_name: 場所の名前
+       place_image: 場所の画像
+       address: 住所
+       content: 　何かひとこと
