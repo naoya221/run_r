@@ -39,7 +39,7 @@ describe Tweet do
       it "何かひとことが空だと投稿は保存できない" do
         @tweet.content = ""
         @tweet.valid?
-        expect(@tweet.errors.full_messages).to include("　何かひとことを入力してください")
+        expect(@tweet.errors.full_messages).to include("何かひとことを入力してください")
       end     
       it "ユーザーが紐付いていないと投稿は保存できない" do
         @tweet.user = nil
