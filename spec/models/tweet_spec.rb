@@ -26,6 +26,11 @@ describe Tweet do
         @tweet.valid?
         expect(@tweet.errors.full_messages).to include("場所の名前を入力してください")
       end  
+      it "場所の名前が16文字以上だと投稿は保存できない" do
+        @tweet.place_name = "タウマタファカタンギハンガコアウ!"
+        @tweet.valid?
+        expect(@tweet.errors.full_messages).to include("場所の名前は16文字以内で入力してください")
+      end  
       it "場所の画像が空だと投稿は保存できない" do
         @tweet.place_image = ""
         @tweet.valid?
@@ -36,10 +41,20 @@ describe Tweet do
         @tweet.valid?
         expect(@tweet.errors.full_messages).to include("住所を入力してください")
       end  
+      it "住所が30文字以上だと投稿は保存できない" do
+        @tweet.address = "愛知県海部郡飛島村大字飛島新田字竹之郷ヨタレ南ノ割竹之郷丁目!"
+        @tweet.valid?
+        expect(@tweet.errors.full_messages).to include("住所は30文字以内で入力してください")
+      end  
       it "何かひとことが空だと投稿は保存できない" do
         @tweet.content = ""
         @tweet.valid?
         expect(@tweet.errors.full_messages).to include("何かひとことを入力してください")
+      end   
+      it "何かひとことが100文字以上だと投稿は保存できない" do
+        @tweet.content = "ああああああああああいいいいいいいいいいううううううううううええええええええええおおおおおおおおおおああああああああああいいいいいいいいいいううううううううううええええええええええおおおおおおおおおお!"
+        @tweet.valid?
+        expect(@tweet.errors.full_messages).to include("何かひとことは100文字以内で入力してください")
       end     
       it "ユーザーが紐付いていないと投稿は保存できない" do
         @tweet.user = nil
