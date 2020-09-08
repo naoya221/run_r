@@ -15,17 +15,17 @@ describe TenKmRecord do
       it "ベストタイム（分）が空だと保存できない" do
         @ten_km_record.minute_id = ""
         @ten_km_record.valid?
-        expect(@ten_km_record.errors.full_messages).to include("Minute can't be blank")
+        expect(@ten_km_record.errors.full_messages).to include("Minuteを入力してください")
       end     
       it "ベストタイム（秒）が空だと保存できない" do
         @ten_km_record.second_id = ""
         @ten_km_record.valid?
-        expect(@ten_km_record.errors.full_messages).to include("Second can't be blank")
+        expect(@ten_km_record.errors.full_messages).to include("Secondを入力してください")
       end
       it "登録したユーザーが紐付いていないとベストタイムは保存できない" do
         @ten_km_record.user = nil
         @ten_km_record.valid?
-        expect(@ten_km_record.errors.full_messages).to include("User must exist")
+        expect(@ten_km_record.errors.full_messages).to include("Userを入力してください")
       end
     end
   end

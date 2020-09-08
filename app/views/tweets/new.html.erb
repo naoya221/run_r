@@ -2,12 +2,18 @@
 
   <div class="titles mt-5">新規投稿ページ</div>
 
-  <br><br><br>
+  <br><br>
+  
+  <br>
+
 
   <div class="d-flex justify-content-center mb-5">
     <div class="forms-content p-5">
 
       <%= form_with(model: @tweet, local: true) do |f| %>
+
+        <%= render 'render/error_messages', model: f.object %>
+
         <div class="m-3"> 
           <%= f.label :場所の名前（１６字以内） %><br>
           <%= f.text_field :place_name, placeholder: "例）〇〇公園", class: "w-100 p-1 mb-5 rounded" %>

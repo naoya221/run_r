@@ -1,11 +1,12 @@
 module VdotContents
   def vdot_contents(user)
     # 目安ペース説明のdropdownがある
+    expect(page).to have_content('VDOTとは')
     expect(page).to have_content('目安ペースの説明')
     # 走力レベル一覧・このvdot30中身（各距離・記録）がある
     expect(page).to have_content('vdot：30')
-    expect(page).to have_content('5km')
-    expect(page).to have_content('10km')
+    expect(page).to have_content('５km')
+    expect(page).to have_content('１０km')
     expect(page).to have_content('ハーフ')
     expect(page).to have_content('フル')
     expect(page).to have_content('30分')
@@ -21,8 +22,8 @@ module VdotContents
     # 練習目安ペース一覧・このvdot30の中身（各ペースの種類・ペース）がある
     expect(page).to have_content('J')
     expect(page).to have_content('M')
-    expect(page).to have_content('T-40')
-    expect(page).to have_content('T-20')
+    expect(page).to have_content('T40')
+    expect(page).to have_content('T20')
     expect(page).to have_content('7:52')
     expect(page).to have_content('6:51')
     expect(page).to have_content('6:36')

@@ -15,22 +15,22 @@ describe HalfRecord do
       it "ベストタイム（時間）が空だと保存できない" do
         @half_record.hour_id = ""
         @half_record.valid?
-        expect(@half_record.errors.full_messages).to include("Hour can't be blank")
+        expect(@half_record.errors.full_messages).to include("Hourを入力してください")
       end   
       it "ベストタイム（分）が空だと保存できない" do
         @half_record.minute_id = ""
         @half_record.valid?
-        expect(@half_record.errors.full_messages).to include("Minute can't be blank")
+        expect(@half_record.errors.full_messages).to include("Minuteを入力してください")
       end     
       it "ベストタイム（秒）が空だと保存できない" do
         @half_record.second_id = ""
         @half_record.valid?
-        expect(@half_record.errors.full_messages).to include("Second can't be blank")
+        expect(@half_record.errors.full_messages).to include("Secondを入力してください")
       end
       it "登録したユーザーが紐付いていないとベストタイムは保存できない" do
         @half_record.user = nil
         @half_record.valid?
-        expect(@half_record.errors.full_messages).to include("User must exist")
+        expect(@half_record.errors.full_messages).to include("Userを入力してください")
       end
     end
   end

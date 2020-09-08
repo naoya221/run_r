@@ -9,11 +9,11 @@ RSpec.describe 'ユーザー新規登録', type: :system do
     it '正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
       # トップページに移動する
       visit root_path
-      # トップページ・VDOTページ・新規登録ページ・ログインページに遷移するボタンがある
+      # トップページ・練習ページ・新規登録ページ・ログインページに遷移するボタンがある
       expect(page).to have_content('Run Record')
-      expect(page).to have_content('VDOT')
-      expect(page).to have_content('Log in')
-      expect(page).to have_content('Sign up')
+      expect(page).to have_content('練習')
+      expect(page).to have_content('ログイン')
+      expect(page).to have_content('新規登録')
       # 新規登録ページへ移動する
       visit new_user_registration_path
       # ユーザー情報を入力する
@@ -28,16 +28,16 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       # トップページへ遷移する
       expect(current_path).to eq root_path
       # マイページへのボタン・ログアウトボタンが表示されていて、ログインボタンや新規登録ボタンが表示されていない
-      expect(page).to have_content("Nickname：#{@user.nickname}")
-      expect(page).to have_content('Log out')
-      expect(page).to have_no_content('Log in')
-      expect(page).to have_no_content('Sign up')
+      expect(page).to have_content("#{@user.nickname}：さん")
+      expect(page).to have_content('ログアウト')
+      expect(page).to have_no_content('ログイン')
+      expect(page).to have_no_content('新規登録')
       # ログアウトボタンをクリックし、再度トップページに遷移する
       all(".nav-item")[2].click
       expect(current_path).to eq root_path
       # 新規登録ページへ遷移するボタンやログインページへ遷移するボタンが表示されている
-      expect(page).to have_content('Log in')
-      expect(page).to have_content('Sign up')
+      expect(page).to have_content('ログイン')
+      expect(page).to have_content('新規登録')
     end
   end
 
@@ -83,8 +83,8 @@ RSpec.describe 'ログイン', type: :system do
       # トップページへ遷移する
       expect(current_path).to eq root_path
       # 新規登録ボタン・ログインボタンが表示されていない
-      expect(page).to have_no_content('Log in')
-      expect(page).to have_no_content('Sign up')
+      expect(page).to have_no_content('ログイン')
+      expect(page).to have_no_content('新規登録')
     end
   end
 
