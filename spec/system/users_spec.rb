@@ -9,7 +9,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
     it '正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
       # トップページに移動する
       visit root_path
-      # トップページ・VDOTページ・新規登録ページ・ログインページに遷移するボタンがある
+      # トップページ・練習ページ・新規登録ページ・ログインページに遷移するボタンがある
       expect(page).to have_content('Run Record')
       expect(page).to have_content('練習')
       expect(page).to have_content('ログイン')
