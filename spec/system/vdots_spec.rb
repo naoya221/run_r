@@ -10,14 +10,15 @@ RSpec.describe 'VDOTページのコンテンツ閲覧', type: :system do
   it 'ベストタイムを登録していないユーザーは、目安ペース説明・走力レベル一覧・練習ペース一覧のみ閲覧できる' do
     # トップページに遷移する
     visit root_path
-    # 自分のVDOTページへ遷移する
+    # 自分の練習ページへ遷移する
     visit vdots_path
-    # 目安ペース説明のdropdownがある
+    # VDOTと目安ペース説明のdropdownがある
+    expect(page).to have_content('VDOTとは')
     expect(page).to have_content('目安ペースの説明')
     # 走力レベル一覧・このvdot30中身（各距離・記録）がある
     expect(page).to have_content('vdot：30')
-    expect(page).to have_content('5km')
-    expect(page).to have_content('10km')
+    expect(page).to have_content('５km')
+    expect(page).to have_content('１０km')
     expect(page).to have_content('ハーフ')
     expect(page).to have_content('フル')
     expect(page).to have_content('30分')
@@ -33,8 +34,8 @@ RSpec.describe 'VDOTページのコンテンツ閲覧', type: :system do
     # 練習目安ペース一覧・このvdot30の中身（各ペースの種類・ペース）がある
     expect(page).to have_content('J')
     expect(page).to have_content('M')
-    expect(page).to have_content('T-40')
-    expect(page).to have_content('T-20')
+    expect(page).to have_content('T40')
+    expect(page).to have_content('T20')
     expect(page).to have_content('7:52')
     expect(page).to have_content('6:51')
     expect(page).to have_content('6:36')
@@ -42,7 +43,6 @@ RSpec.describe 'VDOTページのコンテンツ閲覧', type: :system do
     expect(page).to have_content('/km')
     # 画面上部のvdotグラフ・グラフ下のバーが表示されていない
     expect(page).to have_no_selector('#graph-area')
-    expect(page).to have_no_selector('.graph-bar')
   end
 
   it'ベストタイムを登録しているユーザーは、目安ペース説明・走力レベル一覧・練習ペース一覧に
@@ -50,18 +50,17 @@ RSpec.describe 'VDOTページのコンテンツ閲覧', type: :system do
     # ログインする
     # 全ベストタイムを登録する
     created_record(@user)
-    # 自分のVDOTページへ遷移する
+    # 自分の練習ページへ遷移する
     visit user_vdots_path(@user)
     # 目安ペース説明・走力レベル一覧・練習ペース一覧が存在する
     vdot_contents(@user)
-    # 画面上部のvdotグラフ・グラフ下のバーが表示されている
+    # 画面上部のvdotグラフが表示されている
     expect(page).to have_selector('#graph-area')
-    expect(page).to have_selector('.graph-bar')
     # 各距離のベストタイムに対応したvdot表が表示されている
-    expect(page).to have_content('・5kmの目指すべきタイムと、同レベルの他種目のタイムです！')
-    expect(page).to have_content('・10kmの目指すべきタイムと、同レベルの他種目のタイムです！')
-    expect(page).to have_content('・ハーフの目指すべきタイムと、同レベルの他種目のタイムです！')
-    expect(page).to have_content('・フルの目指すべきタイムと、同レベルの他種目のタイムです！')
+    expect(page).to have_content('5kmの目指すべきタイムと、同レベルの他種目のタイムです！')
+    expect(page).to have_content('10kmの目指すべきタイムと、同レベルの他種目のタイムです！')
+    expect(page).to have_content('ハーフの目指すべきタイムと、同レベルの他種目のタイムです！')
+    expect(page).to have_content('フルの目指すべきタイムと、同レベルの他種目のタイムです！')
   end
 
 end
