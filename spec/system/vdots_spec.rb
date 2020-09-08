@@ -7,7 +7,7 @@ RSpec.describe 'VDOTページのコンテンツ閲覧', type: :system do
     @user2 = FactoryBot.create(:user)
   end
 
-  it 'ベストタイムを登録していないユーザーは、目安ペース説明・走力レベル一覧・練習ペース一覧のみ閲覧できる' do
+  it 'ベストタイムを登録していないユーザーは、VDOTと目安ペース説明・走力レベル一覧・練習ペース一覧のみ閲覧できる' do
     # トップページに遷移する
     visit root_path
     # 自分の練習ページへ遷移する
@@ -31,7 +31,7 @@ RSpec.describe 'VDOTページのコンテンツ閲覧', type: :system do
     expect(page).to have_content('4時間')
     expect(page).to have_content('49分')
     expect(page).to have_content('17秒')
-    # 練習目安ペース一覧・このvdot30の中身（各ペースの種類・ペース）がある
+    # VDOTと練習目安ペース一覧・このvdot30の中身（各ペースの種類・ペース）がある
     expect(page).to have_content('J')
     expect(page).to have_content('M')
     expect(page).to have_content('T40')
@@ -41,18 +41,18 @@ RSpec.describe 'VDOTページのコンテンツ閲覧', type: :system do
     expect(page).to have_content('6:36')
     expect(page).to have_content('6:24')
     expect(page).to have_content('/km')
-    # 画面上部のvdotグラフ・グラフ下のバーが表示されていない
+    # 画面上部のvdotグラフが表示されていない
     expect(page).to have_no_selector('#graph-area')
   end
 
-  it'ベストタイムを登録しているユーザーは、目安ペース説明・走力レベル一覧・練習ペース一覧に
-    加え、vdotグラフ・グラフ下のバー・各距離のベストタイムに対応したvdot表が表示される' do
+  it'ベストタイムを登録しているユーザーは、VDOTと目安ペース説明・走力レベル一覧・練習ペース一覧に
+    加え、vdotグラフ各距離のベストタイムに対応したvdot表が表示される' do
     # ログインする
     # 全ベストタイムを登録する
     created_record(@user)
     # 自分の練習ページへ遷移する
     visit user_vdots_path(@user)
-    # 目安ペース説明・走力レベル一覧・練習ペース一覧が存在する
+    # VDOTと目安ペース説明・走力レベル一覧・練習ペース一覧が存在する
     vdot_contents(@user)
     # 画面上部のvdotグラフが表示されている
     expect(page).to have_selector('#graph-area')
