@@ -73,6 +73,7 @@ gem 'fog-aws'
 gem "geocoder"
 gem "dotenv-rails"
 gem 'kaminari'
+gem 'rails-i18n'
 
 
 group :production do
