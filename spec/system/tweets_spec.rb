@@ -182,6 +182,8 @@ RSpec.describe '投稿詳細', type: :system do
     sign_in(@tweet.user)
     # 投稿の文章をクリックし、投稿詳細ページへ遷移する
     visit tweet_path(@tweet)
+    # GoogleMapが表示されている
+    expect(page).to have_selector('#map')
     # コメント用のフォームが存在する
     expect(page).to have_selector ('form')
   end
@@ -190,6 +192,8 @@ RSpec.describe '投稿詳細', type: :system do
     visit root_path
     # 投稿の文章をクリックし、投稿詳細ページへ遷移する
     visit tweet_path(@tweet)
+    # GoogleMapが表示されている
+    expect(page).to have_selector('#map')
     # コメント用のフォームが存在する
     expect(page).to have_no_selector 'form'
   end
