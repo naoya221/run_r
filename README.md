@@ -79,23 +79,23 @@ password ：111111<br>
 ・MySQL2<br>
 
 ### 本番環境
-・AWS (EC2、RDS for MySQL、S3)<br>
+・AWS (EC2、S3、route53)<br>
 ・MySQL2<br>
 ・Nginx<br>
 
 ### 導入したパッケージ類
-'pry-rails'<br>
-'devise'<br>
-'active_hash'<br>
-'jquery-rails'<br>
-'carrierwave'<br>
-'mini_magick'<br>
-'image_processing', '~> 1.2'<br>
-'aws-sdk-s3', require: false<br>
-'fog-aws'<br>
-'geocoder'<br>
-'dotenv-rails'<br>
-'kaminari'<br>
+pry-rails<br>
+devise<br>
+active_hash<br>
+jquery-rails<br>
+carrierwave<br>
+mini_magick<br>
+image_processing<br>
+aws-sdk-s3<br>
+fog-aws<br>
+geocoder<br>
+dotenv-rails<br>
+kaminari<br>
 
 # テーブル設計
 
