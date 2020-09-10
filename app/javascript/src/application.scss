@@ -40,17 +40,6 @@ a:hover {
   padding-left: 10px;
 }
 
-.flash-message{
-  display: inline-block;
-  color: white;
-  background-color: orange;
-  padding: 1em;
-  border-radius: 10px;
-  font-weight: bold;
-  z-index: 10;
-  margin-top: 75px;
-}
-
 .forms-container {
   background-color: rgb(228, 247, 222);
   padding: 80px 20px 50px;
@@ -74,6 +63,30 @@ a:hover {
   list-style: none;
   color: red;
   font-size: 12px;
+}
+
+.flash-message {
+  display: inline-block;
+  color: white;
+  background-color: orange;
+  padding: 1em;
+  border-radius: 10px;
+  font-weight: bold;
+  z-index: 10;
+  margin-top: 75px;
+  margin-left: 10px;
+}
+
+.key {
+  display: inline-block;
+  color: white;
+  background-color: orange;
+  padding: 1em;
+  border-radius: 10px;
+  font-weight: bold;
+  z-index: 10;
+  margin-top: 75px;
+  margin-left: 10px;
 }
 
 

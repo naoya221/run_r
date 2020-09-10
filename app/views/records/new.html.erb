@@ -1,14 +1,6 @@
 <div class="record-container">  
 
-  <% if flash[:notice_five_new] %>
-    <p class="flash-message"><%= flash[:notice_five_new] %></p>
-  <% elsif flash[:notice_ten_new] %>
-    <p class="flash-message"><%= flash[:notice_ten_new] %></p>
-  <% elsif flash[:notice_half_new] %>
-    <p class="flash-message"><%= flash[:notice_half_new] %></p>
-  <% elsif flash[:notice_full_new] %>
-    <p class="flash-message"><%= flash[:notice_full_new] %></p>
-  <% end %>
+  <%= render 'render/notifications' %>
 
   <% unless FiveKmRecord.where(user_id:current_user.id).present? %>
     <div class="p-5">
