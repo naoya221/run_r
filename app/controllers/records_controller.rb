@@ -1,4 +1,5 @@
 class RecordsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @user = User.find(current_user.id)

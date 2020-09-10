@@ -1,4 +1,5 @@
 class HalfRecordsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     half_record = HalfRecord.new(permit_params)

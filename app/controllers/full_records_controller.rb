@@ -1,4 +1,5 @@
 class FullRecordsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     full_record = FullRecord.new(permit_params)

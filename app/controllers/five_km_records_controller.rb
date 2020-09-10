@@ -1,4 +1,5 @@
 class FiveKmRecordsController < ApplicationController
+  before_action :authenticate_user!
   
   def create
     five_km_record = FiveKmRecord.new(permit_params)
