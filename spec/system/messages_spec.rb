@@ -16,15 +16,15 @@ RSpec.describe 'コメント投稿', type: :system do
     # フォームに情報を入力する
     fill_in 'text', with: @message
     # コメントを送信すると、Messageモデルのカウントが1上がる
-    expect{
+    expect  do
       find('input[name="commit"]').click
       sleep 1
-    }.to change {Message.count}.by(1)
+    end.to change {Message.count}.by(1)
     # 「コメント内容  (コメントしました) と表示されている」
     expect(page).to have_content("#{@message}　　(コメントしました)")
     # リロードすると、コメント内容と「あなたのコメントです」と表示されている
     visit current_path
     expect(page).to have_content(@message)
-    expect(page).to have_content("あなた のコメントです")
+    expect(page).to have_content('あなた のコメントです')
   end
 end

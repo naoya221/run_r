@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery :except => [:destroy]
+  protect_from_forgery except: [:destroy]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private

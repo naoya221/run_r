@@ -45,7 +45,7 @@ RSpec.describe 'VDOTページのコンテンツ閲覧', type: :system do
     expect(page).to have_no_selector('#graph-area')
   end
 
-  it'ベストタイムを登録しているユーザーは、VDOTと目安ペース説明・走力レベル一覧・練習ペース一覧に
+  it 'ベストタイムを登録しているユーザーは、VDOTと目安ペース説明・走力レベル一覧・練習ペース一覧に
     加え、vdotグラフ各距離のベストタイムに対応したvdot表が表示される' do
     # ログインする
     # 全ベストタイムを登録する
@@ -62,5 +62,4 @@ RSpec.describe 'VDOTページのコンテンツ閲覧', type: :system do
     expect(page).to have_content('ハーフの目指すべきタイムと、同レベルの他種目のタイムです！')
     expect(page).to have_content('フルの目指すべきタイムと、同レベルの他種目のタイムです！')
   end
-
 end

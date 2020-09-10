@@ -10,7 +10,7 @@ class VdotRecord < ActiveHash::Base
     { id: 7, vdot: '37', five_km_minute: '25', five_km_second: '46', ten_km_minute: '53', ten_km_second: '29', half_hour: '1', half_minute: '58', half_second: '34', full_hour: '4', full_minute: '04', full_second: '50' },
     { id: 8, vdot: '38', five_km_minute: '25', five_km_second: '12', ten_km_minute: '52', ten_km_second: '17', half_hour: '1', half_minute: '55', half_second: '55', full_hour: '3', full_minute: '59', full_second: '35' },
     { id: 9, vdot: '39', five_km_minute: '24', five_km_second: '39', ten_km_minute: '51', ten_km_second: '09', half_hour: '1', half_minute: '53', half_second: '24', full_hour: '3', full_minute: '54', full_second: '34' },
-    
+
     { id: 10, vdot: '40', five_km_minute: '24', five_km_second: '08', ten_km_minute: '50', ten_km_second: '03', half_hour: '1', half_minute: '50', half_second: '59', full_hour: '3', full_minute: '49', full_second: '45' },
     { id: 11, vdot: '41', five_km_minute: '24', five_km_second: '38', ten_km_minute: '49', ten_km_second: '01', half_hour: '1', half_minute: '48', half_second: '40', full_hour: '3', full_minute: '45', full_second: '09' },
     { id: 12, vdot: '42', five_km_minute: '23', five_km_second: '09', ten_km_minute: '48', ten_km_second: '01', half_hour: '1', half_minute: '46', half_second: '27', full_hour: '3', full_minute: '40', full_second: '43' },
@@ -28,4 +28,4 @@ class VdotRecord < ActiveHash::Base
     { id: 23, vdot: '53', five_km_minute: '18', five_km_second: '58', ten_km_minute: '39', ten_km_second: '20', half_hour: '1', half_minute: '27', half_second: '04', full_hour: '3', full_minute: '01', full_second: '39' },
     { id: 24, vdot: '54', five_km_minute: '18', five_km_second: '40', ten_km_minute: '38', ten_km_second: '42', half_hour: '1', half_minute: '25', half_second: '40', full_hour: '2', full_minute: '58', full_second: '47' }
   ]
- end
+end

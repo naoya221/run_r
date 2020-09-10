@@ -4,6 +4,6 @@ FactoryBot.define do
     email                 {Faker::Internet.free_email}
     password              {Faker::Internet.password(min_length: 6)}
     password_confirmation {password}
-    image                 {"public/images/1.png"}
+    image                 {'public/images/1.png'}
   end
 end

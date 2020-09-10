@@ -6,7 +6,7 @@ RSpec.describe '新規投稿', type: :system do
     @tweet = FactoryBot.build(:tweet)
   end
 
-  context '新規投稿ができるとき'do
+  context '新規投稿ができるとき' do
     it 'ログインしたユーザーは新規投稿できる' do
       # ログインする
       sign_in(@user)
@@ -21,9 +21,9 @@ RSpec.describe '新規投稿', type: :system do
       fill_in 'tweet_address', with: @tweet.address
       fill_in 'tweet_content', with: @tweet.content
       # 投稿するとTweetモデルのカウントが1上がる
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Tweet.count }.by(1)
+      end.to change { Tweet.count }.by(1)
       # トップページに遷移し、投稿した情報が存在する
       expect(current_path).to eq root_path
       expect(page).to have_content(@tweet.place_name)
@@ -32,7 +32,7 @@ RSpec.describe '新規投稿', type: :system do
       expect(page).to have_content(@tweet.content)
     end
   end
-  context '新規投稿ができないとき'do
+  context '新規投稿ができないとき' do
     it 'ログインしていないと新規投稿ページに遷移できない' do
       # トップページに遷移する
       visit root_path
@@ -46,19 +46,17 @@ RSpec.describe '新規投稿', type: :system do
       find_link('お気に入りコースをシェアしよう！').click
       expect(current_path).to eq new_tweet_path
       # フォームが空のまま、投稿ボタンを押してもTweetモデルのカウントが変わらない
-      fill_in 'tweet_place_name', with: ""
-      fill_in 'tweet_address', with: ""
-      fill_in 'tweet_content', with: ""
-      expect{
+      fill_in 'tweet_place_name', with: ''
+      fill_in 'tweet_address', with: ''
+      fill_in 'tweet_content', with: ''
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Tweet.count }.by(0)
+      end.to change { Tweet.count }.by(0)
       # 新規投稿ページへ戻される
-      expect(current_path).to eq ("/tweets")
+      expect(current_path).to eq '/tweets'
     end
   end
 end
-
-
 
 RSpec.describe '投稿内容の編集', type: :system do
   before do
@@ -93,9 +91,9 @@ RSpec.describe '投稿内容の編集', type: :system do
       fill_in 'tweet_address', with: "#{@tweet1.address}+編集OK!"
       fill_in 'tweet_content', with: "#{@tweet1.content}+編集OK!"
       # 編集してもTweetモデルのカウントは変わらない
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change {Tweet.count}.by(0)
+      end.to change {Tweet.count}.by(0)
       # トップページに遷移する
       expect(current_path).to eq root_path
       # トップページには編集した内容の投稿が存在する
@@ -126,9 +124,6 @@ RSpec.describe '投稿内容の編集', type: :system do
   end
 end
 
-
-
-
 RSpec.describe '投稿の削除', type: :system do
   before do
     @tweet1 = FactoryBot.create(:tweet)
@@ -141,16 +136,16 @@ RSpec.describe '投稿の削除', type: :system do
       # 投稿1の詳細ページへ遷移する
       visit tweet_path(@tweet1)
       # 投稿を削除するとレコードの数が1減る
-      expect{
+      expect do
         find_link('削除').click
-      }.to change { Tweet.count }.by(-1)
+      end.to change { Tweet.count }.by(-1)
       # トップページに遷移する
       expect(current_path).to eq root_path
       # トップページには投稿1の内容が存在しない
-      expect(page).to have_no_content("#{@tweet1.place_name}")
+      expect(page).to have_no_content(@tweet1.place_name.to_s)
       expect(page).to have_selector('.place-image')
-      expect(page).to have_no_content("#{@tweet1.address}")
-      expect(page).to have_no_content("#{@tweet1.content}")
+      expect(page).to have_no_content(@tweet1.address.to_s)
+      expect(page).to have_no_content(@tweet1.content.to_s)
     end
   end
   context '投稿の削除ができないとき' do
@@ -185,7 +180,7 @@ RSpec.describe '投稿詳細', type: :system do
     # GoogleMapが表示されている
     expect(page).to have_selector('#map')
     # コメント用のフォームが存在する
-    expect(page).to have_selector ('form')
+    expect(page).to have_selector 'form'
   end
   it 'ログインしていない状態では、投稿詳細ページに遷移できるものの、コメント投稿欄が表示されない' do
     # トップページに移動する

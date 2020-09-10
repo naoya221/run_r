@@ -1,16 +1,15 @@
 class VdotsController < ApplicationController
-
   def index
     @vdot_records = VdotRecord.all
     @vdot_paces = VdotPace.all
 
-    if (params[:user_id]).present?
-      record_sum()
-      user_five_record()
-      user_ten_record()
-      user_half_record()
-      user_full_record()
-    
+    if params[:user_id].present?
+      record_sum
+      user_five_record
+      user_ten_record
+      user_half_record
+      user_full_record
+
       @user = User.find(params[:user_id])
 
       if @five_vdot.present?
@@ -29,23 +28,20 @@ class VdotsController < ApplicationController
         @vdot_record_full = VdotRecord.find(@full_vdot)
         @vdot_pace_full = VdotPace.find(@full_vdot)
       end
-      
 
     end
   end
-    
 
   private
 
   def record_sum
-
     if FiveKmRecord.where(user_id: params[:user_id]).present?
       five_record = FiveKmRecord.where(user_id: params[:user_id])
       five_record = five_record.ids
       five_record = FiveKmRecord.find(five_record[0])
-      @five_minute = five_record.minute[:name].to_i 
+      @five_minute = five_record.minute[:name].to_i
       @five_second = five_record.second[:name].to_i
-    end  
+    end
 
     if TenKmRecord.where(user_id: params[:user_id]).present?
       ten_record = TenKmRecord.where(user_id: params[:user_id])
@@ -54,7 +50,7 @@ class VdotsController < ApplicationController
       @ten_minute = ten_record.minute[:name].to_i
       @ten_second = ten_record.second[:name].to_i
     end
-    
+
     if HalfRecord.where(user_id: params[:user_id]).present?
       half_record = HalfRecord.where(user_id: params[:user_id])
       half_record = half_record.ids
@@ -63,7 +59,7 @@ class VdotsController < ApplicationController
       @half_minute = half_record.minute[:name].to_i
       @half_second = half_record.second[:name].to_i
     end
-    
+
     if FullRecord.where(user_id: params[:user_id]).present?
       full_record = FullRecord.where(user_id: params[:user_id])
       full_record = full_record.ids
@@ -72,120 +68,119 @@ class VdotsController < ApplicationController
       @full_minute = full_record.minute[:name].to_i
       @full_second = full_record.second[:name].to_i
     end
-
   end
 
   def user_five_record
     if FiveKmRecord.where(user_id: params[:user_id]).present?
-      if @five_minute >= 30 && @five_second > 40 || @five_minute >= 31 
-        @five_vdot = 0
-      elsif @five_minute >= 29 && @five_second > 51 || @five_minute >= 30 && 40 >= @five_second
-        @five_vdot = 1
-      elsif @five_minute >= 29 && @five_second > 5
-        @five_vdot = 2
-      elsif @five_minute >= 28 && @five_second > 21 || @five_minute >= 29 && 5 >= @five_second
-        @five_vdot = 3
-      elsif @five_minute >= 27 && @five_second > 39 || @five_minute >= 28 && 21 >= @five_second
-        @five_vdot = 4 
-      elsif @five_minute >= 27 && @five_second > 0
-        @five_vdot = 5
-      elsif @five_minute >= 26 && @five_second > 22
-        @five_vdot = 6
-      elsif @five_minute >= 25 && @five_second > 46 || @five_minute >= 26 && 22 >= @five_second
-        @five_vdot = 7
-      elsif @five_minute >= 25 && @five_second > 12
-        @five_vdot = 8
-      elsif @five_minute >= 24 && @five_second > 39 || @five_minute >= 25 && 12 >= @five_second
-        @five_vdot = 9
-      elsif @five_minute >= 24 && @five_second > 8
-        @five_vdot = 10
-      elsif @five_minute >= 23 && @five_second > 38 || @five_minute >= 24 && 8 >= @five_second
-        @five_vdot = 11
-      elsif @five_minute >= 23 && @five_second > 9
-        @five_vdot = 12
-      elsif @five_minute >= 22 && @five_second > 41 || @five_minute >= 23 && 9 >= @five_second
-        @five_vdot = 13
-      elsif @five_minute >= 22 && @five_second > 15
-        @five_vdot = 14
-      elsif @five_minute >= 21 && @five_second > 50 || @five_minute >= 22 && 15 >= @five_second
-        @five_vdot = 15
-      elsif @five_minute >= 21 && @five_second > 25
-        @five_vdot = 16
-      elsif @five_minute >= 21 && @five_second > 2
-        @five_vdot = 17
-      elsif @five_minute >= 20 && @five_second > 39 || @five_minute >= 21 && 2 >= @five_second
-        @five_vdot = 18
-      elsif @five_minute >= 20 && @five_second > 18
-        @five_vdot = 19
-      elsif @five_minute >= 19 && @five_second > 57 || @five_minute >= 20 && 18 >= @five_second
-        @five_vdot = 20
-      elsif @five_minute >= 19 && @five_second > 36
-        @five_vdot = 21
-      elsif @five_minute >= 19 && @five_second > 17
-        @five_vdot = 22
-      elsif @five_minute >= 18 && @five_second > 58 || @five_minute >= 19 && 17 >= @five_second
-        @five_vdot = 23
-      else  
-        @five_vdot = 24
-      end
-    end 
+      @five_vdot = if @five_minute >= 30 && @five_second > 40 || @five_minute >= 31
+                     0
+                   elsif @five_minute >= 29 && @five_second > 51 || @five_minute >= 30 && 40 >= @five_second
+                     1
+                   elsif @five_minute >= 29 && @five_second > 5
+                     2
+                   elsif @five_minute >= 28 && @five_second > 21 || @five_minute >= 29 && 5 >= @five_second
+                     3
+                   elsif @five_minute >= 27 && @five_second > 39 || @five_minute >= 28 && 21 >= @five_second
+                     4
+                   elsif @five_minute >= 27 && @five_second > 0
+                     5
+                   elsif @five_minute >= 26 && @five_second > 22
+                     6
+                   elsif @five_minute >= 25 && @five_second > 46 || @five_minute >= 26 && 22 >= @five_second
+                     7
+                   elsif @five_minute >= 25 && @five_second > 12
+                     8
+                   elsif @five_minute >= 24 && @five_second > 39 || @five_minute >= 25 && 12 >= @five_second
+                     9
+                   elsif @five_minute >= 24 && @five_second > 8
+                     10
+                   elsif @five_minute >= 23 && @five_second > 38 || @five_minute >= 24 && 8 >= @five_second
+                     11
+                   elsif @five_minute >= 23 && @five_second > 9
+                     12
+                   elsif @five_minute >= 22 && @five_second > 41 || @five_minute >= 23 && 9 >= @five_second
+                     13
+                   elsif @five_minute >= 22 && @five_second > 15
+                     14
+                   elsif @five_minute >= 21 && @five_second > 50 || @five_minute >= 22 && 15 >= @five_second
+                     15
+                   elsif @five_minute >= 21 && @five_second > 25
+                     16
+                   elsif @five_minute >= 21 && @five_second > 2
+                     17
+                   elsif @five_minute >= 20 && @five_second > 39 || @five_minute >= 21 && 2 >= @five_second
+                     18
+                   elsif @five_minute >= 20 && @five_second > 18
+                     19
+                   elsif @five_minute >= 19 && @five_second > 57 || @five_minute >= 20 && 18 >= @five_second
+                     20
+                   elsif @five_minute >= 19 && @five_second > 36
+                     21
+                   elsif @five_minute >= 19 && @five_second > 17
+                     22
+                   elsif @five_minute >= 18 && @five_second > 58 || @five_minute >= 19 && 17 >= @five_second
+                     23
+                   else
+                     24
+                   end
+    end
   end
 
   def user_ten_record
     if TenKmRecord.where(user_id: params[:user_id]).present?
-      if @ten_minute >= 63 && @ten_second > 46 || @ten_minute >= 64
-        @ten_vdot = 0
-      elsif @ten_minute >= 62 && @ten_second > 3 || @ten_minute >= 63 && 46 >= @ten_second
-        @ten_vdot = 1
-      elsif @ten_minute >= 60 && @ten_second > 26 || @ten_minute >= 62 && 3 >= @ten_second || @ten_minute == 61
-        @ten_vdot = 2
-      elsif @ten_minute >= 58 && @ten_second > 54 || @ten_minute >= 60 && 26 >= @ten_second || @ten_minute == 59
-        @ten_vdot = 3
-      elsif @ten_minute >= 57 && @ten_second > 26 || @ten_minute >= 58 && 54 >= @ten_second
-        @ten_vdot = 4
-      elsif @ten_minute >= 56 && @ten_second > 3 || @ten_minute >= 57 && 26 >= @ten_second
-        @ten_vdot = 5
-      elsif @ten_minute >= 54 && @ten_second > 44 || @ten_minute >= 56 && 3 >= @ten_second || @ten_minute >= 55
-        @ten_vdot = 6
-      elsif @ten_minute >= 53 && @ten_second > 29 || @ten_minute >= 54 && 46 >= @ten_second
-        @ten_vdot = 7
-      elsif @ten_minute >= 52 && @ten_second > 17 || @ten_minute >= 53 && 29 >= @ten_second
-        @ten_vdot = 8
-      elsif @ten_minute >= 51 && @ten_second > 9 || @ten_minute >= 52 && 17 >= @ten_second
-        @ten_vdot = 9
-    
-      elsif @ten_minute >= 50 && @ten_second > 3 || @ten_minute >= 51 && 9 >= @ten_second
-        @ten_vdot = 10
-      elsif @ten_minute >= 49 && @ten_second > 1 || @ten_minute >= 50 && 3 >= @ten_second
-        @ten_vdot = 11
-      elsif @ten_minute >= 48 && @ten_second > 1 || @ten_minute >= 49 && 1 >= @ten_second
-        @ten_vdot = 12
-      elsif @ten_minute >= 47 && @ten_second > 4 || @ten_minute >= 48 && 1 >= @ten_second
-        @ten_vdot = 13
-      elsif @ten_minute >= 46 && @ten_second > 9 || @ten_minute >= 47 && 4 >= @ten_second
-        @ten_vdot = 14
-      elsif @ten_minute >= 45 && @ten_second > 16 || @ten_minute >= 46 && 9 >= @ten_second
-        @ten_vdot = 15
-      elsif @ten_minute >= 44 && @ten_second > 25 || @ten_minute >= 45 && 16 >= @ten_second
-        @ten_vdot = 16
-      elsif @ten_minute >= 43 && @ten_second > 36 || @ten_minute >= 44 && 25 >= @ten_second
-        @ten_vdot = 17
-      elsif @ten_minute >= 42 && @ten_second > 50 || @ten_minute >= 43 && 36 >= @ten_second
-        @ten_vdot = 18
-      elsif @ten_minute >= 42 && @ten_second > 4
-        @ten_vdot = 19
+      @ten_vdot = if @ten_minute >= 63 && @ten_second > 46 || @ten_minute >= 64
+                    0
+                  elsif @ten_minute >= 62 && @ten_second > 3 || @ten_minute >= 63 && 46 >= @ten_second
+                    1
+                  elsif @ten_minute >= 60 && @ten_second > 26 || @ten_minute >= 62 && 3 >= @ten_second || @ten_minute == 61
+                    2
+                  elsif @ten_minute >= 58 && @ten_second > 54 || @ten_minute >= 60 && 26 >= @ten_second || @ten_minute == 59
+                    3
+                  elsif @ten_minute >= 57 && @ten_second > 26 || @ten_minute >= 58 && 54 >= @ten_second
+                    4
+                  elsif @ten_minute >= 56 && @ten_second > 3 || @ten_minute >= 57 && 26 >= @ten_second
+                    5
+                  elsif @ten_minute >= 54 && @ten_second > 44 || @ten_minute >= 56 && 3 >= @ten_second || @ten_minute >= 55
+                    6
+                  elsif @ten_minute >= 53 && @ten_second > 29 || @ten_minute >= 54 && 46 >= @ten_second
+                    7
+                  elsif @ten_minute >= 52 && @ten_second > 17 || @ten_minute >= 53 && 29 >= @ten_second
+                    8
+                  elsif @ten_minute >= 51 && @ten_second > 9 || @ten_minute >= 52 && 17 >= @ten_second
+                    9
 
-      elsif @ten_minute >= 41 && @ten_second > 21 || @ten_minute >= 42 && 4 >= @ten_second
-        @ten_vdot = 20
-      elsif @ten_minute >= 40 && @ten_second > 39 || @ten_minute >= 41 && 21 >= @ten_second
-        @ten_vdot = 21
-      elsif @ten_minute >= 39 && @ten_second > 59 || @ten_minute >= 40 && 39 >= @ten_second
-        @ten_vdot = 22
-      elsif @ten_minute >= 39 && @ten_second > 20
-        @ten_vdot = 23
-      else  
-        @ten_vdot = 24
-      end
+                  elsif @ten_minute >= 50 && @ten_second > 3 || @ten_minute >= 51 && 9 >= @ten_second
+                    10
+                  elsif @ten_minute >= 49 && @ten_second > 1 || @ten_minute >= 50 && 3 >= @ten_second
+                    11
+                  elsif @ten_minute >= 48 && @ten_second > 1 || @ten_minute >= 49 && 1 >= @ten_second
+                    12
+                  elsif @ten_minute >= 47 && @ten_second > 4 || @ten_minute >= 48 && 1 >= @ten_second
+                    13
+                  elsif @ten_minute >= 46 && @ten_second > 9 || @ten_minute >= 47 && 4 >= @ten_second
+                    14
+                  elsif @ten_minute >= 45 && @ten_second > 16 || @ten_minute >= 46 && 9 >= @ten_second
+                    15
+                  elsif @ten_minute >= 44 && @ten_second > 25 || @ten_minute >= 45 && 16 >= @ten_second
+                    16
+                  elsif @ten_minute >= 43 && @ten_second > 36 || @ten_minute >= 44 && 25 >= @ten_second
+                    17
+                  elsif @ten_minute >= 42 && @ten_second > 50 || @ten_minute >= 43 && 36 >= @ten_second
+                    18
+                  elsif @ten_minute >= 42 && @ten_second > 4
+                    19
+
+                  elsif @ten_minute >= 41 && @ten_second > 21 || @ten_minute >= 42 && 4 >= @ten_second
+                    20
+                  elsif @ten_minute >= 40 && @ten_second > 39 || @ten_minute >= 41 && 21 >= @ten_second
+                    21
+                  elsif @ten_minute >= 39 && @ten_second > 59 || @ten_minute >= 40 && 39 >= @ten_second
+                    22
+                  elsif @ten_minute >= 39 && @ten_second > 20
+                    23
+                  else
+                    24
+                  end
     end
   end
 
@@ -200,7 +195,7 @@ class VdotsController < ApplicationController
       elsif @half_hour >= 2 && @half_minute >= 10 && @half_second > 27 || @half_hour >= 2 && @half_minute >= 13 && 49 >= @half_second || @half_hour >= 2 && @half_minute >= 11
         @half_vdot = 3
       elsif @half_hour >= 2 && @half_minute >= 7 && @half_second > 16 || @half_hour >= 2 && @half_minute >= 10 && 27 >= @half_second || @half_hour >= 2 && @half_minute >= 8
-        @half_vdot = 4  
+        @half_vdot = 4
       elsif @half_hour >= 2 && @half_minute >= 4 && @half_second > 13 || @half_hour >= 2 && @half_minute >= 7 && 16 >= @half_second || @half_hour >= 2 && @half_minute >= 5
         @half_vdot = 5
       elsif @half_hour >= 2 && @half_minute >= 1 && @half_second > 19 || @half_hour >= 2 && @half_minute >= 4 && 13 >= @half_second || @half_hour >= 2 && @half_minute >= 2
@@ -239,7 +234,7 @@ class VdotsController < ApplicationController
         @half_vdot = 22
       elsif @half_hour >= 1 && @half_minute >= 27 && @half_second > 4 || @half_hour >= 1 && @half_minute >= 28 && 31 >= @half_second
         @half_vdot = 23
-      else  
+      else
         @half_vdot = 24
       end
     end
@@ -256,7 +251,7 @@ class VdotsController < ApplicationController
       elsif @full_hour >= 4 && @full_minute >= 28 && @full_second > 22 || @full_hour >= 4 && @full_minute >= 34 && 59 >= @full_second || @full_hour >= 4 && @full_minute >= 29
         @full_vdot = 3
       elsif @full_hour >= 4 && @full_minute >= 22 && @full_second > 3 || @full_hour >= 4 && @full_minute >= 28 && 22 >= @full_second || @full_hour >= 4 && @full_minute >= 23
-        @full_vdot = 4  
+        @full_vdot = 4
       elsif @full_hour >= 4 && @full_minute >= 16 && @full_second > 3 || @full_hour >= 4 && @full_minute >= 22 && 3 >= @full_second || @full_hour >= 4 && @full_minute >= 17
         @full_vdot = 5
       elsif @full_hour >= 4 && @full_minute >= 10 && @full_second > 19 || @full_hour >= 4 && @full_minute >= 16 && 3 >= @full_second || @full_hour >= 4 && @full_minute >= 11
@@ -295,10 +290,9 @@ class VdotsController < ApplicationController
         @full_vdot = 22
       elsif @full_hour >= 3 && @full_minute >= 1 && @full_second > 39 || @full_hour >= 3 && @full_minute >= 4 && 36 >= @hfull_second || @full_hour >= 3 && @full_minute >= 2
         @full_vdot = 23
-      else  
+      else
         @full_vdot = 24
       end
     end
   end
-
 end

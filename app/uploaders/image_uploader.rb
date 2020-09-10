@@ -6,7 +6,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :fog
 
-
   CarrierWave.configure do |config|
     config.fog_credentials = {
       provider: 'AWS',
@@ -14,29 +13,28 @@ class ImageUploader < CarrierWave::Uploader::Base
       aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
       region: 'ap-northeast-1'
     }
-  
-    config.fog_directory  = '32naoya25'
-  end
 
+    config.fog_directory = '32naoya25'
+  end
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
   def extension_whitelist
-    %w(png jpg)
+    %w[png jpg]
   end
 
   def filename
-    original_filename if original_filename
-  end 
+    original_filename
+  end
 
   # storage :file
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
-  
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -67,6 +65,5 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
   #   "something.jpg" if original_filename
-  # end 
+  # end
 end
- 

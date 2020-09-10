@@ -61,4 +61,4 @@ class Second < ActiveHash::Base
     { id: 58, name: '58' },
     { id: 59, name: '59' }
   ]
-  end
+end

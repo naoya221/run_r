@@ -12,4 +12,4 @@ class Hour < ActiveHash::Base
     { id: 9, name: '9' },
     { id: 10, name: '10' }
   ]
-  end
+end

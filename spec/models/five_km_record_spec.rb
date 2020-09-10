@@ -5,27 +5,27 @@ describe FiveKmRecord do
   end
 
   describe '5kmのベストタイムの保存' do
-    context "5kmのベストタイムが保存できる場合" do
-      it "ベストタイム（分・秒）があれば保存される" do
+    context '5kmのベストタイムが保存できる場合' do
+      it 'ベストタイム（分・秒）があれば保存される' do
         expect(@five_km_record).to be_valid
       end
     end
 
-    context "5kmのベストタイムが保存できない場合" do
-      it "ベストタイム（分）が空だと保存できない" do
-        @five_km_record.minute_id = ""
+    context '5kmのベストタイムが保存できない場合' do
+      it 'ベストタイム（分）が空だと保存できない' do
+        @five_km_record.minute_id = ''
         @five_km_record.valid?
-        expect(@five_km_record.errors.full_messages).to include("Minuteを入力してください")
-      end     
-      it "ベストタイム（秒）が空だと保存できない" do
-        @five_km_record.second_id = ""
-        @five_km_record.valid?
-        expect(@five_km_record.errors.full_messages).to include("Secondを入力してください")
+        expect(@five_km_record.errors.full_messages).to include('Minuteを入力してください')
       end
-      it "登録したユーザーが紐付いていないとベストタイムは保存できない" do
+      it 'ベストタイム（秒）が空だと保存できない' do
+        @five_km_record.second_id = ''
+        @five_km_record.valid?
+        expect(@five_km_record.errors.full_messages).to include('Secondを入力してください')
+      end
+      it '登録したユーザーが紐付いていないとベストタイムは保存できない' do
         @five_km_record.user = nil
         @five_km_record.valid?
-        expect(@five_km_record.errors.full_messages).to include("Userを入力してください")
+        expect(@five_km_record.errors.full_messages).to include('Userを入力してください')
       end
     end
   end

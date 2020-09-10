@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
@@ -26,8 +25,6 @@ class User < ApplicationRecord
   has_one :full_record
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  
-  validates :nickname, presence: true, length: { maximum: 10 }
 
-  
+  validates :nickname, presence: true, length: { maximum: 10 }
 end

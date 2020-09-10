@@ -26,6 +26,6 @@ class VdotPace < ActiveHash::Base
     { id: 21, vdot: '51', e_pace: '5:13', m_pace: '4:27', t_pace_twenty: '4:11', t_pace_forty: '4:20' },
     { id: 22, vdot: '52', e_pace: '5:08', m_pace: '4:22', t_pace_twenty: '4:07', t_pace_forty: '4:16' },
     { id: 23, vdot: '53', e_pace: '5:04', m_pace: '4:18', t_pace_twenty: '4:04', t_pace_forty: '4:13' },
-    { id: 24, vdot: '54', e_pace: '4:59', m_pace: '4:14', t_pace_twenty: '4:00', t_pace_forty: '4:08' },
+    { id: 24, vdot: '54', e_pace: '4:59', m_pace: '4:14', t_pace_twenty: '4:00', t_pace_forty: '4:08' }
   ]
- end
+end

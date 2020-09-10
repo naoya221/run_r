@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_nickname
 
   def show
-    @tweets = @user.tweets.page(params[:page]).per(8).order("created_at DESC")
+    @tweets = @user.tweets.page(params[:page]).per(8).order('created_at DESC')
   end
 
   private
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       five_km_record_id = five_km_record_id_hash.ids
       @five_km_record = FiveKmRecord.find(five_km_record_id[0])
     end
-    if TenKmRecord.where(user_id: params[:id]).present?  
+    if TenKmRecord.where(user_id: params[:id]).present?
       ten_km_record_id_hash = TenKmRecord.where(user_id: params[:id])
       ten_km_record_id = ten_km_record_id_hash.ids
       @ten_km_record = TenKmRecord.find(ten_km_record_id[0])
@@ -43,5 +43,4 @@ class UsersController < ApplicationController
       @full_record = FullRecord.find(full_record_id[0])
     end
   end
-
-end  
+end

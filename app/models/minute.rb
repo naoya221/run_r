@@ -101,4 +101,4 @@ class Minute < ActiveHash::Base
     { id: 98, name: '98' },
     { id: 99, name: '99' }
   ]
-  end
+end

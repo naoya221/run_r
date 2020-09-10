@@ -23,9 +23,6 @@ class RecordsController < ApplicationController
     if FullRecord.where(user_id: current_user.id).present?
       full_record = FullRecord.where(user_id: current_user.id).ids
       @full_record = FullRecord.find(full_record[0])
-    end  
-
+    end
   end
-
-
 end

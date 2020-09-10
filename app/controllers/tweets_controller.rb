@@ -1,13 +1,11 @@
 class TweetsController < ApplicationController
-  before_action :set_params, only: [ :show, :destroy, :edit, :update]
+  before_action :set_params, only: [:show, :destroy, :edit, :update]
   before_action :move_to_index, only: [:destroy, :edit, :update]
   before_action :authenticate_user!, except: [:index, :show, :search]
 
   def index
-    @tweets = Tweet.includes(:user).page(params[:page]).per(8).order("created_at DESC")
-    if user_signed_in?
-      @user = User.find(current_user.id)
-    end
+    @tweets = Tweet.includes(:user).page(params[:page]).per(8).order('created_at DESC')
+    @user = User.find(current_user.id) if user_signed_in?
   end
 
   def new
@@ -17,7 +15,7 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(tweet_params)
     if @tweet.save
-      flash[:notice] = "　　　　投稿しました！　　　　"
+      flash[:notice] = '　　　　投稿しました！　　　　'
       redirect_to root_path
     else
       render :new
@@ -31,7 +29,7 @@ class TweetsController < ApplicationController
 
   def destroy
     if @tweet.destroy
-      flash[:notice] = "　　　投稿を削除しました！　　　"
+      flash[:notice] = '　　　投稿を削除しました！　　　'
       redirect_to root_path
     else
       render :show
@@ -43,7 +41,7 @@ class TweetsController < ApplicationController
 
   def update
     if @tweet.update(tweet_params)
-      flash[:notice] = "　　　投稿を編集しました！　　　"
+      flash[:notice] = '　　　投稿を編集しました！　　　'
       redirect_to root_path
     else
       render :edit
@@ -51,10 +49,8 @@ class TweetsController < ApplicationController
   end
 
   def search
-    @tweets = Tweet.search(params[:keyword]).page(params[:page]).per(8).order("created_at DESC")
-    if user_signed_in?
-      @user = User.find(current_user.id)
-    end
+    @tweets = Tweet.search(params[:keyword]).page(params[:page]).per(8).order('created_at DESC')
+    @user = User.find(current_user.id) if user_signed_in?
   end
 
   private
@@ -64,13 +60,10 @@ class TweetsController < ApplicationController
   end
 
   def move_to_index
-    if @tweet.user_id != current_user.id
-      redirect_to root_path
-    end
+    redirect_to root_path if @tweet.user_id != current_user.id
   end
 
   def tweet_params
-    params.require(:tweet).permit(:content,:address, :longitude, :latitude, :place_name, :place_image).merge(user_id: current_user.id)
+    params.require(:tweet).permit(:content, :address, :longitude, :latitude, :place_name, :place_image).merge(user_id: current_user.id)
   end
-
 end
