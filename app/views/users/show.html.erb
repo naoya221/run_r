@@ -1,9 +1,13 @@
 <div class="user-top-content mt-5">
-    <div class="m-2 mb-5">
-        <%= link_to edit_user_registration_path(@user) do %>
-            <button type="button" class="btn btn-success text-white nav-link">ユーザー情報編集</button>
-        <% end %>
-    </div>
+
+    <% if @user.id == current_user.id %>
+        <div class="m-2 mb-5">
+            <%= link_to edit_user_registration_path(@user) do %>
+                <button type="button" class="btn btn-success text-white nav-link">ユーザー情報編集</button>
+            <% end %>
+        </div>
+    <% end %>
+
 
     <div class="d-flex justify-content-center">
         <div class="user-profile">
@@ -16,7 +20,7 @@
             </div>
 
             <div class="user-show-name-parent">
-                <div class="user-show-name"><%= " #{@nickname} " %></div>
+                <div class="user-show-name"><%= " #{@user.nickname} " %></div>
             </div>
         </div>    
     </div> 
@@ -28,7 +32,7 @@
 <br>
 
 <div class="user-record-text ml-5">
-    <%= "#{@nickname} さんのベストタイム" %>
+    <%= "#{@user.nickname} さんのベストタイム" %>
 </div>
 
 
@@ -127,7 +131,7 @@
 
 <div class="user-bottom-container p-2 pt-5 pb-3 rounded">
 
-    <div class="titles user-show-title">&nbsp;<%= @nickname %> さんの投稿一覧</div>
+    <div class="titles user-show-title">&nbsp;<%= @user.nickname %> さんの投稿一覧</div>
     
     <br>
     
