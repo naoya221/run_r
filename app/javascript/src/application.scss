@@ -129,13 +129,15 @@ a:hover {
 }
 
 .tweet-index-content-size {
-  max-width: 340px;
+  width: 350px;
+  max-width: 350px;
 }
 
 .bg-tweet-index-content {
   padding: 5px;
   background-color: lightblue;
   margin-bottom: 20px;
+  box-shadow: 2px 2px 2px 2px gray;
 }
 
 .place-image {
@@ -541,6 +543,7 @@ a:hover {
   max-width: 500px;
   margin: 0 auto;
   border: 1px solid black;
+  box-shadow: 2px 2px 2px 2px gray;
 }
 
 .vdot-record-item {
