@@ -22,7 +22,7 @@
   </head>
 
   <body>
-  <%# <div class="back-ground"> %>
+ 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top border-bottom border-white w-100">
       <%= link_to root_path do %>
         <button type="button" class="btn btn-success btn-lg text-white nav-link">Run Record</button>
@@ -64,19 +64,9 @@
 
     </nav>
 
-   
-
-      
-
-      <%# <div class="container"> %>
           
-          <%= yield %>
-      
-      <%# </div>  %>
+    <%= yield %>
 
-    
-
-  <%# </div> %>
     
     <script>
       $(function(){

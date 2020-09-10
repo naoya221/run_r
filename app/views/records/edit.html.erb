@@ -1,26 +1,8 @@
 <div class="record-container">    
   
-  <% if flash[:notice_five_edit] %>
-    <p class="flash-message"><%= flash[:notice_five_edit] %></p>
-  <% elsif flash[:notice_ten_edit] %>
-    <p class="flash-message"><%= flash[:notice_ten_edit] %></p>
-  <% elsif flash[:notice_half_edit] %>
-    <p class="flash-message"><%= flash[:notice_half_edit] %></p>
-  <% elsif flash[:notice_full_edit] %>
-    <p class="flash-message"><%= flash[:notice_full_edit] %></p>
-  <% end %>
+  <%= render 'render/notifications' %> 
 
-  <% if flash[:notice_five_de] %>
-    <p class="flash-message"><%= flash[:notice_five_de] %></p>
-  <% elsif flash[:notice_ten_de] %>
-    <p class="flash-message"><%= flash[:notice_ten_de] %></p>
-  <% elsif flash[:notice_half_de] %>
-    <p class="flash-message"><%= flash[:notice_half_de] %></p>
-  <% elsif flash[:notice_full_de] %>
-    <p class="flash-message"><%= flash[:notice_full_de] %></p>
-  <% end %>
-
-
+  <br><br> 
 
   <% if FiveKmRecord.where(user_id:current_user.id).present? %>
     <div class="p-5">

@@ -1,14 +1,6 @@
-<div class="back-ground">
+<%= render 'render/notifications' %>
 
-  <% if flash[:notice_tweet_new] %>
-    <p class="flash-message"><%= flash[:notice_tweet_new] %></p>
-  <% end %>
-  <% if flash[:notice_tweet_destroy] %>
-    <p class="flash-message"><%= flash[:notice_tweet_destroy] %></p>
-  <% end %>
-  <% if flash[:notice_tweet_edit] %>
-    <p class="flash-message"><%= flash[:notice_tweet_edit] %></p>
-  <% end %>
+<div class="back-ground">
   
   <div class="slide-content row justify-content-between">
 
