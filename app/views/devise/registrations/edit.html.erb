@@ -42,7 +42,7 @@
 
         <div class="actions">
           <%= f.submit "更新", class: "btn btn-success text-white mt-2 p-2 pl-3 pr-3" %>
-          <%= link_to "戻る", :back, class: "btn btn-success text-white bg-secondary border-none  mt-2 ml-3" %>
+          <%= link_to "戻る", user_path(current_user.id), class: "btn btn-success text-white bg-secondary border-none  mt-2 ml-3" %>
         </div>
         
       <% end %>
