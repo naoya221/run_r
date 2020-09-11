@@ -38,10 +38,10 @@ https://runreco.com/<br>
 
 # 環境・使用技術
 ### フロントエンド
-.HTML<br>
+・HTML<br>
 ・SCSS<br>
 ・JavaScript<br>
-.JQuery<br>
+・JQuery<br>
 ・Bootstrap 4.5.0<br>
 
 ### バックエンド
