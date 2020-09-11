@@ -52,7 +52,7 @@ https://runreco.com/<br>
 ・MySQL2<br>
 
 ### 本番環境
-・AWS (EC2、S3、Route53)<br>
+・・AWS(ALB, EC2, RDS, S3, Route53)<br>
 ・MySQL2<br>
 ・Nginx<br>
 
