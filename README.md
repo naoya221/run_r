@@ -45,7 +45,7 @@ https://runreco.com/<br>
 
 ### バックエンド
 ・Ruby　2.6.5<br>
-・Ruby on Rails 6.0.0<br>
+・Ruby on Rails　6.0.0<br>
 
 ### 開発環境
 ・MySQL2<br>
