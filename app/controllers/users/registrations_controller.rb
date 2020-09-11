@@ -39,7 +39,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def edit
-    if @user.email == "thank@you"
+    user=User.find(params[:format])
+    if user.id != current_user.id
+      flash[:notice] = '自分以外のユーザー情報は編集できません'
+      redirect_to user_path(current_user.id)
+    elsif current_user.email == "thank@you"
       flash[:notice] = 'かんたんログインではユーザー情報を編集できません'
       redirect_to user_path(current_user.id)
     end
