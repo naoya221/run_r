@@ -7,6 +7,11 @@ class RecordsController < ApplicationController
 
   def edit
     @user = User.find(current_user.id)
+    user = User.find(params[:id])
+    if @user.id != user.id
+      flash[:notice] = '自分以外のベストタイムは編集できません'
+      redirect_to user_path(current_user.id)
+    end
 
     if FiveKmRecord.where(user_id: current_user.id).present?
       five_record = FiveKmRecord.where(user_id: current_user.id).ids
