@@ -1,0 +1,25 @@
+<div class="gest-login">
+  <p class="gest-login-text">
+    操作確認される方はこちら！
+  </p>
+  <p class="gest-login-text">
+    <ul>
+      <li>
+        ランニングコースの投稿
+      </li>
+      <li>
+        上記へのコメント
+      </li>
+      <li>
+        ベストタイムの登録
+      </li>
+    </ul>
+  </p>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.hidden_field :email,value: "thank@you", autofocus: true, autocomplete: "email" %>
+    <%= f.hidden_field :password, value: "123456", autocomplete: "current-password" %>
+    <div class="actions">
+      <%= f.submit "かんたんログイン", class: "btn btn-success btn-lg" %>
+    </div>
+  <% end %>
+</div>  
