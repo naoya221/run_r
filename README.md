@@ -103,7 +103,7 @@ kaminari<br>
 # テーブル設計
 
 ### ER図
-<img width="869" alt="スクリーンショット 2020-09-11 14 36 02" src="https://user-images.githubusercontent.com/68312425/92868089-4f11c080-f43c-11ea-8a11-0a43fcc77f9c.png">
+<img width="519" alt="スクリーンショット 2020-09-11 14 42 31" src="https://user-images.githubusercontent.com/68312425/92868877-2c33dc00-f43d-11ea-9eb3-13648370f155.png">
 
 ## users テーブル
 
