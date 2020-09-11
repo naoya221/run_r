@@ -16,6 +16,8 @@
 
 <% elsif @user.present? %>
     <div class="titles vdot-title"><%= "#{@user.nickname}さんのvdot" %></div>
+<% else %>
+    <div class="vdot-top-message">ベストタイムを登録するとオススメの練習が表示されます ！</div>    
     <br>
 <% end %>
 
