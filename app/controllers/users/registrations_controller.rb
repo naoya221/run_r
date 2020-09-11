@@ -38,6 +38,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def edit
+    if @user.email == "thank@you"
+      flash[:notice] = 'かんたんログインではユーザー情報を編集できません'
+      redirect_to user_path(current_user.id)
+    end
+  end
+
   protected
 
   def update_resource(resource, params)
