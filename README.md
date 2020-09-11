@@ -38,15 +38,14 @@ https://runreco.com/<br>
 
 # 環境・使用技術
 ### フロントエンド
-・HTML<br>
+・HTML/CSS<br>
 ・SCSS<br>
-・JavaScript<br>
-・JQuery<br>
+・JavaScript,　jQuery<br>
 ・Bootstrap 4.5.0<br>
 
 ### バックエンド
-・Ruby <br>
-・Ruby on Rails <br>
+・Ruby　2.6.5<br>
+・Ruby on Rails 6.0.0<br>
 
 ### 開発環境
 ・MySQL2<br>
@@ -55,20 +54,6 @@ https://runreco.com/<br>
 ・AWS(ALB, EC2, RDS, S3, Route53)<br>
 ・MySQL2<br>
 ・Nginx<br>
-
-### 導入したパッケージ類
-pry-rails<br>
-devise<br>
-active_hash<br>
-jquery-rails<br>
-carrierwave<br>
-mini_magick<br>
-image_processing<br>
-aws-sdk-s3<br>
-fog-aws<br>
-geocoder<br>
-dotenv-rails<br>
-kaminari<br>
 
 # テスト用アカウント
 「かんたんログイン」にてフォーム入力せずログインできます。<br>
