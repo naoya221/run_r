@@ -54,6 +54,7 @@ https://runreco.com/<br>
 ・AWS(ALB, EC2, RDS, S3, Route53)<br>
 ・MySQL2<br>
 ・Nginx<br>
+・Capistranoによる自動デプロイ
 
 # テスト用アカウント
 「かんたんログイン」にてフォーム入力せずログインできます。<br>
