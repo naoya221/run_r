@@ -1,5 +1,6 @@
 class FullRecordsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_record, only: [:update, :destroy]
 
   def create
     full_record = FullRecord.new(permit_params)
@@ -12,8 +13,8 @@ class FullRecordsController < ApplicationController
   end
 
   def update
-    full_record = FullRecord.where(user_id: current_user.id)
-    if full_record.update(permit_params)
+    set_record
+    if @full_record.update(permit_params)
       flash[:notice] = 'フルのべストタイムを編集しました！'
       redirect_to edit_record_path
     else
@@ -22,10 +23,8 @@ class FullRecordsController < ApplicationController
   end
 
   def destroy
-    full_record = FullRecord.where(user_id: current_user.id)
-    full_record = full_record.ids
-    full_record = FullRecord.find(full_record[0])
-    if full_record.destroy
+    set_record
+    if @full_record.destroy
       flash[:notice] = 'フルのべストタイムを削除しました！'
       redirect_to edit_record_path
     else
@@ -34,6 +33,10 @@ class FullRecordsController < ApplicationController
   end
 
   private
+
+  def set_record
+    @full_record = FullRecord.find_by(user_id: current_user.id)
+  end
 
   def permit_params
     params.permit(:hour_id, :minute_id, :second_id).merge(user_id: current_user.id)

@@ -1,5 +1,6 @@
 class HalfRecordsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_record, only: [:update, :destroy]
 
   def create
     half_record = HalfRecord.new(permit_params)
@@ -12,8 +13,8 @@ class HalfRecordsController < ApplicationController
   end
 
   def update
-    half_record = HalfRecord.where(user_id: current_user.id)
-    if half_record.update(permit_params)
+    set_record
+    if @half_record.update(permit_params)
       flash[:notice] = 'ハーフのべストタイムを編集しました！'
       redirect_to edit_record_path
     else
@@ -22,10 +23,8 @@ class HalfRecordsController < ApplicationController
   end
 
   def destroy
-    half_record = HalfRecord.where(user_id: current_user.id)
-    half_record = half_record.ids
-    half_record = HalfRecord.find(half_record[0])
-    if half_record.destroy
+    set_record
+    if @half_record.destroy
       flash[:notice] = 'ハーフのべストタイムを削除しました！'
       redirect_to edit_record_path
     else
@@ -34,6 +33,10 @@ class HalfRecordsController < ApplicationController
   end
 
   private
+
+  def set_record
+    @half_record = HalfRecord.find_by(user_id: current_user.id)
+  end
 
   def permit_params
     params.permit(:hour_id, :minute_id, :second_id).merge(user_id: current_user.id)
