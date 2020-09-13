@@ -45,8 +45,8 @@
         5km &nbsp; Record
         <div>
             <% if FiveKmRecord.where(user_id: params[:id]).present? %>
-                <%= "#{@five_km_record.minute[:name]}分" %>
-                <%= "#{@five_km_record.second[:name]}秒" %>
+                <%= "#{@five_record.minute[:name]}分" %>
+                <%= "#{@five_record.second[:name]}秒" %>
             <% end %>  
         </div>
     </div>     
@@ -55,8 +55,8 @@
         10km Record
         <div>
             <% if TenKmRecord.where(user_id: params[:id]).present? %>
-                <%= "#{@ten_km_record.minute[:name]}分" %>
-                <%= "#{@ten_km_record.second[:name]}秒" %>
+                <%= "#{@ten_record.minute[:name]}分" %>
+                <%= "#{@ten_record.second[:name]}秒" %>
             <% end %>
         </div>
     </div>
