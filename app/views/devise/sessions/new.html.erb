@@ -4,7 +4,11 @@
     　　ログイン　　
   </div>
 
-  <br><br>
+
+  <br>
+  <%= render 'devise/sessions/testuser' %>
+  <br>
+  
     <div class= "text-danger">
     <%- flash.each do |name, msg| -%>
       <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
