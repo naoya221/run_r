@@ -17,7 +17,7 @@ https://runreco.com/<br>
 ### ランニングコースの投稿機能
 ・お気に入りのランニングコース（写真、住所、簡単な説明文）を投稿・編集・削除<br>
 ・GoogleMapに投稿時の住所位置をピン留め表示<br>
-・非同期通信でのコメント機能<br>
+・非同期通信でのコメント機能（Action Cable）<br>
 
 ### ユーザー管理機能
 ・ユーザー情報の登録・編集<br>
@@ -31,10 +31,11 @@ https://runreco.com/<br>
 
 ### その他の機能
 ・レスポンシブデザイン<br>
-・ページネーション機能<br>
 ・ランニングコース投稿一覧の検索機能<br>
-・画像投稿時のプレビュー機能<br>
-・ドメインのSSL化
+・ページネーション機能（kaminari）<br>
+・画像投稿時のプレビュー機能(素のJavaScriptのみ使用)<br>
+・HTTPS通信(AWS Certificate Manager)<br>
+
 
 # 環境・使用技術
 ### フロントエンド
@@ -48,13 +49,17 @@ https://runreco.com/<br>
 ・Ruby on Rails　6.0.0<br>
 
 ### 開発環境
+・Docker、docker-compose<br>
 ・MySQL2<br>
 
 ### 本番環境
-・AWS(ALB, EC2, RDS, S3, Route53)<br>
-・MySQL2<br>
+・AWS(ALB, EC2, S3, RDS, Route53, VPC)<br>
 ・Nginx<br>
-・Capistranoによる自動デプロイ
+・Capistranoによる自動デプロイ<br>
+・MySQL2<br>
+
+### テスト
+・Rspec (単体・結合）
 
 # テスト用アカウント
 「かんたんログイン」にてフォーム入力せずログインできます。<br>
