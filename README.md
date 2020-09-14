@@ -36,6 +36,7 @@ https://runreco.com/<br>
 ・画像投稿時のプレビュー機能(素のJavaScriptのみ使用)<br>
 ・HTTPS通信(AWS Certificate Manager)<br>
 
+
 # 環境・使用技術
 ### フロントエンド
 ・HTML/CSS<br>
@@ -56,6 +57,9 @@ https://runreco.com/<br>
 ・Nginx<br>
 ・Capistranoによる自動デプロイ<br>
 ・MySQL2<br>
+
+### テスト
+・Rspec (単体・結合）
 
 # テスト用アカウント
 「かんたんログイン」にてフォーム入力せずログインできます。<br>
