@@ -49,6 +49,7 @@ https://runreco.com/<br>
 
 ### 開発環境
 ・MySQL2<br>
+・Docker、docker-compose
 
 ### 本番環境
 ・AWS(ALB, EC2, RDS, S3, Route53)<br>
