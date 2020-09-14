@@ -27,4 +27,8 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
 
   validates :nickname, presence: true, length: { maximum: 10 }
+
+  def current_user?
+    self == current_user
+  end
 end
