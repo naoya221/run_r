@@ -18,7 +18,7 @@
   <p class="gest-login-text-center">
    ※ユーザー情報の編集不可
   </p>
-  
+
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= f.hidden_field :email,value: "thank@you", autofocus: true, autocomplete: "email" %>
     <%= f.hidden_field :password, value: "123456", autocomplete: "current-password" %>
@@ -26,4 +26,4 @@
       <%= f.submit "かんたんログイン", class: "btn btn-success btn-lg" %>
     </div>
   <% end %>
-</div>  
+</div>
