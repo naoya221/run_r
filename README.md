@@ -49,7 +49,6 @@ https://runreco.com/<br>
 ・Ruby on Rails　6.0.0<br>
 
 ### 開発環境
-・Docker、docker-compose<br>
 ・MySQL2<br>
 
 ### 本番環境
