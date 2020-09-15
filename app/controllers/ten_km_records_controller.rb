@@ -3,10 +3,9 @@ class TenKmRecordsController < ApplicationController
   before_action :set_record, only: [:update, :destroy]
 
   def create
-    ten_record = TenKmRecord.new(permit_params)
+    ten_record = TenKmRecord.new(record_params)
     if ten_record.save
-      flash[:notice] = '10kmのべストタイムを登録しました！'
-      redirect_to new_record_path
+      redirect_to new_record_path, notice: '10kmのベストタイムを登録しました！'
     else
       redirect_to root_path
     end
@@ -14,9 +13,8 @@ class TenKmRecordsController < ApplicationController
 
   def update
     set_record
-    if @ten_record.update(permit_params)
-      flash[:notice] = '10kmのベストタイムを編集しました！'
-      redirect_to edit_record_path
+    if @ten_record.update(record_params)
+      redirect_to edit_record_path, notice: '10kmのベストタイムを編集しました！'
     else
       redirect_to root_path
     end
@@ -25,10 +23,9 @@ class TenKmRecordsController < ApplicationController
   def destroy
     set_record
     if @ten_record.destroy
-      flash[:notice] = '10kmのべストタイムを削除しました！'
       redirect_to edit_record_path
     else
-      redirect_to root_path
+      redirect_to root_path, notice: '10kmのベストタイムを削除しました！'
     end
   end
 
@@ -38,7 +35,7 @@ class TenKmRecordsController < ApplicationController
     @ten_record = TenKmRecord.find_by(user_id: current_user.id)
   end
 
-  def permit_params
+  def record_params
     params.permit(:hour_id, :minute_id, :second_id).merge(user_id: current_user.id)
   end
 end

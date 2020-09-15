@@ -4,23 +4,25 @@
     　　ログイン　　
   </div>
 
+  <br>
+
+  <%= render 'devise/sessions/testuser' %>
 
   <br>
-  <%= render 'devise/sessions/testuser' %>
-  <br>
-  
-    <div class= "text-danger">
+
+  <div class= "text-danger">
     <%- flash.each do |name, msg| -%>
       <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
     <%- end -%>
-    </div>
+  </div>
+
   <br>
 
   <div class="d-flex justify-content-center mt-3 mb-5">
     <div class="forms-content p-5">
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      
+
         <div class="w-100">
           <div class="field">
             <%= f.label :email, class: "form-label" %><br/><em>( @ が必須です )</em><br/>
@@ -35,16 +37,17 @@
           <div class="actions mt-5">
             <%= f.submit "ログインする", class: "btn btn-success btn-lg" %>
           </div>
-        </div>  
+        </div>
+
       <% end %>
 
       <div class="d-flex justify-content-center">
         <div class="mt-4">
           <%= render "devise/shared/links" %>
         </div>
-     </div> 
+      </div>
 
     </div>
   </div>
 
-</div>  
+</div>

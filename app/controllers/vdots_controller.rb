@@ -4,7 +4,7 @@ class VdotsController < ApplicationController
     @vdot_paces = VdotPace.all
 
     if params[:user_id].present?
-      record_sum
+      set_record
       user_five_record
       user_ten_record
       user_half_record
@@ -34,7 +34,7 @@ class VdotsController < ApplicationController
 
   private
 
-  def record_sum
+  def set_record
     if FiveKmRecord.where(user_id: params[:user_id]).present?
       five_record = FiveKmRecord.find_by(user_id: params[:user_id])
       @five_minute = five_record.minute[:name].to_i

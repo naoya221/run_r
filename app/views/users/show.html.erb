@@ -2,7 +2,7 @@
 
     <%= render 'render/notifications' %>
 
-    <% if user_signed_in? && @user.id == current_user.id && @user.email != 'thank@you' %>
+    <% if @user.id == current_user&.id && @user.email != 'thank@you' %>
         <div class="m-2 mb-5">
             <%= link_to edit_user_registration_path(@user) do %>
                 <button type="button" class="btn btn-success text-white nav-link">ユーザー情報編集</button>
@@ -18,14 +18,14 @@
                     <img src=<%= @user.image %> class = "icon_image">
                 <% else %>
                     <img src="/images/dog2.png" class = "icon_image">
-                <% end %>    
+                <% end %>
             </div>
 
             <div class="user-show-name-parent">
-                <div class="user-show-name"><%= " #{@user.nickname} " %></div>
+                <div class="user-show-name"><%= @user.nickname %></div>
             </div>
-        </div>    
-    </div> 
+        </div>
+    </div>
 
     <br><br>
 
@@ -37,8 +37,6 @@
     <%= "#{@user.nickname} さんのベストタイム" %>
 </div>
 
-
-
 <div class="user-record-group">
 
     <div class="d-flex align-items-center justify-content-between mb-2">
@@ -47,10 +45,10 @@
             <% if FiveKmRecord.where(user_id: params[:id]).present? %>
                 <%= "#{@five_record.minute[:name]}分" %>
                 <%= "#{@five_record.second[:name]}秒" %>
-            <% end %>  
+            <% end %>
         </div>
-    </div>     
-    
+    </div>
+
     <div class="d-flex align-items-center justify-content-between mb-2">
         10km Record
         <div>
@@ -94,14 +92,14 @@
                 <button type="button" class="btn btn-success bg-info border-none text-white nav-link">練習</button>
             <% end %>
         </div>
-        <% if user_signed_in? && @user.id == current_user.id %>
+        <% if @user.id == current_user&.id %>
 
             <div class="user-show-btn">
                 <%= link_to new_record_path do %>
                     <button type="button" class="btn btn-success text-white nav-link">登録</button>
                 <% end %>
             </div>
-            
+
             <div class="user-show-btn">
                 <%= link_to edit_record_path do %>
                     <button type="button" class="btn btn-success text-white nav-link">編集</button>
@@ -132,16 +130,14 @@
 <br>
 
 <div class="user-bottom-container p-2 pt-5 pb-3 rounded">
+    <div class="titles user-show-title">&nbsp;<%= @user.nickname %>
+        さんの投稿一覧
+    </div>
 
-    <div class="titles user-show-title">&nbsp;<%= @user.nickname %> さんの投稿一覧</div>
-    
     <br>
-    
 
-    
-    <%= render "render/tweets"%>  
+    <%= render "render/tweets"%>
 
-      
     <br>
 
 </div>

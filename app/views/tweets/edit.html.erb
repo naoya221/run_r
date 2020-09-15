@@ -8,35 +8,35 @@
     <div class="forms-content p-5">
 
       <%= form_with(model: @tweet, local: true) do |f| %>
-    
+
         <%= render 'render/error_messages', model: f.object %>
 
-        <div class="m-3"> 
+        <div class="m-3">
           <%= f.label :場所の名前（１６字以内） %><br>
           <%= f.text_field :place_name, placeholder: "例）〇〇公園", class: "w-100 p-1 mb-5 rounded" %>
-        </div> 
+        </div>
 
-        <div class="m-3"> 
+        <div class="m-3">
           <%= f.label :場所の画像  %><br>
           <%= f.file_field :place_image, id: "preview", class: "w-100 p-1 mb-5 rounded" %>
-        </div> 
+        </div>
 
         <img src=<%= @tweet.place_image %> class = "before_image">
         <div id="image-list"></div>
 
-        <div class="m-3"> 
+        <div class="m-3">
           <%= f.label :住所（３０字以内） %><br>
           <%= f.text_field :address, placeholder: "例）〇〇県〇〇市〇〇区〇〇町１ー１", class: "w-100 p-1 mb-5 rounded" %>
-        </div> 
+        </div>
 
-        <div class="m-1"> 
+        <div class="m-1">
           <%= f.label :何かひとこと（１００字以内） %><br>
           <%= f.text_area :content, placeholder: "例）緑が多くて素敵な公園です", rows: "6", class: "w-100 p-1 mb-5 rounded" %>
-        </div> 
+        </div>
 
         <div>
             <%= f.submit "編集", class: "btn btn-success text-white btn-lg" %>
-        </div> 
+        </div>
       <% end %>
 
     </div>

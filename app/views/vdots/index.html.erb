@@ -2,19 +2,11 @@
 
   <%= render "render/graph" %>
 
-
-
-
   <%= render "render/users_vdot" %>
-
-
 
   <br><br><br>
 
-
-
   <%= render "render/records_paces" %>
-
 
 </div>
 
@@ -60,7 +52,7 @@
     $(".ten-record-logo").hide();
     $(".half-record-logo").hide();
     $(".full-record-logo").hide();
-    
+
     $(".five-record-logo").eq(<%= @five_vdot %>).show();
     $(".ten-record-logo").eq(<%= @ten_vdot %>).show();
     $(".half-record-logo").eq(<%= @half_vdot %>).show();
@@ -70,7 +62,7 @@
     $(".ten-record-logo").eq(<%= @ten_vdot %>).css("background-color", "violet");
     $(".half-record-logo").eq(<%= @half_vdot %>).css("background-color", "lightblue");
     $(".full-record-logo").eq(<%= @full_vdot %>).css("background-color", "gold");
-    
+
     $(".vdot-record-item").eq(<%= @five_vdot %>).css("border", "5px solid red");
     $(".vdot-record-item").eq(<%= @ten_vdot %>).css("border", "5px solid red");
     $(".vdot-record-item").eq(<%= @half_vdot %>).css("border", "5px solid red");
@@ -80,7 +72,7 @@
     $(".vdot-ten-bg").eq(<%= @ten_vdot %>).css("background-color", "violet");
     $(".vdot-half-bg").eq(<%= @half_vdot %>).css("background-color", "lightblue");
     $(".vdot-full-bg").eq(<%= @full_vdot %>).css("background-color", "gold");
-    
+
 
     // 目安ぺース一覧
     $(".five-pace-logo").hide();
@@ -102,7 +94,7 @@
     $(".vdot-pace-item").eq(<%= @half_vdot %>).css("border", "5px solid red");
     $(".vdot-pace-item").eq(<%= @full_vdot %>).css("border", "5px solid red");
     $(".vdot-pace-item").eq(<%= @five_vdot %>).css("border", "5px solid red");
-    
+
   });
 </script>
 
