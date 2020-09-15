@@ -2,10 +2,9 @@
   <div class="paginate">
     <%= paginate @tweets %>
   </div>
- </div>    
+ </div>
 
 <br>
-
 
 <div class="row justify-content-around f-f-monospace">
   <% @tweets.each do |tweet| %>
@@ -14,10 +13,10 @@
       <div class="bg-tweet-index-content">
         <div class="d-flex">
 
-          <%= link_to user_path(tweet.user_id), class: "link" do %>
+          <%= link_to tweet.user, class: "link" do %>
             <div class="tweet-index-content">
               <div>
-                <div class="tweet-index-image"> 
+                <div class="tweet-index-image">
                     <% if tweet.user.image.present? %>
                       <img src=<%= tweet.user.image %> class = "tweet-index-image-icon">
                     <% else %>
@@ -25,43 +24,39 @@
                     <% end %>
                 </div>
 
-                <div>
-                    <% if user_signed_in? != true || current_user.id != tweet.user_id %>
-                      <div class="tweet-index-nickname"><strong><%= "#{tweet.user.nickname}" %></strong></div>
-                    <% else %>
-                      <div class="tweet-index-nickname"><strong>あなた</strong></div>
-                    <% end %>
+                <div class="tweet-index-nickname">
+                  <strong><%= tweet.user == current_user ? 'あなた' : tweet.user.nickname %></strong>
                 </div>
               </div>
 
               <div class="tweet-index-address">
-                <%= "#{tweet.address}" %>
-              </div>  
+                <%= tweet.address %>
+              </div>
             </div>
           <% end %>
-          
+
           <div>
-            <%= link_to tweet_path(tweet.id) do %>
+            <%= link_to tweet do %>
               <img src=<%= tweet.place_image %> class = "place-image link rounded">
-            <% end %>  
+            <% end %>
           </div>
-         
-        </div>  
+
+        </div>
 
         <div class="d-flex justify-content-center mb-2">
           <div class="tweet-index-place rounded">
-            <%= "#{tweet.place_name}" %>
-          </div>  
-        </div> 
-    
+            <%= tweet.place_name %>
+          </div>
+        </div>
+
         <div class="tweet-index-text bg-content-item rounded">
-          <%= "#{tweet.content}" %>
-        </div>  
-      </div>   
+          <%= tweet.content %>
+        </div>
+      </div>
     </div>
-    
+
   <% end %>
-</div>  
+</div>
 
 <br>
 
@@ -69,4 +64,4 @@
   <div class="paginate">
     <%= paginate @tweets %>
   </div>
-</div>  
+</div>
