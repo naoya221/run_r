@@ -3,6 +3,6 @@ test:
   encoding: utf8
   pool: 5
   username: 'root'
-  port: 4306
+  port: 3306
   host: '127.0.0.1'
   database: run_r_test
