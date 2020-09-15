@@ -5,10 +5,9 @@ class RecordsController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user.id)
     user = User.find(params[:id])
-    if @user.id != user.id
-      redirect_to user_path(current_user.id),notice = '自分以外のベストタイムは編集できません'
+    if current_user.id != user.id
+      redirect_to user_path(current_user.id), notice: '自分以外のベストタイムは編集できません'
     end
 
     if FiveKmRecord.where(user_id: current_user.id).present?
