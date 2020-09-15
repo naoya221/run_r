@@ -49,7 +49,13 @@ class TweetsController < ApplicationController
 
   private
 
+  def set_current_tweet
+    @tweet = current_user.tweets.find(params[:id])
+  end
+
   def tweet_params
-    params.require(:tweet).permit(:content, :address, :longitude, :latitude, :place_name, :place_image)
+    params.require(:tweet).permit(
+      :content, :address, :longitude, :latitude, :place_name, :place_image
+    )
   end
 end

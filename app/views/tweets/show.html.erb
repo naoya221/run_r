@@ -1,16 +1,14 @@
 <div class="tweet-show-container f-f-monospace">
 
-  <div class="">
+  <div>
     <div class="d-flex justify-content-center">
-      <div class="">
+      <div>
         <img src=<%= @tweet.place_image %> class = "tweet-show-place-image">
       </div>
     </div>
 
     <div class="tweet-show-place-name">
-      <div class="">
        <%= @tweet.place_name %>
-      </div>
     </div>
   </div>
 
@@ -22,7 +20,7 @@
 
         <div class="tweet-show-left-content">
 
-          <%= link_to user_path(@tweet.user_id), class: "link" do %>
+          <%= link_to @tweet.user, class: "link" do %>
             <div class="tweet-show-profile">
               <div>
                 <% if @tweet.user.image.present? %>
@@ -39,7 +37,7 @@
           <% end %>
 
           <div class="tweet-show-btn">
-            <% if user_signed_in? && current_user.id == @tweet.user_id %>
+            <% if current_user&.id == @tweet.user_id %>
               <div class="tweet-show-edit-btn mt-5">
                 <%= link_to edit_tweet_path(@tweet.id) do %>
                   <button type="button" class="btn btn-success text-white btn-lg">編集</button>
@@ -47,13 +45,14 @@
               </div>
 
               <div class="tweet-show-delete-btn ml-3">
-                <%= link_to tweet_path(@tweet.id), method: :delete do %>
+                <%= link_to @tweet, method: :delete do %>
                   <button type="button" class="btn btn-success text-white btn-lg">削除</button>
                 <% end %>
               </div>
             <% else %>
               <div class="tweet-show-info">
-                自分の投稿のみ<br>編集・削除できます
+                自分の投稿のみ<br>
+                編集・削除できます
               </div>
             <% end %>
 
@@ -97,30 +96,27 @@
         <% end %>
       </div>
 
-
       <div id='messages'>
         <% @tweet_messages.each do |message| %>
-          <% if @tweet.id == message.tweet_id%>
-            <div class="bg-content-item message">
-              <%= message.text %><br>
-              <% if message.user == current_user %>
-                <div class="text-right">
-                  <%= link_to "あなた", message.user, class: "link" %>
+          <div class="bg-content-item message">
+            <%= message.text %><br>
+
+            <% if message.user == current_user %>
+              <div class="text-right">
+                <%= link_to "あなた", message.user, class: "link" %>
                 のコメントです
-                </div>
-              <% else %>
-                <div class="text-right">
-                  <%= link_to "#{message.user.nickname}さん", message.user, class: "link" %>
+              </div>
+            <% else %>
+              <div class="text-right">
+                <%= link_to "#{message.user.nickname}さん", message.user, class: "link" %>
                 のコメントです
-                </div>
-              <% end %>
-            </div>
-          <% end %>
+              </div>
+            <% end %>
+
+          </div>
         <% end %>
       </div>
    </div>
-
-
 
   </div>
 </div>
