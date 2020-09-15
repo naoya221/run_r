@@ -3,10 +3,9 @@ class FullRecordsController < ApplicationController
   before_action :set_record, only: [:update, :destroy]
 
   def create
-    full_record = FullRecord.new(permit_params)
+    full_record = FullRecord.new(record_params)
     if full_record.save
-      flash[:notice] = 'フルのべストタイムを登録しました！'
-      redirect_to new_record_path
+      redirect_to new_record_path, notice: 'フルのべストタイムを登録しました！'
     else
       redirect_to root_path
     end
@@ -14,9 +13,8 @@ class FullRecordsController < ApplicationController
 
   def update
     set_record
-    if @full_record.update(permit_params)
-      flash[:notice] = 'フルのべストタイムを編集しました！'
-      redirect_to edit_record_path
+    if @full_record.update(record_params)
+      redirect_to edit_record_path, notice: 'フルのべストタイムを編集しました！'
     else
       redirect_to root_path
     end
@@ -25,8 +23,7 @@ class FullRecordsController < ApplicationController
   def destroy
     set_record
     if @full_record.destroy
-      flash[:notice] = 'フルのべストタイムを削除しました！'
-      redirect_to edit_record_path
+      redirect_to edit_record_path, notice: 'フルのべストタイムを削除しました！'
     else
       redirect_to root_path
     end
@@ -38,7 +35,7 @@ class FullRecordsController < ApplicationController
     @full_record = FullRecord.find_by(user_id: current_user.id)
   end
 
-  def permit_params
+  def record_params
     params.permit(:hour_id, :minute_id, :second_id).merge(user_id: current_user.id)
   end
 end
