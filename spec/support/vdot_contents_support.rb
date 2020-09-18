@@ -1,5 +1,5 @@
 module VdotContents
-  def vdot_contents(_user)
+  def vdot_contents(user)
     # 目安ペース説明のdropdownがある
     expect(page).to have_content('VDOTとは')
     expect(page).to have_content('目安ペースの説明')
