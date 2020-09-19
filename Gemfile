@@ -67,12 +67,10 @@ gem 'devise'
 gem 'active_hash'
 gem 'jquery-rails'
 gem 'carrierwave'
-gem 'mini_magick'
-gem 'image_processing', '~> 1.2'
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk-s3', require: false
 gem 'fog-aws'
 gem "geocoder"
-gem "dotenv-rails"
+gem 'dotenv-rails'
 gem 'kaminari'
 gem 'rails-i18n'
 
@@ -80,4 +78,4 @@ gem 'rails-i18n'
 group :production do
   gem 'rails_12factor'
   gem 'unicorn', '5.4.1'
-end 
+end
