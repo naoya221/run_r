@@ -6,5 +6,6 @@ class CreateMessages < ActiveRecord::Migration[6.0]
       t.references :tweet,   null: false, foreign_key: true
       t.timestamps
     end
+    add_index :messages, [:user_id, :tweet_id, :created_at]
   end
 end

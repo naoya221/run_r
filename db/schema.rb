@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_102829) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["tweet_id"], name: "index_messages_on_tweet_id"
+    t.index ["user_id", "tweet_id", "created_at"], name: "index_messages_on_user_id_and_tweet_id_and_created_at"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_08_27_102829) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "created_at"], name: "index_tweets_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
