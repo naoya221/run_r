@@ -9,7 +9,12 @@ class RecordsController < ApplicationController
     if current_user.id != user.id
       redirect_to user_path(current_user.id), notice: '自分以外のベストタイムは編集できません'
     end
+    params_present    # ユーザーのベストタイムを取得
+  end
 
+  private
+
+  def params_present
     if FiveKmRecord.where(user_id: current_user.id).present?
       @five_record = FiveKmRecord.find_by(user_id: current_user.id)
     end
@@ -23,4 +28,5 @@ class RecordsController < ApplicationController
       @full_record = FullRecord.find_by(user_id: current_user.id)
     end
   end
+
 end

@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
   def show
-    params_present
     @user = User.find(params[:id])
     @tweets = @user.tweets.page(params[:page]).per(8).order('created_at DESC')
+    params_present    # ユーザーのベストタイムを取得
   end
 
   private

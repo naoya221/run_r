@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  #password入力なしでプロフィール変更できる
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
@@ -23,8 +24,6 @@ class User < ApplicationRecord
   has_one :ten_km_record
   has_one :half_record
   has_one :full_record
-
-  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
 
   validates :nickname, presence: true, length: { maximum: 10 }
 end

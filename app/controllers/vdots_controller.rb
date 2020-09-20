@@ -10,6 +10,7 @@ class VdotsController < ApplicationController
       user_half_record
       user_full_record
 
+      set_record          #各距離のベストタイムが登録してあれば、それを取得
       @user = User.find(params[:user_id])
 
       if @five_vdot.present?
