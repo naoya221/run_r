@@ -1,35 +1,17 @@
 class VdotsController < ApplicationController
+
   def index
     @vdot_records = VdotRecord.all
     @vdot_paces = VdotPace.all
 
     if params[:user_id].present?
-      set_record
-      user_five_record
-      user_ten_record
-      user_half_record
-      user_full_record
-
       set_record          #各距離のベストタイムが登録してあれば、それを取得
+      user_five_record    #登録してある5kmのベストタイムを元に、5kmのvdot（走力レベル）を取得
+      user_ten_record     #登録してある10kmのベストタイムを元に、10kmのvdot（走力レベル）を取得
+      user_half_record    #登録してあるハーフのベストタイムを元に、ハーフのvdot（走力レベル）を取得
+      user_full_record    #登録してあるフルのベストタイムを元に、フルのvdot（走力レベル）を取得
       @user = User.find(params[:user_id])
-
-      if @five_vdot.present?
-        @vdot_record_five = VdotRecord.find(@five_vdot)
-        @vdot_pace_five = VdotPace.find(@five_vdot)
-      end
-      if @ten_vdot.present?
-        @vdot_record_ten = VdotRecord.find(@ten_vdot)
-        @vdot_pace_ten = VdotPace.find(@ten_vdot)
-      end
-      if @half_vdot.present?
-        @vdot_record_half = VdotRecord.find(@half_vdot)
-        @vdot_pace_half = VdotPace.find(@half_vdot)
-      end
-      if @full_vdot.present?
-        @vdot_record_full = VdotRecord.find(@full_vdot)
-        @vdot_pace_full = VdotPace.find(@full_vdot)
-      end
-
+      record_present?     #走力に対する、目指すべきベストタイムと推奨ペースを取得
     end
   end
 
@@ -288,5 +270,24 @@ class VdotsController < ApplicationController
                   end
     end
   end
-  
+
+  def record_present?
+    if @five_vdot.present?
+      @vdot_record_five = VdotRecord.find(@five_vdot)
+      @vdot_pace_five = VdotPace.find(@five_vdot)
+    end
+    if @ten_vdot.present?
+      @vdot_record_ten = VdotRecord.find(@ten_vdot)
+      @vdot_pace_ten = VdotPace.find(@ten_vdot)
+    end
+    if @half_vdot.present?
+      @vdot_record_half = VdotRecord.find(@half_vdot)
+      @vdot_pace_half = VdotPace.find(@half_vdot)
+    end
+    if @full_vdot.present?
+      @vdot_record_full = VdotRecord.find(@full_vdot)
+      @vdot_pace_full = VdotPace.find(@full_vdot)
+    end
+  end
+
 end
