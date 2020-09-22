@@ -1,8 +1,5 @@
 version: 2.1
   jobs:
-    build:
-      docker:
-        - image: circleci/ruby:2.6.5-node-browsers # ジョブのコマンドが実行されるプライマリ コンテナ
-      steps:
-        - checkout # プロジェクト ディレクトリ内のコードをチェック アウトします
-        - run: puts "hello world" # `echo` コマンドを実行します
+    build-macos:
+      macos:
+        xcode: 11.3.0
