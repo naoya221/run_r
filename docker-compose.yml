@@ -1,0 +1,18 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - "4306:3306"
+
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/run_r
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
