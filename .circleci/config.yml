@@ -2,7 +2,7 @@ version: 2.1
   jobs:
     build:
       docker:
-        - image: circleci/node:4.8.2 # ジョブのコマンドが実行されるプライマリ コンテナ
+        - image: circleci/ruby:2.6.5-node-browsers # ジョブのコマンドが実行されるプライマリ コンテナ
       steps:
         - checkout # プロジェクト ディレクトリ内のコードをチェック アウトします
-        - run: echo "hello world" # `echo` コマンドを実行します
+        - run: puts "hello world" # `echo` コマンドを実行します
