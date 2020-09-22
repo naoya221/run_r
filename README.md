@@ -112,7 +112,7 @@ https://runreco.com/<br>
 - has_one :five_km_record
 - has_one :ten_km_record
 - has_one :half_record
-- has_one :full_record  
+- has_one :full_record
 
 
 ## tweets テーブル
@@ -120,7 +120,7 @@ https://runreco.com/<br>
 | Column      | Type       | Options                       |
 | ----------- | ---------- | ----------------------------- |
 | content     | string     | null: false                   |
-| address     | string     | null: false                   | 
+| address     | string     | null: false                   |
 | latitude    | float      |                               |
 | longitude   | float      |                               |
 | place_name  | string     | null: false                   |
@@ -152,7 +152,7 @@ https://runreco.com/<br>
 | Column    | Type       | Options                       |
 | --------- | ---------- | ----------------------------- |
 | minute_id | integer    | null: false                   |
-| second_id | integer    | null: false                   |   
+| second_id | integer    | null: false                   |
 | user      | references | null: false, foreign_key:true |
 
 ### Association
@@ -167,7 +167,7 @@ https://runreco.com/<br>
 | Column    | Type       | Options                       |
 | --------- | ---------- | ----------------------------- |
 | minute_id | integer    | null: false                   |
-| second_id | integer    | null: false                   |   
+| second_id | integer    | null: false                   |
 | user      | references | null: false, foreign_key:true |
 
 ### Association
@@ -183,7 +183,7 @@ https://runreco.com/<br>
 | --------- | ---------- | ----------------------------- |
 | hour_id   | integer    | null: false                   |
 | minute_id | integer    | null: false                   |
-| second_id | integer    | null: false                   |   
+| second_id | integer    | null: false                   |
 | user      | references | null: false, foreign_key:true |
 
 ### Association
@@ -200,7 +200,7 @@ https://runreco.com/<br>
 | --------- | ---------- | ----------------------------- |
 | hour_id   | integer    | null: false                   |
 | minute_id | integer    | null: false                   |
-| second_id | integer    | null: false                   |   
+| second_id | integer    | null: false                   |
 | user      | references | null: false, foreign_key:true |
 
 ### Association
