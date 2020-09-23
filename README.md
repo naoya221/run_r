@@ -53,7 +53,7 @@ https://runreco.com/<br>
 ・Docker/Docker-compose<br>
 
 ### 本番環境
-・AWS(ALB, EC2, S3, RDS, Route53, VPC)<br>
+・AWS(ALB, EC2, S3, Route53, VPC)<br>
 ・Nginx<br>
 ・Capistranoによる自動デプロイ<br>
 ・MySQL2<br>
