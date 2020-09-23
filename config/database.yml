@@ -57,4 +57,3 @@ production:
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   database: run_r_production
-
