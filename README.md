@@ -55,7 +55,7 @@ https://runreco.com/<br>
 ### 本番環境
 ・AWS(ALB, EC2, S3, Route53, VPC)<br>
 ・Nginx<br>
-・CircleCIにてdocker-composeよりコンテナを構築し、<br>
+・CircleCIにてDocker-composeよりコンテナを構築し、<br>
 　Capistranoにより自動デプロイ<br>
 ・MySQL2<br>
 
