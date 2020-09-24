@@ -50,15 +50,17 @@ https://runreco.com/<br>
 
 ### 開発環境
 ・MySQL2<br>
+・Docker/Docker-compose<br>
 
 ### 本番環境
-・AWS(ALB, EC2, S3, RDS, Route53, VPC)<br>
+・AWS(ALB, EC2, S3, Route53, VPC)<br>
 ・Nginx<br>
 ・Capistranoによる自動デプロイ<br>
 ・MySQL2<br>
 
 ### テスト
-・Rspec (単体・結合）
+・Rspec (単体・結合）<br>
+・CircleCIにてDocker-composeでコンテナを構築し、自動テスト
 
 # テスト用アカウント
 「かんたんログイン」にてフォーム入力せずログインできます。<br>
