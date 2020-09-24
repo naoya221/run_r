@@ -1,12 +1,3 @@
-# capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
-lock '3.14.1'
-
-# Capistranoのログの表示に利用する
-set :application, 'run_r'
-
-# どのリポジトリからアプリをpullするかを指定する
-set :repo_url,  'git@github.com:naoya221/run_r.git'
-
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -41,6 +32,15 @@ set :repo_url,  'git@github.com:naoya221/run_r.git'
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
+# capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
+lock '3.14.1'
+
+# Capistranoのログの表示に利用する
+set :application, 'run_r'
+
+# どのリポジトリからアプリをpullするかを指定する
+set :repo_url,  'git@github.com:naoya221/run_r.git'
+
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 set :rbenv_type, :user
@@ -63,4 +63,14 @@ namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
   end
+
+  desc 'upload master.key'
+  task :upload do
+    on roles(:app) do |_host|
+      execute "mkdir -p #{shared_path}/config" if test "[ ! -d #{shared_path}/config ]"
+    end
+  end
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
+
 end
