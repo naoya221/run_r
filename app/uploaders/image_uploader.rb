@@ -5,11 +5,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
 
-  # if Rails.env.production?    # 本番時はS3にファイルを保存する
-  #   storage :fog
-  # else
+  if Rails.env.production?    # 本番時はS3にファイルを保存する
+    storage :fog
+  else
     storage :file             # 開発・テスト時はローカルにファイルを保存する
-  # end
+  end
 
   CarrierWave.configure do |config|
     config.fog_credentials = {
@@ -32,9 +32,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   def filename
     original_filename
   end
-
-  # storage :file
-  # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
