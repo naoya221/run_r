@@ -30,7 +30,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       expect(current_path).to eq root_path
       # マイページへのボタン・ログアウトボタンが表示されていて、ログインボタンや新規登録ボタンが表示されていない
       expect(page).to have_content "#{@user.nickname}：さん"
-      expect(page).to have_link 'ログアウト', href:  destroy_user_session_path
+      expect(page).to have_link 'ログアウト', href: destroy_user_session_path
       expect(page).to have_no_link 'ログイン', href: new_user_session_path
       expect(page).to have_no_link 'かんたんログイン', href: new_user_session_path
       expect(page).to have_no_link '新規登録', href: new_user_registration_path
