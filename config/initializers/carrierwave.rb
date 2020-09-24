@@ -10,5 +10,5 @@ CarrierWave.configure do |config|
   #   config.cache_storage = :fog     # 本番時はS3にファイルを保存する
   # else
     config.storage = :file          # 開発・テスト時はローカルにファイルを保存する
-  # end
+  end
 end
