@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  #password入力なしでプロフィール変更できる
+  # password入力なしでプロフィール変更できる
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
