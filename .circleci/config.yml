@@ -40,12 +40,17 @@ jobs:
 
     # Database setup
     - run:
-        name: Databasesetup
+        name: Run databasesetup
         command: |
            bundle exec rake db:create
            bundle exec rake db:schema:load
 
-    # run tests!
+    # run rubocop
+    - run:
+          name: Run rubocop
+          command: bundle exec rubocop
+
+    # run tests
     - run:
         name: Run rspec
         command: |
@@ -69,6 +74,7 @@ jobs:
           fingerprints:
             - "56：e4：12：3a：df：02：ae：b9：03：07：aa：a1：75：cd：27：fa"
 
+    # deploy
     - deploy:
           name: Capistrano deploy
           command:
