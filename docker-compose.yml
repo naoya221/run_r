@@ -18,6 +18,7 @@ services:
       - db
       - chrome
 
+# rspecのsystemテストでブラウザを立ち上げるため
   chrome:
     image: selenium/standalone-chrome:latest
     ports:

@@ -35,7 +35,7 @@ jobs:
         - ./vendor/bundle
         key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-    - run: yarn install
+    - run: yarn install   # webpaker使用しているため
     - run: mv config/database.yml.ci config/database.yml
 
     # Database setup
@@ -69,6 +69,7 @@ jobs:
           fingerprints:
             - "56：e4：12：3a：df：02：ae：b9：03：07：aa：a1：75：cd：27：fa"
 
+    # masterブランチの時のみデプロイ
     - deploy:
           name: Capistrano deploy
           command: |
