@@ -55,21 +55,24 @@ https://runreco.com/<br>
 ### 本番環境
 ・AWS(ALB, EC2, S3, Route53, VPC)<br>
 ・Nginx<br>
-・CircleCIにてdocker-composeよりコンテナを構築し、<br>
+・CircleCIにてDocker-composeよりコンテナを構築し、<br>
 　Capistranoにより自動デプロイ<br>
 ・MySQL2<br>
 
 ### テスト
 ・Rspec (単体・結合）<br>
-・CircleCIにてDocker-composeよりコンテナを構築し、自動テスト
+・CircleCIにてDocker-composeよりコンテナを構築し、自動テスト<br>
 
-# テスト用アカウント
+### インフラ構成図
+<img width="566" alt="スクリーンショット 2020-09-25 11 20 01" src="https://user-images.githubusercontent.com/68312425/94219183-2e0f9c00-ff21-11ea-8f53-f6e1a52ff30b.png">
+
+# 使用方法
+
+### テスト用アカウント
 「かんたんログイン」にてフォーム入力せずログインできます。<br>
 　※確認者重複等でログインできない場合、以下のテストアカウントをお使いください<br>
 　email:　a@a<br>
 　password:　111111<br>
-
-# 使用方法
 
 ### お気に入りのランニングコースを投稿
 ・ヘッダーナビの「かんたんログイン」より、ログインします。<br>
