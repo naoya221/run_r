@@ -61,7 +61,10 @@ https://runreco.com/<br>
 
 ### テスト
 ・Rspec (単体・結合）<br>
-・CircleCIにてDocker-composeよりコンテナを構築し、自動テスト
+・CircleCIにてDocker-composeよりコンテナを構築し、自動テスト<br>
+
+### インフラ構成図
+<img width="566" alt="スクリーンショット 2020-09-25 11 20 01" src="https://user-images.githubusercontent.com/68312425/94219183-2e0f9c00-ff21-11ea-8f53-f6e1a52ff30b.png">
 
 # テスト用アカウント
 「かんたんログイン」にてフォーム入力せずログインできます。<br>
