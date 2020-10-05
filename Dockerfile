@@ -5,14 +5,12 @@ RUN apt-get update -qq && \
                        libpq-dev \
                        nodejs
 
-RUN mkdir /run_r
+RUN mkdir /workdir
+WORKDIR /workdir
 
-ENV APP_ROOT /run_r
-WORKDIR $APP_ROOT
-
-ADD ./Gemfile $APP_ROOT/Gemfile
-ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
+ADD ./Gemfile /workdir/Gemfile
+ADD ./Gemfile.lock /workdir/Gemfile.lock
 
 RUN gem install bundler
 RUN bundle install
-ADD . $APP_ROOT
+ADD . /workdir
