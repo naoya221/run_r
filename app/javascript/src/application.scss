@@ -40,7 +40,6 @@ a:hover {
 }
 
 .titles {
-  background: linear-gradient(transparent 20%, rgb(255, 215, 105));
   display: inline-block;
   color: rgb(70, 69, 69);
   display: inline-block;
@@ -151,6 +150,8 @@ footer {
 
 .search-input {
   width: 40%;
+  border: 1px solid rgb(201, 199, 199);
+  border-radius: 5px;
 }
 
 .search-btn {
@@ -213,7 +214,7 @@ footer {
 }
 
 .tweet-index-place {
-  background-color: rgb(99, 98, 97);
+  background-color: rgb(54, 54, 53);
   display: inline-block;
   padding: 10px 30px 5px 30px;
   font-weight: bold;
@@ -228,6 +229,7 @@ footer {
   margin: 0 0 5px 15px;
   width: 90%;
   height: 120px;
+  border: 1px solid rgb(201, 199, 199);
 }
 
 
