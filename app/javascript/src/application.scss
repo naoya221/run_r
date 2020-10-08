@@ -388,7 +388,8 @@ footer {
 }
 
 .user-profile {
-  background-color: rgb(146, 227, 241);
+  margin-top: 40px;
+  background-color: rgb(189, 226, 188);
   padding: 10px;
   border-radius: 10px;
 }
@@ -418,27 +419,6 @@ footer {
   object-fit: cover; //タテヨコ比を変えないままトリミング
 }
 
-.user-record-text {
-  color: white;
-  font-weight: bold;
-  font-size: 30px;
-  padding: 20px 0 40px 8vw;
-  /* 背景グラデーションを指定・幅を 200% にしておく */
-  background: linear-gradient(to right, rgb(255, 174, 0) 0%, rgb(253, 202, 90) 14.28%, rgb(248, 224, 171) 28.56%, rgb(255, 255, 255) 42.85%, rgb(255, 255, 255) 57.14%, rgb(255, 228, 169) 71.42%, rgb(255, 204, 95) 85.71%, rgb(255, 174, 0) 100%) 0% center / 200% auto;
-  /* 背景画像を文字でマスクする */
-          background-clip: text;
-  -webkit-background-clip: text;
-  /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
-  -webkit-text-fill-color: transparent;
-  /* アニメーション指定 */
-  animation: example 4s linear infinite;
-}
-
-/* 背景の横位置をズラす */
-@keyframes example {
-  to { background-position-x: 200%; }
-}
-
 .balloon3-right-btm {
   display: inline-block;
   margin: 5px;
@@ -447,16 +427,14 @@ footer {
   height: 150px;
   line-height: 90px;
   text-align: center;
-  color: rgb(94, 94, 94);
+  color: rgb(95, 95, 95);
   font-size: 20px;
-  font-weight: bold;
-  background: rgba(248, 198, 122, 0.9);
+  background: rgba(218, 218, 218, 0.9);
   border-radius: 30px;
 }
 
 .user-record-group {
-  font-weight: bold;
-  font-family: Times New Roman;
+  font-family: MS Serif;
   color: rgb(94, 94, 94);
   font-size: 25px;
   padding-left: 25vw;

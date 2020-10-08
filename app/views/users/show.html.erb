@@ -33,14 +33,14 @@
 
 <br>
 
-<div class="user-record-text ml-5">
+<div class="titles ml-5">
     <%= "#{@user.nickname} さんのベストタイム" %>
 </div>
 
 <div class="user-record-group">
 
     <div class="d-flex align-items-center justify-content-between mb-2">
-        5km &nbsp; Record
+        5km
         <div>
             <% if FiveKmRecord.where(user_id: params[:id]).present? %>
                 <%= "#{@five_record.minute[:name]}分" %>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="d-flex align-items-center justify-content-between mb-2">
-        10km Record
+        10km
         <div>
             <% if TenKmRecord.where(user_id: params[:id]).present? %>
                 <%= "#{@ten_record.minute[:name]}分" %>
@@ -60,7 +60,7 @@
     </div>
 
     <div class="d-flex align-items-center justify-content-between mb-2">
-        Half &nbsp; Record&nbsp;
+        Half
         <div>
             <% if HalfRecord.where(user_id: params[:id]).present? %>
                 <%= "#{@half_record.hour[:name]}時間" %>
@@ -71,7 +71,7 @@
     </div>
 
     <div class="d-flex align-items-center justify-content-between mb-2">
-        Full &nbsp;&nbsp; Record&nbsp;
+        Full
         <div>
             <% if FullRecord.where(user_id: params[:id]).present? %>
                 <%= "#{@full_record.hour[:name]}時間" %>
@@ -89,7 +89,7 @@
     <div class="user-show-btn-group">
         <div class="user-show-btn">
             <%= link_to user_vdots_path(@user) do %>
-                <button type="button" class="btn btn-success bg-info border-none text-white nav-link">練習</button>
+                <button type="button" class="btn btn-success text-white nav-link">練習</button>
             <% end %>
         </div>
         <% if @user.id == current_user&.id %>
