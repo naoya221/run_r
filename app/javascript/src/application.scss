@@ -21,6 +21,7 @@ a:hover {
 }
 
 .navbar {
+  opacity: 0.9;
   background-color: rgb(250, 250, 250);
   border-bottom: 1px solid rgb(238, 235, 235);
 }
@@ -122,9 +123,13 @@ footer {
   padding-bottom: 50px;
  }
 
+ .slide-content {
+   background-image: url("/images/forest.jpg");
+}
+
 .slide-content {
-  background-color: rgb(240, 240, 240);
-  margin-top: 40px;
+  opacity: 1;
+  margin-top: 80px;
 }
 
 .slide-text {
@@ -374,11 +379,11 @@ footer {
 }
 
 .user-bottom-container {
-  background-color: rgb(228, 247, 222);
+  background-color:  rgb(250, 250, 250);
 }
 
 .user-top-content {
-  background-color: rgb(228, 247, 222);
+  background-color:  rgb(250, 250, 250);
   padding-top: 30px;
 }
 
