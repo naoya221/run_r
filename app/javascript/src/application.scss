@@ -534,10 +534,21 @@ footer {
 
 .vdot-left-btn {
   margin-right: 20px;
+  background-color: rgb(36, 167, 42);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.vdot-right-btn {
+  background-color: rgb(36, 167, 42);
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 .dropdown-menu {
-  background-color: rgb(186, 234, 248);
+  background-color: rgb(190, 228, 190);
   margin: 350px 20px 0 0 ;
 }
 
@@ -576,9 +587,9 @@ footer {
 .vdot-number {
   display: inline-block;
   font-weight: bold;
-  color: #f79235;
+  color: rgb(50, 172, 33);
   border-radius: 10px;
-  border: solid 3px #f79235;
+  border: solid 3px rgb(50, 172, 33);
   padding: 0.3em 0.5em;
   margin-bottom: 1em;
 }
@@ -589,7 +600,7 @@ footer {
 }
 
 .hide-list{
-  padding: 5px 7px;
+  padding: 0 2px;
 }
 
 .header-item {
@@ -618,24 +629,24 @@ footer {
 }
 
 .vdot-b-t {
-  border-top: 2px solid #f79235;
+  border-top: 2px solid rgb(50, 172, 33);
   padding-top: 5px;
 }
 
 .vdot-five {
-  background-color: pink;
+  background-color: #92c3ff;
 }
 
 .vdot-ten {
-  background-color: violet;
+  background-color: #a7bcff;
 }
 
 .vdot-half {
-  background-color: lightblue;
+  background-color:#b7afff;
 }
 
 .vdot-full {
-  background-color: gold;
+  background-color:#dab7ff;
 }
 
 
@@ -711,7 +722,7 @@ footer {
     display: block;
     margin: 10px auto;
   }
-  
+
   .tweet-btn {
     text-align: center;
   }

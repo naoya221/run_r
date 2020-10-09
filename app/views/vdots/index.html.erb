@@ -18,10 +18,10 @@
         datasets : [
           {
               label: "緑データ",
-              fillColor : "rgba(92,220,92,0.6)", // 線から下端までを塗りつぶす色
-              strokeColor : "#f79235", // 折れ線の色
-              pointColor : "#f79235",  // ドットの塗りつぶし色
-              pointStrokeColor : "white",        // ドットの枠線色
+              fillColor : "rgba(90,90,90,0.6)", // 線から下端までを塗りつぶす色
+              strokeColor : "rgb(120,120,120)", // 折れ線の色
+              pointColor : "white",  // ドットの塗りつぶし色
+              pointStrokeColor : "rgb(120,120,120)",        // ドットの枠線色
               pointHighlightFill : "yellow",     // マウスが載った際のドットの塗りつぶし色
               pointHighlightStroke : "green",    // マウスが載った際のドットの枠線色
               data : [ <%= @vdot_record_five.vdot %>,
@@ -58,20 +58,20 @@
     $(".half-record-logo").eq(<%= @half_vdot %>).show();
     $(".full-record-logo").eq(<%= @full_vdot %>).show();
 
-    $(".five-record-logo").eq(<%= @five_vdot %>).css("background-color", "pink");
-    $(".ten-record-logo").eq(<%= @ten_vdot %>).css("background-color", "violet");
-    $(".half-record-logo").eq(<%= @half_vdot %>).css("background-color", "lightblue");
-    $(".full-record-logo").eq(<%= @full_vdot %>).css("background-color", "gold");
+    $(".five-record-logo").eq(<%= @five_vdot %>).css("background-color", "#92c3ff");
+    $(".ten-record-logo").eq(<%= @ten_vdot %>).css("background-color", "#a7bcff");
+    $(".half-record-logo").eq(<%= @half_vdot %>).css("background-color", "#b7afff");
+    $(".full-record-logo").eq(<%= @full_vdot %>).css("background-color", "#dab7ff");
 
-    $(".vdot-record-item").eq(<%= @five_vdot %>).css("border", "5px solid red");
-    $(".vdot-record-item").eq(<%= @ten_vdot %>).css("border", "5px solid red");
-    $(".vdot-record-item").eq(<%= @half_vdot %>).css("border", "5px solid red");
-    $(".vdot-record-item").eq(<%= @full_vdot %>).css("border", "5px solid red");
+    $(".vdot-record-item").eq(<%= @five_vdot %>).css("border", "5px solid rgb(90, 90, 90)");
+    $(".vdot-record-item").eq(<%= @ten_vdot %>).css("border", "5px solid rgb(90, 90, 90)");
+    $(".vdot-record-item").eq(<%= @half_vdot %>).css("border", "5px solid rgb(90, 90, 90)");
+    $(".vdot-record-item").eq(<%= @full_vdot %>).css("border", "5px solid rgb(90, 90, 90)");
 
-    $(".vdot-five-bg").eq(<%= @five_vdot %>).css("background-color", "pink");
-    $(".vdot-ten-bg").eq(<%= @ten_vdot %>).css("background-color", "violet");
-    $(".vdot-half-bg").eq(<%= @half_vdot %>).css("background-color", "lightblue");
-    $(".vdot-full-bg").eq(<%= @full_vdot %>).css("background-color", "gold");
+    $(".vdot-five-bg").eq(<%= @five_vdot %>).css("background-color", "#92c3ff");
+    $(".vdot-ten-bg").eq(<%= @ten_vdot %>).css("background-color", "#a7bcff");
+    $(".vdot-half-bg").eq(<%= @half_vdot %>).css("background-color", "#b7afff");
+    $(".vdot-full-bg").eq(<%= @full_vdot %>).css("background-color", "#dab7ff");
 
 
     // 目安ぺース一覧
@@ -85,15 +85,15 @@
     $(".half-pace-logo").eq(<%= @half_vdot %>).show();
     $(".full-pace-logo").eq(<%= @full_vdot %>).show();
 
-    $(".five-pace-logo").eq(<%= @five_vdot %>).css("background-color", "pink");
-    $(".ten-pace-logo").eq(<%= @ten_vdot %>).css("background-color", "violet");
-    $(".half-pace-logo").eq(<%= @half_vdot %>).css("background-color", "lightblue");
-    $(".full-pace-logo").eq(<%= @full_vdot %>).css("background-color", "gold");
+    $(".five-pace-logo").eq(<%= @five_vdot %>).css("background-color", "#92c3ff");
+    $(".ten-pace-logo").eq(<%= @ten_vdot %>).css("background-color", "#a7bcff");
+    $(".half-pace-logo").eq(<%= @half_vdot %>).css("background-color", "#b7afff");
+    $(".full-pace-logo").eq(<%= @full_vdot %>).css("background-color", "#dab7ff");
 
-    $(".vdot-pace-item").eq(<%= @ten_vdot %>).css("border", "5px solid red");
-    $(".vdot-pace-item").eq(<%= @half_vdot %>).css("border", "5px solid red");
-    $(".vdot-pace-item").eq(<%= @full_vdot %>).css("border", "5px solid red");
-    $(".vdot-pace-item").eq(<%= @five_vdot %>).css("border", "5px solid red");
+    $(".vdot-pace-item").eq(<%= @ten_vdot %>).css("border", "5px solid rgb(90, 90, 90)");
+    $(".vdot-pace-item").eq(<%= @half_vdot %>).css("border", "5px solid rgb(90, 90, 90)");
+    $(".vdot-pace-item").eq(<%= @full_vdot %>).css("border", "5px solid rgb(90, 90, 90)");
+    $(".vdot-pace-item").eq(<%= @five_vdot %>).css("border", "5px solid rgb(90, 90, 90)");
 
   });
 </script>
