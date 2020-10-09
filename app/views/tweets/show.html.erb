@@ -79,7 +79,6 @@
     <div class="message-group">
       <div class="m-4 mt-5">
         <div class="titles p-2 pr-3 mt-5">コメント一覧</div>
-
         <br>
 
         <% if user_signed_in? %>
@@ -96,22 +95,27 @@
         <% end %>
       </div>
 
+      <% unless @tweet_messages.present? %>
+        <div class="message">
+          この投稿へのコメントはありません
+        </div>
+      <% end %>
+
       <div id='messages'>
         <% @tweet_messages.each do |message| %>
-          <div class="bg-content-item message">
-            <%= message.text %><br>
+          <div class="message">
+            <%= message.text %>
+            <br>
 
-            <% if message.user == current_user %>
-              <div class="text-right">
-                <%= link_to "あなた", message.user, class: "link" %>
-                のコメントです
-              </div>
-            <% else %>
-              <div class="text-right">
-                <%= link_to "#{message.user.nickname}さん", message.user, class: "link" %>
-                のコメントです
-              </div>
-            <% end %>
+            <div class="text-right">
+              <span class="post-time-message"><%= message.created_at.to_s(:datetime_jp) %></span>
+              <% if message.user == current_user %>
+                  <%= link_to "あなた", message.user, class: "link message-user" %>
+              <% else %>
+                  <%= link_to "#{message.user.nickname}さん", message.user, class: "link message-user" %>
+              <% end %>
+              のコメントです
+            </div>
 
           </div>
         <% end %>

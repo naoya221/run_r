@@ -22,7 +22,7 @@ a:hover {
 
 .navbar {
   opacity: 0.9;
-  background-color: rgb(250, 250, 250);
+  background-color: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(238, 235, 235);
 }
 
@@ -119,7 +119,7 @@ footer {
 
 
 .back-ground {
-  background-color: rgb(250, 250, 250);
+  background-color: rgb(245, 245, 245);
   padding-bottom: 50px;
  }
 
@@ -155,7 +155,7 @@ footer {
 
 .search-input {
   width: 40%;
-  border: 1px solid rgb(201, 199, 199);
+  border: 1px solid rgb(200, 200, 200);
   border-radius: 5px;
 }
 
@@ -243,9 +243,10 @@ footer {
 
 .tweet-show-container {
   padding-top: 100px;
+  background-color: rgb(245, 245, 245);
 }
 
-.tweet-show-place-image { 
+.tweet-show-place-image {
   width: 550px;
   height: 350px;
 }
@@ -278,26 +279,13 @@ footer {
   margin-top: 50px;
 }
 
-.tweet-show-place-texts {
-  background-color: white;
-  padding: 10px;
-  font-size: large;
-  border-radius: 4px;
-  height: 150px;
-  margin-right: 0;
-  margin-top: 50px;
-  max-width: 500px;
-}
-
 .tweet-show-profile {
   padding-left: 40px;
   text-align: center;
 }
 
 .tweet-user {
-  background-color: white;
   padding: 10px 20px 14px;
-  border-radius: 5px;
   margin: 10px 0px 0 10px;
   display: inline-block;
   color: rgb(58, 57, 57);
@@ -333,6 +321,18 @@ footer {
   border-radius: 10px;
 }
 
+.tweet-show-place-texts {
+  background-color: white;
+  padding: 10px;
+  font-size: large;
+  border-radius: 4px;
+  height: 150px;
+  margin-right: 0;
+  margin-top: 50px;
+  max-width: 500px;
+  border: 1px solid rgb(200, 200, 200);
+}
+
 .address {
   background-color: white;
   border-radius: 4px;
@@ -343,6 +343,7 @@ footer {
   width: 500px;
   max-height:50px;
   font-size: 14px;
+  border: 1px solid rgb(200, 200, 200);
 }
 
 #map{
@@ -363,11 +364,18 @@ footer {
 }
 
 .message {
-  padding: 10px;
+  padding: 5px;
   margin: 30px;
-  border: 1px solid black;
-  border-radius: 5px;
+  border-bottom: 1px solid black;
   max-width: 500px;
+}
+
+.post-time-message {
+  margin-right: 20px;
+}
+
+.message-user {
+  color: gray;
 }
 
 
@@ -383,7 +391,7 @@ footer {
 }
 
 .user-top-content {
-  background-color:  rgb(250, 250, 250);
+  background-color:  rgb(255, 255, 255);
   padding-top: 30px;
 }
 
