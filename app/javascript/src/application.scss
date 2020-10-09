@@ -244,69 +244,38 @@ footer {
 .tweet-show-container {
   padding-top: 100px;
   background-color: rgb(245, 245, 245);
+  padding-left: 30px;
+  padding-bottom: 50px;
 }
 
 .tweet-show-place-image {
-  width: 550px;
-  height: 350px;
+  width: 650px;
+  height: 450px;
+}
+
+.tweet-show-place-info {
+  width: 650px;
 }
 
 .tweet-show-place-name {
-  padding: 10px;
-  text-align: center;
   font-size: 40px;
   font-weight: bold;
 }
 
-.tweet-show-middle-container {
-  padding: 0 20px 200px 20px;
-  height: 100%;
-}
-
-.tweet-show-middle-contents {
-  display: flex;
-  justify-content: space-between;
-}
-
-.tweet-show-left-contents {
-  height: 440px;
-}
-
-.tweet-show-left-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-top: 50px;
-}
-
 .tweet-show-profile {
+  margin-top: 10px;
   padding-left: 40px;
-  text-align: center;
 }
 
 .tweet-user {
-  padding: 10px 20px 14px;
-  margin: 10px 0px 0 10px;
-  display: inline-block;
-  color: rgb(58, 57, 57);
-  font-weight: bold;
+  color: black;
+  font-size: 20px;
 }
 
 .tweet-show-image-icon {
-  width: 200px;
-  height: 200px;
-  border-radius: 200px;
-  margin-bottom: 20px;
-}
-
-.tweet-show-btn {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.tweet-show-delete-btn {
-  margin-right: 15px;
-  margin-top: 48px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
 }
 
 .tweet-show-info {
@@ -328,8 +297,8 @@ footer {
   border-radius: 4px;
   height: 150px;
   margin-right: 0;
-  margin-top: 50px;
-  max-width: 500px;
+  margin-top: 20px;
+  max-width: 650px;
   border: 1px solid rgb(200, 200, 200);
 }
 
@@ -337,10 +306,9 @@ footer {
   background-color: white;
   border-radius: 4px;
   display: inline-block;
-  margin-top: 30px;
-  margin-left: 15px;
+  margin-top: 20px;
   padding: 10px 0;
-  width: 500px;
+  width: 650px;
   max-height:50px;
   font-size: 14px;
   border: 1px solid rgb(200, 200, 200);
@@ -348,24 +316,23 @@ footer {
 
 #map{
   height: 440px;
-  width: 500px;
+  width: 650px;
   margin-top: 30px;
 }
 
-.message-group {
- padding-top: 50px;
+.massage-form-group {
+  margin-left: 10px;
 }
-
 
 .massage-form {
   margin: 20px 0 40px;
-  max-width: 600px;
+  max-width: 500px;
   width: 50vw;
 }
 
 .message {
   padding: 5px;
-  margin: 30px;
+  margin-left: 30px;
   border-bottom: 1px solid black;
   max-width: 500px;
 }
@@ -536,7 +503,7 @@ footer {
 // VDOTページ
 
 .vdot-container {
-  background-color: rgb(228, 247, 222);
+  background-color: rgb(245, 245, 245);
   padding: 100px 20px 20px;
 }
 
@@ -704,10 +671,6 @@ footer {
     text-align: center;
   }
 
-  .tweet-show-info {
-    margin-bottom: 50px;
-  }
-
   .tweet-show-place-texts {
     margin: 10px auto;
     width: 95vw;
@@ -765,7 +728,7 @@ footer {
     display: inline-block;
   }
 
-  .tweet-show-place-image { 
+  .tweet-show-place-image {
     width: 400px;
     height: 250px;
   }
@@ -773,17 +736,6 @@ footer {
   .tweet-show-place-name {
     font-size: 25px;
   }
-
-  .tweet-show-middle-contents {
-    display: block;
-  }
-
-  .tweet-show-left-contents {
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-  }
-  
 
   .tweet-show-left-content {
     justify-content: space-around;
@@ -841,15 +793,15 @@ footer {
 
   .signup-form {
     width: 50%;
-  } 
+  }
 
   .tweet-show-image-icon {
-    width: 110px;
-    height: 110px;
-    border-radius: 60px;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
     margin: 35px 15px 20px 20px;
   }
-  
+
   .tweet-show-content {
     display: block;
     width: 70%;
