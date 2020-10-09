@@ -1,5 +1,5 @@
 
-@import "slick-theme"; 
+@import "slick-theme";
 @import "slick";
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
@@ -243,7 +243,7 @@ footer {
   padding-top: 100px;
   background-color: rgb(245, 245, 245);
   padding-left: 30px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 .tweet-show-place-image {
@@ -252,6 +252,8 @@ footer {
 }
 
 .tweet-show-place-info {
+  display: flex;
+  justify-content: space-between;
   width: 650px;
 }
 
@@ -268,6 +270,7 @@ footer {
 .tweet-user {
   color: black;
   font-size: 20px;
+  margin: 5px 0 0 5px;
 }
 
 .tweet-show-image-icon {
@@ -286,6 +289,10 @@ footer {
   font-weight: bold;
   background: rgba(248, 198, 122, 0.9);
   border-radius: 10px;
+}
+
+.tweet-show-delete-btn {
+  margin-left: 10px;
 }
 
 .tweet-show-place-texts {
@@ -656,52 +663,14 @@ footer {
     display: inline-block;
   }
 
-
-  .tweet-show-middle-contents {
-    display: block;
-  }
-
-  .tweet-show-left-contents {
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-  }
-
-  .tweet-show-left-content {
-    justify-content: space-around;
-    margin-top: 0;
-  }
-
   .tweet-show-profile {
     margin-top: 10px;
     text-align: center;
   }
 
-  .tweet-show-place-texts {
-    margin: 10px auto;
-    width: 95vw;
-    max-width: 1000px;
-  }
-
-  .address {
-    margin: 20px auto;
-    width: 95vw;
-  }
-
-  #map {
-    margin: 30px auto 0 auto;
-    width: 95vw;
-    height: 450px;
-  }
-
-  .tweet-show-btn {
+  .tweet-show-btns {
     display: block;
     text-align: center;
-  }
-
-  .tweet-show-delete-btn {
-    margin-right: 20px;
-    margin-top: 10px;
   }
 
 
@@ -734,32 +703,45 @@ footer {
     display: inline-block;
   }
 
+  .tweet-show-container {
+    padding-left: 20px;
+  }
+
   .tweet-show-place-image {
-    width: 400px;
-    height: 250px;
+    width: 92vw;
+    height: 70vw;
   }
 
   .tweet-show-place-name {
-    font-size: 25px;
+    font-size: 30px;
   }
 
-  .tweet-show-left-content {
-    justify-content: space-around;
-    margin-top: 0;
+  .tweet-show-place-info {
+    width: 92vw;
   }
 
   .tweet-show-profile {
-    margin-bottom: 10px;
+    margin-top: 0;
+    text-align: end;
+    padding-left: 10px;
+  }
+
+  .tweet-user {
+    font-size: 13px;
+  }
+
+  .tweet-show-btn {
+    padding: 4px 8px;
   }
 
   .tweet-show-place-texts {
-    margin: 10px auto;
+    margin: 10px 0;
+    max-width: 800px;
     width: 92vw;
-    max-width: 1000px;
   }
 
   .address {
-    margin: 20px auto;
+    margin: 0 auto;
     width: 92vw;
   }
 
@@ -770,9 +752,12 @@ footer {
   }
 
   .massage-form {
-    margin: 20px 0 40px;
-    max-width: 600px;
-    width: 50vw;
+    width: 70vw;
+  }
+
+  .message {
+    margin-left: 20px;
+    max-width: 80vw;
   }
 
   .record-title {
@@ -801,13 +786,6 @@ footer {
     width: 50%;
   }
 
-  .tweet-show-image-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-    margin: 35px 15px 20px 20px;
-  }
-
   .tweet-show-content {
     display: block;
     width: 70%;
@@ -825,11 +803,10 @@ footer {
     padding-right: 13vw;
   }
 
-  .tweet-show-btn {
+  .tweet-show-btns {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    margin-bottom: 10px;
   }
 
   .user-show-btn-group {
@@ -853,9 +830,8 @@ footer {
     width: 100px;
     height: 100px;
     border-radius: 100px;
-    
-  } 
-  
+  }
+
   .text {
     font-size: 10px;
     margin-top: -10px;
@@ -880,8 +856,8 @@ footer {
   .slide-text h4 {
     display: inline-block;
     font-size: 25px;
-  }  
-  
+  }
+
   .slide-text {
     font-size: 13px;
     display: block;
@@ -905,20 +881,19 @@ footer {
     padding: 0;
   }
 
-  .tweet-show-place-image { 
-    width: 300px;
-    height: 200px;
+  .tweet-show-container {
+    padding-left: 10px;
+  }
+
+  .tweet-show-image {
+    display: flex;
+    justify-content: center;
   }
 
   .tweet-show-place-name {
     font-size: 20px;
   }
 
-  .tweet-show-btn {
-    display: inline-block;
-    margin-top: 30px;
-  }
-  
   .responsive-d-flex {
     display: inline-block;
   }
@@ -927,27 +902,31 @@ footer {
     display: inline-block;
   }
 
-  #map {
-    margin: 20px auto;
-    width: 90vw;
-    height: 300px;
+  .tweet-show-place-info {
+    display: block;
   }
 
-  .tweet-show-place-texts {
-    margin: 10px auto;
-    width: 90vw;
+  .tweet-show-btns {
+    justify-content: flex-end;
+  }
+
+  .tweet-show-btn {
+    padding: 2px 4px;
+    font-size: 10px;
   }
 
   .address {
-    margin: 20px auto;
-    width: 90vw;
-    font-size: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #map {
+    height: 300px;
   }
 
   .message-group {
     padding-top: 200px;
    }
-   
 
   .massage-form {
     height: 80px;
@@ -978,25 +957,6 @@ footer {
 
   .bg-content-item {
     margin: 10px;
-  }
-
-  .tweet-show-image {
-    display: flex;
-    justify-content: center;
-  }
-  
-
-  .tweet-show-image-icon {
-    width: 110px;
-    height: 110px;
-    border-radius: 60px;
-    justify-content: center;
-  }
-  
-  .tweet-show-content {
-    display: block;
-    padding: 10px 0;
-    margin: 10px; 
   }
 
   .user-record-text {

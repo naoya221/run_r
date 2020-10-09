@@ -1,7 +1,5 @@
 <div class="user-content">
 
-    <%= render 'render/notifications' %>
-
     <% if @user.id == current_user&.id && @user.email != 'thank@you' %>
         <div class="m-2 mb-5">
             <%= link_to edit_user_registration_path(@user) do %>

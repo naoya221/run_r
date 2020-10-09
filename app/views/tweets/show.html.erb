@@ -4,16 +4,18 @@
     <img src=<%= @tweet.place_image %> class = "tweet-show-place-image">
   </div>
 
-  <div class="tweet-show-place-name">
+  <div class="tweet-show-place-name mb-5">
       <%= @tweet.place_name %>
   </div>
 
-  <div class="tweet-show-place-info d-flex justify-content-between">
+  <div class="tweet-show-place-info">
     <div class="d-flex align-items-end user-group">
-      <div><%= @tweet.created_at.to_s(:datetime_jp) %></div>
+      <div>
+        <%= @tweet.created_at.to_s(:datetime_jp) %>
+      </div>
       <%= link_to @tweet.user, class: "link" do %>
-        <div class="d-flex tweet-show-profile">
-          <div>
+        <div class="d-flex align-items-end tweet-show-profile">
+          <div class="tweet-show-image">
             <% if @tweet.user.image.present? %>
               <img src=<%= @tweet.user.image %> class = "tweet-show-image-icon">
             <% else %>
@@ -27,25 +29,27 @@
       <% end %>
     </div>
 
-    <div class="d-flex tweet-show-btn">
+    <div class="d-flex tweet-show-btns">
       <% if current_user&.id == @tweet.user_id %>
-        <div class="tweet-show-edit-btn">
+        <div class="">
           <%= link_to edit_tweet_path(@tweet.id) do %>
-            <button type="button" class="btn btn-success text-white btn-lg">編集</button>
+            <button type="button" class="tweet-show-btn btn btn-success text-white btn-lg">編集</button>
           <% end %>
         </div>
 
-        <div class="tweet-show-delete-btn ml-3">
+        <div class="tweet-show-delete-btn">
           <%= link_to @tweet, method: :delete do %>
-            <button type="button" class="btn bg-dark text-white btn-lg">削除</button>
+            <button type="button" class="tweet-show-btn btn bg-dark text-white btn-lg">削除</button>
           <% end %>
         </div>
       <% end %>
     </div>
   </div>
 
+  <div class="parent">
   <div class="tweet-show-place-texts">
     <%= @tweet.content %>
+  </div>
   </div>
 
   <div class="address">
