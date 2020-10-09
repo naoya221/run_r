@@ -52,7 +52,7 @@ a:hover {
 }
 
 .forms-container {
-  background-color: rgb(228, 247, 222);
+  background-color: rgb(245, 245, 245);
   padding: 80px 20px 50px;
   text-align: center;
 }
@@ -60,7 +60,8 @@ a:hover {
 .forms-content {
   display: inline-block;
   color: rgb(75, 73, 73);
-  background-color: rgb(146, 227, 241);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(200, 200, 200);
   border-radius: 50px;
   padding: 20px;
 }
@@ -586,17 +587,15 @@ footer {
 
 .vdot-number {
   display: inline-block;
+  font-size: 15px;
   font-weight: bold;
-  color: rgb(50, 172, 33);
-  border-radius: 10px;
-  border: solid 3px rgb(50, 172, 33);
-  padding: 0.3em 0.5em;
-  margin-bottom: 1em;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
 }
 
 .hide-lists {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 3px auto 0;
 }
 
 .hide-list{
@@ -629,7 +628,7 @@ footer {
 }
 
 .vdot-b-t {
-  border-top: 2px solid rgb(50, 172, 33);
+  border-top: 2px solid rgb(100, 100, 100);
   padding-top: 5px;
 }
 
