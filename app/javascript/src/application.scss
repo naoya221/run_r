@@ -463,7 +463,7 @@ footer {
 // ベストタイム登録・編集
 
 .record-container {
-  background-color: rgb(228, 247, 222);
+  background-color: rgb(245, 245, 245);
   min-height: 100vh;
 }
 
@@ -473,8 +473,9 @@ footer {
 
 .record-content {
   display: flex;
-  background-color: rgb(122, 226, 245);
+  background-color: rgb(255, 255, 255);
   padding: 20px 25px 28px;
+  border: 1px solid  rgb(200, 200, 200);
   border-radius: 10px;
   margin:20px 0 0 8px;
   font-family: monospace;
