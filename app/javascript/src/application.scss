@@ -219,7 +219,7 @@ footer {
 }
 
 .tweet-index-place {
-  background-color: rgb(54, 54, 53);
+  background-color: rgb(107, 107, 107);
   display: inline-block;
   padding: 10px 30px 5px 30px;
   font-weight: bold;
@@ -381,18 +381,9 @@ footer {
 
 // ユーザー詳細ページ
 
-
-.user-middle-container {
-  background-color: rgb(224, 226, 223);
-}
-
-.user-bottom-container {
-  background-color:  rgb(250, 250, 250);
-}
-
-.user-top-content {
-  background-color:  rgb(255, 255, 255);
-  padding-top: 30px;
+.user-content {
+  background-color:  rgb(245, 245, 245);
+  margin-top: 80px;
 }
 
 .user-profile {
@@ -455,6 +446,11 @@ footer {
 
 .user-show-btn {
   margin: 5px;
+}
+
+.user-show-delete-btn {
+  background-color: rgb(61, 61, 61);
+  border: gray;
 }
 
 .mini-group {
