@@ -47,17 +47,10 @@
   </div>
 
   <div class="parent">
-  <div class="tweet-show-place-texts">
-    <%= @tweet.content %>
+    <div class="tweet-show-place-texts">
+      <%= @tweet.content %>
+    </div>
   </div>
-  </div>
-
-  <div class="address">
-    <strong>　　住所 ：　</strong>
-      <%= @tweet.address %>
-    <div id='map' class="map"></div>
-  </div>
-  <br>
 
   <div class="message-container">
     <div class="titles mb-1">コメント一覧</div>
@@ -101,6 +94,13 @@
         </div>
       <% end %>
     </div>
+  </div>
+  <br><br><br>
+
+  <div class="address">
+    <strong>　　住所 ：　</strong><%= @tweet.address %>
+  <div id='map' class="map"></div>
+
   </div>
 </div>
 
