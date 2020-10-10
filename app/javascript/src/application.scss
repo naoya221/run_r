@@ -280,6 +280,7 @@ footer {
 .tweet-show-place-name {
   font-size: 40px;
   font-weight: bold;
+  margin-left: 50px;
 }
 
 .tweet-show-profile {
@@ -343,6 +344,10 @@ footer {
   height: 440px;
   width: 650px;
   margin-top: 30px;
+}
+
+.message-container {
+  margin-top: 50px;
 }
 
 .massage-form-group {
@@ -946,6 +951,10 @@ footer {
 
   #map {
     height: 300px;
+  }
+
+  .message-container {
+    margin-top: 200px;
   }
 
   .message-group {
