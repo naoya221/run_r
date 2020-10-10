@@ -79,7 +79,7 @@
 
         <div id='messages'>
           <% @tweet_messages.each do |message| %>
-            <div class="message">
+            <div class="message mt-3">
               <%= message.text %>
               <br>
 
@@ -90,7 +90,6 @@
                 <% else %>
                     <%= link_to "#{message.user.nickname}さん", message.user, class: "link message-user" %>
                 <% end %>
-                のコメントです
               </div>
 
             </div>
