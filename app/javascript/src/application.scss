@@ -1,5 +1,5 @@
 
-@import "slick-theme"; 
+@import "slick-theme";
 @import "slick";
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
@@ -21,13 +21,23 @@ a:hover {
 }
 
 .navbar {
-  background-color: rgb(124, 124, 126);
+  opacity: 0.9;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(238, 235, 235);
+}
+
+.navbar-toggler{
+  border-color: #ffffff;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(60,60,60,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .top-btn {
-  background-color: yellow;
-  color: rgb(82, 80, 80);
+  color: rgb(39, 148, 25);
   font-weight: bold;
+  font-size: 30px;
 }
 
 .f-f-monospace {
@@ -39,7 +49,6 @@ a:hover {
 }
 
 .titles {
-  background: linear-gradient(transparent 20%, rgb(255, 215, 105));
   display: inline-block;
   color: rgb(70, 69, 69);
   display: inline-block;
@@ -51,7 +60,7 @@ a:hover {
 }
 
 .forms-container {
-  background-color: rgb(228, 247, 222);
+  background-color: rgb(245, 245, 245);
   padding: 80px 20px 50px;
   text-align: center;
 }
@@ -59,20 +68,23 @@ a:hover {
 .forms-content {
   display: inline-block;
   color: rgb(75, 73, 73);
-  background-color: rgb(146, 227, 241);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(200, 200, 200);
   border-radius: 50px;
   padding: 20px;
 }
 
 footer {
-  background-color: rgb(228, 247, 222);
+  background-color: rgb(91, 177, 64);
   padding-top: 50px;
   padding-bottom: 10px;
   font-size: 12px;
+  text-align: center;
+  color: white;
 }
 
 .text-muted {
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 
@@ -100,15 +112,12 @@ footer {
 }
 
 .key {
-  display: inline-block;
   color: white;
   background-color: orange;
-  padding: 1em;
-  border-radius: 10px;
   font-weight: bold;
   z-index: 10;
-  margin-top: 75px;
-  margin-left: 10px;
+  padding: 10px 30px;
+  margin-top: 80px;
 }
 
 
@@ -116,13 +125,17 @@ footer {
 
 
 .back-ground {
-  background-color: rgb(228, 247, 222);
+  background-color: rgb(245, 245, 245);
   padding-bottom: 50px;
  }
 
+ .slide-content {
+   background-image: url("/images/forest.jpg");
+}
+
 .slide-content {
-  background-color: rgb(255, 255, 255);
-  margin-top: 40px;
+  opacity: 1;
+  margin-top: 80px;
 }
 
 .slide-text {
@@ -131,7 +144,7 @@ footer {
 }
 
 .slide-text h4 {
-  background: linear-gradient(transparent 30%, rgb(247, 200, 71));
+  background: linear-gradient(transparent 30%, rgb(209, 212, 61));
   display: inline-block;
   font-size: 30px;
 }
@@ -148,10 +161,12 @@ footer {
 
 .search-input {
   width: 40%;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 5px;
 }
 
 .search-btn {
-  background-color: rgb(101, 190, 245);
+  background-color: rgb(36, 167, 42);
   color: white;
   border-style: none;
   padding: 9px 20px;
@@ -169,6 +184,18 @@ footer {
   font-size: 25px;
 }
 
+.pagination>li>a {
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background-color: rgb(124, 124, 124);
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 10px;
+}
+
 .tweet-index-content-size {
   width: 350px;
   max-width: 350px;
@@ -176,7 +203,7 @@ footer {
 
 .bg-tweet-index-content {
   padding: 5px;
-  background-color: lightblue;
+  background-color: rgb(240, 240, 240);
   margin-bottom: 20px;
   box-shadow: 2px 2px 2px 2px rgb(161, 160, 160);
 }
@@ -198,7 +225,7 @@ footer {
 }
 
 .tweet-index-nickname {
-  font-size: 12px;
+  font-size: 11px;
   color: black;
 }
 
@@ -210,12 +237,14 @@ footer {
 }
 
 .tweet-index-place {
-  background-color: rgb(253, 211, 169);
+  background-color: rgb(124, 124, 124);
   display: inline-block;
   padding: 10px 30px 5px 30px;
   font-weight: bold;
   font-size: 15px;
-  color: rgb(68, 67, 67);
+  color: rgb(238, 237, 237);
+  width: 90%;
+  text-align: center;
 }
 
 .tweet-index-text {
@@ -223,6 +252,7 @@ footer {
   margin: 0 0 5px 15px;
   width: 90%;
   height: 120px;
+  border: 1px solid rgb(201, 199, 199);
 }
 
 
@@ -231,82 +261,42 @@ footer {
 
 .tweet-show-container {
   padding-top: 100px;
+  background-color: rgb(245, 245, 245);
+  padding-left: 30px;
+  padding-bottom: 100px;
 }
 
-.tweet-show-place-image { 
-  width: 550px;
-  height: 350px;
+.tweet-show-place-image {
+  width: 650px;
+  height: 450px;
+}
+
+.tweet-show-place-info {
+  display: flex;
+  justify-content: space-between;
+  width: 650px;
 }
 
 .tweet-show-place-name {
-  padding: 10px;
-  text-align: center;
   font-size: 40px;
   font-weight: bold;
 }
 
-.tweet-show-middle-container {
-  padding: 0 20px 200px 20px;
-  height: 100%;
-}
-
-.tweet-show-middle-contents {
-  display: flex;
-  justify-content: space-between;
-}
-
-.tweet-show-left-contents {
-  height: 440px;
-}
-
-.tweet-show-left-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-top: 50px;
-}
-
-.tweet-show-place-texts {
-  background-color: white;
-  padding: 10px;
-  font-size: large;
-  border-radius: 4px;
-  height: 150px;
-  margin-right: 0;
-  margin-top: 50px;
-  max-width: 500px;
-}
-
 .tweet-show-profile {
+  margin-top: 10px;
   padding-left: 40px;
-  text-align: center;
 }
 
 .tweet-user {
-  background-color: white;
-  padding: 10px 20px 14px;
-  border-radius: 5px;
-  margin: 10px 0px 0 10px;
-  display: inline-block;
-  color: rgb(58, 57, 57);
-  font-weight: bold;
+  color: black;
+  font-size: 20px;
+  margin: 5px 0 0 5px;
 }
 
 .tweet-show-image-icon {
-  width: 200px;
-  height: 200px;
-  border-radius: 200px;
-  margin-bottom: 20px;
-}
-
-.tweet-show-btn {
-  margin-top: 30px;
-  text-align: center;
-}
-
-.tweet-show-delete-btn {
-  margin-right: 15px;
-  margin-top: 48px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
 }
 
 .tweet-show-info {
@@ -321,62 +311,76 @@ footer {
   border-radius: 10px;
 }
 
+.tweet-show-delete-btn {
+  margin-left: 10px;
+}
+
+.tweet-show-place-texts {
+  background-color: white;
+  padding: 10px;
+  font-size: large;
+  border-radius: 4px;
+  height: 150px;
+  margin-right: 0;
+  margin-top: 20px;
+  max-width: 650px;
+  border: 1px solid rgb(200, 200, 200);
+}
+
 .address {
   background-color: white;
   border-radius: 4px;
   display: inline-block;
-  margin-top: 30px;
-  margin-left: 15px;
+  margin-top: 20px;
   padding: 10px 0;
-  width: 500px;
+  width: 650px;
   max-height:50px;
   font-size: 14px;
+  border: 1px solid rgb(200, 200, 200);
 }
 
 #map{
   height: 440px;
-  width: 500px;
+  width: 650px;
   margin-top: 30px;
 }
 
-.message-group {
- padding-top: 50px;
+.massage-form-group {
+  margin-left: 10px;
 }
-
 
 .massage-form {
   margin: 20px 0 40px;
-  max-width: 600px;
+  max-width: 500px;
   width: 50vw;
 }
 
 .message {
-  padding: 10px;
-  margin: 30px;
-  border: 1px solid black;
-  border-radius: 5px;
+  padding: 5px;
+  margin-left: 30px;
+  border-bottom: 1px solid black;
   max-width: 500px;
+}
+
+.post-time-message {
+  margin-right: 20px;
+}
+
+.message-user {
+  color: gray;
 }
 
 
 // ユーザー詳細ページ
 
-
-.user-middle-container {
-  background-color: rgb(224, 226, 223);
-}
-
-.user-bottom-container {
-  background-color: rgb(228, 247, 222);
-}
-
-.user-top-content {
-  background-color: rgb(228, 247, 222);
-  padding-top: 30px;
+.user-content {
+  background-color:  rgb(245, 245, 245);
+  margin-top: 80px;
 }
 
 .user-profile {
-  background-color: rgb(146, 227, 241);
+  margin-top: 40px;
+  background-color: rgb(219, 228, 169);
   padding: 10px;
   border-radius: 10px;
 }
@@ -406,27 +410,6 @@ footer {
   object-fit: cover; //タテヨコ比を変えないままトリミング
 }
 
-.user-record-text {
-  color: white;
-  font-weight: bold;
-  font-size: 30px;
-  padding: 20px 0 40px 8vw;
-  /* 背景グラデーションを指定・幅を 200% にしておく */
-  background: linear-gradient(to right, rgb(255, 174, 0) 0%, rgb(253, 202, 90) 14.28%, rgb(248, 224, 171) 28.56%, rgb(255, 255, 255) 42.85%, rgb(255, 255, 255) 57.14%, rgb(255, 228, 169) 71.42%, rgb(255, 204, 95) 85.71%, rgb(255, 174, 0) 100%) 0% center / 200% auto;
-  /* 背景画像を文字でマスクする */
-          background-clip: text;
-  -webkit-background-clip: text;
-  /* 文字色を透明にできればよく color: transparent でも color: rgba(0, 0, 0, 0) でも可 */
-  -webkit-text-fill-color: transparent;
-  /* アニメーション指定 */
-  animation: example 4s linear infinite;
-}
-
-/* 背景の横位置をズラす */
-@keyframes example {
-  to { background-position-x: 200%; }
-}
-
 .balloon3-right-btm {
   display: inline-block;
   margin: 5px;
@@ -435,16 +418,14 @@ footer {
   height: 150px;
   line-height: 90px;
   text-align: center;
-  color: rgb(94, 94, 94);
+  color: rgb(95, 95, 95);
   font-size: 20px;
-  font-weight: bold;
-  background: rgba(248, 198, 122, 0.9);
+  background: rgba(218, 218, 218, 0.9);
   border-radius: 30px;
 }
 
 .user-record-group {
-  font-weight: bold;
-  font-family: Times New Roman;
+  font-family: MS Serif;
   color: rgb(94, 94, 94);
   font-size: 25px;
   padding-left: 25vw;
@@ -457,6 +438,11 @@ footer {
 
 .user-show-btn {
   margin: 5px;
+}
+
+.user-show-delete-btn {
+  background-color: rgb(61, 61, 61);
+  border: gray;
 }
 
 .mini-group {
@@ -501,7 +487,7 @@ footer {
 // ベストタイム登録・編集
 
 .record-container {
-  background-color: rgb(228, 247, 222);
+  background-color: rgb(245, 245, 245);
   min-height: 100vh;
 }
 
@@ -511,8 +497,9 @@ footer {
 
 .record-content {
   display: flex;
-  background-color: rgb(122, 226, 245);
+  background-color: rgb(255, 255, 255);
   padding: 20px 25px 28px;
+  border: 1px solid  rgb(200, 200, 200);
   border-radius: 10px;
   margin:20px 0 0 8px;
   font-family: monospace;
@@ -542,7 +529,7 @@ footer {
 // VDOTページ
 
 .vdot-container {
-  background-color: rgb(228, 247, 222);
+  background-color: rgb(245, 245, 245);
   padding: 100px 20px 20px;
 }
 
@@ -573,10 +560,21 @@ footer {
 
 .vdot-left-btn {
   margin-right: 20px;
+  background-color: rgb(36, 167, 42);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.vdot-right-btn {
+  background-color: rgb(36, 167, 42);
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 .dropdown-menu {
-  background-color: rgb(186, 234, 248);
+  background-color: rgb(190, 228, 190);
   margin: 350px 20px 0 0 ;
 }
 
@@ -614,21 +612,19 @@ footer {
 
 .vdot-number {
   display: inline-block;
+  font-size: 15px;
   font-weight: bold;
-  color: #f79235;
-  border-radius: 10px;
-  border: solid 3px #f79235;
-  padding: 0.3em 0.5em;
-  margin-bottom: 1em;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
 }
 
 .hide-lists {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 3px auto 0;
 }
 
 .hide-list{
-  padding: 5px 7px;
+  padding: 0 2px;
 }
 
 .header-item {
@@ -641,11 +637,9 @@ footer {
 }
 
 .shared-link {
-  color: white;
+  color: rgb(95, 95, 95);
   font-weight: bold;
-  padding: 8px;border-radius: 2px;
-  background-color: rgba(3, 75, 19, 0.6);
-  border-radius: 4px;
+  padding: 8px;
 }
 
 .bg-content-item {
@@ -657,24 +651,28 @@ footer {
 }
 
 .vdot-b-t {
-  border-top: 2px solid #f79235;
+  border-top: 2px solid rgb(100, 100, 100);
   padding-top: 5px;
 }
 
 .vdot-five {
-  background-color: pink;
+  background-color:  rgba(63, 63, 63, 0.4);
+  color: white;
 }
 
 .vdot-ten {
-  background-color: violet;
+  background-color: rgba(63, 63, 63, 0.4);
+  color: white;
 }
 
 .vdot-half {
-  background-color: lightblue;
+  background-color: rgba(63, 63, 63, 0.4);
+  color: white;
 }
 
 .vdot-full {
-  background-color: gold;
+  background-color: rgba(63, 63, 63, 0.4);
+  color: white;
 }
 
 
@@ -689,56 +687,14 @@ footer {
     display: inline-block;
   }
 
-
-  .tweet-show-middle-contents {
-    display: block;
-  }
-
-  .tweet-show-left-contents {
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-  }
-
-  .tweet-show-left-content {
-    justify-content: space-around;
-    margin-top: 0;
-  }
-
   .tweet-show-profile {
     margin-top: 10px;
     text-align: center;
   }
 
-  .tweet-show-info {
-    margin-bottom: 50px;
-  }
-
-  .tweet-show-place-texts {
-    margin: 10px auto;
-    width: 95vw;
-    max-width: 1000px;
-  }
-
-  .address {
-    margin: 20px auto;
-    width: 95vw;
-  }
-
-  #map {
-    margin: 30px auto 0 auto;
-    width: 95vw;
-    height: 450px;
-  }
-
-  .tweet-show-btn {
+  .tweet-show-btns {
     display: block;
     text-align: center;
-  }
-
-  .tweet-show-delete-btn {
-    margin-right: 20px;
-    margin-top: 10px;
   }
 
 
@@ -754,7 +710,7 @@ footer {
     display: block;
     margin: 10px auto;
   }
-  
+
   .tweet-btn {
     text-align: center;
   }
@@ -771,43 +727,45 @@ footer {
     display: inline-block;
   }
 
-  .tweet-show-place-image { 
-    width: 400px;
-    height: 250px;
+  .tweet-show-container {
+    padding-left: 20px;
+  }
+
+  .tweet-show-place-image {
+    width: 92vw;
+    height: 70vw;
   }
 
   .tweet-show-place-name {
-    font-size: 25px;
+    font-size: 30px;
   }
 
-  .tweet-show-middle-contents {
-    display: block;
-  }
-
-  .tweet-show-left-contents {
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-  }
-  
-
-  .tweet-show-left-content {
-    justify-content: space-around;
-    margin-top: 0;
+  .tweet-show-place-info {
+    width: 92vw;
   }
 
   .tweet-show-profile {
-    margin-bottom: 10px;
+    margin-top: 0;
+    text-align: end;
+    padding-left: 10px;
+  }
+
+  .tweet-user {
+    font-size: 13px;
+  }
+
+  .tweet-show-btn {
+    padding: 4px 8px;
   }
 
   .tweet-show-place-texts {
-    margin: 10px auto;
+    margin: 10px 0;
+    max-width: 800px;
     width: 92vw;
-    max-width: 1000px;
   }
 
   .address {
-    margin: 20px auto;
+    margin: 0 auto;
     width: 92vw;
   }
 
@@ -818,9 +776,12 @@ footer {
   }
 
   .massage-form {
-    margin: 20px 0 40px;
-    max-width: 600px;
-    width: 50vw;
+    width: 70vw;
+  }
+
+  .message {
+    margin-left: 20px;
+    max-width: 80vw;
   }
 
   .record-title {
@@ -847,15 +808,8 @@ footer {
 
   .signup-form {
     width: 50%;
-  } 
-
-  .tweet-show-image-icon {
-    width: 110px;
-    height: 110px;
-    border-radius: 60px;
-    margin: 35px 15px 20px 20px;
   }
-  
+
   .tweet-show-content {
     display: block;
     width: 70%;
@@ -873,11 +827,10 @@ footer {
     padding-right: 13vw;
   }
 
-  .tweet-show-btn {
+  .tweet-show-btns {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    margin-bottom: 10px;
   }
 
   .user-show-btn-group {
@@ -901,9 +854,8 @@ footer {
     width: 100px;
     height: 100px;
     border-radius: 100px;
-    
-  } 
-  
+  }
+
   .text {
     font-size: 10px;
     margin-top: -10px;
@@ -928,8 +880,8 @@ footer {
   .slide-text h4 {
     display: inline-block;
     font-size: 25px;
-  }  
-  
+  }
+
   .slide-text {
     font-size: 13px;
     display: block;
@@ -953,20 +905,19 @@ footer {
     padding: 0;
   }
 
-  .tweet-show-place-image { 
-    width: 300px;
-    height: 200px;
+  .tweet-show-container {
+    padding-left: 10px;
+  }
+
+  .tweet-show-image {
+    display: flex;
+    justify-content: center;
   }
 
   .tweet-show-place-name {
     font-size: 20px;
   }
 
-  .tweet-show-btn {
-    display: inline-block;
-    margin-top: 30px;
-  }
-  
   .responsive-d-flex {
     display: inline-block;
   }
@@ -975,27 +926,31 @@ footer {
     display: inline-block;
   }
 
-  #map {
-    margin: 20px auto;
-    width: 90vw;
-    height: 300px;
+  .tweet-show-place-info {
+    display: block;
   }
 
-  .tweet-show-place-texts {
-    margin: 10px auto;
-    width: 90vw;
+  .tweet-show-btns {
+    justify-content: flex-end;
+  }
+
+  .tweet-show-btn {
+    padding: 2px 4px;
+    font-size: 10px;
   }
 
   .address {
-    margin: 20px auto;
-    width: 90vw;
-    font-size: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #map {
+    height: 300px;
   }
 
   .message-group {
     padding-top: 200px;
    }
-   
 
   .massage-form {
     height: 80px;
@@ -1026,25 +981,6 @@ footer {
 
   .bg-content-item {
     margin: 10px;
-  }
-
-  .tweet-show-image {
-    display: flex;
-    justify-content: center;
-  }
-  
-
-  .tweet-show-image-icon {
-    width: 110px;
-    height: 110px;
-    border-radius: 60px;
-    justify-content: center;
-  }
-  
-  .tweet-show-content {
-    display: block;
-    padding: 10px 0;
-    margin: 10px; 
   }
 
   .user-record-text {

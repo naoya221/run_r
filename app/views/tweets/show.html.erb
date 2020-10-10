@@ -1,123 +1,106 @@
 <div class="tweet-show-container f-f-monospace">
 
   <div>
-    <div class="d-flex justify-content-center">
+    <img src=<%= @tweet.place_image %> class = "tweet-show-place-image">
+  </div>
+
+  <div class="tweet-show-place-name mb-5">
+      <%= @tweet.place_name %>
+  </div>
+
+  <div class="tweet-show-place-info">
+    <div class="d-flex align-items-end user-group">
       <div>
-        <img src=<%= @tweet.place_image %> class = "tweet-show-place-image">
+        <%= @tweet.created_at.to_s(:datetime_jp) %>
       </div>
+      <%= link_to @tweet.user, class: "link" do %>
+        <div class="d-flex align-items-end tweet-show-profile">
+          <div class="tweet-show-image">
+            <% if @tweet.user.image.present? %>
+              <img src=<%= @tweet.user.image %> class = "tweet-show-image-icon">
+            <% else %>
+                <img src="/images/dog2.png" class = "tweet-show-image-icon">
+            <% end %>
+          </div>
+          <div class="tweet-user">
+            <%= @tweet.user.nickname %>
+          </div>
+        </div>
+      <% end %>
     </div>
 
-    <div class="tweet-show-place-name">
-       <%= @tweet.place_name %>
+    <div class="d-flex tweet-show-btns">
+      <% if current_user&.id == @tweet.user_id %>
+        <div class="">
+          <%= link_to edit_tweet_path(@tweet.id) do %>
+            <button type="button" class="tweet-show-btn btn btn-success text-white btn-lg">編集</button>
+          <% end %>
+        </div>
+
+        <div class="tweet-show-delete-btn">
+          <%= link_to @tweet, method: :delete do %>
+            <button type="button" class="tweet-show-btn btn bg-dark text-white btn-lg">削除</button>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
-  <div class="back-ground tweet-show-middle-container pb-5">
+  <div class="parent">
+  <div class="tweet-show-place-texts">
+    <%= @tweet.content %>
+  </div>
+  </div>
 
-    <div class="tweet-show-middle-contents">
+  <div class="address">
+    <strong>　　住所 ：　</strong>
+      <%= @tweet.address %>
+    <div id='map' class="map"></div>
+  </div>
+  <br>
 
-      <div class="tweet-show-left-contents">
-
-        <div class="tweet-show-left-content">
-
-          <%= link_to @tweet.user, class: "link" do %>
-            <div class="tweet-show-profile">
-              <div>
-                <% if @tweet.user.image.present? %>
-                  <img src=<%= @tweet.user.image %> class = "tweet-show-image-icon">
-                <% else %>
-                    <img src="/images/dog2.png" class = "tweet-show-image-icon">
-                <% end %>
-              </div>
-
-              <div class="tweet-user mt-3 mb-0">
-                <%= @tweet.user.nickname %>
-              </div>
-            </div>
-          <% end %>
-
-          <div class="tweet-show-btn">
-            <% if current_user&.id == @tweet.user_id %>
-              <div class="tweet-show-edit-btn mt-5">
-                <%= link_to edit_tweet_path(@tweet.id) do %>
-                  <button type="button" class="btn btn-success text-white btn-lg">編集</button>
-                <% end %>
-              </div>
-
-              <div class="tweet-show-delete-btn ml-3">
-                <%= link_to @tweet, method: :delete do %>
-                  <button type="button" class="btn btn-success text-white btn-lg">削除</button>
-                <% end %>
-              </div>
-            <% else %>
-              <div class="tweet-show-info">
-                自分の投稿のみ<br>
-                編集・削除できます
-              </div>
-            <% end %>
-
-          </div>
-
-        </div>
-
-        <div class="tweet-show-place-texts">
-          <%= @tweet.content %>
-        </div>
-
-      </div>
-
-      <div class="address">
-        <strong>　　住所 ：　</strong>
-          <%= @tweet.address %>
-        <div id='map' class="map"></div>
-      </div>
-
-    </div>
-
+  <div class="mt-5">
+    <div class="titles mb-1">コメント一覧</div>
     <br>
 
-    <div class="message-group">
-      <div class="m-4 mt-5">
-        <div class="titles p-2 pr-3 mt-5">コメント一覧</div>
-
-        <br>
-
-        <% if user_signed_in? %>
-          <%= form_with url: tweet_messages_path(@tweet.id) do |f| %>
-          <div class="d-flex align-items-center">
-            <div>
-              <%= f.text_area :text, placeholder: "コメントを入力", class: "massage-form p-2 rounded" %>
-            </div>
-            <div class="record-item">
-              <%= f.submit "コメント", class: "record-item btn btn-success text-white" %>
-            </div>
+    <% if user_signed_in? %>
+      <%= form_with url: tweet_messages_path(@tweet.id) do |f| %>
+        <div class="massage-form-group mt-3 d-flex align-items-center">
+          <div>
+            <%= f.text_area :text, placeholder: "コメントを入力", class: "massage-form p-2 rounded" %>
           </div>
-          <% end %>
-        <% end %>
+          <div class="record-item">
+            <%= f.submit "コメント", class: "record-item btn btn-success text-white" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% unless @tweet_messages.present? %>
+      <div class="message">
+        この投稿へのコメントはありません
       </div>
+    <% end %>
 
-      <div id='messages'>
-        <% @tweet_messages.each do |message| %>
-          <div class="bg-content-item message">
-            <%= message.text %><br>
+    <div id='messages'>
+      <% @tweet_messages.each do |message| %>
+        <div class="message">
+          <%= message.text %>
+          <br>
 
+          <div class="text-right">
+            <span class="post-time-message"><%= message.created_at.to_s(:datetime_jp) %></span>
             <% if message.user == current_user %>
-              <div class="text-right">
-                <%= link_to "あなた", message.user, class: "link" %>
-                のコメントです
-              </div>
+                <%= link_to "あなた", message.user, class: "link message-user" %>
             <% else %>
-              <div class="text-right">
-                <%= link_to "#{message.user.nickname}さん", message.user, class: "link" %>
-                のコメントです
-              </div>
+                <%= link_to "#{message.user.nickname}さん", message.user, class: "link message-user" %>
             <% end %>
-
+            のコメントです
           </div>
-        <% end %>
-      </div>
-   </div>
 
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 

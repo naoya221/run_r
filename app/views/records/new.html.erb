@@ -1,7 +1,5 @@
 <div class="record-container">
 
-  <%= render 'render/notifications' %>
-
   <% unless FiveKmRecord.where(user_id:current_user.id).present? %>
     <div class="p-5">
       <%= form_with url: user_five_km_records_path(current_user), local: true do |f| %>

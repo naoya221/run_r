@@ -1,7 +1,5 @@
 <div class="record-container">
 
-  <%= render 'render/notifications' %>
-
   <br><br>
 
   <% if FiveKmRecord.where(user_id:current_user.id).present? %>
@@ -23,11 +21,11 @@
             </div>
 
             <div class="record-item mt-3">
-              <%= f.submit "編集", class: "btn btn-success text-white" %>
+              <%= f.submit "編集", class: "btn btn-success text-white nav-link" %>
             </div>
             <div class="record-item  mt-3">
               <%= link_to  user_five_km_record_path(current_user), method: :delete do %>
-                <button type="button" class="btn btn-success bg-warning border-none text-white">削除</button>
+                <button type="button" class="btn text-white nav-link user-show-delete-btn link">削除</button>
               <% end %>
             </div>
           </div>
@@ -57,11 +55,11 @@
             </div>
 
             <div class="record-item mt-3">
-              <%= f.submit "編集", class: "btn btn-success text-white" %>
+              <%= f.submit "編集", class: "btn btn-success text-white nav-link" %>
             </div>
             <div class="record-item mt-3">
               <%= link_to  user_ten_km_record_path(current_user), method: :delete do %>
-                <button type="button" class="btn btn-success bg-warning border-none text-white">削除</button>
+                <button type="button" class="btn text-white nav-link user-show-delete-btn link">削除</button>
               <% end %>
             </div>
           </div>
@@ -94,11 +92,11 @@
             </div>
 
             <div class="record-item mt-3">
-              <%= f.submit "編集", class: "btn btn-success text-white" %>
+              <%= f.submit "編集", class: "btn btn-success text-white nav-link" %>
             </div>
             <div class="record-item mt-3">
               <%= link_to  user_half_record_path(current_user), method: :delete do %>
-                <button type="button" class="btn btn-success bg-warning border-none text-white">削除</button>
+                <button type="button" class="btn text-white nav-link user-show-delete-btn link">削除</button>
               <% end %>
             </div>
           </div>
@@ -131,11 +129,11 @@
              </div>
 
               <div class="record-item mt-3">
-                <%= f.submit "編集", class: "btn btn-success text-white" %>
+                <%= f.submit "編集", class: "btn btn-success text-white nav-link" %>
               </div>
               <div class="record-item mt-3">
                 <%= link_to  user_full_record_path(current_user), method: :delete do %>
-                  <button type="button" class="btn btn-success bg-warning border-none text-white">削除</button>
+                  <button type="button" class="btn text-white nav-link user-show-delete-btn link">削除</button>
                 <% end %>
               </div>
           </div>
