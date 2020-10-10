@@ -144,7 +144,7 @@ footer {
 }
 
 .slide-text h4 {
-  background: linear-gradient(transparent 30%, rgb(78, 212, 61));
+  background: linear-gradient(transparent 30%, rgb(209, 212, 61));
   display: inline-block;
   font-size: 30px;
 }
@@ -184,6 +184,18 @@ footer {
   font-size: 25px;
 }
 
+.pagination>li>a {
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background-color: rgb(95, 95, 95);
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 10px;
+}
+
 .tweet-index-content-size {
   width: 350px;
   max-width: 350px;
@@ -213,7 +225,7 @@ footer {
 }
 
 .tweet-index-nickname {
-  font-size: 12px;
+  font-size: 11px;
   color: black;
 }
 
@@ -644,19 +656,23 @@ footer {
 }
 
 .vdot-five {
-  background-color: rgba(80, 228, 60, 0.4);
+  background-color:  rgba(63, 63, 63, 0.6);
+  color: white;
 }
 
 .vdot-ten {
-  background-color: rgba(80, 228, 60, 0.4);
+  background-color: rgba(63, 63, 63, 0.6);
+  color: white;
 }
 
 .vdot-half {
-  background-color: rgba(80, 228, 60, 0.4);
+  background-color: rgba(63, 63, 63, 0.6);
+  color: white;
 }
 
 .vdot-full {
-  background-color:  rgba(80, 228, 60, 0.4);
+  background-color: rgba(63, 63, 63, 0.6);
+  color: white;
 }
 
 
