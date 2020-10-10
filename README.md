@@ -33,7 +33,7 @@ https://runreco.com/<br>
 ・レスポンシブデザイン<br>
 ・ランニングコース投稿一覧の検索機能<br>
 ・ページネーション機能（kaminari）<br>
-・画像投稿時のプレビュー機能(素のJavaScriptのみで実装)<br>
+・画像投稿時のプレビュー機能<br>
 ・HTTPS通信(AWS Certificate Manager)<br>
 
 
