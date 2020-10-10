@@ -1,5 +1,5 @@
 <div class="tweet-show-container f-f-monospace">
-  <div class="">
+  <div class="tweet-show-flex">
 
     <div class="">
       <div>
@@ -103,6 +103,31 @@
       <div id='map' class="map"></div>
 
       </div>
+    </div>
+
+    <div class="mini-contents">
+
+      <h4 class="randam-title">他のコース</h4>
+
+      <div class="randam-tweet">
+
+        <% @random.each do |tweet| %>
+          <div class="">
+            <div class="mini-group">
+              <div class="mini-place-image">
+                <img src=<%= tweet.place_image %> class = "mini-place-image-icon">
+              </div>
+              <div class="mini-place-name">
+                <strong><%= tweet.place_name %></strong>
+              </div>
+              <div class="mini-address">
+                <%= tweet.address.truncate(15) %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
     </div>
 
   </div>

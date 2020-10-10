@@ -22,6 +22,7 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
     @tweet_messages = @tweet.messages.includes(:user).order('created_at DESC')
+    @random = Tweet.order("RAND()").limit(7)
   end
 
   def destroy
