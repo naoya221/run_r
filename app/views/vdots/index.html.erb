@@ -1,48 +1,8 @@
 <div class="vdot-container f-f-monospace">
 
-  <%= render "render/graph" %>
-
-  <%= render "render/users_vdot" %>
-
-  <br><br><br>
-
   <%= render "render/records_paces" %>
 
 </div>
-
-<% if @user.present? && @five_vdot.present? && @ten_vdot.present? && @half_vdot.present? && @full_vdot.present? %>
-
-  <script type="text/javascript">
-    const lineChartData = {
-        labels : ["　　　　5km：<%= @vdot_record_five.vdot %>", "10km：<%= @vdot_record_ten.vdot %>", "ハーフ：<%= @vdot_record_half.vdot %>", " フル：<%= @vdot_record_full.vdot %>" ],
-        datasets : [
-          {
-              label: "緑データ",
-              fillColor : "rgba(237, 255, 75, 0.4)", // 線から下端までを塗りつぶす色
-              strokeColor : "rgb(120,120,120)", // 折れ線の色
-              pointColor : "white",  // ドットの塗りつぶし色
-              pointStrokeColor : "rgb(120,120,120)",        // ドットの枠線色
-              pointHighlightFill : "yellow",     // マウスが載った際のドットの塗りつぶし色
-              pointHighlightStroke : "green",    // マウスが載った際のドットの枠線色
-              data : [ <%= @vdot_record_five.vdot %>,
-                      <%= @vdot_record_ten.vdot %>,
-                      <%= @vdot_record_half.vdot %>,
-                      <%= @vdot_record_full.vdot %> ]       // 各点の値
-          },
-        ]
-    }
-
-    window.onload = function(){
-        const ctx = document.getElementById("graph-area").getContext("2d");
-        window.myLine = new Chart(ctx
-        ).Line(lineChartData,{
-        responsive : true
-        });
-    };
-
-  </script>
-
-<% end %>
 
 <script>
   $(function(){

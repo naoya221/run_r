@@ -237,20 +237,15 @@ footer {
 }
 
 .tweet-index-place {
-  background-color: rgb(124, 124, 124);
   display: inline-block;
-  padding: 10px 30px 5px 30px;
+  padding: 5px 0;
   font-weight: bold;
-  font-size: 15px;
-  color: rgb(238, 237, 237);
-  width: 90%;
+  font-size: 20px;
   text-align: center;
 }
 
 .tweet-index-text {
   padding: 10px 10px 0 10px;
-  margin: 0 0 5px 15px;
-  width: 90%;
   height: 120px;
   border: 1px solid rgb(201, 199, 199);
 }
@@ -414,65 +409,87 @@ footer {
 
 .user-content {
   background-color:  rgb(245, 245, 245);
-  margin-top: 80px;
+  padding-top: 100px;
+}
+
+
+.user-top-content {
+  // display: flex;
+  // justify-content: space-between;
+}
+
+.user-show-top-content {
+  margin: 20px 10px;
+  border-bottom: 2px solid rgb(94, 94, 94);
 }
 
 .user-profile {
-  margin-top: 40px;
-  background-color: rgb(219, 228, 169);
-  padding: 10px;
-  border-radius: 10px;
+  margin-top: 30px;
+  margin-left: 20px;
+  text-align: center;
+  display: inline-block;
+  // background-color: rgb(219, 228, 169);
+  // padding: 10px;
+  // border-radius: 10px;
 }
 
 .show-image {
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
+}
+
+.icon_image {
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  object-fit: cover;
 }
 
 .user-show-name-parent {
-  text-align: center;
+  // text-align: center;
 }
 
 .user-show-name {
   padding: 5px;
   margin-top: 5px;
   font-weight: bold;
-  font-size: 30px;
-  background-color: white;
+  font-size: 15px;
   color: rgb(94, 94, 94);
 }
 
-.icon_image {
-  width: 300px;
-  height: 300px;
-  border-radius: 200px;
-  object-fit: cover;
+.runner-level-group {
+  margin-left: 300px;
+  margin-bottom: 50px;
 }
 
-.balloon3-right-btm {
-  display: inline-block;
-  margin: 5px;
-  padding: 0 5px;
-  width: 400px;
-  height: 150px;
-  line-height: 90px;
+.runner-level-title {
+  font-size: 40px;
+}
+
+.runner-level-text {
+  font-size: 15px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.user-show-title {
+  font-family: MS Serif;
+  font-size: 25px;
   text-align: center;
-  color: rgb(95, 95, 95);
-  font-size: 20px;
-  background: rgba(218, 218, 218, 0.9);
-  border-radius: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .user-record-group {
   font-family: MS Serif;
   color: rgb(94, 94, 94);
-  font-size: 25px;
-  padding-left: 25vw;
-  padding-right: 25vw;
+  font-size: 20px;
+  margin-left: 10px;
 }
 
 .user-show-btn-group {
   display: flex;
+  margin-top: 30px;
 }
 
 .user-show-btn {
@@ -484,21 +501,13 @@ footer {
   border: gray;
 }
 
-.mini-group {
-  float: right;
+.graph-group {
+  // margin-top: 200px;
 }
 
-.text {
-  font-size: 15px;
-}
-
-.text-center {
-  margin-top: -55px;
-  padding: 0px;
-}
-
-.text-bottom {
-  margin-top: -55px;
+.runner-levels {
+  font-size: 12px;
+  margin-top: 80px;
 }
 
 
@@ -579,12 +588,12 @@ footer {
 }
 
 .graph-area-parent {
-  display: flex;
+  // display: flex;
   justify-content: center;
 }
 
 #graph-area {
-  max-width: 800px;
+  max-width: 600px;
   max-height: 260px;
   width: 50vw;
   height: 15vw;
