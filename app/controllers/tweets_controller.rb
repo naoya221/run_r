@@ -1,12 +1,13 @@
-class TweetsController < ApplicationController
+class TweetsController < VdotsController
   before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_current_tweet, only: [:destroy, :edit, :update]
 
   def index
     @tweets = Tweet.includes(:user).page(params[:page]).per(8).order('created_at DESC')
-    @slides_recommended = Tweet.order("RAND()").limit(4)
-    @slides_popular = Tweet.order("RAND()").limit(4)
-    @slides_today = Tweet.order("RAND()").limit(4)
+    @slides_popular = Tweet.where(level: 1).order("RAND()").limit(4)
+    @slides_beginner = Tweet.where(level: 1..2).order("RAND()").limit(4)
+    @slides_senior = Tweet.where(level: 3).order("RAND()").limit(4)
+
   end
 
   def new

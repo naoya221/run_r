@@ -56,7 +56,7 @@
 
 <div class="d-flex justify-content-around">
   <div class="slide-group">
-    <div class="slide-titles">＃ あなたにおすすめのコース</div>
+    <div class="slide-titles">＃ 注目の人気コース</div>
     <div id="slide1">
       <carousel
       :per-page="1"
@@ -64,7 +64,7 @@
       navigation-prev-label="〈"
       navigation-next-label="〉"
       :speed="1000">
-        <% @slides_today.each do |slides_today| %>
+        <% @slides_popular.each do |slides_today| %>
           <slide><img src="<%=  slides_today.place_image %>" class="slide-group"></slide>
         <% end %>
       </carousel>
@@ -72,7 +72,7 @@
   </div>
 
   <div class="slide-group">
-    <div class="slide-titles">＃ 注目の人気コース</div>
+    <div class="slide-titles">＃ 初心者におすすめ</div>
     <div id="slide2">
       <carousel
       :per-page="1"
@@ -80,7 +80,7 @@
       navigation-prev-label="〈"
       navigation-next-label="〉"
       :speed="1000">
-        <% @slides_today.each do |slides_today| %>
+        <% @slides_beginner.each do |slides_today| %>
           <slide><img src="<%=  slides_today.place_image %>" class="slide-group"></slide>
         <% end %>
       </carousel>
@@ -88,7 +88,7 @@
   </div>
 
   <div class="slide-group">
-    <div class="slide-titles">＃ 今日のおすすめコース</div>
+    <div class="slide-titles">＃ 競技思考の方におすすめ</div>
     <div id="slide3">
       <carousel
       :per-page="1"
@@ -96,7 +96,7 @@
       navigation-prev-label="〈"
       navigation-next-label="〉"
       :speed="1000">
-        <% @slides_today.each do |slides_today| %>
+        <% @slides_senior.each do |slides_today| %>
           <slide><img src="<%=  slides_today.place_image %>" class="slide-group"></slide>
         <% end %>
       </carousel>
