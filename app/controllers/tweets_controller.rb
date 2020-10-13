@@ -4,6 +4,9 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.includes(:user).page(params[:page]).per(8).order('created_at DESC')
+    @slides_recommended = Tweet.order("RAND()").limit(4)
+    @slides_popular = Tweet.order("RAND()").limit(4)
+    @slides_today = Tweet.order("RAND()").limit(4)
   end
 
   def new

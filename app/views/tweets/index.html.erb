@@ -64,10 +64,9 @@
       navigation-prev-label="〈"
       navigation-next-label="〉"
       :speed="1000">
-        <slide><img src="/images/place_image.png" class="slide-group"></slide>
-        <slide><img src="/images/place_image.png" class="slide-group"></slide>
-        <slide><img src="/images/place_image.png" class="slide-group"></slide>
-        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+        <% @slides_today.each do |slides_today| %>
+          <slide><img src="<%=  slides_today.place_image %>" class="slide-group"></slide>
+        <% end %>
       </carousel>
     </div>
   </div>
@@ -81,10 +80,9 @@
       navigation-prev-label="〈"
       navigation-next-label="〉"
       :speed="1000">
-        <slide><img src="/images/place_image.png" class="slide-group"></slide>
-        <slide><img src="/images/place_image.png" class="slide-group"></slide>
-        <slide><img src="/images/place_image.png" class="slide-group"></slide>
-        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+        <% @slides_today.each do |slides_today| %>
+          <slide><img src="<%=  slides_today.place_image %>" class="slide-group"></slide>
+        <% end %>
       </carousel>
     </div>
   </div>
@@ -98,10 +96,9 @@
       navigation-prev-label="〈"
       navigation-next-label="〉"
       :speed="1000">
-        <slide><img src="/images/place_image.png" class="slide-group"></slide>
-        <slide><img src="/images/place_image.png" class="slide-group"></slide>
-        <slide><img src="/images/place_image.png" class="slide-group"></slide>
-        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+        <% @slides_today.each do |slides_today| %>
+          <slide><img src="<%=  slides_today.place_image %>" class="slide-group"></slide>
+        <% end %>
       </carousel>
     </div>
   </div>
