@@ -23,5 +23,6 @@ class Tweet < ApplicationRecord
     validates :content,        null: false,   length: { maximum: 100 }
     validates :address,        null: false,   length: { maximum: 30 }
     validates :user
+    validates :level
   end
 end

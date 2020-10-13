@@ -59,7 +59,7 @@ class TweetsController < ApplicationController
 
   def tweet_params
     params.require(:tweet).permit(
-      :content, :address, :longitude, :latitude, :place_name, :place_image
+      :content, :address, :longitude, :latitude, :place_name, :place_image, :level
     )
   end
 end
