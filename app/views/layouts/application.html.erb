@@ -64,8 +64,11 @@
     <%= yield %>
 
     <footer class="footer">
-      <div class="container">
-        © 2020 Run Record
+      <div class="container d-flex justify-content-between">
+         <%= link_to root_path do %>
+          <div class="footer-title">Run Record</div>
+         <% end %>
+        <div>© 2020 Run Record</div>
       </div>
     </footer>
 

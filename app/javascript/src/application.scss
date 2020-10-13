@@ -38,6 +38,7 @@ a:hover {
   color: rgb(39, 148, 25);
   font-weight: bold;
   font-size: 30px;
+  font-family: MS ゴシック;
 }
 
 .f-f-monospace {
@@ -76,11 +77,15 @@ a:hover {
 
 footer {
   background-color: rgb(91, 177, 64);
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 10px;
   font-size: 12px;
-  text-align: center;
   color: white;
+}
+
+.footer-title {
+  font-size: 30px;
+  color: #ffffff;
 }
 
 .text-muted {
@@ -125,8 +130,8 @@ footer {
 
 
 .back-ground {
-  background-color: rgb(245, 245, 245);
-  padding-bottom: 50px;
+  background-color: rgb(240, 240, 240);
+  padding: 0 15px 50px;
  }
 
  .slide-content {
@@ -196,6 +201,11 @@ footer {
   margin: 0 10px;
 }
 
+.slide-titles {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 .tweet-index-content-size {
   width: 350px;
   max-width: 350px;
@@ -203,7 +213,7 @@ footer {
 
 .bg-tweet-index-content {
   padding: 5px;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(255, 255, 255);
   margin-bottom: 20px;
   box-shadow: 2px 2px 2px 2px rgb(161, 160, 160);
 }
@@ -248,6 +258,25 @@ footer {
   padding: 10px 10px 0 10px;
   height: 120px;
   border: 1px solid rgb(201, 199, 199);
+}
+
+.easy-login-btn {
+  background-color: rgb(51, 51, 51);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 5px;
+  bottom: 90px;
+  right: 32px;
+  position: fixed;
+  padding: 10px 15px;
+}
+
+.easy-login-btn-text {
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 5px;
 }
 
 
