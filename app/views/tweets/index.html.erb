@@ -54,13 +54,119 @@
     <%= f.submit "検索", class: "search-btn link" %>
   <% end %>
 
-  <br><br>
+<div class="d-flex justify-content-around">
+  <div class="slide-group">
+    <div class="slide-titles">＃ あなたにおすすめのコース</div>
+    <div id="slide1">
+      <carousel
+      :per-page="1"
+      :navigation-enabled="true"
+      navigation-prev-label="〈"
+      navigation-next-label="〉"
+      :speed="1000">
+        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+      </carousel>
+    </div>
+  </div>
 
+  <div class="slide-group">
+    <div class="slide-titles">＃ 注目の人気コース</div>
+    <div id="slide2">
+      <carousel
+      :per-page="1"
+      :navigation-enabled="true"
+      navigation-prev-label="〈"
+      navigation-next-label="〉"
+      :speed="1000">
+        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+      </carousel>
+    </div>
+  </div>
+
+  <div class="slide-group">
+    <div class="slide-titles">＃ 今日のおすすめコース</div>
+    <div id="slide3">
+      <carousel
+      :per-page="1"
+      :navigation-enabled="true"
+      navigation-prev-label="〈"
+      navigation-next-label="〉"
+      :speed="1000">
+        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+        <slide><img src="/images/place_image.png" class="slide-group"></slide>
+      </carousel>
+    </div>
+  </div>
+</div>
+
+
+  <br><br>
 
   <%= render "render/tweets"%>
 
+  <div class="easy-login">
+     <div class='easy-login-btn'>
+        <div class='easy-login-btn-text'>かんたんログイン<i class="fas fa-running ml-1"></i></div>
+     </div>
+  </div>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-carousel@0.18.0/dist/vue-carousel.min.js"></script>
+<script>
+  var app=new Vue({
+    el: "#slide1",
+    components: {
+      'carousel': VueCarousel.Carousel,
+      'slide': VueCarousel.Slide
+    },
+  });
+
+  var app=new Vue({
+    el: "#slide2",
+    components: {
+      'carousel': VueCarousel.Carousel,
+      'slide': VueCarousel.Slide
+    },
+  });
+
+  var app=new Vue({
+    el: "#slide3",
+    components: {
+      'carousel': VueCarousel.Carousel,
+      'slide': VueCarousel.Slide
+    },
+  });
+</script>
+
+<style>
+  .VueCarousel-slide {
+    font-size:12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 300px;
+    background:#ccc;
+    border-right:1px solid #FFF;
+    box-sizing:border-box;
+  }
+
+  .slide-group {
+    height: 250px;
+    width: 300px;
+    margin-top: 50px;
+  }
+</style>
 
 
 
