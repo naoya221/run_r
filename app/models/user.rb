@@ -20,6 +20,7 @@ class User < ApplicationRecord
 
   has_many :tweets
   has_many :likes
+  has_many :liked_posts, through: :likes, source: :post
   has_many :messages
   has_one :five_km_record
   has_one :ten_km_record

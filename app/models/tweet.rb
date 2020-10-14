@@ -2,6 +2,7 @@ class Tweet < ApplicationRecord
   belongs_to :user
   has_many :messages, dependent: :destroy
   has_many :likes
+  has_many :liked_users, through: :likes, source: :user
 
   mount_uploader :place_image, ImageUploader
   geocoded_by :address
@@ -16,6 +17,11 @@ class Tweet < ApplicationRecord
     else
       Tweet.all
     end
+  end
+
+  def get_length
+      @likes = self.likes.length
+      @messages = self.messages.length
   end
 
   with_options presence: true do

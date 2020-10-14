@@ -59,13 +59,24 @@
     <div class="slide-titles">＃ 注目の人気コース</div>
     <div id="slide1">
       <carousel
-      :per-page="1"
-      :navigation-enabled="true"
-      navigation-prev-label="〈"
-      navigation-next-label="〉"
-      :speed="1000">
-        <% @slides_popular.each do |slides_today| %>
-          <slide><img src="<%=  slides_today.place_image %>" class="slide-group"></slide>
+        :per-page="1"
+        :navigation-enabled="true"
+        navigation-prev-label="〈"
+        navigation-next-label="〉"
+        :speed="1000">
+        <% @tweets_ranking.each do |tweet_ranking| %>
+          <slide class="mini-slide-parent">
+            <div class="mini-slide">
+              <img src="<%= tweet_ranking.place_image %>" class="mini-slide-image">
+            </div>
+            <div class="mini-slide-bottom">
+              <i class="fa fa-heart like-btn"></i>
+              <%= tweet_ranking.likes.length %>
+              <i class="fa fa-comment"></i>
+              <%= tweet_ranking.messages.length %>
+              　　<%= tweet_ranking.place_name %>
+            </div>
+          </slide>
         <% end %>
       </carousel>
     </div>
@@ -80,8 +91,19 @@
       navigation-prev-label="〈"
       navigation-next-label="〉"
       :speed="1000">
-        <% @slides_beginner.each do |slides_today| %>
-          <slide><img src="<%=  slides_today.place_image %>" class="slide-group"></slide>
+        <% @tweets_beginner.each do |tweet_beginner| %>
+         <slide class="mini-slide-parent">
+            <div class="mini-slide">
+              <img src="<%= tweet_beginner.place_image %>" class="mini-slide-image">
+            </div>
+            <div class="mini-slide-bottom">
+              <i class="fa fa-heart like-btn"></i>
+              <%= tweet_beginner.likes.length %>
+              <i class="fa fa-comment"></i>
+              <%= tweet_beginner.messages.length %>
+              　　<%= tweet_beginner.place_name %>
+            </div>
+          </slide>
         <% end %>
       </carousel>
     </div>
@@ -96,8 +118,19 @@
       navigation-prev-label="〈"
       navigation-next-label="〉"
       :speed="1000">
-        <% @slides_senior.each do |slides_today| %>
-          <slide><img src="<%=  slides_today.place_image %>" class="slide-group"></slide>
+        <% @tweets_senior.each do |tweet_senior| %>
+          <slide class="mini-slide-parent">
+            <div class="mini-slide">
+              <img src="<%= tweet_senior.place_image %>" class="mini-slide-image">
+            </div>
+            <div class="mini-slide-bottom">
+              <i class="fa fa-heart like-btn"></i>
+              <%= tweet_senior.likes.length %>
+              <i class="fa fa-comment"></i>
+              <%= tweet_senior.messages.length %>
+              　　<%= tweet_senior.place_name %>
+            </div>
+          </slide>
         <% end %>
       </carousel>
     </div>
@@ -146,6 +179,39 @@
 </script>
 
 <style>
+
+  .slide-group {
+    height: 250px;
+    width: 300px;
+    margin-top: 50px
+  }
+
+  .mini-slide-parent {
+    position: relative;
+    height: 300px;
+  }
+
+  .mini-slide {
+    position: absolute;
+    top: -50px;
+  }
+
+  .mini-slide-image {
+    height: 200px;
+    width: 300px;
+    margin-top: 24px;
+  }
+
+  .mini-slide-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(240, 240, 240);
+    color: black;
+    padding: 4px 10px;
+    /* padding-right: 300; */
+  }
+
   .VueCarousel-slide {
     font-size:12px;
     display: flex;
@@ -158,11 +224,7 @@
     box-sizing:border-box;
   }
 
-  .slide-group {
-    height: 250px;
-    width: 300px;
-    margin-top: 50px;
-  }
+
 </style>
 
 

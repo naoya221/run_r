@@ -4,9 +4,11 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.includes(:user).page(params[:page]).per(8).order('created_at DESC')
-    @slides_popular = Tweet.where(level: 1).order("RAND()").limit(4)
-    @slides_beginner = Tweet.where(level: 1..2).order("RAND()").limit(4)
-    @slides_senior = Tweet.where(level: 3).order("RAND()").limit(4)
+
+    tweets_ranking_sort = Tweet.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}
+    @tweets_ranking = tweets_ranking_sort[0..3]
+    @tweets_beginner = Tweet.where(level: 1..2).order("RAND()").limit(4)
+    @tweets_senior = Tweet.where(level: 3).order("RAND()").limit(4)
 
   end
 
