@@ -128,17 +128,17 @@
       <div class="randam-tweet">
 
         <% @random.each do |tweet| %>
-          <div class="">
-            <div class="mini-group">
-              <div class="mini-place-image">
+          <div class="mini-group">
+            <div class="mini-place-image">
+              <%= link_to tweet, class: "link" do %>
                 <img src=<%= tweet.place_image %> class = "mini-place-image-icon">
-              </div>
-              <div class="mini-place-name">
-                <strong><%= tweet.place_name %></strong>
-              </div>
-              <div class="mini-address">
-                <%= tweet.address.truncate(15) %>
-              </div>
+              <% end %>
+            </div>
+            <div class="mini-place-name">
+              <strong><%= tweet.place_name %></strong>
+            </div>
+            <div class="mini-address">
+              <%= tweet.address.truncate(15) %>
             </div>
           </div>
         <% end %>
