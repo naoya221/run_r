@@ -26,6 +26,9 @@
       <div class="tweet-show-place-info">
         <div class="d-flex align-items-end user-group">
           <div>
+            <span id="like-<%= @tweet.id %>">
+              <%= render partial: "render/like", locals: { tweet: @tweet } %>
+            </span>
             <%= @tweet.created_at.to_s(:datetime_jp) %>
           </div>
           <%= link_to @tweet.user, class: "link" do %>

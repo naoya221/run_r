@@ -3,6 +3,8 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+//= require jquery
+//= require jquery_ujs
 require("@rails/ujs").start()
 //# require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -22,8 +24,7 @@ import '../src/application.scss'
 import '@fortawesome/fontawesome-free/js/all'
 
 
-//= require jquery
-//= require jquery_ujs
+
 //= require slick.min
 //= require_tree .
 

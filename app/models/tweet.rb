@@ -1,6 +1,7 @@
 class Tweet < ApplicationRecord
   belongs_to :user
   has_many :messages, dependent: :destroy
+  has_many :likes
 
   mount_uploader :place_image, ImageUploader
   geocoded_by :address

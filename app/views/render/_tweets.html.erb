@@ -50,6 +50,10 @@
         </div>
 
         <div class="tweet-index-text bg-content-item rounded">
+          <span id="like-<%= tweet.id %>">
+            <%= render partial: "render/like", locals: { tweet: tweet } %>
+          </span>
+          <br>
           <%= tweet.content %>
         </div>
       </div>

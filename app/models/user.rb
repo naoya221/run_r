@@ -19,6 +19,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   has_many :tweets
+  has_many :likes
   has_many :messages
   has_one :five_km_record
   has_one :ten_km_record
@@ -26,4 +27,9 @@ class User < ApplicationRecord
   has_one :full_record
 
   validates :nickname, presence: true, length: { maximum: 10 }
+
+  def liked_by?(tweet_id)
+    likes.where(tweet_id: tweet_id).exists?
+  end
+
 end

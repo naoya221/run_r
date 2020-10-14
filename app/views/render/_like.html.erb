@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+  <% if Like.find_by(user_id: current_user.id, tweet_id: tweet.id) %>
+    <%= link_to "/tweets/#{tweet.id}/likes", method: :delete, remote: true do %>
+      <i class="fa fa-heart unlike-btn"></i>
+    <% end %>
+  <% else %>
+    <%= link_to "/tweets/#{tweet.id}/likes", method: :post, remote: true do %>
+      <i class="fa fa-heart like-btn"></i>
+    <% end %>
+  <% end %>
+<% else %>
+  <i class="fa fa-heart like-btn"></i>
+<% end %>
+
+<%= tweet.likes.length %>
+<i class="fa fa-comment"></i>
+<%= tweet.messages.length %>
