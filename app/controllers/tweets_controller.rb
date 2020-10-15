@@ -3,6 +3,7 @@ class TweetsController < ApplicationController
   before_action :set_current_tweet, only: [:destroy, :edit, :update]
 
   def index
+    @tag_lists = Tag.all
     @tweets = Tweet.includes(:user).page(params[:page]).per(8).order('created_at DESC')
 
     tweets_ranking_sort = Tweet.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}
@@ -57,6 +58,12 @@ class TweetsController < ApplicationController
 
   def search
     @tweets = Tweet.search(params[:keyword]).page(params[:page]).per(8).order('created_at DESC')
+  end
+
+  def tag_search
+    @tag_lists = Tag.all
+    @tag = Tag.find(params[:tag_id])
+    @tweets = @tag.tweets.all.page(params[:page]).per(8).order('created_at DESC')
   end
 
   private

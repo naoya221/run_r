@@ -57,8 +57,11 @@
           <%= tweet.content %>
         </div>
         <% tweet.tags.each do |tag| %>
+          <%= link_to tag_tweets_path(tag_id: tag.id) do %>
             <%= tag.name %>
+          <% end %>
         <% end %>
+
       </div>
     </div>
 

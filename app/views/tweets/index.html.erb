@@ -54,6 +54,12 @@
     <%= f.submit "検索", class: "search-btn link" %>
   <% end %>
 
+  <% @tag_lists.each do |tag| %>
+    <%= link_to tag_tweets_path(tag_id: tag.id) do %>
+      <%= tag.name %>
+    <% end %>
+  <% end %>
+
 <div class="d-flex justify-content-around">
   <div class="slide-group">
     <div class="slide-titles">＃ 注目の人気コース</div>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: {
-    registrations: "users/registrations",
+    registrations: 'users/registrations',
   }
 
   root 'tweets#index'
@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       get 'search'
     end
     resources :messages, only: :create
+  end
+
+  resources :tags do
+    get 'tweets', to: 'tweets#tag_search'
   end
 
   resources :users, only: :show do
@@ -21,8 +25,8 @@ Rails.application.routes.draw do
 
   resources :records,  only: [:new, :edit]
   resources :vdots,  only: [:index]
-  post '/tweets/:tweet_id/likes' => "likes#create"
-  delete '/tweets/:tweet_id/likes' => "likes#destroy"
+  post '/tweets/:tweet_id/likes' => 'likes#create'
+  delete '/tweets/:tweet_id/likes' => 'likes#destroy'
   mount ActionCable.server => '/cable'
 
 end
