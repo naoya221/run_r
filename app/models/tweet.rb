@@ -3,6 +3,8 @@ class Tweet < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :likes
   has_many :liked_users, through: :likes, source: :user
+  has_many  :tags, through: :tag_tweets
+  has_many  :tag_tweets, dependent: :destroy
 
   mount_uploader :place_image, ImageUploader
   geocoded_by :address
