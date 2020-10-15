@@ -26,11 +26,12 @@ class User < ApplicationRecord
   has_one :ten_km_record
   has_one :half_record
   has_one :full_record
-
   has_many :following_relationships,foreign_key: "follower_id", class_name: "FollowRelationship",  dependent: :destroy
   has_many :followings, through: :following_relationships
   has_many :follower_relationships,foreign_key: "following_id",class_name: "FollowRelationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
+  has_many :active_notifications, foreign_key:"visitor_id", class_name: "Notification", dependent: :destroy
+  has_many :passive_notifications, foreign_key:"visited_id", class_name: "Notification", dependent: :destroy
 
   validates :nickname, presence: true, length: { maximum: 10 }
 
@@ -51,5 +52,17 @@ class User < ApplicationRecord
   #ユーザーのフォローを解除する
   def unfollow(other_user)
     self.following_relationships.find_by(following_id: other_user.id).destroy
+  end
+
+  def create_notification_follow!(current_user)
+    #すでに通知が作成されているか確認
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
   end
 end

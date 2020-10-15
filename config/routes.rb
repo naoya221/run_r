@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   end
 
   resources :follow_relationships, only: [:create, :destroy]
-
+  resources :notifications, only: [:index, :destroy]
   resources :records,  only: [:new, :edit]
   resources :vdots,  only: [:index]
   post '/tweets/:tweet_id/likes' => 'likes#create'

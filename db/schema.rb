@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_15_093459) do
+ActiveRecord::Schema.define(version: 2020_10_15_225646) do
 
   create_table "five_km_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "minute_id"
@@ -69,6 +69,19 @@ ActiveRecord::Schema.define(version: 2020_10_15_093459) do
     t.index ["tweet_id"], name: "index_messages_on_tweet_id"
     t.index ["user_id", "tweet_id", "created_at"], name: "index_messages_on_user_id_and_tweet_id_and_created_at"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "visitor_id", null: false
+    t.bigint "visited_id", null: false
+    t.bigint "tweet_id"
+    t.string "action", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tweet_id"], name: "index_notifications_on_tweet_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "tag_tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -150,6 +163,9 @@ ActiveRecord::Schema.define(version: 2020_10_15_093459) do
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "tweets"
   add_foreign_key "messages", "users"
+  add_foreign_key "notifications", "tweets"
+  add_foreign_key "notifications", "users", column: "visited_id"
+  add_foreign_key "notifications", "users", column: "visitor_id"
   add_foreign_key "tag_tweets", "tags"
   add_foreign_key "tag_tweets", "tweets"
   add_foreign_key "ten_km_records", "users"

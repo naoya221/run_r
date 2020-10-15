@@ -5,6 +5,7 @@ class Tweet < ApplicationRecord
   has_many :liked_users, through: :likes, source: :user
   has_many :tag_tweets, dependent: :destroy
   has_many :tags, through: :tag_tweets
+  has_many :notifications, dependent: :destroy
 
   mount_uploader :place_image, ImageUploader
   geocoded_by :address
@@ -39,6 +40,23 @@ class Tweet < ApplicationRecord
   def get_length
       @likes = self.likes.length
       @messages = self.messages.length
+  end
+
+  def create_notification_like!(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and tweet_id = ? and action = ? ",
+                                  current_user.id, user_id, id, 'like'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        tweet_id: id,
+        visited_id: user_id,
+        action: 'like'
+      )
+
+      if notification.visitor_id == notification.visited_id
+         notification.checked = true
+      end
+      notification.save if notification.valid?
+    end
   end
 
   with_options presence: true do

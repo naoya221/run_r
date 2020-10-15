@@ -1,0 +1,13 @@
+<br><br><br><br><br><br><br><br>
+
+<h3 class="text-center">通知</h3>
+    <%= link_to notification_path(@notifications), method: :delete do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+<% if @notifications.exists? %>
+  <div class="notification-index">
+      <%= render @notifications %>
+  </div>
+<% else %>
+    <p>通知はありません</p>
+<% end %>

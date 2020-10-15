@@ -36,6 +36,9 @@
               <%= link_to "#{current_user.nickname}：さん", user_path(current_user.id), class: "text-dark nav-link" %>
             </li>
             <li class="nav-item header-item link">
+              <%= link_to "通知", notifications_path, class: "text-dark nav-link" %>
+            </li>
+            <li class="nav-item header-item link">
               <%= link_to "練習", vdots_path, class: "text-dark nav-link" %>
             </li>
             <li class="nav-item header-item link">
