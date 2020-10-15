@@ -17,11 +17,17 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show do
+    member do
+      get :following, :followers
+    end
+
     resources :five_km_records,  only: [:create, :update, :destroy]
     resources :ten_km_records,  only: [:create, :update, :destroy]
     resources :half_records,  only: [:create, :update, :destroy]
     resources :full_records,  only: [:create, :update, :destroy]
   end
+
+  resources :follow_relationships, only: [:create, :destroy]
 
   resources :records,  only: [:new, :edit]
   resources :vdots,  only: [:index]

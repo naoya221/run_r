@@ -8,6 +8,19 @@
         </div>
     <% end %>
 
+    <%= link_to "フォロー(#{@user.followings.count})", following_user_path(@user), class: "nav-link" %>
+    <%= link_to "フォロワー(#{@user.followers.count})", followers_user_path(@user), class: "nav-link" %>
+
+    <% if user_signed_in? && @user != current_user%>
+    <div id="follow_form">
+        <% if current_user.following?(@user) %>
+        <%= render "unfollow" %>
+        <% else %>
+        <%= render "follow" %>
+        <% end %>
+    </div>
+    <% end %>
+
     <div class="user-show-top-content d-flex align-items-end">
         <div class="user-profile">
             <div class="show-image">
