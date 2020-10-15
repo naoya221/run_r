@@ -18,7 +18,9 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = current_user.tweets.new(tweet_params)
+    tag_list = params[:tweet][:tag_ids].split(',')
     if @tweet.save
+      @tweet.save_tags(tag_list)
       redirect_to root_path, notice: '投稿しました！'
     else
       render :new
@@ -40,10 +42,13 @@ class TweetsController < ApplicationController
   end
 
   def edit
+    @tag_list = @tweet.tags.pluck(:name).join(",")
   end
 
   def update
+    tag_list = params[:tweet][:tag_ids].split(',')
     if @tweet.update(tweet_params)
+      @tweet.save_tags(tag_list)
       redirect_to root_path, notice: '投稿を編集しました！'
     else
       render :edit

@@ -11,6 +11,9 @@
 
         <%= render 'render/error_messages', model: f.object %>
 
+        <%= f.text_field :tag_ids, class: "form-control", id:'tag_ids', placeholder: "タグをつける。複数つけるには','で区切ってください。" %>
+
+
         <div class="m-3">
           <%= f.label :場所の名前（１６字以内） %><br>
           <%= f.text_field :place_name, placeholder: "例）〇〇公園", class: "w-100 p-1 mb-5 rounded" %>

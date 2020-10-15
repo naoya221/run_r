@@ -3,8 +3,8 @@ class Tweet < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :likes
   has_many :liked_users, through: :likes, source: :user
-  has_many  :tags, through: :tag_tweets
-  has_many  :tag_tweets, dependent: :destroy
+  has_many :tag_tweets, dependent: :destroy
+  has_many :tags, through: :tag_tweets
 
   mount_uploader :place_image, ImageUploader
   geocoded_by :address
@@ -18,6 +18,21 @@ class Tweet < ApplicationRecord
         .or(Tweet.where('content LIKE(?)', "%#{search}%"))
     else
       Tweet.all
+    end
+  end
+
+  def save_tags(save_tweet_tags)
+    current_tags = self.tags.pluck(:name) unless self.tags.nil?
+    old_tags = current_tags - save_tweet_tags
+    new_tags = save_tweet_tags - current_tags
+
+    old_tags.each do |old_name|
+      self.tags.delete Tag.find_by(name: old_name)
+    end
+
+    new_tags.each do |new_name|
+      tweet_tag = Tag.find_or_create_by(name: new_name)
+      self.tags << tweet_tag
     end
   end
 
