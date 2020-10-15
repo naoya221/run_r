@@ -29,6 +29,11 @@
 
         <div id="image-list"></div>
 
+        <div class="field form-label mb-4 mt-5">
+          <%= f.label :自己紹介文 %><br>( 最大文字数 50 )<br/>
+          <%= f.text_area :introduction, autofocus: true, maxlength: "50", class: "signup-form p-2 pr-5" %>
+        </div>
+
         <div class="field form-label mb-4">
           <%= f.label :nickname %><br>( 最大文字数 10 )<br/>
           <%= f.text_field :nickname, autofocus: true, maxlength: "10", class: "signup-form p-2 pr-5" %>
