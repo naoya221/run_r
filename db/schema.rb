@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_080319) do
+ActiveRecord::Schema.define(version: 2020_10_15_004637) do
 
   create_table "five_km_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "minute_id"
@@ -61,6 +61,22 @@ ActiveRecord::Schema.define(version: 2020_10_13_080319) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "tag_tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "tweet_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag_id"], name: "index_tag_tweets_on_tag_id"
+    t.index ["tweet_id", "tag_id"], name: "index_tag_tweets_on_tweet_id_and_tag_id", unique: true
+    t.index ["tweet_id"], name: "index_tag_tweets_on_tweet_id"
+  end
+
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "ten_km_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "minute_id"
     t.integer "second_id"
@@ -68,6 +84,21 @@ ActiveRecord::Schema.define(version: 2020_10_13_080319) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_ten_km_records_on_user_id"
+  end
+
+  create_table "tweet_tag_relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "tweet_id"
+    t.bigint "tweet_tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tweet_id"], name: "index_tweet_tag_relationships_on_tweet_id"
+    t.index ["tweet_tag_id"], name: "index_tweet_tag_relationships_on_tweet_tag_id"
+  end
+
+  create_table "tweet_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -106,6 +137,10 @@ ActiveRecord::Schema.define(version: 2020_10_13_080319) do
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "tweets"
   add_foreign_key "messages", "users"
+  add_foreign_key "tag_tweets", "tags"
+  add_foreign_key "tag_tweets", "tweets"
   add_foreign_key "ten_km_records", "users"
+  add_foreign_key "tweet_tag_relationships", "tweet_tags"
+  add_foreign_key "tweet_tag_relationships", "tweets"
   add_foreign_key "tweets", "users"
 end
