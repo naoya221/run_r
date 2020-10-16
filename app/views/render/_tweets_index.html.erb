@@ -1,0 +1,238 @@
+<div class="back-ground">
+
+  <div class="slide-content row justify-content-between">
+
+    <div class="slide-image">
+      <ul class="slider mt-5">
+        <li>
+          <img src="/images/place_image.png" alt="slick-img">
+        </li>
+        <li>
+          <img src="/images/google_map.png" alt="slick-img">
+        </li>
+        <li>
+          <img src="/images/f_menu.png" alt="slick-img">
+        </li>
+        <li>
+          <img src="/images/graph.png" alt="slick-img">
+        </li>
+      </ul>
+    </div>
+
+    <div class="slide-text">
+      <h4>もうランニングで悩まない！</h4><br><br>
+      いつも近所でランニング、飽きた！<br>
+      大会にエントリーしたけど何していいの？<br>
+      ランニングのアプリ使ってるけど、<br>
+      ◯kmを◯分かかって、1kmあたり◯秒ペース、<br>
+      これってどうなの？<br>
+      こんな悩みを持つ方にぴったりのサービスです。<br>
+      気になる<strong class="text-dark">ランニングコース</strong>が見つかるかもしれません。<br>
+      いつもと違う場所でランニングを楽しもう！<br><br>
+      また、適切な練習がわからない方、<br>
+      まずは<strong class="text-dark">ベストタイムを登録</strong>しましょう。<br>
+      <strong class="text-dark">練習メニューや走力レベル</strong>を確認できます。<br><br>
+    </div>
+
+    <div></div>
+
+  </div>
+
+  <br><br><br>
+
+  <% if user_signed_in? %>
+    <%= link_to new_tweet_path  do %>
+      <p  class="tweet-btn">
+        <button type="button" class="btn btn-success btn-lg">お気に入りコースを<br>シェアしよう！</button>
+      </p>
+    <% end %>
+  <% end %>
+
+  <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |f| %>
+    <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input p-2 ml-4" %>
+    <%= f.submit "検索", class: "search-btn link" %>
+  <% end %>
+
+  <% @tag_lists.each do |tag| %>
+    <%= link_to tag_tweets_path(tag_id: tag.id) do %>
+      <%= tag.name %>
+    <% end %>
+  <% end %>
+
+<div class="d-flex justify-content-around">
+  <div class="slide-group">
+    <div class="slide-titles">＃ 注目の人気コース</div>
+    <div id="slide1">
+      <carousel
+        :per-page="1"
+        :navigation-enabled="true"
+        navigation-prev-label="〈"
+        navigation-next-label="〉"
+        :speed="1000">
+        <% @tweets_ranking.each do |tweet_ranking| %>
+          <slide class="mini-slide-parent">
+            <div class="mini-slide">
+              <img src="<%= tweet_ranking.place_image %>" class="mini-slide-image">
+            </div>
+            <div class="mini-slide-bottom">
+              <i class="fa fa-heart like-btn"></i>
+              <%= tweet_ranking.likes.length %>
+              <i class="fa fa-comment"></i>
+              <%= tweet_ranking.messages.length %>
+              　　<%= tweet_ranking.place_name %>
+            </div>
+          </slide>
+        <% end %>
+      </carousel>
+    </div>
+  </div>
+
+  <div class="slide-group">
+    <div class="slide-titles">＃ 初心者におすすめ</div>
+    <div id="slide2">
+      <carousel
+      :per-page="1"
+      :navigation-enabled="true"
+      navigation-prev-label="〈"
+      navigation-next-label="〉"
+      :speed="1000">
+        <% @tweets_beginner.each do |tweet_beginner| %>
+         <slide class="mini-slide-parent">
+            <div class="mini-slide">
+              <img src="<%= tweet_beginner.place_image %>" class="mini-slide-image">
+            </div>
+            <div class="mini-slide-bottom">
+              <i class="fa fa-heart like-btn"></i>
+              <%= tweet_beginner.likes.length %>
+              <i class="fa fa-comment"></i>
+              <%= tweet_beginner.messages.length %>
+              　　<%= tweet_beginner.place_name %>
+            </div>
+          </slide>
+        <% end %>
+      </carousel>
+    </div>
+  </div>
+
+  <div class="slide-group">
+    <div class="slide-titles">＃ 競技思考の方におすすめ</div>
+    <div id="slide3">
+      <carousel
+      :per-page="1"
+      :navigation-enabled="true"
+      navigation-prev-label="〈"
+      navigation-next-label="〉"
+      :speed="1000">
+        <% @tweets_senior.each do |tweet_senior| %>
+          <slide class="mini-slide-parent">
+            <div class="mini-slide">
+              <img src="<%= tweet_senior.place_image %>" class="mini-slide-image">
+            </div>
+            <div class="mini-slide-bottom">
+              <i class="fa fa-heart like-btn"></i>
+              <%= tweet_senior.likes.length %>
+              <i class="fa fa-comment"></i>
+              <%= tweet_senior.messages.length %>
+              　　<%= tweet_senior.place_name %>
+            </div>
+          </slide>
+        <% end %>
+      </carousel>
+    </div>
+  </div>
+</div>
+
+
+  <br><br>
+
+  <%= render "render/tweets_main_contents"%>
+
+  <div class="easy-login">
+     <div class='easy-login-btn'>
+        <div class='easy-login-btn-text'>かんたんログイン<i class="fas fa-running ml-1"></i></div>
+     </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-carousel@0.18.0/dist/vue-carousel.min.js"></script>
+<script>
+  var app=new Vue({
+    el: "#slide1",
+    components: {
+      'carousel': VueCarousel.Carousel,
+      'slide': VueCarousel.Slide
+    },
+  });
+
+  var app=new Vue({
+    el: "#slide2",
+    components: {
+      'carousel': VueCarousel.Carousel,
+      'slide': VueCarousel.Slide
+    },
+  });
+
+  var app=new Vue({
+    el: "#slide3",
+    components: {
+      'carousel': VueCarousel.Carousel,
+      'slide': VueCarousel.Slide
+    },
+  });
+</script>
+
+<style>
+
+  .slide-group {
+    height: 250px;
+    width: 300px;
+    margin-top: 50px
+  }
+
+  .mini-slide-parent {
+    position: relative;
+    height: 300px;
+  }
+
+  .mini-slide {
+    position: absolute;
+    top: -50px;
+  }
+
+  .mini-slide-image {
+    height: 200px;
+    width: 300px;
+    margin-top: 24px;
+  }
+
+  .mini-slide-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(240, 240, 240);
+    color: black;
+    padding: 4px 10px;
+    /* padding-right: 300; */
+  }
+
+  .VueCarousel-slide {
+    font-size:12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 300px;
+    background:#ccc;
+    border-right:1px solid #FFF;
+    box-sizing:border-box;
+  }
+
+
+</style>
+
+
+
+
+
