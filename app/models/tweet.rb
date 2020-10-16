@@ -59,6 +59,30 @@ class Tweet < ApplicationRecord
     end
   end
 
+  def create_notification_message!(current_user, message_id)
+    #同じ投稿にコメントしているユーザーに通知を送る。（current_userと投稿ユーザーのぞく）
+    temp_ids = Message.where(tweet_id: id).where.not("user_id=? or user_id=?", current_user.id,user_id).select(:user_id).distinct
+    #取得したユーザー達へ通知を作成。（user_idのみ繰り返し取得）
+    temp_ids.each do |temp_id|
+      save_notification_message!(current_user, message_id, temp_id['user_id'])
+    end
+    #投稿者へ通知を作成
+    save_notification_message!(current_user, message_id, user_id)
+  end
+
+  def save_notification_message!(current_user, message_id, visited_id)
+      notification = current_user.active_notifications.new(
+        tweet_id: id,
+        message_id: message_id,
+        visited_id: visited_id,
+        action: 'message'
+      )
+      if notification.visitor_id == notification.visited_id
+        notification.checked = true
+      end
+      notification.save if notification.valid?
+  end
+
   with_options presence: true do
     validates :place_name,     null: false, length: { maximum: 16 }
     validates :place_image,    null: false
