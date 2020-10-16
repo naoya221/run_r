@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   }
 
   resources :tops, only: :index
-  root 'tops#index'
 
+  root 'tweets#index'
   resources :tweets do
     collection do
       get 'search'
