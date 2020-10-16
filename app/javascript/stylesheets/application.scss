@@ -3,9 +3,11 @@
 @import "slick-theme";
 @import "slick";
 
-@import 'layout';
+@import 'layouts/layout';
+@import 'layouts/top';
 @import 'tweets/index';
 @import 'tweets/show';
 @import 'users/show';
 @import 'users/sign_up';
+@import 'records/new_edit';
 @import 'vdots/index';
