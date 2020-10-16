@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
 
+  resources :tops, only: :index
+
   root 'tweets#index'
   resources :tweets do
     collection do
