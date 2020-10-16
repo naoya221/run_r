@@ -1,0 +1,175 @@
+.user-content {
+  background-color:  rgb(245, 245, 245);
+  padding-top: 100px;
+}
+
+.user-show-top-content {
+  margin: 20px 10px;
+  border-bottom: 2px solid rgb(94, 94, 94);
+}
+
+.user-profile {
+  margin-top: 30px;
+  margin-left: 20px;
+  text-align: center;
+  display: inline-block;
+}
+
+.icon_image {
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.user-show-name {
+  padding: 5px;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgb(94, 94, 94);
+}
+
+.runner-level-group {
+  margin-left: 300px;
+  margin-bottom: 50px;
+}
+
+.runner-level-title {
+  font-size: 40px;
+}
+
+.runner-level-text {
+  font-size: 15px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.user-show-title {
+  font-family: MS Serif;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.user-record-group {
+  font-family: MS Serif;
+  color: rgb(94, 94, 94);
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.user-show-btn-group {
+  display: flex;
+  margin-top: 30px;
+}
+
+.user-show-btn {
+  margin: 5px;
+}
+
+.user-show-delete-btn {
+  background-color: rgb(61, 61, 61);
+  border: gray;
+}
+
+.graph-area-parent {
+  // display: flex;
+  justify-content: center;
+}
+
+#graph-area {
+  max-width: 600px;
+  max-height: 260px;
+  width: 50vw;
+  height: 15vw;
+  padding: 0 80px;
+  margin-bottom: 100px;
+}
+
+.runner-levels {
+  font-size: 12px;
+  margin-top: 80px;
+}
+
+.content-item {
+  background-color: rgba(241, 249, 252, 0.9);
+}
+
+.vdot-b-t {
+  border-top: 2px solid rgb(100, 100, 100);
+  padding-top: 5px;
+}
+
+.vdot-five {
+  background-color:  rgba(63, 63, 63, 0.4);
+  color: white;
+}
+
+.vdot-ten {
+  background-color: rgba(63, 63, 63, 0.4);
+  color: white;
+}
+
+.vdot-half {
+  background-color: rgba(63, 63, 63, 0.4);
+  color: white;
+}
+
+.vdot-full {
+  background-color: rgba(63, 63, 63, 0.4);
+  color: white;
+}
+
+@media (max-width: 800px) {
+
+  #graph-area {
+    margin-bottom: 50px;
+  }
+
+  .user-record-text {
+    font-size: 20px;
+    padding: 20px 0 40px 10px;
+  }
+
+  .user-record-group {
+    padding-left: 13vw;
+    padding-right: 13vw;
+  }
+
+
+
+  .user-show-btn-group {
+    display: block;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .user-show-title {
+    font-size: 25px;
+  }
+
+  .user-record-text {
+    font-size: 20px;
+    padding: 20px 0 40px 0;
+  }
+
+  .user-record-group {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #graph-area {
+
+    width: 60vw;
+    height: 35vw;
+  }
+
+  .user-show-btn {
+    margin: 10px 5px;
+  }
+
+}

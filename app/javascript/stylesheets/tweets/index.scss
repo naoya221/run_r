@@ -1,0 +1,206 @@
+.back-ground {
+  background-color: rgb(240, 240, 240);
+  padding: 0 15px 50px;
+ }
+
+ .slide-content {
+   background-image: url("/images/forest.jpg");
+}
+
+.slide-content {
+  opacity: 1;
+  margin-top: 80px;
+}
+
+.slide-text {
+  margin-top: 45px;
+  margin-left: 10px;
+}
+
+.slide-text h4 {
+  background: linear-gradient(transparent 30%, rgb(209, 212, 61));
+  display: inline-block;
+  font-size: 30px;
+}
+
+.run-record {
+  font-weight: bold;
+  margin: 0 5px;
+  border-bottom: 1px solid black;
+}
+
+.tweet-btn {
+  margin: 0 0 70px 30px;
+}
+
+.search-input {
+  width: 40%;
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 5px;
+}
+
+.search-btn {
+  background-color: rgb(36, 167, 42);
+  color: white;
+  border-style: none;
+  padding: 9px 20px;
+  margin-left: 20px;
+  font-size: large;
+  border-radius: 5px;
+}
+
+.paginate-parent {
+  text-align: center;
+}
+
+.paginate {
+  display: inline-block;
+  font-size: 25px;
+}
+
+.pagination>li>a {
+  color: #696969;
+}
+
+.pagination>.active>a {
+  background-color: rgb(124, 124, 124);
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 0 10px;
+}
+
+.slide-titles {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.tweet-index-content-size {
+  width: 350px;
+  max-width: 350px;
+}
+
+.bg-tweet-index-content {
+  padding: 5px;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 2px 2px rgb(161, 160, 160);
+}
+
+.place-image {
+  width: 200px;
+  height: 180px;
+}
+
+.tweet-index-image-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 60px;
+  margin-bottom: 5px;
+}
+
+.tweet-index-content {
+  text-align: center;
+}
+
+.tweet-index-nickname {
+  font-size: 11px;
+  color: black;
+}
+
+.tweet-index-address {
+  margin: 10px;
+  color: black;
+  font-size: 10px;
+  height: 50px;
+}
+
+.tweet-index-place {
+  display: inline-block;
+  padding: 5px 0;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+
+.tweet-index-text {
+  padding: 10px 10px 0 10px;
+  height: 120px;
+  border: 1px solid rgb(201, 199, 199);
+}
+
+.easy-login-btn {
+  background-color: rgb(51, 51, 51);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 5px;
+  bottom: 90px;
+  right: 32px;
+  position: fixed;
+  padding: 10px 15px;
+}
+
+.easy-login-btn-text {
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 800px) {
+
+  .slide-text h4 {
+    font-size: 35px;
+  }
+
+  .slide-text {
+    display: block;
+    margin: 10px auto;
+  }
+
+  .tweet-btn {
+    text-align: center;
+  }
+
+  .search-form {
+    text-align: center;
+  }
+
+  .search-input {
+    width: 60%;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .bg-content-item {
+    margin: 10px;
+  }
+
+  .slide-image {
+    margin-left: 0;
+  }
+
+  .tweet-btn {
+    text-align: center;
+  }
+
+  .slide-text h4 {
+    display: inline-block;
+    font-size: 25px;
+  }
+
+  .slide-text {
+    font-size: 13px;
+    display: block;
+    margin: 10px auto;
+  }
+
+  .paginate {
+    font-size: 15px;
+  }
+
+}

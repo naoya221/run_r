@@ -1,0 +1,298 @@
+.tweet-show-container {
+  padding-top: 100px;
+  background-color: rgb(245, 245, 245);
+  padding-left: 30px;
+  padding-bottom: 100px;
+}
+
+.tweet-show-flex {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.tweet-show-place-image {
+  width: 650px;
+  height: 450px;
+}
+
+.tweet-show-place-info {
+  display: flex;
+  justify-content: space-between;
+  width: 650px;
+}
+
+.tweet-show-place-name {
+  margin-top: 10px;
+  font-size: 40px;
+  font-weight: bold;
+  margin-left: 50px;
+}
+
+.level-text {
+  font-size: 18px;
+}
+
+.tweet-show-profile {
+  margin-top: 10px;
+  padding-left: 40px;
+}
+
+.tweet-user {
+  color: black;
+  font-size: 20px;
+  margin: 5px 0 0 5px;
+}
+
+.tweet-show-image-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+}
+
+.tweet-show-info {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+  color: rgb(94, 94, 94);
+  font-size: 20px;
+  font-weight: bold;
+  background: rgba(248, 198, 122, 0.9);
+  border-radius: 10px;
+}
+
+.tweet-show-delete-btn {
+  margin-left: 10px;
+}
+
+.tweet-show-place-texts {
+  background-color: white;
+  padding: 10px;
+  font-size: large;
+  border-radius: 4px;
+  height: 150px;
+  margin-right: 0;
+  margin-top: 20px;
+  max-width: 650px;
+  border: 1px solid rgb(200, 200, 200);
+}
+
+.address {
+  background-color: white;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 0;
+  width: 650px;
+  max-height:50px;
+  font-size: 14px;
+  border: 1px solid rgb(200, 200, 200);
+}
+
+#map{
+  height: 440px;
+  width: 650px;
+  margin-top: 30px;
+}
+
+.message-container {
+  margin-top: 50px;
+}
+
+.massage-form-group {
+  margin-left: 10px;
+}
+
+.massage-form {
+  margin: 20px 0 40px;
+  max-width: 500px;
+  width: 50vw;
+}
+
+.message {
+  padding: 5px 5px 0px;
+  margin-left: 30px;
+  border-bottom: 1px solid black;
+  max-width: 500px;
+}
+
+.post-time-message {
+  margin-right: 20px;
+}
+
+.message-user {
+  color: gray;
+}
+
+.randam-title {
+  padding-bottom: 5px;
+  margin-left: 50px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid black;
+}
+
+.randam-tweet {
+  margin-left: 100px;
+  margin-bottom: 20px;
+}
+
+.mini-place-image {
+ margin-top: 20px;
+}
+
+.mini-place-image-icon {
+  height: 150px;
+  width: 170px;
+}
+
+.mini-place-name {
+  margin-top: 5px;
+}
+
+.mini-content {
+  margin-left: 5px;
+}
+
+@media (max-width: 1000px) {
+
+  .tweet-show-profile {
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .tweet-show-btns {
+    display: block;
+    text-align: center;
+  }
+
+  .mini-contents {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .tweet-show-container {
+    padding-left: 20px;
+  }
+
+  .tweet-show-place-image {
+    width: 92vw;
+    height: 70vw;
+  }
+
+  .tweet-show-place-name {
+    font-size: 30px;
+  }
+
+  .tweet-show-place-info {
+    width: 92vw;
+  }
+
+  .tweet-show-profile {
+    margin-top: 0;
+    text-align: end;
+    padding-left: 10px;
+  }
+
+  .tweet-user {
+    font-size: 13px;
+  }
+
+  .tweet-show-btns {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .tweet-show-btn {
+    padding: 4px 8px;
+  }
+
+  .tweet-show-place-texts {
+    margin: 10px 0;
+    max-width: 800px;
+    width: 92vw;
+  }
+
+  .address {
+    margin: 0 auto;
+    width: 92vw;
+  }
+
+  #map {
+    margin: 30px auto 0 auto;
+    width: 92vw;
+    height: 400px;
+  }
+
+  .massage-form {
+    width: 70vw;
+  }
+
+  .message {
+    margin-left: 20px;
+    max-width: 80vw;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .tweet-show-container {
+    padding-left: 10px;
+  }
+
+  .tweet-show-flex {
+    display: block;
+  }
+
+  .tweet-show-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .tweet-show-place-name {
+    font-size: 20px;
+  }
+
+  .responsive-d-flex {
+    display: inline-block;
+  }
+
+  .record-items{
+    display: inline-block;
+  }
+
+  .tweet-show-place-info {
+    display: block;
+  }
+
+  .tweet-show-btns {
+    justify-content: flex-end;
+  }
+
+  .tweet-show-btn {
+    font-size: 12px;
+  }
+
+  .address {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #map {
+    height: 300px;
+  }
+
+  .message-group {
+    padding-top: 200px;
+   }
+
+  .massage-form {
+    height: 80px;
+  }
+
+}

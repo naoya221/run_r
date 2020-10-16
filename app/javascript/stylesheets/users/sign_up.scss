@@ -1,0 +1,52 @@
+.form-label {
+  font-family: MS UI Gothic;
+}
+
+.shared-link {
+  color: rgb(95, 95, 95);
+  font-weight: bold;
+  padding: 8px;
+}
+
+.edit-image {
+  padding: 30px;
+  text-align: center;
+}
+
+.gest-login {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 2px solid gray;
+  border-radius: 10px;
+}
+
+.gest-login-text {
+  color: rgb(70, 70, 69);
+  font-size: 20px;
+  border-bottom: 1px solid rgb(70, 70, 69);
+}
+
+@media (max-width: 800px) {
+
+  .signup-form {
+    width: 50%;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .forms-container {
+    padding: 80px 20px 50px;
+    text-align: center;
+  }
+
+  .forms-content {
+    padding: 10px;
+  }
+
+  .signup-form {
+    width: 75%;
+  }
+
+}
