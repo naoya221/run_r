@@ -1,77 +1,172 @@
-<div class="paginate-parent">
-  <div class="paginate">
-    <%= paginate @tweets %>
+<div class="mt-5">
+  <div class="slide-titles text-center">
+    <span class="text-success">＃</span>注目の人気コース
+  </div>
+
+  <div class="row justify-content-center">
+    <% @tweets_ranking.each do |tweet_ranking| %>
+      <div class="mini-content col-md-6 col-lg-3">
+        <div class="mini-slide">
+          <img src="<%= tweet_ranking.place_image %>" class="mini-slide-image">
+        </div>
+        <div class="mini-slide-bottom">
+          <strong><%= tweet_ranking.place_name %></strong>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div class="mt-3">
+                  <span id="like-<%= tweet_ranking.id %>">
+                    <%= render partial: "render/like", locals: { tweet: tweet_ranking } %>
+                  </span>
+                </div>
+                <div class="tweet-time mt-3">
+                  <i class="fas fa-clock"></i><%= "#{time_ago_in_words(tweet_ranking.created_at)}前" %>
+                </div>
+              </div>
+              <div>
+                  <% if tweet_ranking.user.image.present? %>
+                    <img src=<%= tweet_ranking.user.image %> class="mini-content-user-image">
+                  <% else %>
+                    <img src="/images/dog2.png" class="mini-content-user-image">
+                  <% end %>
+              </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
-<br>
+<div class="mini-contents-border"></div>
 
-<div class="row justify-content-around f-f-monospace">
-  <% @tweets.each do |tweet| %>
+<div class="mt-5">
+  <div class="slide-titles  text-center">
+    <span class="text-success">＃</span>初心者におすすめ
+  </div>
 
-    <div class="tweet-index-content-size col-md-6 col-lg-4">
-      <div class="bg-tweet-index-content">
-        <div class="d-flex justify-content-between">
-
-          <%= link_to tweet.user, class: "link" do %>
-            <div class="tweet-index-content">
-              <div>
-                <div class="tweet-index-image">
-                    <% if tweet.user.image.present? %>
-                      <img src=<%= tweet.user.image %> class="tweet-index-image-icon">
-                    <% else %>
-                      <img src="/images/dog2.png" class="tweet-index-image-icon">
-                    <% end %>
+  <div class="row justify-content-center">
+    <% @tweets_beginner.each do |tweet_beginner| %>
+        <div class="mini-content col-md-6 col-lg-3">
+        <div class="mini-slide">
+          <img src="<%= tweet_beginner.place_image %>" class="mini-slide-image">
+        </div>
+        <div class="mini-slide-bottom">
+          <strong><%= tweet_beginner.place_name %></strong>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div class="mt-3">
+                  <span id="like-<%= tweet_beginner.id %>">
+                    <%= render partial: "render/like", locals: { tweet: tweet_beginner } %>
+                  </span>
                 </div>
-
-                <div class="tweet-index-nickname">
-                  <strong><%= tweet.user == current_user ? 'あなた' : tweet.user.nickname %></strong>
+                <div class="tweet-time mt-3">
+                  <i class="fas fa-clock"></i><%= "#{time_ago_in_words(tweet_beginner.created_at)}前" %>
                 </div>
               </div>
-
-              <div class="tweet-index-address">
-                <%= tweet.address %>
+              <div>
+                  <% if tweet_beginner.user.image.present? %>
+                    <img src=<%= tweet_beginner.user.image %> class="mini-content-user-image">
+                  <% else %>
+                    <img src="/images/dog2.png" class="mini-content-user-image">
+                  <% end %>
               </div>
             </div>
-          <% end %>
-
-          <div>
-            <%= link_to tweet do %>
-              <img src=<%= tweet.place_image %> class = "place-image link rounded">
-            <% end %>
-          </div>
-
         </div>
-
-        <div class="d-flex justify-content-center mb-2">
-          <div class="tweet-index-place rounded">
-            <%= tweet.place_name %>
-          </div>
-        </div>
-
-        <div class="tweet-index-text bg-content-item rounded">
-          <span id="like-<%= tweet.id %>">
-            <%= render partial: "render/like", locals: { tweet: tweet } %>
-          </span>
-          <br>
-          <%= tweet.content %>
-        </div>
-        <% tweet.tags.each do |tag| %>
-          <%= link_to tag_tweets_path(tag_id: tag.id) do %>
-            <%= tag.name %>
-          <% end %>
-        <% end %>
-
       </div>
-    </div>
-
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
-<br>
+<div class="mini-contents-border"></div>
 
-<div class="paginate-parent">
-  <div class="paginate">
-    <%= paginate @tweets %>
+<div class="mt-5">
+  <div class="slide-titles text-center">
+    <span class="text-success">＃</span>競技思考の方におすすめ
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <% @tweets_senior.each do |tweet_senior| %>
+      <div class="mini-content col-md-6 col-lg-3">
+        <div class="mini-slide">
+          <img src="<%= tweet_senior.place_image %>" class="mini-slide-image">
+        </div>
+        <div class="mini-slide-bottom">
+          <strong><%= tweet_senior.place_name %></strong>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div class="mt-3">
+                  <span id="like-<%= tweet_senior.id %>">
+                    <%= render partial: "render/like", locals: { tweet: tweet_senior } %>
+                  </span>
+                </div>
+                <div class="tweet-time mt-3">
+                  <i class="fas fa-clock"></i><%= "#{time_ago_in_words(tweet_senior.created_at)}前" %>
+                </div>
+              </div>
+              <div>
+                  <% if tweet_senior.user.image.present? %>
+                    <img src=<%= tweet_senior.user.image %> class="mini-content-user-image">
+                  <% else %>
+                    <img src="/images/dog2.png" class="mini-content-user-image">
+                  <% end %>
+              </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="mini-contents-border"></div>
+
+<div class="mt-5">
+  <div class="slide-titles text-center mb-3">
+    <span class="text-success">＃</span>投稿一覧（最新順）
+  </div>
+
+  <div class="paginate-parent">
+    <div class="paginate">
+      <%= paginate @tweets %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <% @tweets.each do |tweet| %>
+      <div class="mini-content col-md-6 col-lg-3">
+        <div class="mini-slide">
+          <img src="<%= tweet.place_image %>" class="mini-slide-image">
+        </div>
+        <div class="mini-slide-bottom">
+          <strong><%= tweet.place_name %></strong>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div class="mt-3">
+                  <span id="like-<%= tweet.id %>">
+                    <%= render partial: "render/like", locals: { tweet: tweet } %>
+                  </span>
+                </div>
+                <div class="tweet-time mt-3">
+                  <i class="fas fa-clock"></i><%= "#{time_ago_in_words(tweet.created_at)}前" %>
+                </div>
+              </div>
+              <div>
+                  <% if tweet.user.image.present? %>
+                    <img src=<%= tweet.user.image %> class="mini-content-user-image">
+                  <% else %>
+                    <img src="/images/dog2.png" class="mini-content-user-image">
+                  <% end %>
+              </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+  <br>
+
+  <div class="paginate-parent">
+    <div class="paginate">
+      <%= paginate @tweets %>
+    </div>
   </div>
 </div>

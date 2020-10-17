@@ -40,195 +40,106 @@
 
   <br><br><br>
 
-  <% if user_signed_in? %>
-    <%= link_to new_tweet_path  do %>
-      <p  class="tweet-btn">
-        <button type="button" class="btn btn-success btn-lg">お気に入りコースを<br>シェアしよう！</button>
-      </p>
-    <% end %>
-  <% end %>
-
-  <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |f| %>
-    <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input p-2 ml-4" %>
-    <%= f.submit "検索", class: "search-btn link" %>
-  <% end %>
-
-  <% @tag_lists.each do |tag| %>
-    <%= link_to tag_tweets_path(tag_id: tag.id) do %>
-      <%= tag.name %>
-    <% end %>
-  <% end %>
-
-<div class="d-flex justify-content-around">
-  <div class="slide-group">
-    <div class="slide-titles">＃ 注目の人気コース</div>
-    <div id="slide1">
-      <carousel
-        :per-page="1"
-        :navigation-enabled="true"
-        navigation-prev-label="〈"
-        navigation-next-label="〉"
-        :speed="1000">
-        <% @tweets_ranking.each do |tweet_ranking| %>
-          <slide class="mini-slide-parent">
-            <div class="mini-slide">
-              <img src="<%= tweet_ranking.place_image %>" class="mini-slide-image">
-            </div>
-            <div class="mini-slide-bottom">
-              <i class="fa fa-heart like-btn"></i>
-              <%= tweet_ranking.likes.length %>
-              <i class="fa fa-comment"></i>
-              <%= tweet_ranking.messages.length %>
-              　　<%= tweet_ranking.place_name %>
-            </div>
-          </slide>
-        <% end %>
-      </carousel>
-    </div>
+  <div class="slide-border">
   </div>
 
-  <div class="slide-group">
-    <div class="slide-titles">＃ 初心者におすすめ</div>
-    <div id="slide2">
-      <carousel
-      :per-page="1"
-      :navigation-enabled="true"
-      navigation-prev-label="〈"
-      navigation-next-label="〉"
-      :speed="1000">
-        <% @tweets_beginner.each do |tweet_beginner| %>
-         <slide class="mini-slide-parent">
-            <div class="mini-slide">
-              <img src="<%= tweet_beginner.place_image %>" class="mini-slide-image">
-            </div>
-            <div class="mini-slide-bottom">
-              <i class="fa fa-heart like-btn"></i>
-              <%= tweet_beginner.likes.length %>
-              <i class="fa fa-comment"></i>
-              <%= tweet_beginner.messages.length %>
-              　　<%= tweet_beginner.place_name %>
-            </div>
-          </slide>
+  <div class="d-flex justify-content-center">
+    <div class="search-group">
+      <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |f| %>
+      <div class="d-flex align-items-center justify-content-center w-100">
+          <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input p-2 ml-4" %>
+          <button type="submit" class="search-btn link"><i class="fas fa-search"></i></button>
+      </div>
+      <% end %>
+
+      <br>
+
+      <% @tag_lists.each do |tag| %>
+        <%= link_to tag_tweets_path(tag_id: tag.id) do %>
+          <span class="tag text-dark"><%= "＃#{tag.name}" %></span>
         <% end %>
-      </carousel>
+      <% end %>
     </div>
   </div>
-
-  <div class="slide-group">
-    <div class="slide-titles">＃ 競技思考の方におすすめ</div>
-    <div id="slide3">
-      <carousel
-      :per-page="1"
-      :navigation-enabled="true"
-      navigation-prev-label="〈"
-      navigation-next-label="〉"
-      :speed="1000">
-        <% @tweets_senior.each do |tweet_senior| %>
-          <slide class="mini-slide-parent">
-            <div class="mini-slide">
-              <img src="<%= tweet_senior.place_image %>" class="mini-slide-image">
-            </div>
-            <div class="mini-slide-bottom">
-              <i class="fa fa-heart like-btn"></i>
-              <%= tweet_senior.likes.length %>
-              <i class="fa fa-comment"></i>
-              <%= tweet_senior.messages.length %>
-              　　<%= tweet_senior.place_name %>
-            </div>
-          </slide>
-        <% end %>
-      </carousel>
-    </div>
-  </div>
-</div>
-
-
-  <br><br>
 
   <%= render "render/tweets_main_contents"%>
 
-  <div class="easy-login">
-     <div class='easy-login-btn'>
-        <div class='easy-login-btn-text'>かんたんログイン<i class="fas fa-running ml-1"></i></div>
-     </div>
-  </div>
+  <% if user_signed_in? %>
+    <div class='fixed-btn'>
+      <%= link_to new_tweet_path  do %>
+        <div class='fixed-btn-text'>コースを投稿<i class="fa fa-angle-right ml-2" aria-hidden="true"></i></div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class='fixed-btn'>
+      <%= link_to new_user_session_path  do %>
+        <div class='fixed-btn-text'>かんたんログイン<i class="fa fa-angle-right ml-2" aria-hidden="true"></i></div>
+      <% end %>
+    </div>
+  <% end %>
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue-carousel@0.18.0/dist/vue-carousel.min.js"></script>
 <script>
-  var app=new Vue({
-    el: "#slide1",
-    components: {
-      'carousel': VueCarousel.Carousel,
-      'slide': VueCarousel.Slide
-    },
-  });
 
-  var app=new Vue({
-    el: "#slide2",
-    components: {
-      'carousel': VueCarousel.Carousel,
-      'slide': VueCarousel.Slide
-    },
-  });
-
-  var app=new Vue({
-    el: "#slide3",
-    components: {
-      'carousel': VueCarousel.Carousel,
-      'slide': VueCarousel.Slide
-    },
-  });
 </script>
 
 <style>
 
   .slide-group {
-    height: 250px;
-    width: 300px;
-    margin-top: 50px
+    /* width: 200px; */
+  }
+
+  .mini-contents-border {
+    border-bottom: 1px solid rgb(214, 214, 214);
+    padding-bottom: 30px;
+    margin: 0 50px;
+  }
+
+  .mini-content {
+    max-width: 280px;
+    margin: 20px;
   }
 
   .mini-slide-parent {
-    position: relative;
-    height: 300px;
+
   }
 
   .mini-slide {
-    position: absolute;
-    top: -50px;
+    /* margin: 0 auto; */
   }
 
   .mini-slide-image {
-    height: 200px;
-    width: 300px;
-    margin-top: 24px;
+    height: 180px;
+    width: 250px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /* margin-top: 24px; */
   }
 
   .mini-slide-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: rgb(240, 240, 240);
+    /* background-color: rgb(240, 240, 240); */
     color: black;
     padding: 4px 10px;
     /* padding-right: 300; */
+    border: 1px solid gray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
   }
 
-  .VueCarousel-slide {
-    font-size:12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 200px;
-    width: 300px;
-    background:#ccc;
-    border-right:1px solid #FFF;
-    box-sizing:border-box;
+  .tweet-time {
+    /* margin-top: 1px; */
+    margin-left: 10px;
   }
 
+  .mini-content-user-image {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+  }
 
 </style>
 

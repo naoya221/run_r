@@ -19,7 +19,7 @@
 
   <%= render 'render/notifications' %>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-white fixed-top w-100">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top w-100">
       <%= link_to root_path do %>
         <button type="button" class="btn top-btn btn-lg nav-link link">Run Record</button>
       <% end %>
@@ -33,29 +33,29 @@
 
           <% if user_signed_in? %>
             <li class="nav-item header-item link">
-              <%= link_to "#{current_user.nickname}：さん", user_path(current_user.id), class: "text-dark nav-link" %>
+              <%= link_to "マイページ", user_path(current_user.id), class: "text-white nav-link" %>
             </li>
             <li class="nav-item header-item link">
-              <%= link_to "通知", notifications_path, class: "text-dark nav-link" %>
+              <%= link_to "お知らせ", notifications_path, class: "text-white nav-link" %>
             </li>
             <li class="nav-item header-item link">
-              <%= link_to "練習", vdots_path, class: "text-dark nav-link" %>
+              <%= link_to "練習", vdots_path, class: "text-white nav-link" %>
             </li>
             <li class="nav-item header-item link">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-dark nav-link" %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white nav-link" %>
             </li>
           <% else %>
             <li class="nav-item header-item link">
-              <%= link_to "練習", vdots_path, class: "text-dark nav-link" %>
+              <%= link_to "練習", vdots_path, class: "text-white nav-link" %>
             </li>
             <li class="nav-item header-item link">
-              <%= link_to "ログイン", new_user_session_path, class: "text-dark nav-link" %>
+              <%= link_to "ログイン", new_user_session_path, class: "text-white nav-link" %>
             </li>
             <li class="nav-item header-item link">
-              <%= link_to "かんたんログイン", new_user_session_path, class: "text-dark nav-link" %>
+              <%= link_to "かんたんログイン", new_user_session_path, class: "text-white nav-link" %>
             </li>
             <li class="nav-item header-item link">
-              <%= link_to "新規登録",new_user_registration_path, class: "text-dark nav-link" %>
+              <%= link_to "新規登録",new_user_registration_path, class: "text-white nav-link" %>
             </li>
           <% end %>
 
@@ -66,13 +66,8 @@
 
     <%= yield %>
 
-    <footer class="footer">
-      <div class="container d-flex justify-content-between">
-         <%= link_to root_path do %>
-          <div class="footer-title">Run Record</div>
-         <% end %>
-        <div>© 2020 Run Record</div>
-      </div>
+    <footer class="footer d-flex justify-content-center align-items-end">
+      <div>© 2020 Run Record</div>
     </footer>
 
     <script>
