@@ -18,8 +18,8 @@
   <body>
 
   <%= render 'render/notifications' %>
-
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top w-100">
+  <nav class="nav-parent navbar navbar-expand-md navbar-dark fixed-top w-100">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top nav-items">
       <%= link_to root_path do %>
         <button type="button" class="btn top-btn btn-lg nav-link link">Run Record</button>
       <% end %>
@@ -63,9 +63,14 @@
       </div>
 
     </nav>
+    </nav>
+    <div class="d-flex justify-content-center">
+      <div class="max-width" >
 
-    <%= yield %>
+        <%= yield %>
 
+      </div>
+    </div>
     <footer class="footer d-flex justify-content-center align-items-end">
       <div>© 2020 Run Record</div>
     </footer>

@@ -64,6 +64,7 @@
 
   <%= render "render/tweets_main_contents"%>
 
+  <div class="fixed-btn-dummy">
   <% if user_signed_in? %>
     <div class='fixed-btn'>
       <%= link_to new_tweet_path  do %>
@@ -77,6 +78,7 @@
       <% end %>
     </div>
   <% end %>
+  </div>
 
 </div>
 

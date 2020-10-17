@@ -2,6 +2,19 @@
   box-sizing: border-box;
 }
 
+.max-width {
+  max-width: 1300px;
+}
+
+.nav-parent {
+  height: 80px;
+}
+
+.nav-items {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
 a {
   font-family: MS UI Gothic;
 }
@@ -16,7 +29,6 @@ a:hover {
 
 .navbar {
   background-color: rgb(58, 167, 31);
-  opacity: 0.9;
 }
 
 .navbar-toggler{
