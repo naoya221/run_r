@@ -43,7 +43,7 @@
         <% if @user.id == current_user&.id && @user.email != 'thank@you' %>
             <div class="m-2 mb-5 mt-5">
                 <%= link_to edit_user_registration_path(@user) do %>
-                    <button type="button" class="btn btn-success text-white nav-link">ユーザー情報編集</button>
+                    <button type="button" class="btn btn-success text-white nav-link"><i class="fa fa-edit mr-1" aria-hidden="true"></i>マイページの編集</button>
                 <% end %>
             </div>
         <% end %>
