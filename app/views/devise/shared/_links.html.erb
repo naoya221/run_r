@@ -1,17 +1,13 @@
-<br><br>
-
 <div class="d-flex">
-
-  <div class="mr-3">
+  <div class="">
     <%- if controller_name != 'sessions' %>
       <%= link_to "ログインページへ", new_session_path(resource_name), class: "shared-link link" %><br/>
     <% end %>
   </div>
 
-  <div class="mr-3">
+  <div class="">
     <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
       <%= link_to "新規登録ページへ", new_registration_path(resource_name), class: "shared-link link" %><br />
     <% end %>
   </div>
-
 </div>

@@ -1,14 +1,9 @@
 <div class="forms-container f-f-monospace">
+  <br><br>
 
-  <div class="titles">
+  <div class="titles mb-5">
     ログイン
   </div>
-
-  <br>
-
-  <%= render 'devise/sessions/testuser' %>
-
-  <br>
 
   <div class= "text-danger">
     <%- flash.each do |name, msg| -%>
@@ -16,33 +11,37 @@
     <%- end -%>
   </div>
 
-  <br>
-
-  <div class="d-flex justify-content-center mt-3 mb-5">
-    <div class="forms-content p-5">
+  <div class="d-flex justify-content-center">
+    <div class="forms-content">
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-        <div class="w-100">
-          <div class="field">
-            <%= f.label :email, class: "form-label" %><br/><em>( @ が必須です )</em><br/>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "p-2 w-50" %>
+          <div class="field form-label mb-4">
+            <%= f.label :email, class: "form-list mb-3" %><br/><em>( @ が必須です )</em><br/>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100 p-2 mb-4 rounded form" %>
           </div>
 
-          <div class="field mt-4">
-            <%= f.label :password, class: "form-label"  %><br/><em>( 6 文字以上の 半角英数字 必須です )</em><br/>
-            <%= f.password_field :password, autocomplete: "current-password", class: "p-2 w-50" %>
+          <div class="field form-label">
+            <%= f.label :password, class: "form-list mb-3"  %><br/><em>( 6 文字以上の 半角英数字 必須です )</em><br/>
+            <%= f.password_field :password, autocomplete: "current-password", class: "w-100 p-2 mb-5 rounded form" %>
           </div>
 
-          <div class="actions mt-5">
-            <%= f.submit "ログインする", class: "btn btn-success btn-lg" %>
+          <div class="actions mt-3">
+            <%= f.submit "ログイン", class: "btn btn-success p-2 pl-5 pr-5" %>
           </div>
-        </div>
-
       <% end %>
 
+      <div class="actions mt-4">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= f.hidden_field :email,value: "thank@you", autofocus: true, autocomplete: "email" %>
+          <%= f.hidden_field :password, value: "123456", autocomplete: "current-password" %>
+          <div class="actions">
+            <%= f.submit "かんたんログイン", class: "btn btn-dark text-white pr-5 pl-5" %>
+          </div>
+        <% end %>
+      </div>
+
       <div class="d-flex justify-content-center">
-        <div class="mt-4">
+        <div class="mt-3">
           <%= render "devise/shared/links" %>
         </div>
       </div>
