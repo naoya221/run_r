@@ -1,11 +1,16 @@
 .user-content {
-  background-color:  rgb(245, 245, 245);
+  // background-color:  rgb(245, 245, 245);
   padding-top: 100px;
+}
+
+.user-top-content {
+  margin-top: 30px;
+  margin-left: 50px;
 }
 
 .user-show-top-content {
   margin: 20px 10px;
-  border-bottom: 2px solid rgb(94, 94, 94);
+  padding-bottom: 30px;
 }
 
 .user-profile {
@@ -13,6 +18,7 @@
   margin-left: 20px;
   text-align: center;
   display: inline-block;
+  max-width: 600px;
 }
 
 .icon_image {
@@ -23,15 +29,36 @@
 }
 
 .user-show-name {
-  padding: 5px;
-  margin-top: 5px;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 18px;
+  // color: rgb(94, 94, 94);
+}
+
+.user-show-border {
+  border-bottom: 1px solid rgb(182, 182, 182);
+  padding-bottom: 30px;
+  margin: 0 50px;
+}
+
+.user-show-title {
+  font-family: MS Serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.user-record-group {
+  font-family: MS Serif;
   color: rgb(94, 94, 94);
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
 .runner-level-group {
-  margin-left: 300px;
+  margin-left: 100px;
   margin-bottom: 50px;
 }
 
@@ -45,52 +72,38 @@
   margin-left: 10px;
 }
 
-.user-show-title {
-  font-family: MS Serif;
-  font-size: 25px;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.user-record-group {
-  font-family: MS Serif;
-  color: rgb(94, 94, 94);
-  font-size: 20px;
-  margin-left: 10px;
-}
-
-.user-show-btn-group {
-  display: flex;
-  margin-top: 30px;
-}
-
-.user-show-btn {
-  margin: 5px;
-}
-
-.user-show-delete-btn {
-  background-color: rgb(61, 61, 61);
-  border: gray;
-}
-
 .graph-area-parent {
   // display: flex;
   justify-content: center;
 }
 
 #graph-area {
-  max-width: 600px;
-  max-height: 260px;
-  width: 50vw;
-  height: 15vw;
-  padding: 0 80px;
+  width: 450px;
+  height: 230px;
   margin-bottom: 100px;
 }
 
 .runner-levels {
   font-size: 12px;
-  margin-top: 80px;
+  margin-top: 70px;
+  margin-left: 100px;
+}
+
+.plactice-title {
+  font-family: MS Serif;
+  font-size: 30px;
+  margin-left: 80px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.plactice-records {
+  margin-left: 50px;
+  margin-bottom: 50px;
+}
+
+.practice-menus {
+  margin: 0 75px;
 }
 
 .content-item {
