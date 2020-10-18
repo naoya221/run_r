@@ -1,13 +1,44 @@
-<br><br><br><br><br><br><br><br>
+<div class="back-ground">
 
-<h3 class="text-center">通知</h3>
-    <%= link_to notification_path(@notifications), method: :delete do %>
-      <i class="fas fa-trash"></i>
-    <% end %>
-<% if @notifications.exists? %>
-  <div class="notification-index">
-      <%= render @notifications %>
+  <div class="text-center">
+    <div class="mt-5 titles">お知らせ</div>
   </div>
-<% else %>
-    <p>通知はありません</p>
-<% end %>
+
+
+
+  <div class="notification-contents">
+    <% if @notifications.exists? %>
+      <div class="text-right mb-4">
+          <%= link_to notification_path(@notifications), method: :delete, class: "link text-warning" do %>
+            <i class="fas fa-trash mr-1"></i>確認済みにする
+          <% end %>
+      </div>
+
+      <div class="notification-index">
+          <%= render @notifications %>
+      </div>
+    <% else %>
+        <p class="mt-5">お知らせはありません</p>
+    <% end %>
+  </div>
+
+</div>
+
+<style>
+  a {
+    color: black;
+    font-weight: bold;
+  }
+
+  .notification-contents {
+    margin-top: 20px;
+    max-width: 500px;
+  }
+
+  .notification-content {
+    border-bottom: 1px solid gray;
+    padding: 0 35px 2px;
+    margin-bottom: 40px;
+  }
+
+</style>
