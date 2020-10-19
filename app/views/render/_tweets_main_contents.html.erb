@@ -6,9 +6,9 @@
   <div class="row justify-content-center">
     <% @tweets_ranking.each do |tweet_ranking| %>
       <div class="mini-content col-md-6 col-lg-3">
-        <%= link_to tweet_ranking, class: "link" do %>
+        <%= link_to tweet_ranking do %>
           <div class="mini-slide">
-            <img src="<%= tweet_ranking.place_image %>" class="mini-slide-image">
+            <img src="<%= tweet_ranking.place_image %>" class="mini-slide-image link">
           </div>
         <% end %>
 
@@ -51,9 +51,9 @@
   <div class="row justify-content-center">
     <% @tweets_beginner.each do |tweet_beginner| %>
         <div class="mini-content col-md-6 col-lg-3">
-        <%= link_to tweet_beginner, class: "link" do %>
+        <%= link_to tweet_beginner do %>
           <div class="mini-slide">
-            <img src="<%= tweet_beginner.place_image %>" class="mini-slide-image">
+            <img src="<%= tweet_beginner.place_image %>" class="mini-slide-image link">
           </div>
         <% end %>
 
@@ -96,9 +96,9 @@
   <div class="d-flex justify-content-center">
     <% @tweets_senior.each do |tweet_senior| %>
       <div class="mini-content col-md-6 col-lg-3">
-        <%= link_to tweet_senior, class: "link" do %>
+        <%= link_to tweet_senior do %>
           <div class="mini-slide">
-            <img src="<%= tweet_senior.place_image %>" class="mini-slide-image">
+            <img src="<%= tweet_senior.place_image %>" class="mini-slide-image link">
           </div>
         <% end %>
 

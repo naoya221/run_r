@@ -12,11 +12,13 @@
 
       <br>
 
-      <% @tag_lists.each do |tag| %>
-        <%= link_to tag_tweets_path(tag_id: tag.id) do %>
-          <span class="tag text-dark"><%= "＃#{tag.name}" %></span>
+      <div class="row">
+        <% @tag_lists.each do |tag| %>
+            <%= link_to tag_tweets_path(tag_id: tag.id) do %>
+              <div class="tag text-dark col-lg-11 link"><%= "＃#{tag.name}" %></div>
+            <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 
@@ -33,37 +35,42 @@
     </div>
   <% end %>
 
-    <div class="row justify-content-center">
-      <% @tweets.each do |tweet| %>
-        <div class="mini-content col-md-6 col-lg-3">
+  <div class="row justify-content-center">
+    <% @tweets.each do |tweet| %>
+      <div class="mini-content col-md-6 col-lg-3">
+        <%= link_to tweet do %>
           <div class="mini-slide">
-            <img src="<%= tweet.place_image %>" class="mini-slide-image">
+            <img src="<%= tweet.place_image %>" class="mini-slide-image link">
           </div>
-          <div class="mini-slide-bottom">
-            <strong><%= tweet.place_name %></strong>
-              <div class="d-flex justify-content-between">
-                <div class="d-flex">
-                  <div class="mt-3">
-                    <span id="like-<%= tweet.id %>">
-                      <%= render partial: "render/like", locals: { tweet: tweet } %>
-                    </span>
-                  </div>
-                  <div class="tweet-time mt-3">
-                    <i class="fas fa-clock"></i><%= "#{time_ago_in_words(tweet.created_at)}前" %>
-                  </div>
+        <% end %>
+
+        <div class="mini-slide-bottom">
+          <strong><%= tweet.place_name %></strong>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex">
+                <div class="mt-3">
+                  <span id="like-<%= tweet.id %>">
+                    <%= render partial: "render/like", locals: { tweet: tweet } %>
+                  </span>
                 </div>
-                <div>
-                    <% if tweet.user.image.present? %>
-                      <img src=<%= tweet.user.image %> class="mini-content-user-image">
-                    <% else %>
-                      <img src="/images/dog2.png" class="mini-content-user-image">
-                    <% end %>
+                <div class="tweet-time mt-3">
+                  <i class="fas fa-clock"></i><%= "#{time_ago_in_words(tweet.created_at)}前" %>
                 </div>
               </div>
-          </div>
+              <div>
+                <%= link_to tweet.user, class: "link" do %>
+                  <% if tweet.user.image.present? %>
+                    <img src=<%= tweet.user.image %> class="mini-content-user-image">
+                  <% else %>
+                    <img src="/images/dog2.png" class="mini-content-user-image">
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
 
     <br>
 

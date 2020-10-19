@@ -54,11 +54,13 @@
 
       <br>
 
-      <% @tag_lists.each do |tag| %>
-        <%= link_to tag_tweets_path(tag_id: tag.id) do %>
-          <span class="tag text-dark"><%= "＃#{tag.name}" %></span>
+      <div class="row">
+        <% @tag_lists.each do |tag| %>
+            <%= link_to tag_tweets_path(tag_id: tag.id) do %>
+              <div class="tag text-dark col-lg-11 link"><%= "＃#{tag.name}" %></div>
+            <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 

@@ -16,9 +16,9 @@
   <div class="row justify-content-center">
     <% @tweets.each do |tweet| %>
       <div class="mini-content col-md-6 col-lg-3">
-        <%= link_to tweet, class: "link" do %>
+        <%= link_to tweet do %>
           <div class="mini-slide">
-            <img src="<%= tweet.place_image %>" class="mini-slide-image">
+            <img src="<%= tweet.place_image %>" class="mini-slide-image link">
           </div>
         <% end %>
 
