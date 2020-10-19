@@ -16,9 +16,12 @@
   <div class="row justify-content-center">
     <% @tweets.each do |tweet| %>
       <div class="mini-content col-md-6 col-lg-3">
-        <div class="mini-slide">
-          <img src="<%= tweet.place_image %>" class="mini-slide-image">
-        </div>
+        <%= link_to tweet, class: "link" do %>
+          <div class="mini-slide">
+            <img src="<%= tweet.place_image %>" class="mini-slide-image">
+          </div>
+        <% end %>
+
         <div class="mini-slide-bottom">
           <strong><%= tweet.place_name %></strong>
             <div class="d-flex justify-content-between">
@@ -33,11 +36,13 @@
                 </div>
               </div>
               <div>
+                <%= link_to tweet.user, class: "link" do %>
                   <% if tweet.user.image.present? %>
                     <img src=<%= tweet.user.image %> class="mini-content-user-image">
                   <% else %>
                     <img src="/images/dog2.png" class="mini-content-user-image">
                   <% end %>
+                <% end %>
               </div>
             </div>
         </div>

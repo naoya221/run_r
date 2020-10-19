@@ -6,9 +6,12 @@
   <div class="row justify-content-center">
     <% @tweets_ranking.each do |tweet_ranking| %>
       <div class="mini-content col-md-6 col-lg-3">
-        <div class="mini-slide">
-          <img src="<%= tweet_ranking.place_image %>" class="mini-slide-image">
-        </div>
+        <%= link_to tweet_ranking, class: "link" do %>
+          <div class="mini-slide">
+            <img src="<%= tweet_ranking.place_image %>" class="mini-slide-image">
+          </div>
+        <% end %>
+
         <div class="mini-slide-bottom">
           <strong><%= tweet_ranking.place_name %></strong>
             <div class="d-flex justify-content-between">
@@ -23,11 +26,13 @@
                 </div>
               </div>
               <div>
+                <%= link_to tweet_ranking.user, class: "link" do %>
                   <% if tweet_ranking.user.image.present? %>
                     <img src=<%= tweet_ranking.user.image %> class="mini-content-user-image">
                   <% else %>
                     <img src="/images/dog2.png" class="mini-content-user-image">
                   <% end %>
+                <% end %>
               </div>
             </div>
         </div>
@@ -46,9 +51,12 @@
   <div class="row justify-content-center">
     <% @tweets_beginner.each do |tweet_beginner| %>
         <div class="mini-content col-md-6 col-lg-3">
-        <div class="mini-slide">
-          <img src="<%= tweet_beginner.place_image %>" class="mini-slide-image">
-        </div>
+        <%= link_to tweet_beginner, class: "link" do %>
+          <div class="mini-slide">
+            <img src="<%= tweet_beginner.place_image %>" class="mini-slide-image">
+          </div>
+        <% end %>
+
         <div class="mini-slide-bottom">
           <strong><%= tweet_beginner.place_name %></strong>
             <div class="d-flex justify-content-between">
@@ -63,11 +71,13 @@
                 </div>
               </div>
               <div>
+                <%= link_to tweet_beginner.user, class: "link" do %>
                   <% if tweet_beginner.user.image.present? %>
                     <img src=<%= tweet_beginner.user.image %> class="mini-content-user-image">
                   <% else %>
                     <img src="/images/dog2.png" class="mini-content-user-image">
                   <% end %>
+                <% end %>
               </div>
             </div>
         </div>
@@ -86,9 +96,12 @@
   <div class="d-flex justify-content-center">
     <% @tweets_senior.each do |tweet_senior| %>
       <div class="mini-content col-md-6 col-lg-3">
-        <div class="mini-slide">
-          <img src="<%= tweet_senior.place_image %>" class="mini-slide-image">
-        </div>
+        <%= link_to tweet_senior, class: "link" do %>
+          <div class="mini-slide">
+            <img src="<%= tweet_senior.place_image %>" class="mini-slide-image">
+          </div>
+        <% end %>
+
         <div class="mini-slide-bottom">
           <strong><%= tweet_senior.place_name %></strong>
             <div class="d-flex justify-content-between">
@@ -103,11 +116,13 @@
                 </div>
               </div>
               <div>
+                <%= link_to tweet_senior.user, class: "link" do %>
                   <% if tweet_senior.user.image.present? %>
                     <img src=<%= tweet_senior.user.image %> class="mini-content-user-image">
                   <% else %>
                     <img src="/images/dog2.png" class="mini-content-user-image">
                   <% end %>
+                <% end %>
               </div>
             </div>
         </div>
