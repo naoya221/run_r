@@ -8,7 +8,7 @@
 
   <div class="notification-contents">
     <% if @notifications.exists? %>
-      <div class="text-right mb-4">
+      <div class="text-right mb-5">
           <%= link_to notification_path(@notifications), method: :delete, class: "link text-warning" do %>
             <i class="fas fa-trash mr-1"></i>確認済みにする
           <% end %>
@@ -38,7 +38,7 @@
   .notification-content {
     border-bottom: 1px solid gray;
     padding: 0 35px 2px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
 
 </style>

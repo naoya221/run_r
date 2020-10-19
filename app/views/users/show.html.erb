@@ -129,11 +129,12 @@
 
 
         <div class="runner-levels col-lg-2">
-            <p class="mt-2">50：最強ランナー</p>
-            <p class="runner-level">45：プロランナー</p>
-            <p class="runner-level">40：ベテランランナー</p>
-            <p class="runner-level">35：アマチュアランナー</p>
-            <p class="runner-level">30：駆け出しランナー</p>
+            <p class="mt-2">25：最強ランナー</p>
+            <p class="runner-level">20：プロランナー</p>
+            <p class="runner-level">15：スーパーランナー</p>
+            <p class="runner-level">10：ベテランランナー</p>
+            <p class="runner-level">5：アマチュアランナー</p>
+            <p class="runner-level">0：駆け出しランナー</p>
         </div>
     </div>
 
@@ -193,7 +194,7 @@
 
   <script type="text/javascript">
     const lineChartData = {
-        labels : ["　　　　5km：<%= @vdot_record_five.vdot %>", "10km：<%= @vdot_record_ten.vdot %>", "ハーフ：<%= @vdot_record_half.vdot %>", " フル：<%= @vdot_record_full.vdot %>" ],
+        labels : ["　　　　5km：<%= @vdot_record_five.id %>", "10km：<%= @vdot_record_ten.id %>", "ハーフ：<%= @vdot_record_half.id %>", " フル：<%= @vdot_record_full.id %>" ],
         datasets : [
           {
               label: "緑データ",
@@ -203,10 +204,10 @@
               pointStrokeColor : "rgb(120,120,120)",        // ドットの枠線色
               pointHighlightFill : "yellow",     // マウスが載った際のドットの塗りつぶし色
               pointHighlightStroke : "green",    // マウスが載った際のドットの枠線色
-              data : [ <%= @vdot_record_five.vdot %>,
-                      <%= @vdot_record_ten.vdot %>,
-                      <%= @vdot_record_half.vdot %>,
-                      <%= @vdot_record_full.vdot %> ]       // 各点の値
+              data : [ <%= @vdot_record_five.id %>,
+                      <%= @vdot_record_ten.id %>,
+                      <%= @vdot_record_half.id %>,
+                      <%= @vdot_record_full.id %> ]       // 各点の値
           },
         ]
     }
