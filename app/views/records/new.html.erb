@@ -1,4 +1,4 @@
-<div class="record-container">
+<div class="back-ground pt-5">
 
   <% unless FiveKmRecord.where(user_id:current_user.id).present? %>
     <div class="p-5">
@@ -125,16 +125,17 @@
         TenKmRecord.where(user_id:current_user.id).present?  &&
         HalfRecord.where(user_id:current_user.id).present?   &&
         FullRecord.where(user_id:current_user.id).present? %>
-    <br><br>
-    <div class="record-content mt-5 ml-4 mr-4 p-5">
-      <div>
+    <div class="mt-5 text-center">
         <h2 class="record-hide-text text-dark pb-5">全てのベストタイムを登録済みです！</h2>
-        <p>
-          <%= link_to user_path(current_user) do %>
-            <button type="button" class="btn btn-success btn-lg">マイページへ</button>
-          <% end %>
-        </p>
-      </div>
+        <%= link_to user_path(current_user) do %>
+          <button type="button" class="btn btn-success btn-lg mt-5">マイページへ<i class="fa fa-angle-right ml-2" aria-hidden="true"></i></button>
+        <% end %>
+        <br>
+        <%= link_to edit_record_path(current_user), class: "text-success" do %>
+          <div class="mt-5 user-link-to-edit">
+            ベストタイム編集ページへ<i class="fa fa-edit ml-1" aria-hidden="true"></i>
+          </div>
+        <% end %>
     </div>
   <% end %>
 
