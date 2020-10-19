@@ -1,5 +1,5 @@
 .vdot-container {
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(255, 255, 255);
   padding: 100px 20px 20px;
 }
 
@@ -43,33 +43,39 @@
 .vdot-content {
   max-width: 500px;
   margin: 0 auto;
-  border: 1px solid black;
+  border: 2px solid rgb(92, 92, 92);
   box-shadow: 2px 2px 2px 2px rgb(173, 173, 173);
+  background-color: rgb(255, 255, 255);
+}
+
+.marking {
+  padding: 4px 30px;
+  border: 3px solid rgb(36, 167, 42);
 }
 
 .vdot-record-item {
   max-width: 350px;
+  padding: 20px 20px 23px;
 }
 
 .vdot-pace-item {
   max-width: 350px;
+  padding: 20px 20px 30px;
 }
 
 .vdot-number {
-  display: inline-block;
+  // display: inline-block;
   font-size: 15px;
   font-weight: bold;
   color: rgb(0, 0, 0);
-  margin-bottom: 10px;
 }
 
 .hide-lists {
   max-width: 800px;
-  margin: 3px auto 0;
 }
 
 .hide-list{
-  padding: 0 2px;
+  margin: 0 2px;
 }
 
 @media (max-width: 480px) {

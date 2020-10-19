@@ -1,27 +1,30 @@
-<div class="vdot-container f-f-monospace">
+<div class="vdot-container">
 
   <div class="titles vdot-title">走力レベル一覧</div>
-
-  <br><br>
+  <% if @user %>
+    <div class="ml-4 mb-5">
+      <%= link_to user_path(@user), class: "link" do %>
+        <img src=<%= @user.image %> class="mini-content-user-image">
+        <strong class="text-dark"><%= @user.nickname %></strong>
+      <% end %>
+       さんの該当箇所に
+      <span class="ml-2 marking"></span>
+    </div>
+  <% else %>
+     <div class="ml-4 mb-5">
+        ベストタイムを登録すると、該当する走力レベル部分が
+        <span class="ml-2 marking"></span>
+        で表示されます。<br>
+        <span>※未登録ではレベル30にマーク</span>
+    </div>
+  <% end %>
 
   <div class="row">
     <% @vdot_records.each do |vdot_record| %>
       <div class="col-xl-3 col-lg-4 col-sm-6">
-        <div class="vdot-record-item content-item vdot-content p-4 mb-5 rounded">
-
-          <div class="d-flex">
-            <div class="vdot-number">
-              <%= "vdot：#{vdot_record.vdot}" %>
-            </div>
-
-            <div class="hide-lists">
-              <div class="d-flex">
-                <div class="five-record-logo hide-list">5km</div>
-                <div class="ten-record-logo hide-list">10km</div>
-                <div class="half-record-logo hide-list">ハーフ</div>
-                <div class="full-record-logo hide-list">フル</div>
-              </div>
-            </div>
+        <div class="vdot-record-item vdot-content mb-5 rounded">
+          <div class="vdot-number mb-2">
+            <%= "レベル：#{vdot_record.vdot}" %>
           </div>
 
           <div class="vdot-five-bg d-flex align-items-center justify-content-between">
@@ -66,82 +69,113 @@
   <br><br><br>
 
   <div class="titles vdot-title">練習目安ペース一覧</div>
+    <% if @user %>
+      <div class="ml-4 mb-5">
+        <%= link_to user_path(@user), class: "link" do %>
+          <img src=<%= @user.image %> class="mini-content-user-image">
+          <strong class="text-dark"><%= @user.nickname %></strong>
+        <% end %>
+        さんの該当箇所に
+        <span class="ml-2 marking"></span>
+      </div>
+    <% else %>
+      <div class="ml-4 mb-5">
+        ベストタイムを登録すると、該当する走力レベル部分が
+        <span class="ml-2 marking"></span>
+        で表示されます。<br>
+        <span>※未登録ではレベル30にマーク</span>
+      </div>
+    <% end%>
 
-  <br>
+
+<ul id="root" @click="isShow = !isShow">
+  <li class="list-unstyled drop-down-title d-flex justify-content-between">
+    各ペース（ E　M　T40　T20 ）とは？
+    <i class="fa fa-caret-down drop-down-icon" aria-hidden="true"></i>
+  </li>
+
+  <transition name="slide">
+    <ul class="child list-unstyled drop-down-group" v-if="isShow">
+        <li class="drop-down-list"><strong>E</strong>　 ：健康志向やダイエット目的の方に。<br>　　　疲れている時や気分転換のランニングにもおすすめ。</li><br>
+        <li class="drop-down-list"><strong>M</strong>　：フルマラソン本番時のペース。<br>　　　本番を想定した、長い距離（20km前後）の練習に。</li><br>
+        <li class="drop-down-list"><strong>T20</strong>：5~10kmのレースにて、脚よりも呼吸が辛くなる方向けの練習。<br>　　　20分間かなり速いペースで走ります。</li><br>
+        <li class="drop-down-list"><strong>T40</strong>：10km~ハーフのレースにて、脚よりも呼吸が辛くなる方向けの練習。<br>　　　40分間速いペースで走ります。</li><br>
+    </ul>
+  </transition>
+</ul>
+
 
   <div class="row">
     <% @vdot_paces.all.each do |vdot_pace| %>
       <div class="col-xl-3 col-lg-4 col-sm-6">
-        <div class="vdot-pace-item vdot-content content-item p-4 mb-5 rounded">
+        <div class="vdot-pace-item vdot-content content-item mb-5 rounded">
+          <div class="vdot-number mb-2">
+            <%= "レベル：#{vdot_pace.vdot}" %>
+          </div>
 
-          <div class="d-flex">
-            <div class="vdot-number">
-              <%= "vdot：#{vdot_pace.vdot}" %>
-            </div>
-            <div class="hide-lists">
-              <div class="d-flex">
-                <div class="five-pace-logo hide-list">5km</div>
-                <div class="ten-pace-logo hide-list">10km</div>
-                <div class="half-pace-logo hide-list">ハーフ</div>
-                <div class="full-pace-logo hide-list">フル</div>
+          <div class="hide-lists">
+              <div class="d-flex justify-content-around mb-3">
+                <div class="five-record-logo hide-list">5km</div>
+                <div class="ten-record-logo hide-list">10km</div>
+                <div class="half-record-logo hide-list">ハーフ</div>
+                <div class="full-record-logo hide-list">フル</div>
               </div>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between">
+              E ：
+              <p><%= vdot_pace.e_pace %></p>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              T40：
+              <p><%=vdot_pace.t_pace_forty %></p>
             </div>
           </div>
 
           <div class="d-flex justify-content-between">
             <div class="d-flex justify-content-between">
-              J ：　
-              <p><%= vdot_pace.e_pace %> /km</p>
-            </div>
-
-            <div class="d-flex justify-content-between">
-              T40 ：　
-              <p><%=vdot_pace.t_pace_forty %> /km</p>
-            </div>
-          </div>
-
-          <div class="d-flex justify-content-between">
-            <div class="d-flex justify-content-between">
-              M ：　
-              <p><%= vdot_pace.m_pace %> /km</p>
+              M：
+              <p><%= vdot_pace.m_pace %></p>
             </div>
               <div class="d-flex ustify-content-between">
-              T20 ：　
-              <p><%=vdot_pace.t_pace_twenty %> /km</p>
+              T20：
+              <p><%=vdot_pace.t_pace_twenty %></p>
             </div>
           </div>
 
         </div>
       </div>
-      <br>
     <% end %>
   </div>
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script>
   $(function(){
 
-    // 距離別タイム一覧
+    // 走力レベル一覧
     $(".five-record-logo").hide();
     $(".ten-record-logo").hide();
     $(".half-record-logo").hide();
     $(".full-record-logo").hide();
 
-    $(".five-record-logo").eq(<%= @five_vdot %>).show().css({"background-color": "rgba(63, 63, 63, 0.4)", "color": "white"});
-    $(".ten-record-logo").eq(<%= @ten_vdot %>).show().css({"background-color": "rgba(63, 63, 63, 0.4)", "color": "white"});
-    $(".half-record-logo").eq(<%= @half_vdot %>).show().css({"background-color": "rgba(63, 63, 63, 0.4)", "color": "white"});
-    $(".full-record-logo").eq(<%= @full_vdot %>).show().css({"background-color": "rgba(63, 63, 63, 0.4)", "color": "white"});
+    $(".five-record-logo").eq(<%= @five_vdot %>).show().css("border-bottom", "2px solid rgb(52, 192, 33)");
+    $(".ten-record-logo").eq(<%= @ten_vdot %>).show().css("border-bottom", "2px solid rgb(52, 192, 33)");
+    $(".half-record-logo").eq(<%= @half_vdot %>).show().css("border-bottom", "2px solid rgb(52, 192, 33)");
+    $(".full-record-logo").eq(<%= @full_vdot %>).show().css("border-bottom", "2px solid rgb(52, 192, 33)");
 
-    $(".vdot-record-item").eq(<%= @five_vdot %>).css("border", "5px solid rgb(52, 192, 33)");
-    $(".vdot-record-item").eq(<%= @ten_vdot %>).css("border", "5px solid rgb(52, 192, 33)");
-    $(".vdot-record-item").eq(<%= @half_vdot %>).css("border", "5px solid rgb(52, 192, 33)");
-    $(".vdot-record-item").eq(<%= @full_vdot %>).css("border", "5px solid rgb(52, 192, 33)");
+    $(".vdot-record-item").eq(<%= @five_vdot %>).css({"border": "5px solid rgb(52, 192, 33)", "padding-bottom": "17px"});
+    $(".vdot-record-item").eq(<%= @ten_vdot %>).css({"border": "5px solid rgb(52, 192, 33)", "padding-bottom": "17px"});
+    $(".vdot-record-item").eq(<%= @half_vdot %>).css({"border": "5px solid rgb(52, 192, 33)", "padding-bottom": "17px"});
+    $(".vdot-record-item").eq(<%= @full_vdot %>).css({"border": "5px solid rgb(52, 192, 33)", "padding-bottom": "17px"});
 
-    $(".vdot-five-bg").eq(<%= @five_vdot %>).css({"background-color": "rgba(63, 63, 63, 0.4)", "color": "white"});
-    $(".vdot-ten-bg").eq(<%= @ten_vdot %>).css({"background-color": "rgba(63, 63, 63, 0.4)", "color": "white"});
-    $(".vdot-half-bg").eq(<%= @half_vdot %>).css({"background-color": "rgba(63, 63, 63, 0.4)", "color": "white"});
-    $(".vdot-full-bg").eq(<%= @full_vdot %>).css({"background-color": "rgba(63, 63, 63, 0.4)", "color": "white"});
+    $(".vdot-five-bg").eq(<%= @five_vdot %>).css("border-bottom", "2px solid rgb(52, 192, 33)");
+    $(".vdot-ten-bg").eq(<%= @ten_vdot %>).css("border-bottom", "2px solid rgb(52, 192, 33)");
+    $(".vdot-half-bg").eq(<%= @half_vdot %>).css("border-bottom", "2px solid rgb(52, 192, 33)");
+    $(".vdot-full-bg").eq(<%= @full_vdot %>).css("border-bottom", "2px solid rgb(52, 192, 33)");
 
 
     // 目安ぺース一覧
@@ -150,16 +184,81 @@
     $(".half-pace-logo").hide();
     $(".full-pace-logo").hide();
 
-    $(".five-pace-logo").eq(<%= @five_vdot %>).show().css({"background-color": " rgba(63, 63, 63, 0.4)", "color": "white"});
-    $(".ten-pace-logo").eq(<%= @ten_vdot %>).show().css({"background-color": "rgba(63, 63, 63, 0.4)", "color": "white"});
-    $(".half-pace-logo").eq(<%= @half_vdot %>).show().css({"background-color": "rgba(63, 63, 63, 0.4)", "color": "white"});
-    $(".full-pace-logo").eq(<%= @full_vdot %>).show().css({"background-color": "rgba(63, 63, 63, 0.4)", "color": "white"});
-
-    $(".vdot-pace-item").eq(<%= @five_vdot %>).css("border", "5px solid rgb(52, 192, 33)");
-    $(".vdot-pace-item").eq(<%= @ten_vdot %>).css("border", "5px solid rgb(52, 192, 33)");
-    $(".vdot-pace-item").eq(<%= @half_vdot %>).css("border", "5px solid rgb(52, 192, 33)");
-    $(".vdot-pace-item").eq(<%= @full_vdot %>).css("border", "5px solid rgb(52, 192, 33)");
+    $(".vdot-pace-item").eq(<%= @five_vdot %>).css({"border": "5px solid rgb(52, 192, 33)", "padding-bottom": "0"});
+    $(".vdot-pace-item").eq(<%= @ten_vdot %>).css({"border": "5px solid rgb(52, 192, 33)", "padding-bottom": "0"});
+    $(".vdot-pace-item").eq(<%= @half_vdot %>).css({"border": "5px solid rgb(52, 192, 33)", "padding-bottom": "0"});
+    $(".vdot-pace-item").eq(<%= @full_vdot %>).css({"border": "5px solid rgb(52, 192, 33)", "padding-bottom": "0"});
 
   });
+new Vue({
+   el: '#root',
+   data: {
+      isShow:false
+   }
+})
 </script>
+
+<style>
+.drop-down-title {
+  width: 450px;
+  border: 2px solid black;
+  padding: 5px 20px 5px 10px;
+}
+
+.drop-down-group {
+  display: inline-block;
+  border: 2px solid black;
+  border-top-style: none;
+  padding: 20px 15px 0;
+  width: 450px;
+}
+
+.drop-down-list{
+  display: inline-block;
+  border-bottom: 1px solid gray;
+  margin: 0 15px 15px 0;
+  font-size: 12px;
+  width: 410px;
+}
+
+.drop-down-icon {
+  font-size: 24px;
+}
+
+ul {
+   cursor: pointer;
+}
+
+.slide-enter-active {
+   -moz-transition-duration: 0.3s;
+   -webkit-transition-duration: 0.3s;
+   -o-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -moz-transition-timing-function: ease-in;
+   -webkit-transition-timing-function: ease-in;
+   -o-transition-timing-function: ease-in;
+   transition-timing-function: ease-in;
+}
+
+.slide-leave-active {
+   -moz-transition-duration: 0.3s;
+   -webkit-transition-duration: 0.3s;
+   -o-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.slide-enter-to, .slide-leave {
+   max-height: 100px;
+   overflow: hidden;
+}
+
+.slide-enter, .slide-leave-to {
+   overflow: hidden;
+   max-height: 0;
+}
+</style>
 

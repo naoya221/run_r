@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :ten_km_records,  only: [:create, :update, :destroy]
     resources :half_records,  only: [:create, :update, :destroy]
     resources :full_records,  only: [:create, :update, :destroy]
+    resources :vdots,  only: [:index]
   end
 
   resources :follow_relationships, only: [:create, :destroy]
