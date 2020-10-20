@@ -16,7 +16,6 @@
   background: linear-gradient(transparent 60%, rgb(109, 212, 61));
   display: inline-block;
   font-size: 30px;
-  font-weight: bold;
   color: black;
 }
 
@@ -33,12 +32,29 @@
   margin: 0 70px;
 }
 
+.tweet-btn-group {
+  text-align: center;
+  margin: 50px auto 70px;
+}
+
+.tweet-btn-group-text {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tweet-btn {
+  background-color: rgb(80, 173, 36);
+  font-size: 25px;
+
+}
+
 .fixed-btn-dummy {
   position: relative;
   position: fixed;
   width: 1300px;
+  height: 100vh;
   top: 50%;
-  left: 50%;
+  right: 50%;
   transform: translate(-50%, -50%);
 }
 
@@ -50,8 +66,8 @@
   position: absolute;
   position: fixed;
   padding: 10px 15px 10px;
-  top: 210px;
-  right: 100px;
+  bottom: 10%;
+  right: -1350px;
 }
 
 .fixed-btn-text {
@@ -64,7 +80,6 @@
 .search-group-title {
   font-weight: bold;
   margin-bottom: 20px;
-  // color: rgb(109, 212, 61);
 }
 
 .search-group {
@@ -132,7 +147,7 @@
 
 .mini-content {
   max-width: 280px;
-  margin: 20px;
+  margin: 20px 0px;
 }
 
 .mini-slide-image {

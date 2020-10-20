@@ -2,12 +2,14 @@
   box-sizing: border-box;
 }
 
-.max-width {
+.max {
   max-width: 1300px;
+  min-height: 96vh;
+  margin-top: 80px;
 }
 
 .nav-parent {
-  height: 80px;
+  height: 85px;
 }
 
 .nav-items {
@@ -53,9 +55,7 @@ a:hover {
 
 .back-ground {
   background-color: rgb(255, 255, 255);
-  padding: 0 15px 50px;
-  margin-top: 80px;
-  min-height: 620px;
+  padding: 0 15px;
  }
 
 .f-f-monospace {
@@ -75,7 +75,6 @@ a:hover {
   color: rgb(70, 69, 69);
   display: inline-block;
   font-size: 30px;
-  font-family: monospace;
   margin-bottom: 30px;
   padding-right: 10px;
   padding-left: 10px;

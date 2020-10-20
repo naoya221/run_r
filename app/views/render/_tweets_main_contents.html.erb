@@ -50,7 +50,7 @@
 
   <div class="row justify-content-center">
     <% @tweets_beginner.each do |tweet_beginner| %>
-        <div class="mini-content col-md-6 col-lg-3">
+      <div class="mini-content col-md-6 col-lg-3">
         <%= link_to tweet_beginner do %>
           <div class="mini-slide">
             <img src="<%= tweet_beginner.place_image %>" class="mini-slide-image link">
@@ -132,3 +132,15 @@
 </div>
 
 <%= render "render/tweets_items" %>
+
+<% if user_signed_in? %>
+    <div class="tweet-btn-group">
+      <div class="tweet-btn-group-text">
+        ↓あなたも投稿してみよう！
+      </div>
+
+      <%= link_to new_tweet_path  do %>
+        <button class="btn btn-lg tweet-btn text-white link">ランニングコースを投稿</button>
+      <% end %>
+    </div>
+  <% end %>
