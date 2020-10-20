@@ -1,0 +1,16 @@
+<div class="notification-view">
+  <div class="notification-content">
+    <div class="text-dark">
+      <%= notification_form(notification) %>
+    </div>
+
+    <% if !@message.nil? %>
+    <div class="text-center">
+      <span class="notification-comment ml-3 text-secondary"><%= @message.text.truncate(25) %></span>
+    </div>
+    <% end %>
+    <div class="moderate-font text-right">
+      <%= " (#{time_ago_in_words(notification.created_at)}前)" %>
+    </div>
+  </div>
+</div>

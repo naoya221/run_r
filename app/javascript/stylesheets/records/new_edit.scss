@@ -1,0 +1,89 @@
+.record-content {
+  display: flex;
+  background-color: rgb(230, 230, 230);
+  padding: 20px 25px 28px;
+  border-radius: 10px;
+  margin:20px 0 0 8px;
+  align-items: center;
+}
+
+.record-hide-text {
+  font-size: 35px;
+}
+
+ .record-title {
+  background: linear-gradient(transparent 70%, rgb(109, 212, 61));
+  padding: 0;
+}
+
+.record-items {
+  display: flex;
+}
+
+.record-item {
+  margin-bottom: 0 15px 25px 15px;
+  font-size: large;
+  padding: 15px;
+  margin-bottom: 13px;
+}
+
+.user-link-to-edit {
+  border: 1px solid rgb(48, 168, 48);
+  padding: 8px 10px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+@media (max-width: 800px) {
+
+  .record-title {
+    font-size: 25px;
+  }
+
+  .record-content {
+    display: flex;
+    align-items: flex-end;
+    max-width: 450px;
+  }
+
+  .record-hide-text {
+   font-size: 21px;
+  }
+
+  .record-items{
+    display: inline-block;
+  }
+
+  .record-btn {
+    margin-bottom: 27px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .record-content {
+    display: inline-block;
+    min-width: 250px;
+  }
+
+  .record-title {
+    font-size: 27px;
+  }
+
+  .record-item{
+   padding: 5px;
+   margin-top: 10px;
+   margin-bottom: 0;
+  }
+
+  .record-hide-text {
+    font-size: 15px;
+   }
+
+   .record-btn {
+    margin-top: 20px;
+    margin-left: 5px;
+  }
+
+}

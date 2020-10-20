@@ -1,18 +1,35 @@
 <div class="tweet-show-container f-f-monospace">
-  <div class="">
+  <div class="tweet-show-flex">
 
     <div class="">
       <div>
         <img src=<%= @tweet.place_image %> class = "tweet-show-place-image">
       </div>
 
-      <div class="tweet-show-place-name mb-5">
-          <%= @tweet.place_name %>
+      <div class="d-flex justify-content-between align-items-end mb-5">
+        <div class="tweet-show-place-name">
+            <%= @tweet.place_name %>
+        </div>
+        <div class="level-text mb-2">
+          <i class="fas fa-check-square"></i>
+          <% if @tweet.level == 1 %>
+            <strong>誰にでも</strong>
+          <% elsif @tweet.level == 2 %>
+            <strong>経験者の方に</strong>
+          <% else %>
+            <strong>競技思考の方に</strong>
+          <% end %>
+            おすすめ！
+        </div>
       </div>
 
-      <div class="tweet-show-place-info">
+      <div class="tweet-show-place-info mb-3">
         <div class="d-flex align-items-end user-group">
           <div>
+            <span id="like-<%= @tweet.id %>">
+              <%= render partial: "render/like", locals: { tweet: @tweet } %>
+            </span>
+            <i class="fas fa-clock ml-2"></i><%= "#{time_ago_in_words(@tweet.created_at)}前" %>
             <%= @tweet.created_at.to_s(:datetime_jp) %>
           </div>
           <%= link_to @tweet.user, class: "link" do %>
@@ -35,17 +52,25 @@
           <% if current_user&.id == @tweet.user_id %>
             <div class="">
               <%= link_to edit_tweet_path(@tweet.id) do %>
-                <button type="button" class="tweet-show-btn btn btn-success text-white btn-lg">編集</button>
+                <button type="button" class="tweet-show-btn btn btn-success text-white">編集</button>
               <% end %>
             </div>
 
             <div class="tweet-show-delete-btn">
               <%= link_to @tweet, method: :delete do %>
-                <button type="button" class="tweet-show-btn btn bg-dark text-white btn-lg">削除</button>
+                <button type="button" class="tweet-show-btn btn bg-dark text-white">削除</button>
               <% end %>
             </div>
           <% end %>
         </div>
+      </div>
+
+      <div class="row show-tag">
+        <% @tweet_tags.each do |tag| %>
+            <%= link_to tag_tweets_path(tag_id: tag.id) do %>
+              <div class="tag text-dark link"><%= "＃#{tag.name}" %></div>
+            <% end %>
+        <% end %>
       </div>
 
       <div class="parent">
@@ -60,26 +85,26 @@
 
         <% if user_signed_in? %>
           <%= form_with url: tweet_messages_path(@tweet.id) do |f| %>
-            <div class="massage-form-group mt-3 d-flex align-items-center">
+            <div class="massage-form-group d-flex align-items-center">
               <div>
-                <%= f.text_area :text, placeholder: "コメントを入力", class: "massage-form p-2 rounded" %>
+                <%= f.text_area :text, placeholder: "コメントを入力", class: "massage-form p-2 mt-1 rounded" %>
               </div>
               <div class="record-item">
-                <%= f.submit "コメント", class: "record-item btn btn-success text-white" %>
+                <%= f.submit "コメント", class: "record-item btn btn-success text-white mt-3" %>
               </div>
             </div>
           <% end %>
         <% end %>
 
         <% unless @tweet_messages.present? %>
-          <div class="message">
+          <div class="message mt-4">
             この投稿へのコメントはありません
           </div>
         <% end %>
 
         <div id='messages'>
           <% @tweet_messages.each do |message| %>
-            <div class="message">
+            <div class="message mt-3">
               <%= message.text %>
               <br>
 
@@ -90,7 +115,6 @@
                 <% else %>
                     <%= link_to "#{message.user.nickname}さん", message.user, class: "link message-user" %>
                 <% end %>
-                のコメントです
               </div>
 
             </div>
@@ -104,6 +128,31 @@
       <div id='map' class="map"></div>
 
       </div>
+    </div>
+
+    <div class="mini-contents">
+
+      <h4 class="randam-title">他のコース</h4>
+
+      <div class="randam-tweet">
+
+        <% @random.each do |tweet| %>
+          <div class="mini-group">
+            <div class="mini-place-image">
+              <%= link_to tweet, class: "link" do %>
+                <img src=<%= tweet.place_image %> class = "mini-place-image-icon">
+              <% end %>
+            </div>
+            <div class="mini-place-name">
+              <strong><%= tweet.place_name %></strong>
+            </div>
+            <div class="mini-address">
+              <%= tweet.address.truncate(15) %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
     </div>
 
   </div>

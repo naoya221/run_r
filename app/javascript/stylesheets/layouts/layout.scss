@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
+.max {
+  max-width: 1300px;
+  min-height: 96vh;
+  margin-top: 80px;
+}
+
+.nav-parent {
+  height: 85px;
+}
+
+.nav-items {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+a {
+  font-family: MS UI Gothic;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.btn-lg {
+  font-family: Times New Roman;
+}
+
+.navbar {
+  background-color: rgb(58, 167, 31);
+}
+
+.navbar-toggler{
+  border-color: #ffffff;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(60,60,60,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.top-btn {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 30px;
+  font-family: MS ゴシック;
+}
+
+.header-item {
+  padding: 3px 0;
+  margin-left: 10px;
+}
+
+.back-ground {
+  background-color: rgb(255, 255, 255);
+  padding: 0 15px;
+ }
+
+.f-f-monospace {
+  font-family: monospace;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.border-none {
+  border: none;
+}
+
+.titles {
+  display: inline-block;
+  color: rgb(70, 69, 69);
+  display: inline-block;
+  font-size: 30px;
+  margin-bottom: 30px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.forms-container {
+  padding: 80px 20px 50px;
+  text-align: center;
+}
+
+.forms-content {
+  display: inline-block;
+  // color: rgb(75, 73, 73);
+  // background-color: rgb(255, 255, 255);
+  // border: 1px solid rgb(200, 200, 200);
+  // border-radius: 50px;
+  // padding: 20px;
+}
+
+footer {
+  background-color: rgb(90, 90, 90);
+  // padding-top: 20px;
+  padding-bottom: 5px;
+  font-size: 12px;
+  color: white;
+  height: 70px;
+}
+
+.footer-title {
+  font-size: 30px;
+  color: #ffffff;
+}
+
+.text-muted {
+  color: rgb(255, 255, 255);
+}
+
+
+.before_image {
+  height: 100px;
+  width: 100px;
+}
+
+.error {
+  list-style: none;
+  color: red;
+  font-size: 12px;
+}
+
+.flash-message {
+  display: inline-block;
+  color: white;
+  background-color: orange;
+  padding: 1em;
+  border-radius: 10px;
+  font-weight: bold;
+  z-index: 10;
+  margin-top: 75px;
+  margin-left: 10px;
+}
+
+.key {
+  color: white;
+  background-color: orange;
+  font-weight: bold;
+  z-index: 10;
+  padding: 10px 30px;
+  margin-top: 80px;
+}
+
+.like-link {
+  text-decoration: none;
+}
+
+.like-link:hover {
+  background-color: #fff!important;
+}
+
+.like-btn {
+  font-size: 15px;
+  color: #313030;
+}
+
+.unlike-btn {
+  font-size: 15px;
+  color: #47c43c;
+}

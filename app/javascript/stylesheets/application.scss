@@ -1,0 +1,12 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import "slick-theme";
+@import "slick";
+
+@import 'layouts/layout';
+@import 'tweets/index';
+@import 'tweets/show';
+@import 'users/show';
+@import 'users/sign_up';
+@import 'records/new_edit';
+@import 'vdots/index';

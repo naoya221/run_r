@@ -1,0 +1,189 @@
+.user-content {
+  // background-color:  rgb(245, 245, 245);
+  padding-top: 100px;
+}
+
+.user-top-content {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.user-show-top-content {
+  margin: 20px 10px;
+  padding-bottom: 30px;
+}
+
+.user-profile {
+  margin-top: 30px;
+  margin-left: 20px;
+  text-align: center;
+  display: inline-block;
+  max-width: 600px;
+}
+
+.icon_image {
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.user-show-name {
+  font-weight: bold;
+  font-size: 18px;
+  // color: rgb(94, 94, 94);
+}
+
+.user-show-border {
+  border-bottom: 1px solid rgb(182, 182, 182);
+  padding-bottom: 30px;
+}
+
+.user-show-title {
+  font-family: monospace;
+  font-size: 30px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.user-record-group {
+  font-family: MS Serif;
+  color: rgb(94, 94, 94);
+  font-size: 20px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.runner-level-group {
+  margin-left: 100px;
+  margin-bottom: 50px;
+}
+
+.runner-level-title {
+  font-size: 40px;
+}
+
+.runner-level-text {
+  font-size: 15px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.graph-area-parent {
+  // display: flex;
+  justify-content: center;
+}
+
+#graph-area {
+  width: 450px;
+  height: 230px;
+  margin-bottom: 100px;
+}
+
+.runner-levels {
+  font-size: 12px;
+  margin-top: 55px;
+  margin-left: 40px;
+}
+
+.runner-level {
+  margin-top: 25px;
+}
+
+.plactice-title {
+  font-family: monospace;
+  font-size: 30px;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+
+.plactice-records {
+  margin-left: 50px;
+  margin-bottom: 40px;
+}
+
+.practice-menus {
+  margin: 0 75px;
+}
+
+.content-item {
+  background-color: rgba(241, 249, 252, 0.9);
+}
+
+.vdot-b-t {
+  border-top: 2px solid rgb(100, 100, 100);
+  padding-top: 5px;
+}
+
+.vdot-five {
+  background-color:  rgba(63, 63, 63, 0.4);
+  color: white;
+}
+
+.vdot-ten {
+  background-color: rgba(63, 63, 63, 0.4);
+  color: white;
+}
+
+.vdot-half {
+  background-color: rgba(63, 63, 63, 0.4);
+  color: white;
+}
+
+.vdot-full {
+  background-color: rgba(63, 63, 63, 0.4);
+  color: white;
+}
+
+@media (max-width: 800px) {
+
+  #graph-area {
+    margin-bottom: 50px;
+  }
+
+  .user-record-text {
+    font-size: 20px;
+    padding: 20px 0 40px 10px;
+  }
+
+  .user-record-group {
+    padding-left: 13vw;
+    padding-right: 13vw;
+  }
+
+
+
+  .user-show-btn-group {
+    display: block;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .user-show-title {
+    font-size: 25px;
+  }
+
+  .user-record-text {
+    font-size: 20px;
+    padding: 20px 0 40px 0;
+  }
+
+  .user-record-group {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #graph-area {
+
+    width: 60vw;
+    height: 35vw;
+  }
+
+  .user-show-btn {
+    margin: 10px 5px;
+  }
+
+}

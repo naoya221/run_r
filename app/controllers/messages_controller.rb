@@ -3,6 +3,11 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(text: params[:text], user_id: current_user.id, tweet_id: params[:tweet_id])
-    ActionCable.server.broadcast 'message_channel', content: @message if @message.save
+    if @message.save
+      ActionCable.server.broadcast 'message_channel', content: @message
+
+      @tweet = @message.tweet
+      @tweet.create_notification_message!(current_user, @message.id)
+    end
   end
 end

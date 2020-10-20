@@ -1,11 +1,9 @@
-<div class="record-container">
-
-  <br><br>
+<div class="back-ground pt-5">
 
   <% if FiveKmRecord.where(user_id:current_user.id).present? %>
     <div class="p-5">
       <%= form_with url: user_five_km_record_path(current_user), method: :put, local: true do |f| %>
-        <div class="pulldown-time mt-5">
+        <div class="mt-5">
           <div class="titles record-title">5kmのベストタイム</div>
 
           <br>
@@ -25,7 +23,7 @@
             </div>
             <div class="record-item  mt-3">
               <%= link_to  user_five_km_record_path(current_user), method: :delete do %>
-                <button type="button" class="btn text-white nav-link user-show-delete-btn link">削除</button>
+                <button type="button" class="btn text-white nav-link btn-secondary user-show-delete-btn link">削除</button>
               <% end %>
             </div>
           </div>
@@ -33,13 +31,12 @@
       <% end %>
 
     </div>
-    <br><br><br>
   <% end %>
 
   <% if TenKmRecord.where(user_id:current_user.id).present? %>
     <div class="p-5">
       <%= form_with url: user_ten_km_record_path(current_user), method: :put, local: true do |f| %>
-        <div class="pulldown-time">
+        <div class="">
           <div class="titles record-title">10kmのベストタイム</div>
 
           <br>
@@ -59,7 +56,7 @@
             </div>
             <div class="record-item mt-3">
               <%= link_to  user_ten_km_record_path(current_user), method: :delete do %>
-                <button type="button" class="btn text-white nav-link user-show-delete-btn link">削除</button>
+                <button type="button" class="btn text-white nav-link btn-secondary user-show-delete-btn link">削除</button>
               <% end %>
             </div>
           </div>
@@ -67,13 +64,12 @@
       <% end %>
 
     </div>
-    <br><br><br>
   <% end %>
 
   <% if HalfRecord.where(user_id:current_user.id).present? %>
     <div class="p-5">
       <%= form_with url: user_half_record_path(current_user), method: :put, local: true do |f| %>
-        <div class="pulldown-time">
+        <div class="">
           <div class="titles record-title">ハーフのベストタイム</div>
 
           <br>
@@ -96,7 +92,7 @@
             </div>
             <div class="record-item mt-3">
               <%= link_to  user_half_record_path(current_user), method: :delete do %>
-                <button type="button" class="btn text-white nav-link user-show-delete-btn link">削除</button>
+                <button type="button" class="btn text-white nav-link btn-secondary user-show-delete-btn link">削除</button>
               <% end %>
             </div>
           </div>
@@ -104,13 +100,12 @@
       <% end %>
 
     </div>
-    <br><br><br>
   <% end %>
 
   <% if FullRecord.where(user_id:current_user.id).present? %>
     <div class="p-5">
       <%= form_with url: user_full_record_path(current_user), method: :put, local: true do |f| %>
-        <div class="pulldown-time">
+        <div class="mb-5">
           <div class="titles record-title">フルのベストタイム</div>
 
           <br>
@@ -133,7 +128,7 @@
               </div>
               <div class="record-item mt-3">
                 <%= link_to  user_full_record_path(current_user), method: :delete do %>
-                  <button type="button" class="btn text-white nav-link user-show-delete-btn link">削除</button>
+                  <button type="button" class="btn text-white nav-link btn-secondary user-show-delete-btn link">削除</button>
                 <% end %>
               </div>
           </div>
@@ -147,16 +142,17 @@
         TenKmRecord.where(user_id:current_user.id).present?  ||
         HalfRecord.where(user_id:current_user.id).present?   ||
         FullRecord.where(user_id:current_user.id).present? %>
-    <br><br>
-    <div class="record-content mt-5 ml-4 p-5">
-      <div>
+    <div class="mt-5 text-center">
         <h2 class="record-hide-text text-dark pb-5">ベストタイムを登録しましょう！</h2>
-        <p>
-          <%= link_to new_record_path do %>
-            <button type="button" class="btn btn-success btn-lg">登録ページへ</button>
-          <% end %>
-        </p>
-      </div>
+        <%= link_to new_record_path do %>
+          <button type="button" class="btn btn-success btn-lg mt-5">登録ページへ<i class="fa fa-angle-right ml-2" aria-hidden="true"></i></button>
+        <% end %>
+        <br>
+        <%= link_to user_path(current_user), class: "text-success" do %>
+          <div class="mt-5 user-link-to-edit">
+            マイページへ<i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
+          </div>
+        <% end %>
     </div>
   <% end %>
 

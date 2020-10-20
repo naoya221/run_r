@@ -1,16 +1,7 @@
 <div class="user-content">
 
-    <% if @user.id == current_user&.id && @user.email != 'thank@you' %>
-        <div class="m-2 mb-5">
-            <%= link_to edit_user_registration_path(@user) do %>
-                <button type="button" class="btn btn-success text-white nav-link">ユーザー情報編集</button>
-            <% end %>
-        </div>
-    <% end %>
-
-
-    <div class="d-flex justify-content-center">
-        <div class="user-profile">
+    <div class="user-show-top-content d-flex justify-content-around">
+        <div class="user-profile d-flex">
             <div class="show-image">
                 <% if @user.image.present? %>
                     <img src=<%= @user.image %> class = "icon_image">
@@ -19,120 +10,271 @@
                 <% end %>
             </div>
 
-            <div class="user-show-name-parent">
-                <div class="user-show-name"><%= @user.nickname %></div>
+            <div>
+                <div class="user-show-name text-left ml-4">
+                    <%= @user.nickname %>
+                </div>
+                <div class="d-flex justify-content-between ml-2">
+                    <div class="d-flex">
+                        <%= link_to following_user_path(@user), class: "nav-link text-dark" do %>
+                            <strong><%= "#{@user.followings.count}" %></strong>フォロー中
+                        <% end %>
+                        <%= link_to followers_user_path(@user), class: "nav-link text-dark" do %>
+                                <strong><%= "#{@user.followers.count}" %></strong>フォロワー
+                        <% end %>
+                    </div>
+                    <div class="">
+                        <% if user_signed_in? && @user != current_user%>
+                            <div id="follow_form">
+                                <% if current_user.following?(@user) %>
+                                <%= render "unfollow" %>
+                                <% else %>
+                                <%= render "follow" %>
+                                <% end %>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="text-left ml-4 mt-3">
+                    <%= @user.introduction %>
+                </div>
+            </div>
+        </div>
+        <% if @user.id == current_user&.id && @user.email != 'thank@you' %>
+            <div class="m-2 mb-5 mt-5">
+                <%= link_to edit_user_registration_path(@user) do %>
+                    <button type="button" class="btn btn-success text-white nav-link"><i class="fa fa-edit mr-1" aria-hidden="true"></i>マイページの編集</button>
+                <% end %>
+            </div>
+        <% end %>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="user-show-border"></div>
+
+    <div class="user-top-content row justify-content-between">
+        <div class="col-lg-4">
+            <div class="user-show-title">
+                ベストタイム
+            </div>
+            <div class="text-right mt-1">
+                <%= link_to new_record_path, class: "text-success" do %>
+                    <i class="fa fa-pen" aria-hidden="true"></i>登録
+                <% end %>
+                <%= link_to edit_record_path, class: "text-success" do %>
+                    <i class="fa fa-edit ml-3" aria-hidden="true"></i>編集
+                <% end %>
+            </div>
+
+            <div class="user-record-group">
+                <div class="d-flex align-items-center justify-content-between mt-2 mb-3">
+                    5km
+                    <div>
+                        <% if FiveKmRecord.where(user_id: params[:id]).present? %>
+                            <%= "#{@five_record.minute[:name]}分" %>
+                            <%= "#{@five_record.second[:name]}秒" %>
+                        <% end %>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    10km
+                    <div>
+                        <% if TenKmRecord.where(user_id: params[:id]).present? %>
+                            <%= "#{@ten_record.minute[:name]}分" %>
+                            <%= "#{@ten_record.second[:name]}秒" %>
+                        <% end %>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    ハーフ
+                    <div>
+                        <% if HalfRecord.where(user_id: params[:id]).present? %>
+                            <%= "#{@half_record.hour[:name]}時間" %>
+                            <%= "#{@half_record.minute[:name]}分" %>
+                            <%= "#{@half_record.second[:name]}秒" %>
+                        <% end %>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    フル
+                    <div>
+                        <% if FullRecord.where(user_id: params[:id]).present? %>
+                            <%= "#{@full_record.hour[:name]}時間" %>
+                            <%= "#{@full_record.minute[:name]}分" %>
+                            <%= "#{@full_record.second[:name]}秒" %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 d-flex">
+            <div class="graph-group">
+                <div class="user-show-title">
+                    走力グラフ
+                </div>
+                <div>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
+
+                    <div class="graph-area-parent">
+                        <canvas id="graph-area" height="3" width="10"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="runner-levels col-lg-2">
+            <p class="mt-2">25：最強ランナー</p>
+            <p class="runner-level">20：プロランナー</p>
+            <p class="runner-level">15：スーパーランナー</p>
+            <p class="runner-level">10：ベテランランナー</p>
+            <p class="runner-level">5：アマチュアランナー</p>
+            <p class="runner-level">0：駆け出しランナー</p>
+        </div>
+    </div>
+
+
+    <div class="">
+        <div class="plactice-title">
+            次はこの記録にチャレンジ！
+        </div>
+        <div class="d-flex plactice-records">
+            <div class="ml-5 mr-5 text-center">
+                <strong>5km</strong><br>
+                <% if @vdot_record_five.present? %>
+                <%= "#{@vdot_record_five.five_km_minute}分" %>
+                <%= "#{@vdot_record_five.five_km_second}秒" %>
+                <% end %>
+            </div>
+            <div class="ml-4 mr-5 text-center">
+                <strong>10km</strong><br>
+                <% if @vdot_record_ten.present? %>
+                <%= "#{@vdot_record_ten.ten_km_minute}分" %>
+                <%= "#{@vdot_record_ten.ten_km_second}秒" %>
+                <% end %>
+            </div>
+            <div class="ml-2 mr-4 text-center">
+                <strong>ハーフ</strong><br>
+                <% if @vdot_record_half.present? %>
+                <%= "#{@vdot_record_half.half_hour}分" %>
+                <%= "#{@vdot_record_half.half_minute}分" %>
+                <%= "#{@vdot_record_half.half_second}秒" %>
+                <% end %>
+            </div>
+            <div class="ml-3 text-center">
+                <strong>フル</strong><br>
+                <% if @vdot_record_full.present? %>
+                <%= "#{@vdot_record_full.full_hour}分" %>
+                <%= "#{@vdot_record_full.full_minute}分" %>
+                <%= "#{@vdot_record_full.full_second}秒" %>
+                <% end %>
             </div>
         </div>
     </div>
 
-    <br><br><br>
 
-    <div class="titles ml-5">
-        <%= "#{@user.nickname} さんのベストタイム" %>
-    </div>
-
-    <div class="user-record-group">
-
-        <div class="d-flex align-items-center justify-content-between mb-2">
-            5km
-            <div>
-                <% if FiveKmRecord.where(user_id: params[:id]).present? %>
-                    <%= "#{@five_record.minute[:name]}分" %>
-                    <%= "#{@five_record.second[:name]}秒" %>
-                <% end %>
-            </div>
-        </div>
-
-        <div class="d-flex align-items-center justify-content-between mb-2">
-            10km
-            <div>
-                <% if TenKmRecord.where(user_id: params[:id]).present? %>
-                    <%= "#{@ten_record.minute[:name]}分" %>
-                    <%= "#{@ten_record.second[:name]}秒" %>
-                <% end %>
-            </div>
-        </div>
-
-        <div class="d-flex align-items-center justify-content-between mb-2">
-            Half
-            <div>
-                <% if HalfRecord.where(user_id: params[:id]).present? %>
-                    <%= "#{@half_record.hour[:name]}時間" %>
-                    <%= "#{@half_record.minute[:name]}分" %>
-                    <%= "#{@half_record.second[:name]}秒" %>
-                <% end %>
-            </div>
-        </div>
-
-        <div class="d-flex align-items-center justify-content-between mb-2">
-            Full
-            <div>
-                <% if FullRecord.where(user_id: params[:id]).present? %>
-                    <%= "#{@full_record.hour[:name]}時間" %>
-                    <%= "#{@full_record.minute[:name]}分" %>
-                    <%= "#{@full_record.second[:name]}秒" %>
-                <% end %>
-            </div>
-        </div>
-
-    </div>
-
-    <br><br>
-
-    <div class="d-flex justify-content-around">
-        <div class="user-show-btn-group">
-            <div class="user-show-btn">
-                <%= link_to user_vdots_path(@user) do %>
-                    <button type="button" class="btn btn-success text-white nav-link">練習</button>
-                <% end %>
-            </div>
-            <% if @user.id == current_user&.id %>
-
-                <div class="user-show-btn">
-                    <%= link_to new_record_path do %>
-                        <button type="button" class="btn btn-success text-white nav-link">登録</button>
-                    <% end %>
-                </div>
-
-                <div class="user-show-btn">
-                    <%= link_to edit_record_path do %>
-                        <button type="button" class="btn btn-success text-white nav-link">編集</button>
-                    <% end %>
-                </div>
-
-                <div class="user-show-btn">
-                    <%= link_to edit_record_path do %>
-                        <button type="button" class="btn text-white nav-link user-show-delete-btn link">削除</button>
-                    <% end %>
-                </div>
-
-            <% end %>
-        </div>
-
-        <div class="mini-group">
-            <div class="balloon3-right-btm">
-                <div class="text f-f-monospace">
-                    <div class="text-top">ベストタイムを登録すると、</div>
-                    <div class="text-center">練習ページにて走力レベルが確認できます。</div>
-                    <div class="text-bottom">また、練習の目安ペースも表示されます</div>
-                </div>
-            </div>
-        </div>
-
-    </div>
+    <%= render "render/user_show_plactice" %>
 
     <br>
 
     <div class="user-bottom-container p-2 pt-5 pb-3 rounded">
-        <div class="titles user-show-title">&nbsp;<%= @user.nickname %>
-            さんの投稿一覧
-        </div>
 
-        <br>
-
-        <%= render "render/tweets"%>
-
-        <br>
+        <%= render "render/tweets_items" %>
 
     </div>
+
 </div>
+
+<% if @user.present? && @five_vdot.present? && @ten_vdot.present? && @half_vdot.present? && @full_vdot.present? %>
+
+  <script type="text/javascript">
+    const lineChartData = {
+        labels : ["　　　　5km：<%= @vdot_record_five.id %>", "10km：<%= @vdot_record_ten.id %>", "ハーフ：<%= @vdot_record_half.id %>", " フル：<%= @vdot_record_full.id %>" ],
+        datasets : [
+          {
+              label: "緑データ",
+              fillColor : "rgba(37, 224, 37, 0.4)", // 線から下端までを塗りつぶす色
+              strokeColor : "rgb(120,120,120)", // 折れ線の色
+              pointColor : "white",  // ドットの塗りつぶし色
+              pointStrokeColor : "rgb(120,120,120)",        // ドットの枠線色
+              pointHighlightFill : "yellow",     // マウスが載った際のドットの塗りつぶし色
+              pointHighlightStroke : "green",    // マウスが載った際のドットの枠線色
+              data : [ <%= @vdot_record_five.id %>,
+                      <%= @vdot_record_ten.id %>,
+                      <%= @vdot_record_half.id %>,
+                      <%= @vdot_record_full.id %> ]       // 各点の値
+          },
+        ]
+    }
+
+    window.onload = function(){
+        const ctx = document.getElementById("graph-area").getContext("2d");
+        window.myLine = new Chart(ctx
+        ).Line(lineChartData,{
+        responsive : true
+        });
+    };
+
+  </script>
+
+<% end %>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+    new Vue({
+    el: '#contents',
+    data: {
+        isActive: 'A'
+    },
+    methods: {
+        change: function(num){
+        this.isActive = num
+        }
+    }
+    })
+</script>
+<style>
+  ul{
+      margin: 0;
+      padding: 0;
+  }
+  li{
+    list-style: none;
+  }
+  .tab_list {
+    overflow: hidden;
+  }
+  .tab_list li {
+    float: left;
+    padding: 10px 20px;
+    /* border: 1px solid #ccc; */
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  .tab_list li:not(:first-child) {
+    border-left: none;
+  }
+  .tab_list li.active
+   {
+    /* 選択中のタブ */
+    background-color: rgb(31, 189, 31);
+    border: 2px solid rgb(31, 189, 31);
+    border-bottom-style: none;
+    color: white;
+    cursor: auto;
+  }
+  .article{
+    overflow: hidden;
+    margin-top: -1px;
+  }
+  .article li {
+    /* 練習メニュー大枠 */
+    padding: 40px;
+    border: 2px solid rgb(37, 224, 37);
+  }
+</style>
