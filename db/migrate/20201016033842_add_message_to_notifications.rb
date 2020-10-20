@@ -3,4 +3,3 @@ class AddMessageToNotifications < ActiveRecord::Migration[6.0]
     add_reference :notifications, :message, foreign_key: true
   end
 end
-q
