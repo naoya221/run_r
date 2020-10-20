@@ -3,7 +3,7 @@ FactoryBot.define do
     visitor { nil }
     visited { nil }
     tweet { nil }
-    action { "MyString" }
+    action { 'MyString' }
     checked { false }
   end
 end

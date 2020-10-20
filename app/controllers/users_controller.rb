@@ -15,43 +15,42 @@ class UsersController < ApplicationController
   end
 
   def followings
-    @user =User.find(params[:id])
-    @users =@user.followings.page(params[:page]).per(5)
+    @user = User.find(params[:id])
+    @users = @user.followings.page(params[:page]).per(5)
     render 'show_followings'
   end
 
   def followers
-    @user =User.find(params[:id])
-    @users =@user.followers.page(params[:page]).per(5)
+    @user = User.find(params[:id])
+    @users = @user.followers.page(params[:page]).per(5)
     render 'show_followers'
   end
 
   private
 
   def runner_level
-    levels = [ @five_vdot,
-               @ten_vdot,
-               @half_vdot,
-               @full_vdot ]
+    levels = [@five_vdot,
+              @ten_vdot,
+              @half_vdot,
+              @full_vdot]
 
     max_vdot = levels.max
 
     if max_vdot >= 20
-      @runner_level = "最強ランナー"
-      @text = "市民ランナー上位5%の実力です！"
+      @runner_level = '最強ランナー'
+      @text = '市民ランナー上位5%の実力です！'
     elsif max_vdot >= 15
-      @runner_level = "プロランナー"
-      @text = "市民ランナー上位20%の実力です！"
+      @runner_level = 'プロランナー'
+      @text = '市民ランナー上位20%の実力です！'
     elsif max_vdot >= 10
-      @runner_level = "ベテランランナー"
-      @text = "市民ランナー上位40%の実力です！"
+      @runner_level = 'ベテランランナー'
+      @text = '市民ランナー上位40%の実力です！'
     elsif max_vdot >= 5
-      @runner_level = "アマチュアランナー"
-      @text = "市民ランナー上位50%の実力です！"
+      @runner_level = 'アマチュアランナー'
+      @text = '市民ランナー上位50%の実力です！'
     else
-      @runner_level = "駆け出しランナー"
-      @text = "市民ランナー上位60%の実力です！"
+      @runner_level = '駆け出しランナー'
+      @text = '市民ランナー上位60%の実力です！'
     end
   end
-
 end

@@ -18,5 +18,4 @@ class VdotsController < ApplicationController
     get_half_vdot                  # 登録してあるハーフのベストタイムを元に、ハーフの走力レベルを取得
     get_full_vdot                  # 登録してあるフルのベストタイムを元に、フルの走力レベルを取得
   end
-
 end

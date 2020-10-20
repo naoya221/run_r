@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     if @message.save
       ActionCable.server.broadcast 'message_channel', content: @message
 
-      @tweet=@message.tweet
+      @tweet = @message.tweet
       @tweet.create_notification_message!(current_user, @message.id)
     end
   end

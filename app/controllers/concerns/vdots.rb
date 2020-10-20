@@ -8,8 +8,8 @@ module Vdots
     @full_record = FullRecord.find_by(user_id: user_id)
   end
 
-  def get_five_vdot    # 登録してある5kmのベストタイムを元に、5kmのvdot（走力レベル）を取得
-    if @five_record == nil
+  def get_five_vdot # 登録してある5kmのベストタイムを元に、5kmのvdot（走力レベル）を取得
+    if @five_record.nil?
       @five_vdot = 1
     else
       @five_minute = @five_record.minute[:name].to_i
@@ -68,8 +68,8 @@ module Vdots
     end
   end
 
-  def get_ten_vdot    # 登録してある10kmのベストタイムを元に、10kmのvdot（走力レベル）を取得
-    if @ten_record == nil
+  def get_ten_vdot # 登録してある10kmのベストタイムを元に、10kmのvdot（走力レベル）を取得
+    if @ten_record.nil?
       @ten_vdot = 1
     else
       @ten_minute = @ten_record.minute[:name].to_i
@@ -129,7 +129,7 @@ module Vdots
   end
 
   def get_half_vdot    # 登録してあるハーフのベストタイムを元に、ハーフのvdot（走力レベル）を取得
-    if @half_record == nil
+    if @half_record.nil?
       @half_vdot = 1
     else
       @half_hour = @half_record.hour[:name].to_i
@@ -190,7 +190,7 @@ module Vdots
   end
 
   def get_full_vdot    # 登録してあるフルのベストタイムを元に、フルのvdot（走力レベル）を取得
-    if @full_record == nil
+    if @full_record.nil?
       @full_vdot = 1
     else
       @full_hour = @full_record.hour[:name].to_i
@@ -263,5 +263,4 @@ module Vdots
     @vdot_record_full = VdotRecord.find(@full_vdot)
     @vdot_pace_full = VdotPace.find(@full_vdot)
   end
-
 end
