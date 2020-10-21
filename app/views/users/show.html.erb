@@ -59,11 +59,15 @@
                 ベストタイム
             </div>
             <div class="text-right mt-1">
-                <%= link_to new_record_path, class: "text-success" do %>
-                    <i class="fa fa-pen" aria-hidden="true"></i>登録
-                <% end %>
-                <%= link_to edit_record_path, class: "text-success" do %>
-                    <i class="fa fa-edit ml-3" aria-hidden="true"></i>編集
+                <% if @user.id == current_user&.id %>
+                    <%= link_to new_record_path, class: "text-success" do %>
+                        <i class="fa fa-pen" aria-hidden="true"></i>登録
+                    <% end %>
+                    <%= link_to edit_record_path, class: "text-success" do %>
+                        <i class="fa fa-edit ml-3" aria-hidden="true"></i>編集
+                    <% end %>
+                <% else %>
+                    <br>
                 <% end %>
             </div>
 
