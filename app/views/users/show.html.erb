@@ -59,7 +59,7 @@
                 ベストタイム
             </div>
             <div class="text-right mt-1">
-                <% if @user.id == current_user&.id %>
+                <% if user_signed_in? && @user.id == current_user.id %>
                     <%= link_to new_record_path, class: "text-success" do %>
                         <i class="fa fa-pen" aria-hidden="true"></i>登録
                     <% end %>
