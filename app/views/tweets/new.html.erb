@@ -28,9 +28,12 @@
 
         <div class="m-3">
           <%= f.label :どんな人におすすめ？, class: "form-list mb-3" %><br>
-          <label><%= f.radio_button :level, 1 %>誰でも　</label>
-          <label><%= f.radio_button :level, 2 %>経験者　</label>
-          <label><%= f.radio_button :level, 3 %>競技思考</label>
+          <div class="text-left ml-5 mt-2">
+            <label><%= f.radio_button :level, 1 %>誰でも（これから始める方でも！）　</label>
+          </div>
+          <div class="text-left ml-5 mt-2">
+            <label><%= f.radio_button :level, 2 %>経験者（5kmをラクラク走れる方！）　</label>
+          </div>
         </div>
 
         <div class="m-3 mt-5">

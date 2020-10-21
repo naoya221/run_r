@@ -13,13 +13,11 @@
         <div class="level-text mb-2">
           <i class="fas fa-check-square"></i>
           <% if @tweet.level == 1 %>
-            <strong>誰にでも</strong>
-          <% elsif @tweet.level == 2 %>
-            <strong>経験者の方に</strong>
-          <% else %>
-            <strong>競技思考の方に</strong>
+            <strong>初心者</strong>
+          <% else @tweet.level == 2 %>
+            <strong>経験者</strong>
           <% end %>
-            おすすめ！
+            におすすめ！
         </div>
       </div>
 

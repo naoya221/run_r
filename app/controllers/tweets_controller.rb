@@ -7,8 +7,8 @@ class TweetsController < ApplicationController
     @tag_lists = Tag.all
     tweets_ranking_sort = Tweet.all.sort { |a, b| b.liked_users.count <=> a.liked_users.count}
     @tweets_ranking = tweets_ranking_sort[0..3]
-    @tweets_beginner = Tweet.where(level: 1..2).order('RAND()').limit(4)
-    @tweets_senior = Tweet.where(level: 3).order('RAND()').limit(4)
+    @tweets_beginner = Tweet.where(level: 1).order('RAND()').limit(4)
+    @tweets_senior = Tweet.where(level: 2).order('RAND()').limit(4)
   end
 
   def new
