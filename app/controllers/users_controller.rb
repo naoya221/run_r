@@ -36,21 +36,18 @@ class UsersController < ApplicationController
 
     max_vdot = levels.max
 
-    if max_vdot >= 20
-      @runner_level = '最強ランナー'
-      @text = '市民ランナー上位5%の実力です！'
+    if max_vdot >= 25
+      @runner_level_num = 0
+    elsif max_vdot >= 20
+      @runner_level_num = 1
     elsif max_vdot >= 15
-      @runner_level = 'プロランナー'
-      @text = '市民ランナー上位20%の実力です！'
+      @runner_level_num = 2
     elsif max_vdot >= 10
-      @runner_level = 'ベテランランナー'
-      @text = '市民ランナー上位40%の実力です！'
+      @runner_level_num = 3
     elsif max_vdot >= 5
-      @runner_level = 'アマチュアランナー'
-      @text = '市民ランナー上位50%の実力です！'
+      @runner_level_num = 4
     else
-      @runner_level = '駆け出しランナー'
-      @text = '市民ランナー上位60%の実力です！'
+      @runner_level_num = 5
     end
   end
 end

@@ -85,22 +85,32 @@
 .runner-levels {
   font-size: 12px;
   margin-top: 30px;
+  margin-right: 20px;
 }
 
-.runner-level {
-  margin-top: 15px;
+.runner-title {
+  
 }
 
-.plactice-title {
+.fa-running {
+  color: rgb(38, 161, 38);
+  font-size: 18px;
+}
+
+.practice-title {
   font-family: monospace;
   font-size: 30px;
   margin-left: 30px;
   margin-bottom: 20px;
 }
 
-.plactice-records {
+.practice-records {
   margin-left: 50px;
   margin-bottom: 40px;
+}
+
+.practice-text {
+  font-size: 14px;
 }
 
 .practice-menus {
