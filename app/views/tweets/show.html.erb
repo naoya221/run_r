@@ -103,15 +103,16 @@
         <div id='messages'>
           <% @tweet_messages.each do |message| %>
             <div class="message mt-3">
-              <%= message.text %>
+              <%= message.text.truncate(100) %>
               <br>
 
-              <div class="text-right">
+              <div class="mt-2">
                 <span class="post-time-message"><%= message.created_at.to_s(:datetime_jp) %></span>
                 <% if message.user == current_user %>
                     <%= link_to "あなた", message.user, class: "link message-user" %>
                 <% else %>
-                    <%= link_to "#{message.user.nickname}さん", message.user, class: "link message-user" %>
+                    <%= link_to message.user.nickname, message.user, class: "link message-user" %>
+                    <span class="message-user-san"></span>さん
                 <% end %>
               </div>
 

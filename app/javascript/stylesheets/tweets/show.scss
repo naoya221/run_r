@@ -121,10 +121,17 @@
 
 .post-time-message {
   margin-right: 20px;
+  font-size: 10px;
 }
 
 .message-user {
-  color: gray;
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.message-user-san {
+  font-size: 10px;
 }
 
 .randam-title {
