@@ -39,7 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def edit
-    user = User.find(params[:format])
+    # user = User.find(params[:format])
     # if user.id != current_user.id
     #   flash[:notice] = '自分以外のユーザー情報は編集できません'
     #   redirect_to user_path(current_user.id)
