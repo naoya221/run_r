@@ -23,7 +23,7 @@
         <% end %>
 
         <div class="mini-slide-bottom">
-          <strong><%= tweet.place_name %></strong>
+          <strong><%= tweet.place_name.truncate(15)  %></strong>
             <div class="d-flex justify-content-between">
               <div class="d-flex">
                 <div class="mt-3">

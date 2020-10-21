@@ -13,7 +13,7 @@
         <% end %>
 
         <div class="mini-slide-bottom">
-          <strong><%= tweet_ranking.place_name %></strong>
+          <strong><%= tweet_ranking.place_name.truncate(15)  %></strong>
             <div class="d-flex justify-content-between">
               <div class="d-flex">
                 <div class="mt-3">
@@ -58,7 +58,7 @@
         <% end %>
 
         <div class="mini-slide-bottom">
-          <strong><%= tweet_beginner.place_name %></strong>
+          <strong><%= tweet_beginner.place_name.truncate(15)  %></strong>
             <div class="d-flex justify-content-between">
               <div class="d-flex">
                 <div class="mt-3">
@@ -101,7 +101,7 @@
         <% end %>
 
         <div class="mini-slide-bottom">
-          <strong><%= tweet_senior.place_name %></strong>
+          <strong><%= tweet_senior.place_name.truncate(15)  %></strong>
             <div class="d-flex justify-content-between">
               <div class="d-flex">
                 <div class="mt-3">
