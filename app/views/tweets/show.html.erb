@@ -24,7 +24,7 @@
       <div class="tweet-show-place-info mb-3">
         <div class="d-flex align-items-end user-group">
           <div>
-            <span id="like-<%= @tweet.id %>">
+            <span class="like-<%= @tweet.id %>">
               <%= render partial: "render/like", locals: { tweet: @tweet } %>
             </span>
             <i class="fas fa-clock ml-2"></i><%= "#{time_ago_in_words(@tweet.created_at)}前" %>
