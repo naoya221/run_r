@@ -76,8 +76,12 @@
     <% if @user %>
       <div class="ml-4 mb-5">
         <%= link_to user_path(@user), class: "link" do %>
+          <% if @user.image.present? %>
           <img src=<%= @user.image %> class="mini-content-user-image">
-          <strong class="text-dark"><%= @user.nickname %></strong>
+          <% else %>
+            <img src="/images/dog2.png" class = "mini-content-user-image">
+          <% end %>
+            <strong class="text-dark"><%= @user.nickname %></strong>
         <% end %>
         さんの該当箇所に
         <span class="ml-2 marking"></span>
