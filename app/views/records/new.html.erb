@@ -1,134 +1,101 @@
-<div class="back-ground pt-5">
+<div class="forms-container">
 
   <% unless FiveKmRecord.where(user_id:current_user.id).present? %>
-    <div class="p-5">
-      <%= form_with url: user_five_km_records_path(current_user), local: true do |f| %>
-        <div class="pulldown-time mt-5">
-          <div class="titles record-title">5kmのベストタイム</div>
-
-          <br>
-
-          <div class="record-content">
-            <div class="record-items text-dark">
-              <div class="record-item mr-3 mt-3">
-                <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
-              </div>
-              <div class="record-item mr-5 mt-3">
-                <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
-              </div>
-            </div>
-
-            <div class="mt-1">
-              <%= f.submit "登録", class: "record-btn btn btn-success text-white" %>
-            </div>
+    <%= form_with url: user_five_km_records_path(current_user), local: true do |f| %>
+      <div class="record-title mt-0">5kmのベストタイム</div>
+      <div class="record-content">
+        <div class="record-items text-dark mt-3">
+          <div class="record-item">
+            <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
+          </div>
+          <div class="record-item">
+            <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
           </div>
         </div>
-      <% end %>
-
-    </div>
-    <br>
+        <div class="mt-1 ml-3">
+          <%= f.submit "登録", class: "record-btn btn btn-success text-white" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="forms-border"></div>
   <% end %>
 
   <% unless TenKmRecord.where(user_id:current_user.id).present? %>
-    <div class="p-5">
-      <%= form_with url: user_ten_km_records_path(current_user), local: true do |f| %>
-        <div class="pulldown-time">
-          <div class="titles record-title">10kmのベストタイム</div>
-
-          <br>
-
-          <div class="record-content">
-            <div class="record-items text-dark">
-              <div class="record-item mr-3 mt-3">
-                <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
-              </div>
-              <div class="record-item mr-5 mt-3">
-                <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
-              </div>
-            </div>
-
-            <div class="mt-1">
-              <%= f.submit "登録", class: "record-btn btn btn-success text-white" %>
-            </div>
+    <%= form_with url: user_ten_km_records_path(current_user), local: true do |f| %>
+      <div class="record-title">10kmのベストタイム</div>
+      <div class="record-content">
+        <div class="record-items text-dark mt-3">
+          <div class="record-item">
+            <%= f.collection_select(:minute_id, Minute.all, :id, :name, {}, class: "p-2") %>：分
+          </div>
+          <div class="record-item">
+            <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
           </div>
         </div>
-      <% end %>
 
-    </div>
-    <br>
+        <div class="mt-1 ml-3">
+          <%= f.submit "登録", class: "record-btn btn btn-success text-white" %>
+        </div>
+      </div>
+    <% end %>
+     <div class="forms-border"></div>
   <% end %>
 
   <% unless HalfRecord.where(user_id:current_user.id).present? %>
-    <div class="p-5">
-      <%= form_with url: user_half_records_path(current_user), local: true do |f| %>
-        <div class="pulldown-time">
-          <div class="titles record-title">ハーフのベストタイム</div>
-
-          <br>
-
-          <div class="record-content">
-            <div class="record-items text-dark">
-              <div class="record-item mr-3 mt-3">
-                <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
-              </div>
-              <div class="record-item mr-3 mt-3">
-                <%= f.collection_select(:minute_id, Minute.where(id:[*0..59]), :id, :name, {}, class: "p-2") %>：分
-              </div>
-              <div class="record-item mr-5 mt-3">
-                <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
-              </div>
-            </div>
-
-            <div class="mt-1">
-              <%= f.submit "登録", class: "record-btn btn btn-success text-white" %>
-            </div>
+    <%= form_with url: user_half_records_path(current_user), local: true do |f| %>
+      <div class="record-title">ハーフのベストタイム</div>
+      <div class="record-content">
+        <div class="record-items text-dark mt-3">
+          <div class="record-item">
+            <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
+          </div>
+          <div class="record-item">
+            <%= f.collection_select(:minute_id, Minute.where(id:[*0..59]), :id, :name, {}, class: "p-2") %>：分
+          </div>
+          <div class="record-item">
+            <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
           </div>
         </div>
-      <% end %>
 
-    </div>
-    <br>
+        <div class="mt-1 ml-3">
+          <%= f.submit "登録", class: "record-btn btn btn-success text-white" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="forms-border"></div>
   <% end %>
 
   <% unless FullRecord.where(user_id:current_user.id).present? %>
-    <div class="p-5">
-      <%= form_with url: user_full_records_path(current_user), local: true do |f| %>
-        <div class="pulldown-time">
-          <div class="titles record-title">フルのベストタイム</div>
-
-          <br>
-
-          <div class="record-content">
-            <div class="record-items text-dark">
-              <div class="record-item mr-3 mt-3">
-                <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
-              </div>
-              <div class="record-item mr-3 mt-3">
-                <%= f.collection_select(:minute_id, Minute.where(id:[*0..59]), :id, :name, {}, class: "p-2") %>：分
-              </div>
-              <div class="record-item mr-5 mt-3">
-                <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
-              </div>
-            </div>
-
-            <div class="mt-1">
-              <%= f.submit "登録", class: "record-btn btn btn-success text-white" %>
-            </div>
+    <%= form_with url: user_full_records_path(current_user), local: true do |f| %>
+      <div class="record-title">フルのベストタイム</div>
+      <div class="record-content">
+        <div class="record-items text-dark mt-3">
+          <div class="record-item">
+            <%= f.collection_select(:hour_id, Hour.all, :id, :name, {}, class: "p-2") %>　: 時間
+          </div>
+          <div class="record-item">
+            <%= f.collection_select(:minute_id, Minute.where(id:[*0..59]), :id, :name, {}, class: "p-2") %>：分
+          </div>
+          <div class="record-item">
+            <%= f.collection_select(:second_id, Second.all, :id, :name, {}, class: "p-2") %>：秒
           </div>
         </div>
-      <% end %>
 
-    </div>
+        <div class="mt-1 ml-3">
+          <%= f.submit "登録", class: "record-btn btn btn-success text-white" %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 
   <% if FiveKmRecord.where(user_id:current_user.id).present? &&
         TenKmRecord.where(user_id:current_user.id).present?  &&
         HalfRecord.where(user_id:current_user.id).present?   &&
         FullRecord.where(user_id:current_user.id).present? %>
-    <div class="mt-5 text-center">
-        <h2 class="record-hide-text text-dark pb-5">全てのベストタイムを登録済みです！</h2>
+    <div class="text-center">
+        <div class="record-hide-text text-dark pb-5">全てのベストタイムを登録済みです！</div>
         <%= link_to user_path(current_user) do %>
-          <button type="button" class="btn btn-success btn-lg mt-5">マイページへ<i class="fa fa-angle-right ml-2" aria-hidden="true"></i></button>
+          <button type="button" class="btn btn-success btn-lg mt-4">マイページへ<i class="fa fa-angle-right ml-2" aria-hidden="true"></i></button>
         <% end %>
         <br>
         <%= link_to edit_record_path(current_user), class: "text-success" do %>
