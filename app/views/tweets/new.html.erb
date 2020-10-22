@@ -10,39 +10,39 @@
         <%= render 'render/error_messages', model: f.object %>
 
         <div class="m-3">
-          <%= f.label :場所の名前（１６字以内）, class: "form-list mb-3" %><br>
+          <%= f.label :コースの名前, class: "form-list mb-3" %><br><span class="form-list-info ml-2">（16字以内）</span><br>
           <%= f.text_field :place_name, placeholder: "例）〇〇公園", class: "w-100 p-1 mb-5 rounded form" %>
         </div>
 
         <div class="m-3">
-          <%= f.label :場所の画像, class: "form-list mb-3" %><br>
+          <%= f.label :コースの画像, class: "form-list mb-3" %><br>
           <%= f.file_field :place_image, id: "preview", class: "w-100 p-1 mb-5 rounded form" %>
         </div>
 
         <div id="image-list"></div>
 
         <div class="m-3">
-          <%= f.label :住所（３０字以内）, class: "form-list mb-3" %><br>
+          <%= f.label :コースの住所, class: "form-list mb-3" %><br><span class="form-list-info ml-2">（30字以内）</span><br>
           <%= f.text_field :address, placeholder: "例）〇〇県〇〇市〇〇区〇〇町１ー１", class: "w-100 p-1 mb-5 rounded form" %>
         </div>
 
         <div class="m-3">
           <%= f.label :どんな人におすすめ？, class: "form-list mb-3" %><br>
-          <div class="text-left ml-5 mt-2">
+          <div class="text-left ml-3 mt-2">
             <label><%= f.radio_button :level, 1 %>誰でも（これから始める方でも！）　</label>
           </div>
-          <div class="text-left ml-5 mt-2">
+          <div class="text-left ml-3 mt-2">
             <label><%= f.radio_button :level, 2 %>経験者（5kmをラクラク走れる方！）　</label>
           </div>
         </div>
 
         <div class="m-3 mt-5">
-          <%= f.label :タグ付け, class: "form-list mb-3" %><br>
+          <%= f.label :タグ付け, class: "form-list mb-3" %><br><span class="form-list-info ml-2">必須ではありません（１６字以内）</span><br>
           <%= f.text_field :tag_ids, id:'tag_ids', placeholder: "東京,皇居,アップダウン,おしゃれ,観光", class: "w-100 p-1 mb-5 rounded form" %>
         </div>
 
         <div class="m-3 mt-4">
-          <%= f.label :何かひとこと（１００字以内）, class: "form-list mb-3" %><br>
+          <%= f.label :何かひとこと, class: "form-list mb-3" %><br><span class="form-list-info ml-2">（100字以内）</span><br>
           <%= f.text_area :content, placeholder: "例）緑が多くて素敵な公園です。", rows: "6", class: "w-100 p-1 mb-5 rounded form" %>
         </div>
 
