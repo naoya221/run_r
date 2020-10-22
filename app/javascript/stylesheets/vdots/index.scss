@@ -1,43 +1,5 @@
 .vdot-container {
-  background-color: rgb(255, 255, 255);
-  padding: 100px 20px 20px;
-}
-
-.vdot-dropdown {
-  float: right;
-  padding: 10px;
-}
-
-.vdot-left-btn {
-  margin-right: 20px;
-  background-color: rgb(36, 167, 42);
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-
-.vdot-right-btn {
-  background-color: rgb(36, 167, 42);
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-
-.dropdown-menu {
-  background-color: rgb(190, 228, 190);
-  margin: 350px 20px 0 0 ;
-}
-
-.dropdown-list {
-  padding: 10px 0 10px 25px;
-  border-bottom: 1px solid rgb(161, 160, 159);
-}
-
-.dropdown-vdot {
-  padding: 10px 0 10px 25px;
-  margin-bottom: 160px;
-  margin-top: 0;
-  max-height: 0;
+  padding: 50px 20px 20px;
 }
 
 .vdot-content {
@@ -45,10 +7,9 @@
   margin: 0 auto;
   border: 2px solid rgb(92, 92, 92);
   box-shadow: 2px 2px 2px 2px rgb(173, 173, 173);
-  background-color: rgb(255, 255, 255);
 }
 
-.marking {
+.vdot-marking {
   padding: 4px 30px;
   border: 3px solid rgb(36, 167, 42);
 }
@@ -64,10 +25,8 @@
 }
 
 .vdot-number {
-  // display: inline-block;
   font-size: 15px;
   font-weight: bold;
-  color: rgb(0, 0, 0);
 }
 
 .hide-lists {
@@ -80,30 +39,6 @@
 
 @media (max-width: 480px) {
 
-  .vdot-title {
-    font-size: 25px;
-  }
 
-  .dropdown {
-    position: relative;
-  }
-
-  .vdot-dropdown {
-    font-size: 10px;
-    padding: 5px;
-  }
-
-  .dropdown-menu {
-    margin: 300px 0 0 0;
-    background-color: rgb(186, 234, 248);
-    position: absolute;
-    left: -50px;
-  }
-
-  .dropdown-vdot {
-    max-height: 130px;
-    max-width: 300px;
-    margin-right: 20px;
-  }
 
 }
