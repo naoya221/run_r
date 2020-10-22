@@ -1,6 +1,6 @@
-<div class="user-content">
+<div class="user-container">
 
-    <div class="user-show-top-content d-flex justify-content-around">
+    <div class="user-introduction-content d-flex justify-content-around">
         <div class="user-profile d-flex">
             <div class="show-image">
                 <% if @user.image.present? %>
@@ -53,7 +53,7 @@
 
     <div class="user-show-border"></div>
 
-    <div class="user-top-content row justify-content-between">
+    <div class="user-record-content row justify-content-between">
         <div class="col-lg-3">
             <div class="user-show-title">
                 ベストタイム
@@ -123,14 +123,12 @@
                 </div>
                 <div>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
-
                     <div class="graph-area-parent">
                         <canvas id="graph-area" height="3" width="10"></canvas>
                     </div>
                 </div>
             </div>
         </div>
-
 
         <div class="runner-levels">
             <div class="runner-title">
@@ -189,7 +187,6 @@
         </div>
     </div>
 
-
     <div>
         <div class="practice-title">
             次はこの記録にチャレンジ！
@@ -228,107 +225,19 @@
         </div>
     </div>
 
-
+    <%# 練習メニュー %>
     <%= render "render/user_show_practice" %>
 
     <br>
 
     <div class="user-bottom-container p-2 pt-5 pb-3 rounded">
 
+        <%# ユーザー(params:id)の投稿一覧 %>
         <%= render "render/tweets_all_contents" %>
 
     </div>
 
 </div>
 
-<% if @user.present? && @five_vdot.present? && @ten_vdot.present? && @half_vdot.present? && @full_vdot.present? %>
-
-  <script type="text/javascript">
-    const lineChartData = {
-        labels : ["　　　　5km：<%= @vdot_record_five.id %>", "10km：<%= @vdot_record_ten.id %>", "ハーフ：<%= @vdot_record_half.id %>", " フル：<%= @vdot_record_full.id %>" ],
-        datasets : [
-          {
-              label: "緑データ",
-              fillColor : "rgba(37, 224, 37, 0.4)", // 線から下端までを塗りつぶす色
-              strokeColor : "rgb(120,120,120)", // 折れ線の色
-              pointColor : "white",  // ドットの塗りつぶし色
-              pointStrokeColor : "rgb(120,120,120)",        // ドットの枠線色
-              pointHighlightFill : "yellow",     // マウスが載った際のドットの塗りつぶし色
-              pointHighlightStroke : "green",    // マウスが載った際のドットの枠線色
-              data : [ <%= @vdot_record_five.id %>,
-                      <%= @vdot_record_ten.id %>,
-                      <%= @vdot_record_half.id %>,
-                      <%= @vdot_record_full.id %> ]       // 各点の値
-          },
-        ]
-    }
-
-    window.onload = function(){
-        const ctx = document.getElementById("graph-area").getContext("2d");
-        window.myLine = new Chart(ctx
-        ).Line(lineChartData,{
-        responsive : true
-        });
-    };
-
-  </script>
-
-<% end %>
-
-<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-<script>
-    new Vue({
-    el: '#contents',
-    data: {
-        isActive: 'A'
-    },
-    methods: {
-        change: function(num){
-        this.isActive = num
-        }
-    }
-    })
-
-    $(".user-show-hide").hide();
-    $(".user-show-hide").eq(<%= @runner_level_num %>).show()
-    $(".runner-title").eq(<%= @runner_level_num %>).css({"border": "2px solid rgb(38, 161, 38)", "padding": "2px 5px"});
-</script>
-<style>
-  ul{
-      margin: 0;
-      padding: 0;
-  }
-  li{
-    list-style: none;
-  }
-  .tab_list {
-    overflow: hidden;
-  }
-  .tab_list li {
-    float: left;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: 0.5s;
-  }
-  .tab_list li:not(:first-child) {
-    border-left: none;
-  }
-  .tab_list li.active
-   {
-    /* 選択中のタブ */
-    background-color: rgb(31, 189, 31);
-    border: 2px solid rgb(31, 189, 31);
-    border-bottom-style: none;
-    color: white;
-    cursor: auto;
-  }
-  .article{
-    overflow: hidden;
-    margin-top: -1px;
-  }
-  .article li {
-    /* 練習メニュー大枠 */
-    padding: 40px;
-    border: 2px solid rgb(37, 224, 37);
-  }
-</style>
+<%# マイページのJS %>
+<%= render "js" %>

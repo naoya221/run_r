@@ -21,6 +21,14 @@ a {
   font-family: MS UI Gothic;
 }
 
+ul {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
 a:hover {
   text-decoration: none;
 }
