@@ -16,12 +16,12 @@
 
         <div class="m-3">
           <%= f.label :コースの画像, class: "form-list mb-3" %><br>
-          <%= f.file_field :place_image, id: "preview", class: "w-100 p-1 mb-5 rounded form" %>
+          <%= f.file_field :place_image, id: "preview", class: "w-100 p-1 rounded" %>
         </div>
 
         <div id="image-list"></div>
 
-        <div class="m-3">
+        <div class="m-3 mt-5">
           <%= f.label :コースの住所, class: "form-list mb-3" %><br><span class="form-list-info ml-2">（30字以内）</span><br>
           <%= f.text_field :address, placeholder: "例）〇〇県〇〇市〇〇区〇〇町１ー１", class: "w-100 p-1 mb-5 rounded form" %>
         </div>
