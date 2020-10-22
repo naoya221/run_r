@@ -228,11 +228,12 @@
     <%# 練習メニュー %>
     <%= render "render/user_show_practice" %>
 
-    <br>
-
+     <%# ユーザー(params:id)の投稿一覧 %>
     <div class="user-bottom-container p-2 pt-5 pb-3 rounded">
+        <div class="tweets-contents-title text-center mt-5">
+            <%= @user.nickname %>の投稿一覧
+        </div>
 
-        <%# ユーザー(params:id)の投稿一覧 %>
         <%= render "render/tweets_all_contents" %>
 
     </div>
