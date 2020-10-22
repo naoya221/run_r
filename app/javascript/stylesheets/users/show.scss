@@ -1,15 +1,15 @@
-.user-content {
+.user-container {
   padding-top: 100px;
   max-width: 1300px;
   width: 100vw;
 }
 
-.user-top-content {
+.user-record-content {
   margin-top: 30px;
   margin-left: 10px;
 }
 
-.user-show-top-content {
+.user-introduction-content {
   margin: 20px 10px;
   padding-bottom: 30px;
 }
@@ -72,7 +72,6 @@
 }
 
 .graph-area-parent {
-  // display: flex;
   justify-content: center;
 }
 
@@ -88,16 +87,13 @@
   margin-right: 20px;
 }
 
-.runner-title {
-  
-}
-
 .fa-running {
   color: rgb(38, 161, 38);
   font-size: 18px;
 }
 
 .practice-title {
+  display: inline-block;
   font-family: monospace;
   font-size: 30px;
   margin-left: 30px;
@@ -144,6 +140,46 @@
 .vdot-full {
   background-color: rgba(63, 63, 63, 0.4);
   color: white;
+}
+
+.user-show-ul {
+  margin: 0;
+  padding: 0;
+}
+
+.tab_list {
+overflow: hidden;
+}
+
+.tab_list li {
+float: left;
+padding: 10px 20px;
+cursor: pointer;
+transition: 0.5s;
+}
+
+.tab_list li:not(:first-child) {
+border-left: none;
+}
+
+.tab_list li.active {
+/* 選択中のタブ */
+background-color: rgb(31, 189, 31);
+border: 2px solid rgb(31, 189, 31);
+border-bottom-style: none;
+color: white;
+cursor: auto;
+}
+
+.article{
+overflow: hidden;
+margin-top: -1px;
+}
+
+.article li {
+/* 練習メニュー大枠 */
+padding: 40px;
+border: 2px solid rgb(37, 224, 37);
 }
 
 @media (max-width: 800px) {

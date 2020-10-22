@@ -1,7 +1,7 @@
 <div class="practice-menus">
     <div id="contents">
         <div class="tab_box">
-        <ul class="tab_list">
+        <ul class="tab_list user-show-ul">
             <li v-on:click="change('A')" v-bind:class="{'active': isActive === 'A'}">5kmの練習例</li>
             <li v-on:click="change('B')" v-bind:class="{'active': isActive === 'B'}">10kmの練習例</li>
             <li v-on:click="change('C')" v-bind:class="{'active': isActive === 'C'}">ハーフの練習例</li>
@@ -9,8 +9,8 @@
             <li v-on:click="change('E')" v-bind:class="{'active': isActive === 'E'}">健康維持・ダイエット</li>
         </ul>
 
-        <ul class="article">
-            <li v-if="isActive === 'A'">
+        <ul class="article user-show-ul">
+            <li v-if="isActive === 'A'" class="article-li">
                  <div class="d-flex justify-content-between">
                     <div>
                         <div>1週目）</div>

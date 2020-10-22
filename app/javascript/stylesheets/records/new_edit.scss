@@ -1,23 +1,25 @@
-.record-content {
-  display: flex;
-  background-color: rgb(230, 230, 230);
-  padding: 20px 25px 28px;
-  border-radius: 10px;
-  margin:20px 0 0 8px;
-  align-items: center;
-}
-
 .record-hide-text {
   font-size: 35px;
 }
 
  .record-title {
-  background: linear-gradient(transparent 70%, rgb(109, 212, 61));
-  padding: 0;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 30px;
+  background: linear-gradient(transparent 75%, rgb(109, 212, 61));
+  margin-top: 40px;
+}
+
+.record-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 25px 20px;
+  align-items: center;
 }
 
 .record-items {
   display: flex;
+  justify-content: space-between;
 }
 
 .record-item {

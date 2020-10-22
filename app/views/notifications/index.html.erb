@@ -1,11 +1,6 @@
-<div class="back-ground">
+<div class="forms-container">
 
-  <div class="text-center">
-    <div class="mt-5 titles">お知らせ</div>
-  </div>
-
-
-
+  <div class="titles">お知らせ</div>
   <div class="notification-contents">
     <% if @notifications.exists? %>
       <div class="text-right mb-5">
@@ -13,7 +8,6 @@
             <i class="fas fa-trash mr-1"></i>確認済みにする
           <% end %>
       </div>
-
       <div class="notification-index">
           <%= render @notifications %>
       </div>
@@ -25,20 +19,23 @@
 </div>
 
 <style>
-  a {
-    color: black;
-    font-weight: bold;
-  }
-
   .notification-contents {
     margin-top: 20px;
     max-width: 500px;
   }
 
+  .notification-contents a {
+    color: black;
+    font-weight: bold;
+  }
+
   .notification-content {
     border-bottom: 1px solid gray;
     padding: 0 35px 2px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
+  .notification-comment {
+    font-size: 12px;
+  }
 </style>

@@ -1,5 +1,4 @@
 <div class="forms-container f-f-monospace">
-  <br><br>
 
   <div class="titles">
     <%= "#{@user.nickname} さんの編集ページ" %>
@@ -21,24 +20,24 @@
         </div>
 
         <div class="field form-label mb-4">
-          <%= f.label :プロフィール画像, class: "form-list mb-2" %><br/>
+          <%= f.label :プロフィール画像, class: "form-list mb-4" %><br>
           　　　　<%= f.file_field :image, id: "preview" %>
         </div>
 
         <div id="image-list"></div>
 
         <div class="field form-label mb-4 mt-5">
-          <%= f.label :自己紹介文, class: "form-list mb-2" %><br>( 最大文字数 50 )<br/>
+          <%= f.label :自己紹介文, class: "form-list mb-2" %><br><span class="form-list-info ml-2">（50文字以内）</span><br>
           <%= f.text_area :introduction, autofocus: true, maxlength: "50", class: "signup-form w-75 p-2 mb-4 rounded form" %>
         </div>
 
         <div class="field form-label mb-4">
-          <%= f.label :nickname, class: "form-list mb-2" %><br>( 最大文字数 10 )<br/>
+          <%= f.label :nickname, class: "form-list mb-2" %><br><span class="form-list-info ml-2">（10文字以内）</span><br>
           <%= f.text_field :nickname, autofocus: true, maxlength: "10", class: "signup-form w-75 p-2 mb-4 rounded form" %>
         </div>
 
         <div class="field form-label mb-3">
-          <%= f.label :email, class: "form-list mb-2" %><br>( @ が必須です )<br/>
+          <%= f.label :email, class: "form-list mb-2" %><br><span class="form-list-info ml-2">（＠必須）</span><br>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "signup-form w-75 p-2 mb-4 rounded form" %>
         </div>
 
@@ -49,7 +48,7 @@
 
       <div class="d-flex justify-content-center">
         <div class="mt-3">
-          <%= link_to "戻る", :back, class: "user-edit-back-btn btn btn-dark border-none mt-2 p-1 pr-4 pl-4" %>
+          <%= link_to "戻る", :back, class: "user-edit-back-btn border-none mt-2 p-1 pr-4 pl-4" %>
         </div>
       </div>
 

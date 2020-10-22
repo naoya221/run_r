@@ -1,5 +1,5 @@
 <div class="mt-5">
-  <div class="slide-titles text-center">
+  <div class="tweets-contents-title text-center">
     <span class="text-success">＃ </span>注目の人気コース
   </div>
 
@@ -44,7 +44,7 @@
 <div class="mini-contents-border"></div>
 
 <div class="mt-5">
-  <div class="slide-titles  text-center">
+  <div class="tweets-contents-title text-center">
     <span class="text-success">＃ </span>初心者におすすめ
   </div>
 
@@ -89,7 +89,7 @@
 <div class="mini-contents-border"></div>
 
 <div class="mt-5">
-  <div class="slide-titles  text-center">
+  <div class="tweets-contents-title text-center">
     <span class="text-success">＃ </span>経験者におすすめ
   </div>
 
@@ -131,9 +131,16 @@
   </div>
 </div>
 
-<%= render "render/tweets_items" %>
+<div class="mini-contents-border"></div>
 
-<% if user_signed_in? %>
+<div class="mt-5">
+  <div class="tweets-contents-title text-center mb-3">
+    <span class="text-success">＃ </span>投稿一覧（最新順）
+  </div>
+
+  <%= render "render/tweets_all_contents" %>
+
+  <% if user_signed_in? %>
     <div class="tweet-btn-group">
       <div class="tweet-btn-group-text">
         ↓あなたも投稿してみよう！
@@ -144,3 +151,4 @@
       <% end %>
     </div>
   <% end %>
+</div>
