@@ -238,11 +238,11 @@ module Vdots
                      20
                    elsif @full_hour >= 3 && @full_minute >= 10 && @full_second > 49 || @full_hour >= 3 && @full_minute >= 14 && 6 >= @hfull_second || @full_hour >= 3 && @full_minute >= 11
                      21
-                   elsif @full_hour >= 3 && @full_minute >= 7 && @full_second > 39 || @full_hour >= 3 && @full_minute >= 10 && 49 >= @hfull_second || @full_hour >= 3 && @full_minute >= 8
+                   elsif @full_hour >= 3 && @full_minute >= 7 && @full_second > 39 || @full_hour >= 3 && @full_minute >= 10 && 49 >= @full_second || @full_hour >= 3 && @full_minute >= 8
                      22
-                   elsif @full_hour >= 3 && @full_minute >= 4 && @full_second > 36 || @full_hour >= 3 && @full_minute >= 7 && 39 >= @hfull_second || @full_hour >= 3 && @full_minute >= 5
+                   elsif @full_hour >= 3 && @full_minute >= 4 && @full_second > 36 || @full_hour >= 3 && @full_minute >= 7 && 39 >= @full_second || @full_hour >= 3 && @full_minute >= 5
                      23
-                   elsif @full_hour >= 3 && @full_minute >= 1 && @full_second > 39 || @full_hour >= 3 && @full_minute >= 4 && 36 >= @hfull_second || @full_hour >= 3 && @full_minute >= 2
+                   elsif @full_hour >= 3 && @full_minute >= 1 && @full_second > 39 || @full_hour >= 3 && @full_minute >= 4 && 36 >= @full_second || @full_hour >= 3 && @full_minute >= 2
                      24
                    else
                      25
