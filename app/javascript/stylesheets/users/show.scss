@@ -4,11 +4,6 @@
   width: 100vw;
 }
 
-.user-record-content {
-  margin-top: 30px;
-  margin-left: 10px;
-}
-
 .user-introduction-content {
   margin: 20px 10px;
   padding-bottom: 30px;
@@ -32,12 +27,16 @@
 .user-show-name {
   font-weight: bold;
   font-size: 18px;
-  // color: rgb(94, 94, 94);
 }
 
 .user-show-border {
   border-bottom: 1px solid rgb(182, 182, 182);
   padding-bottom: 30px;
+}
+
+.user-record-content {
+  margin-top: 30px;
+  margin-left: 10px;
 }
 
 .user-show-title {
@@ -58,7 +57,6 @@
 
 .runner-level-group {
   margin-left: 100px;
-  margin-bottom: 50px;
 }
 
 .runner-level-title {
@@ -78,7 +76,6 @@
 #graph-area {
   width: 450px;
   height: 230px;
-  margin-bottom: 100px;
 }
 
 .runner-levels {
@@ -92,7 +89,11 @@
   font-size: 18px;
 }
 
-.practice-title {
+.next-record-group {
+  margin-top: 40px;
+}
+
+.next-record-title {
   display: inline-block;
   font-family: monospace;
   font-size: 30px;
@@ -164,8 +165,8 @@ border-left: none;
 
 .tab_list li.active {
 /* 選択中のタブ */
-background-color: rgb(31, 189, 31);
-border: 2px solid rgb(31, 189, 31);
+background-color: rgb(36, 163, 36);
+border: 2px solid rgb(36, 163, 36);
 border-bottom-style: none;
 color: white;
 cursor: auto;
@@ -179,7 +180,7 @@ margin-top: -1px;
 .article li {
 /* 練習メニュー大枠 */
 padding: 40px;
-border: 2px solid rgb(37, 224, 37);
+border: 2px solid rgb(36, 163, 36);
 }
 
 @media (max-width: 800px) {
