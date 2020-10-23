@@ -47,7 +47,7 @@ https://runreco.com<br>
 ### フロントエンド
 ・HTML/CSS<br>
 ・SCSS<br>
-・JavaScript,　jQuery,　Vue.js(一部)<br>
+・JavaScript,　jQuery,　Vue.js<br>
 ・Bootstrap 4.5.0<br>
 
 ### バックエンド
@@ -93,7 +93,7 @@ https://runreco.com<br>
 ・＃ 投稿一覧（最新順）の一番上に入力した情報が表示される<br>
 ・ランニングコースの画像をクリック<br>
 ・先ほど入力した住所の位置がGoogleMapにピン留めされた状態で表示される<br>
-　※このページにて投稿へのコメントができます。
+　※このページにて投稿へのコメントができます。<br>
 　※投稿のハートマークをクリックで「いいね」がされます。（投稿一覧・詳細ページどちらでも可能）<br>
 
 ### ベストタイム登録機能
