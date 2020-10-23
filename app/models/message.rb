@@ -1,8 +1,11 @@
 class Message < ApplicationRecord
+  # ----- アソシエーション ------------------------
+  has_many   :notifications, dependent: :destroy
   belongs_to :tweet
   belongs_to :user
-  has_many :notifications, dependent: :destroy
 
+
+  # ----- バリデーション --------------------------
   with_options presence: true do
     validates :text
     validates :user

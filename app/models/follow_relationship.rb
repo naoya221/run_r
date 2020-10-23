@@ -1,7 +1,12 @@
 class FollowRelationship < ApplicationRecord
-  belongs_to :follower, class_name: 'User'
+  # ----- アソシエーション -------------------
+  belongs_to :follower,  class_name: 'User'
   belongs_to :following, class_name: 'User'
 
-  validates :follower_id, presence: true
-  validates :following_id, presence: true
+
+  # ----- バリデーション --------------------
+  with_options presence: true do
+    validates :follower_id
+    validates :following_id
+  end
 end
