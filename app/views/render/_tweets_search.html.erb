@@ -21,7 +21,13 @@
 
   <div class="mt-5">
     <div class="tweets-contents-title text-center">
-      <span class="text-success">＃</span>検索結果
+        <% if @path.is('tweets#search') && params[:keyword] != '' %>
+          <span class="text-success"><%= params[:keyword] %> </span>の検索結果
+        <% elsif @path.is('tweets#tag_search') %>
+          <span class="text-success">＃ <%= @tag.name %> </span>の検索結果
+        <% else %>
+          全投稿一覧
+        <% end %>
     </div>
 
     <%= render "render/tweets_all_contents" %>
