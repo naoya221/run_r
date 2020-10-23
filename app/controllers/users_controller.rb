@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     get_half_vdot              # 登録してあるハーフのベストタイムを元に、ハーフのvdot（走力レベル）を取得
     get_full_vdot              # 登録してあるフルのベストタイムを元に、フルのvdot（走力レベル）を取得
     target_record_and_pace     # 目指すべきベストタイムと推奨ペースを取得
-    runner_level               # 走力に応じた称号を取得
+    runner_title               # 走力に応じた称号を取得
   end
 
   def followings
@@ -28,13 +28,9 @@ class UsersController < ApplicationController
 
   private
 
-  def runner_level
-    levels = [@five_vdot,
-              @ten_vdot,
-              @half_vdot,
-              @full_vdot]
-
-    max_vdot = levels.max
+  def runner_title
+    vdots = [@five_vdot, @ten_vdot, @half_vdot, @full_vdot]
+    max_vdot = vdots.max
 
     if max_vdot >= 25
       @runner_level_num = 0
