@@ -1,5 +1,6 @@
 class Notification < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
+  ACTION_VALUES = %w[like follow message].freeze
 
   # ----- アソシエーション -----------------------------------
     belongs_to :visitor, class_name: 'User', optional: true
@@ -15,5 +16,4 @@ class Notification < ApplicationRecord
       validates :action,  inclusion: { in: ACTION_VALUES }
       validates :checked, inclusion: { in: [true, false] }
     end
-    ACTION_VALUES = %w[like follow message].freeze
 end
