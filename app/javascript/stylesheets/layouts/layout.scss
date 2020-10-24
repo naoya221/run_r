@@ -162,3 +162,15 @@ footer {
   font-size: 15px;
   color: #47c43c;
 }
+
+@media (max-width: 800px) {
+
+  .forms-container {
+    padding-top: 30px;
+  }
+
+  .forms-content {
+    padding: 10px;
+  }
+
+}
