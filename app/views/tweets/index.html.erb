@@ -43,7 +43,7 @@
     <div class="row mt-4">
       <% @tag_lists.each do |tag| %>
           <%= link_to tag_tweets_path(tag_id: tag.id) do %>
-            <div class="tag text-dark col-lg-11 link"><%= "＃#{tag.name}" %></div>
+            <div class="tag text-dark link"><%= "＃#{tag.name}" %></div>
           <% end %>
       <% end %>
     </div>
