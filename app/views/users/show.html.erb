@@ -34,9 +34,9 @@
                     <% elsif @user.id == current_user&.id && @user.email != 'thank@you' %>
                         <div class="mb-5 ml-4">
                             <%= link_to edit_user_registration_path(@user) do %>
-                                <button type="button" class="btn btn-success text-white nav-link">
+                                <button type="button" class="user-edit-btn btn btn-success text-white nav-link">
                                     <i class="fa fa-edit mr-1" aria-hidden="true"></i>
-                                    マイページの編集
+                                    プロフィールの編集
                                 </button>
                             <% end %>
                         </div>

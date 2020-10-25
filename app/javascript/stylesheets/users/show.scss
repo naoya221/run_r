@@ -283,8 +283,13 @@
   }
 
    .user-top-btn {
-     margin-top: 30px;
+    margin-top: 30px;
     margin-left: 52%;
+  }
+
+  .user-edit-btn {
+    font-size: 12px;
+    padding: 6px 12px;
   }
 
   .user-introduction-text {
@@ -341,6 +346,11 @@
 
   .user-profile {
     margin: 50px 20px;
+  }
+
+  .user-edit-btn {
+    font-size: 8px;
+    padding: 4px 8px;
   }
 
   .user-show-title {
