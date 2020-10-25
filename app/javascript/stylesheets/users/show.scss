@@ -118,7 +118,6 @@
 }
 
 .next-record-title {
-  display: inline-block;
   font-family: monospace;
   font-size: 30px;
   margin-left: 30px;
@@ -126,8 +125,15 @@
 }
 
 .practice-records {
-  margin-left: 50px;
+  justify-content: space-around;
   margin-bottom: 40px;
+  margin-left: 80px;
+  display: flex;
+  max-width: 570px;
+}
+
+.next-record-group {
+  // display: flex;
 }
 
 .practice-text {
@@ -173,38 +179,38 @@
 }
 
 .tab_list {
-overflow: hidden;
+  overflow: hidden;
 }
 
 .tab_list li {
-float: left;
-padding: 10px 20px;
-cursor: pointer;
-transition: 0.5s;
+  float: left;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.5s;
 }
 
 .tab_list li:not(:first-child) {
-border-left: none;
+  border-left: none;
 }
 
 .tab_list li.active {
-/* 選択中のタブ */
-background-color: rgb(36, 163, 36);
-border: 2px solid rgb(36, 163, 36);
-border-bottom-style: none;
-color: white;
-cursor: auto;
+  /* 選択中のタブ */
+  background-color: rgb(36, 163, 36);
+  border: 2px solid rgb(36, 163, 36);
+  border-bottom-style: none;
+  color: white;
+  cursor: auto;
 }
 
 .article{
-overflow: hidden;
-margin-top: -1px;
+  overflow: hidden;
+  margin-top: -1px;
 }
 
 .article li {
-/* 練習メニュー大枠 */
-padding: 40px;
-border: 2px solid rgb(36, 163, 36);
+  /* 練習メニュー大枠 */
+  padding: 40px;
+  border: 2px solid rgb(36, 163, 36);
 }
 
 @media (max-width: 1300px) {
@@ -242,6 +248,10 @@ border: 2px solid rgb(36, 163, 36);
   .user-record-content {
     max-width: 500px;
     margin-bottom: 50px;
+  }
+
+  .tab_list li {
+    padding: 5px 10px;
   }
 
 }
@@ -289,6 +299,14 @@ border: 2px solid rgb(36, 163, 36);
 
   .next-record-title {
     margin-left: 0;
+    margin-bottom: 40px;
+  }
+
+  .practice-records {
+    display: block;
+    margin-bottom: 0;
+    margin-left: 0;
+    max-width: none;
   }
 
   .user-record-text {
@@ -305,6 +323,17 @@ border: 2px solid rgb(36, 163, 36);
     display: block;
   }
 
+  .practice-menus {
+    display: none;
+  }
+
+  .practice-record {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 0 auto 15px;
+    font-size: 20px;
+  }
 
 }
 
@@ -352,6 +381,10 @@ border: 2px solid rgb(36, 163, 36);
 
   .user-show-vdot-btn-text {
     font-size: 12px;
+  }
+
+  .next-record-title {
+    font-size: 22px;
   }
 
 }

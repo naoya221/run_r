@@ -196,36 +196,52 @@
         <div class="next-record-title">
             次はこの記録にチャレンジ！
         </div>
-        <div class="d-flex practice-records">
-            <div class="ml-5 mr-5 text-center">
-                <strong>5km</strong><br>
-                <% if @vdot_record_five.present? %>
-                <%= "#{@vdot_record_five.five_km_minute}分" %>
-                <%= "#{@vdot_record_five.five_km_second}秒" %>
-                <% end %>
+        <div class="practice-records">
+            <div class="text-center">
+                <div class="practice-record">
+                    <div><strong>5km</strong></div>
+                    <div>
+                        <% if @vdot_record_five.present? %>
+                        <%= "#{@vdot_record_five.five_km_minute}分" %>
+                        <%= "#{@vdot_record_five.five_km_second}秒" %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
-            <div class="ml-4 mr-5 text-center">
-                <strong>10km</strong><br>
-                <% if @vdot_record_ten.present? %>
-                <%= "#{@vdot_record_ten.ten_km_minute}分" %>
-                <%= "#{@vdot_record_ten.ten_km_second}秒" %>
-                <% end %>
+            <div class="text-center">
+                <div class="practice-record">
+                    <div><strong>10km</strong></div>
+                    <div>
+                        <% if @vdot_record_ten.present? %>
+                        <%= "#{@vdot_record_ten.ten_km_minute}分" %>
+                        <%= "#{@vdot_record_ten.ten_km_second}秒" %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
-            <div class="ml-2 mr-4 text-center">
-                <strong>ハーフ</strong><br>
-                <% if @vdot_record_half.present? %>
-                <%= "#{@vdot_record_half.half_hour}分" %>
-                <%= "#{@vdot_record_half.half_minute}分" %>
-                <%= "#{@vdot_record_half.half_second}秒" %>
-                <% end %>
+            <div class="text-center">
+                <div class="practice-record">
+                    <div><strong>ハーフ</strong></div>
+                    <div>
+                        <% if @vdot_record_half.present? %>
+                        <%= "#{@vdot_record_half.half_hour}分" %>
+                        <%= "#{@vdot_record_half.half_minute}分" %>
+                        <%= "#{@vdot_record_half.half_second}秒" %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
-            <div class="ml-3 text-center">
-                <strong>フル</strong><br>
-                <% if @vdot_record_full.present? %>
-                <%= "#{@vdot_record_full.full_hour}分" %>
-                <%= "#{@vdot_record_full.full_minute}分" %>
-                <%= "#{@vdot_record_full.full_second}秒" %>
-                <% end %>
+            <div class="text-center">
+                <div class="practice-record">
+                    <div><strong>フル</strong></div>
+                    <div>
+                        <% if @vdot_record_full.present? %>
+                        <%= "#{@vdot_record_full.full_hour}分" %>
+                        <%= "#{@vdot_record_full.full_minute}分" %>
+                        <%= "#{@vdot_record_full.full_second}秒" %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
