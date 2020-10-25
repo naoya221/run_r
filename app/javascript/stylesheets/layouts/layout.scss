@@ -173,4 +173,16 @@ footer {
     padding: 10px;
   }
 
+  .titles {
+    font-size: 30px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .titles {
+    font-size: 25px;
+  }
+
 }

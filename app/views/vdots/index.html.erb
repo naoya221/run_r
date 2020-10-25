@@ -1,8 +1,8 @@
 <div class="vdot-container">
 
-  <div class="titles vdot-title">走力レベル一覧</div>
+  <div class="titles">走力レベル一覧</div>
   <% if @user %>
-    <div class="ml-4 mb-5">
+    <div class="vdot-info-text ml-4 mb-5">
       <%= link_to user_path(@user), class: "link" do %>
         <% if @user.image.present? %>
           <img src=<%= @user.image %> class="mini-content-user-image">
@@ -15,7 +15,7 @@
       <span class="ml-2 vdot-marking"></span>
     </div>
   <% else %>
-     <div class="ml-4 mb-5">
+     <div class="vdot-info-text ml-4 mb-5">
         ベストタイムを登録すると、該当する走力レベル部分が
         <span class="ml-2 vdot-marking"></span>
         で表示されます。<br>
@@ -72,9 +72,9 @@
 
   <br><br><br>
 
-  <div class="titles vdot-title">走力別の目安ペース一覧</div>
+  <div class="titles">走力別の目安ペース一覧</div>
     <% if @user %>
-      <div class="ml-4 mb-5">
+      <div class="vdot-info-text ml-4 mb-5">
         <%= link_to user_path(@user), class: "link" do %>
           <% if @user.image.present? %>
           <img src=<%= @user.image %> class="mini-content-user-image">
@@ -87,7 +87,7 @@
         <span class="ml-2 vdot-marking"></span>
       </div>
     <% else %>
-      <div class="ml-4 mb-5">
+      <div class="vdot-info-text ml-4 mb-5">
         ベストタイムを登録すると、該当する走力レベル部分が
         <span class="ml-2 vdot-marking"></span>
         で表示されます。<br>
