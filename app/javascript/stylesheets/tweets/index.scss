@@ -1,5 +1,6 @@
 .slide-content {
   margin-top: 20px;
+  justify-content: space-around;
 }
 
 .slide-text {
@@ -24,8 +25,7 @@
 
 .slide-border {
   border-top: 1px solid rgb(214, 214, 214);
-  padding-top: 70px;
-  margin: 70px 70px 0;
+  margin: 70px;
 }
 
 .tweet-btn-group {
@@ -33,15 +33,9 @@
   margin: 50px auto 70px;
 }
 
-.tweet-btn-group-text {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
 .tweet-btn {
   background-color: rgb(80, 173, 36);
   font-size: 25px;
-
 }
 
 .fixed-btn-dummy {
@@ -85,7 +79,7 @@
 .search-group {
   text-align: center;
   width: 80%;
-  padding: 40px 50px 60px;
+  padding: 40px 40px 60px 50px;
   border: 2px solid gray;
   border-radius: 10px;
 }
@@ -107,8 +101,8 @@
 .tag {
   background-color:  rgb(202, 226, 190);
   color: black;
-  padding: 2px 5px;
-  margin: 5px 10px;
+  padding: 2px 13px;
+  margin: 5px;
   border-radius: 5px;
 }
 
@@ -178,21 +172,56 @@
 
 @media (max-width: 800px) {
 
+  .slide-content {
+    margin-right: 5vw;
+  }
+
+  .slide-border {
+    margin: 0 10px 30px;
+  }
+
   .slide-text h4 {
-    font-size: 35px;
+    font-size: 30px;
   }
 
   .slide-text {
     display: block;
     margin: 10px auto;
+    padding-left: 10vw;
+  }
+
+  .search-group {
+    width: 100%;
+    padding: 20px 10px 20px 20px;
+    margin: 0 20px;
+  }
+
+  .search-input {
+    width: 100%;
   }
 
   .search-form {
     text-align: center;
   }
 
+  .tag {
+    padding: 2px 8px;
+    margin: 3px;
+    font-size: 12px;
+  }
+
   .search-input {
     width: 60%;
+  }
+
+  .tweet-btn-group {
+    text-align: center;
+    margin: 30px auto 40px;
+  }
+
+  .tweet-btn {
+    background-color: rgb(80, 173, 36);
+    font-size: 20px;
   }
 
 }
@@ -217,10 +246,15 @@
     font-size: 13px;
     display: block;
     margin: 10px auto;
+    padding-left: 10vw;
   }
 
   .paginate {
     font-size: 15px;
+  }
+
+  .tweets-contents-title {
+    font-size: 22px;
   }
 
 }

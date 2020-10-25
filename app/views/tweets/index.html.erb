@@ -1,4 +1,4 @@
-<div class="slide-content row justify-content-around">
+<div class="slide-content row">
   <div class="slide-image">
     <ul class="slider mt-5">
       <li>
@@ -34,16 +34,16 @@
 <div class="d-flex justify-content-center">
   <div class="search-group">
     <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |f| %>
-    <div class="d-flex align-items-center justify-content-center w-100">
-        <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input p-2 ml-4" %>
-        <button type="submit" class="search-btn link"><i class="fas fa-search"></i></button>
-    </div>
+      <div class="d-flex align-items-center justify-content-center w-100">
+          <%= f.text_field :keyword, placeholder: "投稿を検索する", class: "search-input p-2 ml-4" %>
+          <button type="submit" class="search-btn link"><i class="fas fa-search"></i></button>
+      </div>
     <% end %>
 
     <div class="row mt-4">
       <% @tag_lists.each do |tag| %>
           <%= link_to tag_tweets_path(tag_id: tag.id) do %>
-            <div class="tag text-dark col-lg-11 link"><%= "＃#{tag.name}" %></div>
+            <div class="tag text-dark link"><%= "＃#{tag.name}" %></div>
           <% end %>
       <% end %>
     </div>

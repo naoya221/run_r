@@ -1,0 +1,36 @@
+.notification-contents {
+  margin-top: 20px;
+  max-width: 500px;
+}
+
+.notification-contents a {
+  color: black;
+  font-weight: bold;
+}
+
+.notification-content {
+  border-bottom: 1px solid gray;
+  padding: 0 35px 2px;
+  margin-bottom: 20px;
+}
+
+.notification-comment {
+  font-size: 12px;
+}
+
+@media (max-width: 800px) {
+
+  .notification-content {
+    padding: 0 15px 2px;
+    margin-bottom: 10px;
+  }
+
+  .notification-index {
+    font-size: 12px;
+  }
+
+  .notification-comment {
+    font-size: 8px;
+  }
+
+}

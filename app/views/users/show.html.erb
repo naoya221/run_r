@@ -1,63 +1,58 @@
 <div class="user-container">
 
-    <div class="user-introduction-content d-flex justify-content-around">
-        <div class="user-profile d-flex">
-            <div class="show-image">
-                <% if @user.image.present? %>
-                    <img src=<%= @user.image %> class = "icon_image">
-                <% else %>
-                    <img src="/images/dog2.png" class = "icon_image">
-                <% end %>
-            </div>
+    <div class="user-profile">
+        <div class="show-image">
+            <% if @user.image.present? %>
+                <img src=<%= @user.image %> class = "icon_image">
+            <% else %>
+                <img src="/images/dog2.png" class = "icon_image">
+            <% end %>
+        </div>
 
-            <div>
-                <div class="user-show-name text-left ml-4">
-                    <%= @user.nickname %>
+        <div class="user-introduction">
+            <div class="user-show-name">
+                <%= @user.nickname %>
+            </div>
+            <div class="user-follow-group">
+                <div class="d-flex follow-count">
+                    <%= link_to following_user_path(@user), class: "follow nav-link text-dark" do %>
+                        <strong><%= "#{@user.followings.count}" %></strong>フォロー中
+                    <% end %>
+                    <%= link_to followers_user_path(@user), class: "follow nav-link text-dark" do %>
+                        <strong><%= "#{@user.followers.count}" %></strong>フォロワー
+                    <% end %>
                 </div>
-                <div class="d-flex justify-content-between ml-2">
-                    <div class="d-flex">
-                        <%= link_to following_user_path(@user), class: "nav-link text-dark" do %>
-                            <strong><%= "#{@user.followings.count}" %></strong>フォロー中
-                        <% end %>
-                        <%= link_to followers_user_path(@user), class: "nav-link text-dark" do %>
-                                <strong><%= "#{@user.followers.count}" %></strong>フォロワー
-                        <% end %>
-                    </div>
-                    <div class="">
-                        <% if user_signed_in? && @user != current_user%>
-                            <div id="follow_form">
-                                <% if current_user.following?(@user) %>
-                                <%= render "unfollow" %>
-                                <% else %>
-                                <%= render "follow" %>
-                                <% end %>
-                            </div>
-                        <% end %>
-                    </div>
+                <div class="user-top-btn">
+                    <% if user_signed_in? && @user != current_user%>
+                        <div id="follow_form">
+                            <% if current_user.following?(@user) %>
+                            <%= render "unfollow" %>
+                            <% else %>
+                            <%= render "follow" %>
+                            <% end %>
+                        </div>
+                    <% elsif @user.id == current_user&.id && @user.email != 'thank@you' %>
+                        <div class="mb-5 ml-4">
+                            <%= link_to edit_user_registration_path(@user) do %>
+                                <button type="button" class="user-edit-btn btn btn-success text-white nav-link">
+                                    <i class="fa fa-edit mr-1" aria-hidden="true"></i>
+                                    プロフィールの編集
+                                </button>
+                            <% end %>
+                        </div>
+                    <% end %>
                 </div>
-                <div class="text-left ml-4 mt-3">
-                    <%= @user.introduction %>
-                </div>
+            </div>
+            <div class="user-introduction-text">
+                <%= @user.introduction %>
             </div>
         </div>
-        <% if @user.id == current_user&.id && @user.email != 'thank@you' %>
-            <div class="m-2 mb-5 mt-5">
-                <%= link_to edit_user_registration_path(@user) do %>
-                    <button type="button" class="btn btn-success text-white nav-link">
-                        <i class="fa fa-edit mr-1" aria-hidden="true"></i>
-                        マイページの編集
-                    </button>
-                <% end %>
-            </div>
-        <% end %>
-        <div></div>
-        <div></div>
     </div>
 
     <div class="user-show-border"></div>
 
-    <div class="user-record-content row justify-content-between">
-        <div class="col-lg-3">
+    <div class="user-record-container row">
+        <div class="user-record-content col-lg-4">
             <div class="user-show-title">
                 ベストタイム
             </div>
@@ -75,7 +70,7 @@
             </div>
 
             <div class="user-record-group">
-                <div class="d-flex align-items-center justify-content-between mt-2 mb-3">
+                <div class="user-record mt-2 mb-3">
                     5km
                     <div>
                         <% if FiveKmRecord.where(user_id: params[:id]).present? %>
@@ -85,7 +80,7 @@
                     </div>
                 </div>
 
-                <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="user-record mb-3">
                     10km
                     <div>
                         <% if TenKmRecord.where(user_id: params[:id]).present? %>
@@ -95,7 +90,7 @@
                     </div>
                 </div>
 
-                <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="user-record mb-3">
                     ハーフ
                     <div>
                         <% if HalfRecord.where(user_id: params[:id]).present? %>
@@ -106,7 +101,7 @@
                     </div>
                 </div>
 
-                <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="user-record mb-3">
                     フル
                     <div>
                         <% if FullRecord.where(user_id: params[:id]).present? %>
@@ -119,22 +114,20 @@
             </div>
         </div>
 
-        <div class="d-flex">
+        <div>
+            <div class="user-show-title">
+                走力グラフ
+            </div>
             <div class="graph-group">
-                <div class="user-show-title">
-                    走力グラフ
-                </div>
-                <div>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
-                    <div class="graph-area-parent">
-                        <canvas id="graph-area" height="3" width="10"></canvas>
-                    </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
+                <div class="graph-area-parent">
+                    <canvas id="graph-area"></canvas>
                 </div>
             </div>
         </div>
 
-        <div class="runner-levels">
-            <div class="runner-title">
+        <div class="runner-titles">
+            <div class="runner-title mt-4">
                 <strong>25：最強ランナー</strong>
                     <i class="fas fa-running user-show-hide"></i>
                     <br>
@@ -143,7 +136,7 @@
                 </span>
             </div>
 
-            <div class="runner-title mt-2">
+            <div class="runner-title">
                 <strong>20：プロランナー</strong>
                     <i class="fas fa-running user-show-hide"></i>
                     <br>
@@ -152,7 +145,7 @@
                 </span>
             </div>
 
-            <div class="runner-title mt-2">
+            <div class="runner-title">
                 <strong>15：スーパーランナー</strong>
                     <i class="fas fa-running user-show-hide"></i>
                     <br>
@@ -161,7 +154,7 @@
                 </span>
             </div>
 
-            <div class="runner-title mt-2">
+            <div class="runner-title">
                 <strong>10：ベテランランナー</strong>
                     <i class="fas fa-running user-show-hide"></i>
                     <br>
@@ -170,7 +163,7 @@
                 </span>
             </div>
 
-            <div class="runner-title mt-2">
+            <div class="runner-title">
                 <strong>5：アマチュアランナー</strong>
                     <i class="fas fa-running user-show-hide"></i>
                     <br>
@@ -179,7 +172,7 @@
                 </span>
             </div>
 
-            <div class="runner-title mt-2">
+            <div class="runner-title">
                 <strong>1：駆け出しランナー</strong>
                     <i class="fas fa-running user-show-hide"></i>
                     <br>
@@ -190,9 +183,9 @@
         </div>
     </div>
 
-    <div class="d-flex justify-content-end">
+    <div class="user-show-vdot-btn">
       <%= link_to user_vdots_path(@user) do %>
-        <button type="button" class="btn btn-success text-white nav-link text-center mt-5">
+        <button type="button" class="user-show-vdot-btn-text btn btn-success text-white nav-link text-center mt-5">
             <%= @user.nickname %>の走力を一覧表で確認
             <i class="fa fa-angle-right ml-2" aria-hidden="true"></i>
         </button>
@@ -203,36 +196,52 @@
         <div class="next-record-title">
             次はこの記録にチャレンジ！
         </div>
-        <div class="d-flex practice-records">
-            <div class="ml-5 mr-5 text-center">
-                <strong>5km</strong><br>
-                <% if @vdot_record_five.present? %>
-                <%= "#{@vdot_record_five.five_km_minute}分" %>
-                <%= "#{@vdot_record_five.five_km_second}秒" %>
-                <% end %>
+        <div class="practice-records">
+            <div class="text-center">
+                <div class="practice-record">
+                    <div><strong>5km</strong></div>
+                    <div>
+                        <% if @vdot_record_five.present? %>
+                        <%= "#{@vdot_record_five.five_km_minute}分" %>
+                        <%= "#{@vdot_record_five.five_km_second}秒" %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
-            <div class="ml-4 mr-5 text-center">
-                <strong>10km</strong><br>
-                <% if @vdot_record_ten.present? %>
-                <%= "#{@vdot_record_ten.ten_km_minute}分" %>
-                <%= "#{@vdot_record_ten.ten_km_second}秒" %>
-                <% end %>
+            <div class="text-center">
+                <div class="practice-record">
+                    <div><strong>10km</strong></div>
+                    <div>
+                        <% if @vdot_record_ten.present? %>
+                        <%= "#{@vdot_record_ten.ten_km_minute}分" %>
+                        <%= "#{@vdot_record_ten.ten_km_second}秒" %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
-            <div class="ml-2 mr-4 text-center">
-                <strong>ハーフ</strong><br>
-                <% if @vdot_record_half.present? %>
-                <%= "#{@vdot_record_half.half_hour}分" %>
-                <%= "#{@vdot_record_half.half_minute}分" %>
-                <%= "#{@vdot_record_half.half_second}秒" %>
-                <% end %>
+            <div class="text-center">
+                <div class="practice-record">
+                    <div><strong>ハーフ</strong></div>
+                    <div>
+                        <% if @vdot_record_half.present? %>
+                        <%= "#{@vdot_record_half.half_hour}分" %>
+                        <%= "#{@vdot_record_half.half_minute}分" %>
+                        <%= "#{@vdot_record_half.half_second}秒" %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
-            <div class="ml-3 text-center">
-                <strong>フル</strong><br>
-                <% if @vdot_record_full.present? %>
-                <%= "#{@vdot_record_full.full_hour}分" %>
-                <%= "#{@vdot_record_full.full_minute}分" %>
-                <%= "#{@vdot_record_full.full_second}秒" %>
-                <% end %>
+            <div class="text-center">
+                <div class="practice-record">
+                    <div><strong>フル</strong></div>
+                    <div>
+                        <% if @vdot_record_full.present? %>
+                        <%= "#{@vdot_record_full.full_hour}分" %>
+                        <%= "#{@vdot_record_full.full_minute}分" %>
+                        <%= "#{@vdot_record_full.full_second}秒" %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

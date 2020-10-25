@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   # ----- バリデーション -----------------------------------------------------------------------------------------------
   validates :nickname,     presence: true, length: { maximum: 10 }
-  validates :introduction, length: { maximum: 10 }
+  validates :introduction, length: { maximum: 100 }
 
 
   # ----- メソッド ----------------------------------------------------------------------------------------------------
