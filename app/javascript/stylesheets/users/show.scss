@@ -1,20 +1,13 @@
 .user-container {
-  padding-top: 100px;
+  padding-top: 30px;
   max-width: 1300px;
   width: 100vw;
 }
 
-.user-introduction-content {
-  margin: 20px 10px;
-  padding-bottom: 30px;
-}
-
 .user-profile {
-  margin-top: 30px;
-  margin-left: 20px;
+  margin: 50px 70px;
   text-align: center;
-  display: inline-block;
-  max-width: 600px;
+  display: flex;
 }
 
 .icon_image {
@@ -27,11 +20,25 @@
 .user-show-name {
   font-weight: bold;
   font-size: 18px;
+  text-align: left;
+  margin-left: 50px;
+}
+
+.user-follow-group  {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 30px;
+}
+
+.user-introduction-text {
+  max-width: 400px;
+  text-align: left;
+  margin: 20px 0 0 30px;
 }
 
 .user-show-border {
   border-bottom: 1px solid rgb(182, 182, 182);
-  padding-bottom: 30px;
+  margin: 0 20px;
 }
 
 .user-record-content {
@@ -185,6 +192,40 @@ border: 2px solid rgb(36, 163, 36);
 
 @media (max-width: 800px) {
 
+  .user-profile {
+    margin-top: 30px;
+    display: block;
+    text-align: center;
+  }
+
+  .user-introduction {
+    text-align: center;
+  }
+
+  .user-show-name {
+    text-align: center;
+    margin: 10px 0 20px;
+  }
+
+  .user-follow-group  {
+    display: block;
+    text-align: center;
+  }
+
+  .follow-count {
+    justify-content: center;
+  }
+
+   .user-top-btn {
+     margin-top: 30px;
+    margin-left: 52%;
+  }
+
+  .user-introduction-text {
+    max-width: 400px;
+    margin: 30px auto 20px;
+  }
+
   #graph-area {
     margin-bottom: 50px;
   }
@@ -209,8 +250,21 @@ border: 2px solid rgb(36, 163, 36);
 
 @media (max-width: 480px) {
 
+  .user-profile {
+    margin: 50px 20px;
+  }
+
   .user-show-title {
     font-size: 25px;
+  }
+
+  .user-intrduction-text {
+    max-width: 300px;
+    margin: 20px auto 0;
+  }
+
+  .user-show-border {
+    margin: 0 10px;
   }
 
   .user-record-text {

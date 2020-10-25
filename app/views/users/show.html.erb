@@ -1,57 +1,52 @@
 <div class="user-container">
 
-    <div class="user-introduction-content d-flex justify-content-around">
-        <div class="user-profile d-flex">
-            <div class="show-image">
-                <% if @user.image.present? %>
-                    <img src=<%= @user.image %> class = "icon_image">
-                <% else %>
-                    <img src="/images/dog2.png" class = "icon_image">
-                <% end %>
-            </div>
+    <div class="user-profile">
+        <div class="show-image">
+            <% if @user.image.present? %>
+                <img src=<%= @user.image %> class = "icon_image">
+            <% else %>
+                <img src="/images/dog2.png" class = "icon_image">
+            <% end %>
+        </div>
 
-            <div>
-                <div class="user-show-name text-left ml-4">
-                    <%= @user.nickname %>
+        <div class="user-introduction">
+            <div class="user-show-name">
+                <%= @user.nickname %>
+            </div>
+            <div class="user-follow-group">
+                <div class="d-flex follow-count">
+                    <%= link_to following_user_path(@user), class: "follow nav-link text-dark" do %>
+                        <strong><%= "#{@user.followings.count}" %></strong>フォロー中
+                    <% end %>
+                    <%= link_to followers_user_path(@user), class: "follow nav-link text-dark" do %>
+                        <strong><%= "#{@user.followers.count}" %></strong>フォロワー
+                    <% end %>
                 </div>
-                <div class="d-flex justify-content-between ml-2">
-                    <div class="d-flex">
-                        <%= link_to following_user_path(@user), class: "nav-link text-dark" do %>
-                            <strong><%= "#{@user.followings.count}" %></strong>フォロー中
-                        <% end %>
-                        <%= link_to followers_user_path(@user), class: "nav-link text-dark" do %>
-                                <strong><%= "#{@user.followers.count}" %></strong>フォロワー
-                        <% end %>
-                    </div>
-                    <div class="">
-                        <% if user_signed_in? && @user != current_user%>
-                            <div id="follow_form">
-                                <% if current_user.following?(@user) %>
-                                <%= render "unfollow" %>
-                                <% else %>
-                                <%= render "follow" %>
-                                <% end %>
-                            </div>
-                        <% end %>
-                    </div>
+                <div class="user-top-btn">
+                    <% if user_signed_in? && @user != current_user%>
+                        <div id="follow_form">
+                            <% if current_user.following?(@user) %>
+                            <%= render "unfollow" %>
+                            <% else %>
+                            <%= render "follow" %>
+                            <% end %>
+                        </div>
+                    <% elsif @user.id == current_user&.id && @user.email != 'thank@you' %>
+                        <div class="mb-5 ml-4">
+                            <%= link_to edit_user_registration_path(@user) do %>
+                                <button type="button" class="btn btn-success text-white nav-link">
+                                    <i class="fa fa-edit mr-1" aria-hidden="true"></i>
+                                    マイページの編集
+                                </button>
+                            <% end %>
+                        </div>
+                    <% end %>
                 </div>
-                <div class="text-left ml-4 mt-3">
-                    <%= @user.introduction %>
-                </div>
+            </div>
+            <div class="user-introduction-text">
+                <%= @user.introduction %>
             </div>
         </div>
-        <% if @user.id == current_user&.id && @user.email != 'thank@you' %>
-            <div class="m-2 mb-5 mt-5">
-                <%= link_to edit_user_registration_path(@user) do %>
-                    <button type="button" class="btn btn-success text-white nav-link">
-                        <i class="fa fa-edit mr-1" aria-hidden="true"></i>
-                        マイページの編集
-                    </button>
-                <% end %>
-            </div>
-        <% end %>
-        <div></div>
-        <div></div>
     </div>
 
     <div class="user-show-border"></div>
