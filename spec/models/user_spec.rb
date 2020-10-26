@@ -24,10 +24,6 @@ describe User do
         @user.password_confirmation = 'abcdef'
         expect(@user).to be_valid
       end
-      it '自己紹介文が100文字以内なら登録できる' do
-        @user.introduction = "a" * 100
-        expect(@user).to be_valid
-      end
     end
 
     context 'ユーザー新規登録がうまくいかないとき' do
