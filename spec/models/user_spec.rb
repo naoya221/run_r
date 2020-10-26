@@ -36,8 +36,8 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include('ニックネームを入力してください')
       end
-      it 'nicknameが10文字以上だと登録できない' do
-        @user.nickname = 'oosakinaoya'
+      it 'nicknameが11文字以上だと登録できない' do
+        @user.nickname = 'a' * 11
         @user.valid?
         expect(@user.errors.full_messages).to include('ニックネームは10文字以内で入力してください')
       end
@@ -80,7 +80,7 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
-      it '自己紹介文が100文字を超えると登録できない' do
+      it '自己紹介文が101文字だと登録できない' do
         @user.introduction = "a" * 101
         @user.valid?
         expect(@user.errors.full_messages).to include('自己紹介文は100文字以内で入力してください')
