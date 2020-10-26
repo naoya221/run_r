@@ -16,5 +16,6 @@ ja:
        place_image: 場所の画像
        address: 住所
        content: 何かひとこと
+       level: 対象者
      message: 
        text: テキスト
