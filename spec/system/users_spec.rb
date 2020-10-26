@@ -9,11 +9,11 @@ RSpec.describe 'ユーザー新規登録', type: :system do
     it '正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
       # トップページに移動する
       visit root_path
-      # トップページ・練習ページ・ログインページ（ログイン・かんたんログイン）・新規登録ページに遷移するボタンがある
+      # トップページ・走力一覧ページ・ログインページ（ログイン・かんたんログイン）・新規登録ページに遷移するボタンがある
       expect(page).to have_link 'Run Record', href: root_path
-      expect(page).to have_link '練習', href: vdots_path
-      expect(page).to have_link 'ログイン', href: new_user_session_path
+      expect(page).to have_link '走力一覧', href: vdots_path
       expect(page).to have_link 'かんたんログイン', href: new_user_session_path
+      expect(page).to have_link 'ログイン', href: new_user_session_path
       expect(page).to have_link '新規登録', href: new_user_registration_path
       # 新規登録ページへ移動する
       visit new_user_registration_path
@@ -22,14 +22,15 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       fill_in 'user_email', with: @user.email
       fill_in 'user_password', with: @user.password
       fill_in 'user_password_confirmation', with: @user.password_confirmation
-      # # 新規登録ボタンを押すとユーザーモデルのカウントが1上がる
+      # # 新規登録ボタンを押すとuserモデルのカウントが1上がる
       expect  do
         find('input[name="commit"]').click
       end.to change { User.count }.by(1)
       # トップページへ遷移する
       expect(current_path).to eq root_path
-      # マイページへのボタン・ログアウトボタンが表示されていて、ログインボタンや新規登録ボタンが表示されていない
-      expect(page).to have_content "#{@user.nickname}：さん"
+      # お知らせページ・マイページ・ログアウトボタンが表示されていて、ログインボタンや新規登録ボタンが表示されていない
+      expect(page).to have_link 'お知らせ', href: notifications_path
+      expect(page).to have_content @user.nickname
       expect(page).to have_link 'ログアウト', href: destroy_user_session_path
       expect(page).to have_no_link 'ログイン', href: new_user_session_path
       expect(page).to have_no_link 'かんたんログイン', href: new_user_session_path
@@ -37,9 +38,9 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       # ログアウトボタンをクリックし、再度トップページに遷移する
       find_link('ログアウト').click
       expect(current_path).to eq root_path
-      # 新規登録ページへ遷移するボタンやログインページへ遷移するボタンが表示されている
-      expect(page).to have_link 'ログイン', href: new_user_session_path
+      # ログインページや新規登録ページへ遷移するボタンが表示されている
       expect(page).to have_link 'かんたんログイン', href: new_user_session_path
+      expect(page).to have_link 'ログイン', href: new_user_session_path
       expect(page).to have_link '新規登録', href: new_user_registration_path
     end
   end
@@ -80,7 +81,7 @@ RSpec.describe 'ログイン', type: :system do
       fill_in 'user_email', with: @user.email
       fill_in 'user_password', with: @user.password
       # ログインボタンを押す
-      all('input[name="commit"]')[1].click
+      all('input[name="commit"]')[0].click
       # トップページへ遷移する
       expect(current_path).to eq root_path
       # 新規登録ボタン・ログインボタンが表示されていない
