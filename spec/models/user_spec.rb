@@ -6,21 +6,26 @@ describe User do
 
   describe 'ユーザー新規登録' do
     context '新規登録がうまくいくとき' do
-      it 'nicknameとemail、passwordとpassword_confirmation、画像が存在すれば登録できる' do
+      it '全項目が存在する時、登録できる' do
         expect(@user).to be_valid
       end
-      it '画像が空でも登録できる' do
+      it '画像と自己紹介文が空でも登録できる' do
         @user.image = ''
+        @user.introduction = ''
         expect(@user).to be_valid
       end
-      it 'passwordが数字だけでも登録できる' do
+      it 'passwordが数字だけ、且つ6文字以上で登録できる' do
         @user.password = '123456'
         @user.password_confirmation = '123456'
         expect(@user).to be_valid
       end
-      it 'passwordが英語だけでも登録できる' do
+      it 'passwordが英語だけ、且つ6文字以上で登録できる' do
         @user.password = 'abcdef'
         @user.password_confirmation = 'abcdef'
+        expect(@user).to be_valid
+      end
+      it '自己紹介文が100文字以内なら登録できる' do
+        @user.introduction = "a" * 100
         expect(@user).to be_valid
       end
     end
@@ -74,6 +79,11 @@ describe User do
         @user.password_confirmation = 'abc123'
         @user.valid?
         expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
+      end
+      it '自己紹介文が100文字を超えると登録できない' do
+        @user.introduction = "a" * 101
+        @user.valid?
+        expect(@user.errors.full_messages).to include('自己紹介文は100文字以内で入力してください')
       end
     end
   end
