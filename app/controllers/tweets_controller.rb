@@ -1,7 +1,7 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search, :tag_search]
   before_action :set_current_tweet, only: [:destroy, :edit, :update]
-  before_action :get_recommended_tweets, only: [:index, :search, :tag_search]
+  before_action :get_recommended_tweets, only: :index
   before_action :get_tags, only: [:index, :search, :tag_search]
 
   def index
@@ -75,9 +75,10 @@ class TweetsController < ApplicationController
 
   def get_recommended_tweets
     tweets_ranking_sort = Tweet.all.sort { |a, b| b.liked_users.count <=> a.liked_users.count}
-    @tweets_ranking = tweets_ranking_sort[0..3]
-    @tweets_beginner = Tweet.where(level: 1).order('RAND()').limit(4)
-    @tweets_senior = Tweet.where(level: 2).order('RAND()').limit(4)
+    tweets_ranking = tweets_ranking_sort[0..3]
+    tweets_beginner = Tweet.where(level: 1).order('RAND()').limit(4)
+    tweets_senior = Tweet.where(level: 2).order('RAND()').limit(4)
+    @recommended_tweets = [tweets_ranking, tweets_beginner, tweets_senior]
   end
 
   def get_tags

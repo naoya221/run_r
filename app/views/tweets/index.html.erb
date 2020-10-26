@@ -58,7 +58,21 @@
   </div>
 <% end %>
 
+<%# 投稿一覧 %>
 <%= render "render/tweets_main_contents" %>
+<%# %>
+
+<% if user_signed_in? %>
+  <div class="tweet-btn-group">
+    <div class="tweet-btn-group-text">
+      ↓あなたも投稿してみよう！
+    </div>
+
+    <%= link_to new_tweet_path  do %>
+      <button class="btn btn-lg tweet-btn text-white link">ランニングコースを投稿</button>
+    <% end %>
+  </div>
+<% end %>
 
 <div class="fixed-btn-dummy">
   <% unless user_signed_in? %>
