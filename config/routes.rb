@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
-
-  resources :tops, only: :index
 
   root 'tweets#index'
   resources :tweets do
@@ -37,5 +34,4 @@ Rails.application.routes.draw do
   post '/tweets/:tweet_id/likes' => 'likes#create'
   delete '/tweets/:tweet_id/likes' => 'likes#destroy'
   mount ActionCable.server => '/cable'
-
 end
