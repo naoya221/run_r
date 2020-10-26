@@ -20,7 +20,7 @@
   </div>
 
   <div class="mt-5">
-    <div class="tweets-contents-title text-center">
+    <div class="recommended-tweets-title text-center">
         <% if @path.is('tweets#search') && params[:keyword] != '' %>
           <span class="text-success"><%= params[:keyword] %> </span>の検索結果
         <% elsif @path.is('tweets#tag_search') %>
