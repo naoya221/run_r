@@ -5,5 +5,6 @@ FactoryBot.define do
     password              {Faker::Internet.password(min_length: 6)}
     password_confirmation {password}
     image                 {'public/images/1.png'}
+    introduction          {Faker::Lorem.sentence}
   end
 end
