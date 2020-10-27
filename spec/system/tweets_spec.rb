@@ -10,8 +10,8 @@ RSpec.describe '新規投稿', type: :system do
     it 'ログインしたユーザーは新規投稿できる' do
       # ログインする
       sign_in(@user)
-      # 新規投稿ページへのリンクをクリックし、新規投稿ページへ遷移する
-      find_link('お気に入りコースをシェアしよう！').click
+      # 「ランニングコースを投稿」をクリックし、新規投稿ページへ遷移する
+      first(:link, 'ランニングコースを投稿').click
       expect(current_path).to eq new_tweet_path
       # フォームに情報を入力する
       image_path = Rails.root.join('public/images/dog2.png')
@@ -20,6 +20,7 @@ RSpec.describe '新規投稿', type: :system do
       attach_file('tweet[place_image]', image_path, make_visible: true)
       fill_in 'tweet_address', with: @tweet.address
       fill_in 'tweet_content', with: @tweet.content
+      all('input[name="tweet[level]"]')[0].click
       # 投稿するとTweetモデルのカウントが1上がる
       expect  do
         find('input[name="commit"]').click
@@ -27,9 +28,7 @@ RSpec.describe '新規投稿', type: :system do
       # トップページに遷移し、投稿した情報が存在する
       expect(current_path).to eq root_path
       expect(page).to have_content(@tweet.place_name)
-      expect(page).to have_selector('.place-image')
-      expect(page).to have_content(@tweet.address)
-      expect(page).to have_content(@tweet.content)
+      expect(page).to have_selector('.mini-slide-image')
     end
   end
   context '新規投稿ができないとき' do
@@ -37,13 +36,13 @@ RSpec.describe '新規投稿', type: :system do
       # トップページに遷移する
       visit root_path
       # 新規投稿ページへのリンクがない
-      expect(page).to have_no_content('お気に入りコースをシェアしよう！')
+      expect(page).to have_no_content('ランニングコースを投稿')
     end
     it '投稿内容が空だと投稿できない' do
       # ログインする
       sign_in(@user)
-      # 新規投稿ページへのリンクをクリックし、新規投稿ページへ遷移する
-      find_link('お気に入りコースをシェアしよう！').click
+      # 「ランニングコースを投稿」をクリックし、新規投稿ページへ遷移する
+      first(:link, 'ランニングコースを投稿').click
       expect(current_path).to eq new_tweet_path
       # フォームが空のまま、投稿ボタンを押してもTweetモデルのカウントが変わらない
       fill_in 'tweet_place_name', with: ''
@@ -94,13 +93,10 @@ RSpec.describe '投稿内容の編集', type: :system do
       expect  do
         find('input[name="commit"]').click
       end.to change {Tweet.count}.by(0)
-      # トップページに遷移する
-      expect(current_path).to eq root_path
       # トップページには編集した内容の投稿が存在する
+      expect(current_path).to eq root_path
       expect(page).to have_content("#{@tweet1.place_name}+編集OK!")
-      expect(page).to have_selector('.place-image')
-      expect(page).to have_content("#{@tweet1.address}+編集OK!")
-      expect(page).to have_content("#{@tweet1.content}+編集OK!")
+      expect(page).to have_selector('.mini-slide-image')
     end
   end
   context '投稿内容が編集できないとき' do
@@ -143,7 +139,7 @@ RSpec.describe '投稿の削除', type: :system do
       expect(current_path).to eq root_path
       # トップページには投稿1の内容が存在しない
       expect(page).to have_no_content(@tweet1.place_name.to_s)
-      expect(page).to have_selector('.place-image')
+      expect(page).to have_selector('.mini-slide-image')
       expect(page).to have_no_content(@tweet1.address.to_s)
       expect(page).to have_no_content(@tweet1.content.to_s)
     end
