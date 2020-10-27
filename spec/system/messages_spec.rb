@@ -23,6 +23,6 @@ RSpec.describe 'コメント投稿', type: :system do
     # コメント内容と「あなたのコメントです」と表示されている
     visit tweet_path(@tweet)
     expect(page).to have_content(@message.text)
-    expect(page).to have_content('あなた のコメントです')
+    expect(page).to have_content('あなた')
   end
 end

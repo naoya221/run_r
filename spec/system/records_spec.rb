@@ -16,12 +16,11 @@ RSpec.describe 'ベストタイム登録', type: :system do
       # 現在のユーザー名・ユーザー情報編集ボタンが表示されている
       expect(page).to have_selector('.user-show-name')
       expect(page).to have_content(@user.nickname.to_s)
-      expect(page).to have_link 'ユーザー情報編集', href: edit_user_registration_path(@user)
-      # ベストタイム関連の、4つのボタン（練習・登録・編集・削除）がある
-      expect(page).to have_link '練習', href: user_vdots_path(@user)
+      expect(page).to have_link 'プロフィールの編集', href: edit_user_registration_path(@user)
+      # ベストタイムの「登録」「編集」、走力一覧ページへのボタンがある
       expect(page).to have_link '登録', href: new_record_path
       expect(page).to have_link '編集', href: edit_record_path(@user)
-      expect(page).to have_content('削除')
+      expect(page).to have_link "#{@user.nickname}の走力を一覧表で確認", href: user_vdots_path(@user)
       # ベストタイム登録ページへ遷移する。
       visit new_record_path
       # 5kmの登録を押すと、FiveKmRecordモデルのカウントが1上がる
@@ -63,11 +62,10 @@ RSpec.describe 'ベストタイム登録', type: :system do
       sign_in(@user1)
       # 別のユーザーのマイページへ遷移する
       visit user_path(@user2)
-      # ベストタイム関連の、4つのボタン（練習・登録・編集・削除）の内、VDOTボタンしか表示されていない
-      expect(page).to have_link '練習', href: user_vdots_path(@user2)
+      # ベストタイム「登録」「編集」のボタンが表示されていなく、走力一覧ページへのボタンが表示されている
       expect(page).to have_no_link '登録', href: new_record_path
       expect(page).to have_no_link '編集', href: edit_record_path(@user2)
-      expect(page).to have_no_content('削除')
+      expect(page).to have_link "#{@user2.nickname}の走力を一覧表で確認", href: user_vdots_path(@user2)
     end
     it 'ログインしていないユーザーは、マイページでベストタイム登録ができない' do
       # トップページに遷移する
@@ -75,10 +73,9 @@ RSpec.describe 'ベストタイム登録', type: :system do
       # 別のユーザーのマイページへ遷移する
       visit user_path(@user1)
       # ベストタイム関連の、4つのボタン（練習・登録・編集・削除）の内、VDOTボタンしか表示されていない
-      expect(page).to have_link '練習', href: user_vdots_path(@user1)
       expect(page).to have_no_link '登録', href: new_record_path
       expect(page).to have_no_link '編集', href: edit_record_path(@user1)
-      expect(page).to have_no_content('削除')
+      expect(page).to have_no_link "#{@user.nickname}の走力を一覧表で確認", href: user_vdots_path(@user1)
     end
   end
 end
@@ -211,7 +208,7 @@ RSpec.describe 'ベストタイム削除', type: :system do
       # マイページへ遷移する
       visit user_path(@five.user)
       # 削除ボタンをクリックし、ベストタイム編集ページへ遷移する
-      find_link('削除').click
+      find_link('編集').click
       expect(current_path).to eq edit_record_path(@five.user)
       # 5kmの削除を押すと、FiveKmRecordモデルのカウントが1下がる
       expect do
@@ -225,12 +222,6 @@ RSpec.describe 'ベストタイム削除', type: :system do
       # 登録ページへのボタンをクリックすると、ベストタイム登録ページへ遷移する
       find_link('登録ページへ').click
       expect(current_path).to eq new_record_path
-      # マイページへ遷移する
-      visit user_path(@five.user)
-      # 0分 0秒、または0時間0分0秒と表示されていない
-      expect(page).to have_no_content('0時間')
-      expect(page).to have_no_content('0分')
-      expect(page).to have_no_content('0秒')
     end
 
     it '10kmのベストタイムを登録しているユーザーが、自分の10kmのベストタイムを削除できる' do
@@ -239,20 +230,12 @@ RSpec.describe 'ベストタイム削除', type: :system do
       # マイページへ遷移する
       visit user_path(@ten.user)
       # 削除ボタンをクリックし、ベストタイム編集ページへ遷移する
-      find_link('削除').click
+      find_link('編集').click
       expect(current_path).to eq edit_record_path(@ten.user)
       # 5kmの削除を押すと、FiveKmRecordモデルのカウントが1下がる
       expect do
         find_link('削除').click
       end.to change { TenKmRecord.count }.by(-1)
-      # ベストタイム編集ページへ遷移する。
-      expect(current_path).to eq edit_record_path(@ten.user)
-      # マイページへ遷移する
-      visit user_path(@ten.user)
-      # 0分 0秒、または0時間0分0秒と表示されていない
-      expect(page).to have_no_content('0時間')
-      expect(page).to have_no_content('0分')
-      expect(page).to have_no_content('0秒')
     end
 
     it 'ハーフのベストタイムを登録しているユーザーが、自分のハーフのベストタイムを削除できる' do
@@ -261,20 +244,12 @@ RSpec.describe 'ベストタイム削除', type: :system do
       # マイページへ遷移する
       visit user_path(@half.user)
       # 削除ボタンをクリックし、ベストタイム編集ページへ遷移する
-      find_link('削除').click
+      find_link('編集').click
       expect(current_path).to eq edit_record_path(@half.user)
       # 5kmの削除を押すと、FiveKmRecordモデルのカウントが1下がる
       expect do
         find_link('削除').click
       end.to change { HalfRecord.count }.by(-1)
-      # ベストタイム編集ページへ遷移する。
-      expect(current_path).to eq edit_record_path(@half.user)
-      # マイページへ遷移する
-      visit user_path(@half.user)
-      # 0分 0秒、または0時間0分0秒と表示されていない
-      expect(page).to have_no_content('0時間')
-      expect(page).to have_no_content('0分')
-      expect(page).to have_no_content('0秒')
     end
 
     it 'フルkmのベストタイムを登録しているユーザーが、自分のフルのベストタイムを削除できる' do
@@ -283,20 +258,12 @@ RSpec.describe 'ベストタイム削除', type: :system do
       # マイページへ遷移する
       visit user_path(@full.user)
       # 削除ボタンをクリックし、ベストタイム編集ページへ遷移する
-      find_link('削除').click
+      find_link('編集').click
       expect(current_path).to eq edit_record_path(@full.user)
       # 5kmの削除を押すと、FiveKmRecordモデルのカウントが1下がる
       expect do
         find_link('削除').click
       end.to change { FullRecord.count }.by(-1)
-      # ベストタイム編集ページへ遷移する。
-      expect(current_path).to eq edit_record_path(@full.user)
-      # マイページへ遷移する
-      visit user_path(@full.user)
-      # 0分 0秒、または0時間0分0秒と表示されていない
-      expect(page).to have_no_content('0時間')
-      expect(page).to have_no_content('0分')
-      expect(page).to have_no_content('0秒')
     end
   end
 end

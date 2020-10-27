@@ -7,16 +7,16 @@ RSpec.describe 'vdotページのコンテンツ閲覧', type: :system do
     @user2 = FactoryBot.create(:user)
   end
 
-  it 'ベストタイムを登録していないユーザーのvdotページでは、vdotと目安ペース説明・走力レベル一覧・練習ペース一覧が閲覧できる' do
+  it 'ログインしていない場合の表示' do
     # トップページに遷移する
     visit root_path
-    # 自分の練習ページへ遷移する
-    visit vdots_path
-    # vdotと目安ペース説明のdropdownがある
-    expect(page).to have_content('VDOTとは')
-    expect(page).to have_content('目安ペースの説明')
-    # 走力レベル一覧・このvdot30中身（各距離・記録）がある
-    expect(page).to have_content('vdot：30')
+    # ヘッダーナビの「走力一覧」ボタンより、走力一覧ページへ遷移する
+    find_link('走力一覧').click
+    # 説明案内が表示されている
+    expect(page).to have_content 'ベストタイムを登録すると、該当する走力レベル部分が'
+    expect(page).to have_content '※未登録ではレベル30にマーク'
+    # 走力レベル一覧が表示されている（以下レベル1のみチェック）
+    expect(page).to have_content('レベル：1')
     expect(page).to have_content('５km')
     expect(page).to have_content('１０km')
     expect(page).to have_content('ハーフ')
@@ -31,8 +31,10 @@ RSpec.describe 'vdotページのコンテンツ閲覧', type: :system do
     expect(page).to have_content('4時間')
     expect(page).to have_content('49分')
     expect(page).to have_content('17秒')
-    # vdotと練習目安ペース一覧・このvdot30の中身（各ペースの種類・ペース）がある
-    expect(page).to have_content('J')
+    # 走力別の目安ペース一覧の案内（ドロップダウン）が表示されている
+    expect(page).to have_content '各ペース（ E　M　T40　T20 ）とは？'
+    # 走力別の目安ペース一覧が表示されている（以下レベル1のみチェック）
+    expect(page).to have_content('E')
     expect(page).to have_content('M')
     expect(page).to have_content('T40')
     expect(page).to have_content('T20')
@@ -40,23 +42,21 @@ RSpec.describe 'vdotページのコンテンツ閲覧', type: :system do
     expect(page).to have_content('6:51')
     expect(page).to have_content('6:36')
     expect(page).to have_content('6:24')
-    expect(page).to have_content('/km')
   end
 
-  it 'ベストタイムを登録しているユーザーは、上記に加え、vdotグラフ各距離のベストタイムに対応したvdot表が表示される' do
-    # ログインする
-    # 全ベストタイムを登録する
+  it 'ログインユーザーの場合の表示' do
+    # ログインしする
     created_record(@user)
-    # 自分の練習ページへ遷移する
-    visit user_vdots_path(@user)
-    # vdotと目安ペース説明・走力レベル一覧・練習ペース一覧が存在する
-    vdot_contents(@user)
-    # 画面上部のvdotグラフが表示されている
-    expect(page).to have_selector('#graph-area')
-    # 各距離のベストタイムに対応したvdot表が表示されている
-    expect(page).to have_content('5kmの目指すべきタイムと、同レベルの他種目のタイムです！')
-    expect(page).to have_content('10kmの目指すべきタイムと、同レベルの他種目のタイムです！')
-    expect(page).to have_content('ハーフの目指すべきタイムと、同レベルの他種目のタイムです！')
-    expect(page).to have_content('フルの目指すべきタイムと、同レベルの他種目のタイムです！')
+    # ヘッダーナビの「走力一覧」ボタンをクリック
+    visit root_path
+    find_link('走力一覧').click
+    expect(current_path).to eq user_vdots_path(@user)
+    # ユーザー名を含む案内が表示されている
+    expect(page).to have_content("#{@user.nickname} さんの該当箇所に")
+    # 走力別の目安ペース一覧の案内（ドロップダウン）が表示されている
+    expect(page).to have_content '各ペース（ E　M　T40　T20 ）とは？'
+    # 未ログイン時の説明案内が表示されていない
+    expect(page).to have_no_content 'ベストタイムを登録すると、該当する走力レベル部分が'
+    expect(page).to have_no_content '※未登録ではレベル30にマーク'
   end
 end
