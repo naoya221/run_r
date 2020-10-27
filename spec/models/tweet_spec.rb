@@ -129,7 +129,7 @@ describe Tweet do
       it '1:1' do
         expect(association.macro).to eq :belongs_to
       end
-      it '結合するモデルのクラス：Notification' do
+      it '結合するモデルのクラス：User' do
         expect(association.class_name).to eq 'User'
       end
     end
