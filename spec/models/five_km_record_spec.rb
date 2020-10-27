@@ -29,4 +29,40 @@ describe FiveKmRecord do
       end
     end
   end
+
+  describe 'アソシエーション' do
+    let(:association) do
+       described_class.reflect_on_association(target)
+    end
+
+    context 'Minuteモデルとの関係' do
+      let(:target) { :minute }
+      it '多:1' do
+        expect(association.macro).to eq :belongs_to
+      end
+      it '結合するモデルのクラス名：Minute' do
+        expect(association.class_name).to eq 'Minute'
+      end
+    end
+
+    context 'Secondモデルとの関係' do
+      let(:target) { :second }
+      it '多:1' do
+        expect(association.macro).to eq :belongs_to
+      end
+      it '結合するモデルのクラス名：Second' do
+        expect(association.class_name).to eq 'Second'
+      end
+    end
+
+    context 'Userモデルとの関係' do
+      let(:target) { :user }
+      it '1:1' do
+        expect(association.macro).to eq :belongs_to
+      end
+      it '結合するモデルのクラス：User' do
+        expect(association.class_name).to eq 'User'
+      end
+    end
+  end
 end

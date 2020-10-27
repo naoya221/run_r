@@ -29,4 +29,40 @@ describe Message do
       end
     end
   end
+
+  describe 'アソシエーション' do
+    let(:association) do
+       described_class.reflect_on_association(target)
+    end
+
+    context 'Notificationモデルとの関係' do
+      let(:target) { :notifications }
+      it '1:多' do
+        expect(association.macro).to eq :has_many
+      end
+      it '結合するモデルのクラス：Notification' do
+        expect(association.class_name).to eq 'Notification'
+      end
+    end
+
+    context 'TWeetモデルとの関係' do
+      let(:target) { :tweet }
+      it '多:1' do
+        expect(association.macro).to eq :belongs_to
+      end
+      it '結合するモデルのクラス名：Tweet' do
+        expect(association.class_name).to eq 'Tweet'
+      end
+    end
+
+    context 'Userモデルとの関係' do
+      let(:target) { :user }
+      it '多:1' do
+        expect(association.macro).to eq :belongs_to
+      end
+      it '結合するモデルのクラス名：User' do
+        expect(association.class_name).to eq 'User'
+      end
+    end
+  end
 end

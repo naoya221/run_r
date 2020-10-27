@@ -68,4 +68,70 @@ describe Tweet do
       end
     end
   end
+
+  describe 'アソシエーション' do
+    let(:association) do
+       described_class.reflect_on_association(target)
+    end
+
+    context 'Messageモデルとの関係' do
+      let(:target) { :messages }
+      it '1:多' do
+        expect(association.macro).to eq :has_many
+      end
+      it '結合するモデルのクラス名：Message' do
+        expect(association.class_name).to eq 'Message'
+      end
+    end
+
+    context 'Likeモデルとの関係' do
+      let(:target) { :likes }
+      it '1:多' do
+        expect(association.macro).to eq :has_many
+      end
+      it '結合するモデルのクラス名：Like' do
+        expect(association.class_name).to eq 'Like'
+      end
+    end
+
+    context 'Tagモデルとの関係' do
+      let(:target) { :tags }
+      it '1:多' do
+        expect(association.macro).to eq :has_many
+      end
+      it '結合するモデルのクラス名：TagTweet' do
+        expect(association.class_name).to eq 'Tag'
+      end
+    end
+
+    context 'TagTweetモデルとの関係' do
+      let(:target) { :tag_tweets }
+      it '1:多' do
+        expect(association.macro).to eq :has_many
+      end
+      it '結合するモデルのクラス名：TagTweet' do
+        expect(association.class_name).to eq 'TagTweet'
+      end
+    end
+
+    context 'Notificationモデルとの関係' do
+      let(:target) { :notifications }
+      it '1:多' do
+        expect(association.macro).to eq :has_many
+      end
+      it '結合するモデルのクラス：Notification' do
+        expect(association.class_name).to eq 'Notification'
+      end
+    end
+
+    context 'Userモデルとの関係' do
+      let(:target) { :user }
+      it '1:1' do
+        expect(association.macro).to eq :belongs_to
+      end
+      it '結合するモデルのクラス：User' do
+        expect(association.class_name).to eq 'User'
+      end
+    end
+  end
 end
