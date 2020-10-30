@@ -15,12 +15,14 @@
             </div>
             <div class="user-follow-group">
                 <div class="d-flex follow-count">
-                    <%= link_to following_user_path(@user), class: "follow nav-link text-dark" do %>
-                        <strong><%= "#{@user.followings.count}" %></strong>フォロー中
-                    <% end %>
-                    <%= link_to followers_user_path(@user), class: "follow nav-link text-dark" do %>
-                        <strong><%= "#{@user.followers.count}" %></strong>フォロワー
-                    <% end %>
+                    <span class="follow nav-link text-dark">
+                        <strong><%= "#{@user.followings.count}" %></strong>
+                        フォロー中
+                    </span>
+                     <span class="follow nav-link text-dark">
+                        <strong><%= "#{@user.followers.count}" %></strong>
+                        フォロワー
+                    </span>
                 </div>
                 <div class="user-top-btn">
                     <% if user_signed_in? && @user != current_user%>
