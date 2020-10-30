@@ -10,10 +10,11 @@ class Notification < ApplicationRecord
 
 
   # ----- バリデーション ------------------------------------
-    with_options presence: true do
+    # with_options presence: true do
       validates :visitor_id
       validates :visited_id
-      validates :action,  inclusion: { in: ACTION_VALUES }
       validates :checked, inclusion: { in: [true, false] }
-    end
+    # end
+    #  ACTION_VALUESを適用するため、上記ブロックから出す
+    validates :action, presence: true, inclusion: { in: ACTION_VALUES }
 end
