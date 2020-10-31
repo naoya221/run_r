@@ -1,7 +1,14 @@
 class TweetsController < ApplicationController
+  # 未ログイン者の制限
   before_action :authenticate_user!, except: [:index, :show, :search, :tag_search]
+
+  # ログイン者に紐づくツイートの中から、idが（params[:id]）のツイートを探す
   before_action :set_current_tweet, only: [:destroy, :edit, :update]
+
+  # 各ランニングコース（人気・初心者向け・経験者向け）を取得
   before_action :get_recommended_tweets, only: :index
+
+  # ビューに表示するタグを取得（最大18個）
   before_action :get_tags, only: [:index, :search, :tag_search]
 
   def index
@@ -63,16 +70,19 @@ class TweetsController < ApplicationController
 
   private
 
+  # ログイン者に紐づくツイートの中から、idが（params[:id]）のツイートを探す
   def set_current_tweet
     @tweet = current_user.tweets.find(params[:id])
   end
 
+  # 外部入力を許可したカラム
   def tweet_params
     params.require(:tweet).permit(
       :content, :address, :longitude, :latitude, :place_name, :place_image, :level
     )
   end
 
+  # 各ランニングコース（人気・初心者向け・経験者向け）を取得
   def get_recommended_tweets
     tweets_ranking_sort = Tweet.all.sort { |a, b| b.liked_users.count <=> a.liked_users.count}
     tweets_ranking = tweets_ranking_sort[0..3]
@@ -81,6 +91,7 @@ class TweetsController < ApplicationController
     @recommended_tweets = [tweets_ranking, tweets_beginner, tweets_senior]
   end
 
+  # ビューに表示するタグを取得（最大18個）
   def get_tags
     @tag_lists = Tag.all.order('RAND()').limit(18)
   end
