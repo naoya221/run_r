@@ -21,7 +21,7 @@ module Vdots
       change_seconds_to_five = five_minute + five_second
 
       # 条件に一致したレコードのidを、走力レベルとして代入
-      five_vdot_hash = @vdot_second_all.filter { |item| item.five_record_from >= change_seconds_to_five && change_seconds_to_five > item.five_record_to}
+      five_vdot_hash = @vdot_second_all.filter { |item| item.five_record_from >= change_seconds_to_five && change_seconds_to_five >= item.five_record_to}
       five_vdot =  five_vdot_hash[0]
       @five_vdot =  five_vdot.id
     end
@@ -38,7 +38,7 @@ module Vdots
       change_seconds_to_ten = ten_minute + ten_second
 
       # 条件に一致したレコードのidを、走力レベルとして代入
-      ten_vdot_hash = @vdot_second_all.filter { |item| item.ten_record_from >= change_seconds_to_ten && change_seconds_to_ten > item.ten_record_to}
+      ten_vdot_hash = @vdot_second_all.filter { |item| item.ten_record_from >= change_seconds_to_ten && change_seconds_to_ten >= item.ten_record_to}
       ten_vdot =  ten_vdot_hash[0]
       @ten_vdot =  ten_vdot.id
     end
@@ -56,7 +56,7 @@ module Vdots
       change_seconds_to_half = half_hour + half_minute + half_second
 
       # 条件に一致したレコードのidを、走力レベルとして代入
-      half_vdot_hash = @vdot_second_all.filter { |item| item.half_record_from >= change_seconds_to_half && change_seconds_to_half > item.half_record_to}
+      half_vdot_hash = @vdot_second_all.filter { |item| item.half_record_from >= change_seconds_to_half && change_seconds_to_half >= item.half_record_to}
       half_vdot =  half_vdot_hash[0]
       @half_vdot =  half_vdot.id
     end
@@ -74,7 +74,7 @@ module Vdots
       change_seconds_to_full = full_hour + full_minute + full_second
 
       # 条件に一致したレコードのidを、走力レベルとして代入
-      full_vdot_hash = @vdot_second_all.filter { |item| item.full_record_from >= change_seconds_to_full && change_seconds_to_full > item.full_record_to}
+      full_vdot_hash = @vdot_second_all.filter { |item| item.full_record_from >= change_seconds_to_full && change_seconds_to_full >= item.full_record_to}
       full_vdot =  full_vdot_hash[0]
       @full_vdot =  full_vdot.id
     end
