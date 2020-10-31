@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
+  # 走力レベルの取得などまとめてある
   include Vdots
 
   def show
     @user = User.find(params[:id])
+    # 選択したユーザーによる、コース投稿を全て取得。コースが8つでページネーション
     @tweets = @user.tweets.page(params[:page]).per(8).order('created_at DESC')
 
     # 各ベストタイムのレコードを取得
