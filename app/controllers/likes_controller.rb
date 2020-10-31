@@ -1,5 +1,8 @@
 class LikesController < ApplicationController
+  # CSRFトークン検証をスキップ（非同期でいいねがされないため追記）
   skip_before_action :verify_authenticity_token
+
+  # 選択されたツイートを取得
   before_action :get_params
 
   def create
@@ -14,6 +17,7 @@ class LikesController < ApplicationController
 
   private
 
+  # 選択されたツイートを取得
   def get_params
     @tweet = Tweet.find(params[:tweet_id])
   end
