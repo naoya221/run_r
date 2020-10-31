@@ -5,18 +5,32 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @tweets = @user.tweets.page(params[:page]).per(8).order('created_at DESC')
 
-    get_record(params[:id])    # 各ベストタイムのレコードを取得
-    get_five_vdot              # 登録してある5kmのベストタイムを元に、5kmのvdot（走力レベル）を取得
-    get_ten_vdot               # 登録してある10kmのベストタイムを元に、10kmのvdot（走力レベル）を取得
-    get_half_vdot              # 登録してあるハーフのベストタイムを元に、ハーフのvdot（走力レベル）を取得
-    get_full_vdot              # 登録してあるフルのベストタイムを元に、フルのvdot（走力レベル）を取得
-    target_record_and_pace     # 目指すべきベストタイムと推奨ペースを取得
-    runner_title               # 走力に応じた称号を取得
+    # 各ベストタイムのレコードを取得
+    get_record(params[:id])
+
+    # 登録してある5kmのベストタイムを元に、5kmのvdot（走力レベル）を取得
+    get_five_vdot
+
+    # 登録してある10kmのベストタイムを元に、10kmのvdot（走力レベル）を取得
+    get_ten_vdot
+
+    # 登録してあるハーフのベストタイムを元に、ハーフのvdot（走力レベル）を取得
+    get_half_vdot
+
+    # 登録してあるフルのベストタイムを元に、フルのvdot（走力レベル）を取得
+    get_full_vdot
+
+    # 目指すべきベストタイムと推奨ペースを取得
+    target_record_and_pace
+
+    # 走力に応じた称号を取得
+    runner_title
   end
 
   private
 
-  def runner_title    # 走力に応じた称号を取得
+  # 走力に応じた称号を取得
+  def runner_title
     vdots = [@five_vdot, @ten_vdot, @half_vdot, @full_vdot]
     max_vdot = vdots.max
 
