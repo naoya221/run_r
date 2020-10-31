@@ -26,7 +26,6 @@ class VdotRecordChangeSecond < ActiveHash::Base
     { id: 22, five_record_from: 1197, five_record_to: 1176, ten_record_from: 2481, ten_record_to: 2439, half_record_from: 5495, half_record_to: 5402, full_record_from: 11449, full_record_to: 11259 },
     { id: 23, five_record_from: 1176, five_record_to: 1157, ten_record_from: 2439, ten_record_to: 2399, half_record_from: 5402, half_record_to: 5311, full_record_from: 11259, full_record_to: 11076 },
     { id: 24, five_record_from: 1157, five_record_to: 1138, ten_record_from: 2399, ten_record_to: 2361, half_record_from: 5311, half_record_to: 5224, full_record_from: 11076, full_record_to: 10899 },
-    { id: 25, five_record_from: 1138, five_record_to: 1120, ten_record_from: 2361, ten_record_to: 2322, half_record_from: 5224, half_record_to: 5140, full_record_from: 10899, full_record_to: 10727 },
-    { id: 25, five_record_from: 1120, five_record_to: 0, ten_record_from: 2322, ten_record_to: 0, half_record_from: 5140, half_record_to: 0, full_record_from: 10727, full_record_to: 0 }
+    { id: 25, five_record_from: 1138, five_record_to: 0, ten_record_from: 2361, ten_record_to: 0, half_record_from: 5224, half_record_to: 0, full_record_from: 10899, full_record_to: 0 }
   ]
   end
