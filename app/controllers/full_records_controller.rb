@@ -1,5 +1,8 @@
 class FullRecordsController < ApplicationController
+  # 未ログイン者の制限
   before_action :authenticate_user!
+
+  # ログイン者のフルのベストタイムを取得
   before_action :set_record, only: [:update, :destroy]
 
   def create
@@ -31,10 +34,12 @@ class FullRecordsController < ApplicationController
 
   private
 
+  # ログイン者のフルのベストタイムを取得
   def set_record
     @full_record = FullRecord.find_by(user_id: current_user.id)
   end
 
+  # 外部入力を許可したカラム
   def record_params
     params.permit(:hour_id, :minute_id, :second_id).merge(user_id: current_user.id)
   end

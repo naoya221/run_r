@@ -1,5 +1,8 @@
 class HalfRecordsController < ApplicationController
+  # 未ログイン者の制限
   before_action :authenticate_user!
+
+  # ログイン者のハーフのベストタイムを取得
   before_action :set_record, only: [:update, :destroy]
 
   def create
@@ -31,10 +34,12 @@ class HalfRecordsController < ApplicationController
 
   private
 
+  # ログイン者のハーフのベストタイムを取得
   def set_record
     @half_record = HalfRecord.find_by(user_id: current_user.id)
   end
 
+  # 外部入力を許可したカラム
   def record_params
     params.permit(:hour_id, :minute_id, :second_id).merge(user_id: current_user.id)
   end
