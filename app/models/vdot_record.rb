@@ -12,14 +12,14 @@ class VdotRecord < ActiveHash::Base
     { id: 10, five_km_minute: '24', five_km_second: '39', ten_km_minute: '51', ten_km_second: '09', half_hour: '1', half_minute: '53', half_second: '24', full_hour: '3', full_minute: '54', full_second: '34' },
 
     { id: 11, five_km_minute: '24', five_km_second: '08', ten_km_minute: '50', ten_km_second: '03', half_hour: '1', half_minute: '50', half_second: '59', full_hour: '3', full_minute: '49', full_second: '45' },
-    { id: 12, five_km_minute: '24', five_km_second: '38', ten_km_minute: '49', ten_km_second: '01', half_hour: '1', half_minute: '48', half_second: '40', full_hour: '3', full_minute: '45', full_second: '09' },
+    { id: 12, five_km_minute: '23', five_km_second: '38', ten_km_minute: '49', ten_km_second: '01', half_hour: '1', half_minute: '48', half_second: '40', full_hour: '3', full_minute: '45', full_second: '09' },
     { id: 13, five_km_minute: '23', five_km_second: '09', ten_km_minute: '48', ten_km_second: '01', half_hour: '1', half_minute: '46', half_second: '27', full_hour: '3', full_minute: '40', full_second: '43' },
-    { id: 14, five_km_minute: '23', five_km_second: '41', ten_km_minute: '47', ten_km_second: '04', half_hour: '1', half_minute: '44', half_second: '20', full_hour: '3', full_minute: '36', full_second: '28' },
+    { id: 14, five_km_minute: '22', five_km_second: '41', ten_km_minute: '47', ten_km_second: '04', half_hour: '1', half_minute: '44', half_second: '20', full_hour: '3', full_minute: '36', full_second: '28' },
     { id: 15, five_km_minute: '22', five_km_second: '15', ten_km_minute: '46', ten_km_second: '09', half_hour: '1', half_minute: '42', half_second: '17', full_hour: '3', full_minute: '32', full_second: '23' },
-    { id: 16, five_km_minute: '22', five_km_second: '50', ten_km_minute: '45', ten_km_second: '16', half_hour: '1', half_minute: '40', half_second: '20', full_hour: '3', full_minute: '28', full_second: '26' },
+    { id: 16, five_km_minute: '21', five_km_second: '50', ten_km_minute: '45', ten_km_second: '16', half_hour: '1', half_minute: '40', half_second: '20', full_hour: '3', full_minute: '28', full_second: '26' },
     { id: 17, five_km_minute: '21', five_km_second: '25', ten_km_minute: '44', ten_km_second: '25', half_hour: '1', half_minute: '38', half_second: '27', full_hour: '3', full_minute: '24', full_second: '39' },
     { id: 18, five_km_minute: '21', five_km_second: '02', ten_km_minute: '43', ten_km_second: '36', half_hour: '1', half_minute: '36', half_second: '38', full_hour: '3', full_minute: '21', full_second: '00' },
-    { id: 19, five_km_minute: '21', five_km_second: '39', ten_km_minute: '42', ten_km_second: '50', half_hour: '1', half_minute: '34', half_second: '53', full_hour: '3', full_minute: '17', full_second: '29' },
+    { id: 19, five_km_minute: '20', five_km_second: '39', ten_km_minute: '42', ten_km_second: '50', half_hour: '1', half_minute: '34', half_second: '53', full_hour: '3', full_minute: '17', full_second: '29' },
     { id: 20, five_km_minute: '20', five_km_second: '18', ten_km_minute: '42', ten_km_second: '04', half_hour: '1', half_minute: '33', half_second: '12', full_hour: '3', full_minute: '14', full_second: '06' },
 
     { id: 21, five_km_minute: '19', five_km_second: '57', ten_km_minute: '41', ten_km_second: '21', half_hour: '1', half_minute: '31', half_second: '35', full_hour: '3', full_minute: '10', full_second: '49' },
