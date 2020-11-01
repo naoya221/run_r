@@ -1,5 +1,6 @@
 <div class="user-container">
 
+    <%# ↓プロフィール（画像・フォロー・自己紹介分） %>
     <div class="user-profile">
         <div class="show-image">
             <% if @user.image.present? %>
@@ -50,9 +51,11 @@
             </div>
         </div>
     </div>
+    <%# ↑プロフィール（画像・フォロー・自己紹介分） %>
 
     <div class="user-show-border"></div>
 
+    <%# ↓ベストタイム・グラフ・称号 %>
     <div class="user-record-container row">
         <div class="user-record-content col-lg-4">
             <div class="user-show-title">
@@ -184,6 +187,7 @@
             </div>
         </div>
     </div>
+    <%# ↑ベストタイム・グラフ・称号 %>
 
     <div class="user-show-vdot-btn">
       <%= link_to user_vdots_path(@user) do %>
@@ -194,6 +198,7 @@
       <% end %>
     </div>
 
+    <%# ↓目指すタイムと達成するための練習メニュー %>
     <div class="next-record-group">
         <div class="next-record-title">
             次はこの記録にチャレンジ！
@@ -247,6 +252,7 @@
             </div>
         </div>
     </div>
+    <%# ↑目指すタイムと達成するための練習メニュー %>
 
     <%# 練習メニュー %>
     <%= render "render/user_show_practice" %>
