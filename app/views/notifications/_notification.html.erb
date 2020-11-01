@@ -6,10 +6,12 @@
 
     <% if !@message.nil? %>
     <div class="text-center mt-2">
+      <%# コメントの内容（最大25文字） %>
       <span class="notification-comment ml-3 text-secondary"><%= @message.text.truncate(25) %></span>
     </div>
     <% end %>
     <div class="moderate-font text-right">
+      <%# 通知の作成時間 %>
       <%= " (#{time_ago_in_words(notification.created_at)}前)" %>
     </div>
   </div>

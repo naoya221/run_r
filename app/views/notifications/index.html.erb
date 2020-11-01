@@ -2,6 +2,7 @@
 
   <div class="titles">お知らせ</div>
   <div class="notification-contents">
+    <%# 通知が表示されていれば、「確認済みにする」ボタンを表示 %>
     <% if @notifications.exists? %>
       <div class="text-right mb-5">
           <%= link_to notification_path(@notifications), method: :delete, class: "link text-warning" do %>
@@ -9,6 +10,7 @@
           <% end %>
       </div>
       <div class="notification-index">
+          <%# 通知の繰り返し表示 %>
           <%= render @notifications %>
       </div>
     <% else %>
