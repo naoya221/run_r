@@ -1,14 +1,18 @@
+<%# ログイン時のみ、いいねができる %>
 <% if user_signed_in? %>
+  <%# いいね済みなら、取り消しボタンに %>
   <% if Like.find_by(user_id: current_user.id, tweet_id: tweet.id) %>
     <%= link_to "/tweets/#{tweet.id}/likes", method: :delete, remote: true do %>
       <i class="fa fa-heart unlike-btn"></i>
     <% end %>
   <% else %>
+  <%# いいねしてなければ、いいねボタンに %>
     <%= link_to "/tweets/#{tweet.id}/likes", method: :post, remote: true do %>
       <i class="fa fa-heart like-btn"></i>
     <% end %>
   <% end %>
 <% else %>
+  <%# 未ログインならリンク化せず、表示のみ %>
   <i class="fa fa-heart like-btn"></i>
 <% end %>
 

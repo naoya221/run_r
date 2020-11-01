@@ -1,5 +1,6 @@
 <div class="search-container">
 
+  <%# 検索エリア %>
   <div class="d-flex justify-content-center">
     <div class="search-group">
       <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |f| %>
@@ -18,9 +19,11 @@
       </div>
     </div>
   </div>
+  <%#  %>
 
   <div class="mt-5">
     <div class="recommended-tweets-title text-center">
+        <%# 検索方法（フォーム入力・タグ選択）でタイトルを変える %>
         <% if @path.is('tweets#search') && params[:keyword] != '' %>
           <span class="text-success"><%= params[:keyword] %> </span>の検索結果
         <% elsif @path.is('tweets#tag_search') %>
@@ -30,6 +33,7 @@
         <% end %>
     </div>
 
+    <%# 検索対象のコースを表示 %>
     <%= render "render/tweets_all_content" %>
 
   </div>

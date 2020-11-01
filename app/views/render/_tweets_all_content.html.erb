@@ -1,11 +1,14 @@
-<% if @tweets.length >= 8 %>
-  <div class="paginate-parent mt-4">
-    <div class="paginate">
-      <%= paginate @tweets %>
-    </div>
-  </div>
-<% end %>
+<%# 現在投稿されているランニングコースを全て表示 %>
 
+<%# ページネーション（8つで） %>
+<div class="paginate-parent mt-4">
+  <div class="paginate">
+    <%= paginate @tweets %>
+  </div>
+</div>
+<%#  %>
+
+<%# ↓コースの繰り返し表示 %>
 <div class="row justify-content-center">
   <% @tweets.each do |tweet| %>
     <div class="mini-content col-md-6 col-lg-3">
@@ -42,11 +45,14 @@
     </div>
   <% end %>
 </div>
+<%# ↑コースの繰り返し表示 %>
 
 <br>
 
+<%# ページネーション（8つで） %>
 <div class="paginate-parent mb-4">
   <div class="paginate">
     <%= paginate @tweets %>
   </div>
 </div>
+<%#  %>

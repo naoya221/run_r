@@ -1,215 +1,239 @@
+<%# 練習メニュー %>
+
 <div class="practice-menus">
     <div id="contents">
         <div class="tab_box">
-        <ul class="tab_list user-show-ul">
-            <li v-on:click="change('A')" v-bind:class="{'active': isActive === 'A'}">5kmの練習例</li>
-            <li v-on:click="change('B')" v-bind:class="{'active': isActive === 'B'}">10kmの練習例</li>
-            <li v-on:click="change('C')" v-bind:class="{'active': isActive === 'C'}">ハーフの練習例</li>
-            <li v-on:click="change('D')" v-bind:class="{'active': isActive === 'D'}">フルの練習例</li>
-            <li v-on:click="change('E')" v-bind:class="{'active': isActive === 'E'}">健康維持</li>
-        </ul>
 
-        <ul class="article user-show-ul">
-            <li v-if="isActive === 'A'" class="article-li">
-                 <div class="d-flex justify-content-between">
-                    <div>
-                        <div>1週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（3〜5km）#{@vdot_pace_five.e_pace if @vdot_pace_five.present? }/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　20分間走（または3〜6km）#{@vdot_pace_five.t_pace_twenty if @vdot_pace_five}/km" %></div>
-                        <div>日</div>
+            <%# 各距離の選択タブ %>
+            <ul class="tab_list user-show-ul">
+                <li v-on:click="change('A')" v-bind:class="{'active': isActive === 'A'}">5kmの練習例</li>
+                <li v-on:click="change('B')" v-bind:class="{'active': isActive === 'B'}">10kmの練習例</li>
+                <li v-on:click="change('C')" v-bind:class="{'active': isActive === 'C'}">ハーフの練習例</li>
+                <li v-on:click="change('D')" v-bind:class="{'active': isActive === 'D'}">フルの練習例</li>
+                <li v-on:click="change('E')" v-bind:class="{'active': isActive === 'E'}">健康維持</li>
+            </ul>
+            <%#  %>
+
+            <%# ↓練習メニューのメインエリア %>
+            <ul class="article user-show-ul">
+
+                 <%# ↓5kmの練習例 %>
+                <li v-if="isActive === 'A'" class="article-li">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div>1週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（3〜5km）#{@vdot_pace_five.e_pace if @vdot_pace_five.present? }/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　20分間走（または3〜6km）#{@vdot_pace_five.t_pace_twenty if @vdot_pace_five}/km" %></div>
+                            <div>日</div>
+                        </div>
+                        <div>
+                            <div>2週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（3〜5km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　長めのジョギング（8〜12km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
+                            <div><%= "日　　軽いジョギング（3〜5km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
+                        </div>
                     </div>
-                    <div>
-                        <div>2週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（3〜5km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　長めのジョギング（8〜12km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
-                        <div><%= "日　　軽いジョギング（3〜5km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
+                    <br><br>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div>3週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（3〜5km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　40分間走（または6〜10km）#{@vdot_pace_five.t_pace_forty if @vdot_pace_five}/km" %></div>
+                            <div>日</div>
+                        </div>
+                        <div>
+                            <div>4週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（3〜5km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　長めのジョギング（8〜12km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
+                            <div><%= "日　　軽いジョギング（3〜5km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
+                        </div>
                     </div>
-                </div>
-                <br><br>
+                </li>
+                <%# ↑5kmの練習例 %>
+
+                <%# ↓10kmの練習例 %>
+                <li v-else-if="isActive === 'B'">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div>1週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（5〜8km）#{@vdot_pace_ten.e_pace if @vdot_pace_ten}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　40分間走（または6〜10km）#{@vdot_pace_half.t_pace_forty if @vdot_pace_half}/km" %></div>
+                            <div>日</div>
+                        </div>
+                        <div>
+                            <div>2週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（3〜5km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　長めのジョギング（10〜15km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
+                            <div>日</div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div>3週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（5〜8km）#{@vdot_pace_ten.e_pace if @vdot_pace_ten}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　40分間走（または6〜10km）#{@vdot_pace_ten.t_pace_forty if @vdot_pace_ten}/km" %></div>
+                            <div>日</div>
+                        </div>
+                        <div>
+                            <div>4週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（3〜5km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　長めのジョギング（10〜15km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
+                            <div>日</div>
+                        </div>
+                    </div>
+                </li>
+                <%# ↑10kmの練習例 %>
+
+                <%# ↓ハーフの練習例 %>
+                <li v-else-if="isActive === 'C'">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div>1週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（8〜12km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　40分間走（または6〜10km）#{@vdot_pace_half.t_pace_forty if @vdot_pace_half}/km" %></div>
+                            <div>日</div>
+                        </div>
+                        <div>
+                            <div>2週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（5〜8km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　長めのジョギング（12〜15km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
+                            <div>日</div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div>3週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（5〜8km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　長距離走（15〜20km）#{@vdot_pace_full.m_pace if @vdot_pace_full}/km" %></div>
+                            <div>日</div>
+                        </div>
+                        <div>
+                            <div>4週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（8〜12km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　長めのジョギング（12〜15km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
+                            <div>日</div>
+                        </div>
+                    </div>
+                </li>
+                <%# ↑ハーフの練習例 %>
+
+                <%# ↓フルの練習例 %>
+                <li v-else-if="isActive === 'D'">
                 <div class="d-flex justify-content-between">
-                    <div>
-                        <div>3週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（3〜5km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　40分間走（または6〜10km）#{@vdot_pace_five.t_pace_forty if @vdot_pace_five}/km" %></div>
-                        <div>日</div>
+                        <div>
+                            <div>1週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（8〜12km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　長距離走（15〜20km）#{@vdot_pace_full.m_pace if @vdot_pace_full}/km" %></div>
+                            <div>日</div>
+                        </div>
+                        <div>
+                            <div>2週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（8〜12km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　長めのジョギング（12〜15km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
+                            <div>日</div>
+                        </div>
                     </div>
-                    <div>
-                        <div>4週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（3〜5km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　長めのジョギング（8〜12km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
-                        <div><%= "日　　軽いジョギング（3〜5km）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
+                    <br><br>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div>3週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（8〜12km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　長距離走（20〜25km）#{@vdot_pace_full.m_pace if @vdot_pace_full}/km" %></div>
+                            <div>日　　 <span class="practice-text">↑本番前に一度だけ30kmにチャレンジ！</span></div>
+                        </div>
+                        <div>
+                            <div>4週目）</div>
+                            <div>月</div>
+                            <div>火</div>
+                            <div><%= "水　　軽いジョギング（8〜12km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
+                            <div>木</div>
+                            <div>金</div>
+                            <div><%= "土　　長めのジョギング（12〜15km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
+                            <div>日</div>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li v-else-if="isActive === 'B'">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <div>1週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（5〜8km）#{@vdot_pace_ten.e_pace if @vdot_pace_ten}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　40分間走（または6〜10km）#{@vdot_pace_half.t_pace_forty if @vdot_pace_half}/km" %></div>
-                        <div>日</div>
+                </li>
+                <%# ↑フルの練習例 %>
+
+                <%# ↓健康維持の方の練習例 %>
+                <li v-else-if="isActive === 'E'">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div>週に2〜3回20分程度体を動かしましょう！</div>
+                            <br>
+                            <div><%= "ランニング時の目安ペース（15〜30分程度）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
+                            <br>
+                            <div></div>
+                        </div>
                     </div>
-                    <div>
-                        <div>2週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（3〜5km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　長めのジョギング（10〜15km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
-                        <div>日</div>
-                    </div>
-                </div>
-                <br><br>
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <div>3週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（5〜8km）#{@vdot_pace_ten.e_pace if @vdot_pace_ten}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　40分間走（または6〜10km）#{@vdot_pace_ten.t_pace_forty if @vdot_pace_ten}/km" %></div>
-                        <div>日</div>
-                    </div>
-                    <div>
-                        <div>4週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（3〜5km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　長めのジョギング（10〜15km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
-                        <div>日</div>
-                    </div>
-                </div>
-            </li>
-            <li v-else-if="isActive === 'C'">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <div>1週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（8〜12km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　40分間走（または6〜10km）#{@vdot_pace_half.t_pace_forty if @vdot_pace_half}/km" %></div>
-                        <div>日</div>
-                    </div>
-                    <div>
-                        <div>2週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（5〜8km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　長めのジョギング（12〜15km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
-                        <div>日</div>
-                    </div>
-                </div>
-                <br><br>
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <div>3週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（5〜8km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　長距離走（15〜20km）#{@vdot_pace_full.m_pace if @vdot_pace_full}/km" %></div>
-                        <div>日</div>
-                    </div>
-                    <div>
-                        <div>4週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（8〜12km）#{@vdot_pace_half.e_pace if @vdot_pace_half}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　長めのジョギング（12〜15km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
-                        <div>日</div>
-                    </div>
-                </div>
-            </li>
-            <li v-else-if="isActive === 'D'">
-              <div class="d-flex justify-content-between">
-                    <div>
-                        <div>1週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（8〜12km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　長距離走（15〜20km）#{@vdot_pace_full.m_pace if @vdot_pace_full}/km" %></div>
-                        <div>日</div>
-                    </div>
-                    <div>
-                        <div>2週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（8〜12km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　長めのジョギング（12〜15km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
-                        <div>日</div>
-                    </div>
-                </div>
-                <br><br>
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <div>3週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（8〜12km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　長距離走（20〜25km）#{@vdot_pace_full.m_pace if @vdot_pace_full}/km" %></div>
-                        <div>日　　 <span class="practice-text">↑本番前に一度だけ30kmにチャレンジ！</span></div>
-                    </div>
-                    <div>
-                        <div>4週目）</div>
-                        <div>月</div>
-                        <div>火</div>
-                        <div><%= "水　　軽いジョギング（8〜12km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
-                        <div>木</div>
-                        <div>金</div>
-                        <div><%= "土　　長めのジョギング（12〜15km）#{@vdot_pace_full.e_pace if @vdot_pace_full}/km" %></div>
-                        <div>日</div>
-                    </div>
-                </div>
-            </li>
-            <li v-else-if="isActive === 'E'">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <div>週に2〜3回20分程度体を動かしましょう！</div>
-                        <br>
-                        <div><%= "ランニング時の目安ペース（15〜30分程度）#{@vdot_pace_five.e_pace if @vdot_pace_five}/km" %></div>
-                        <br>
-                        <div></div>
-                    </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+                <%# ↑健康維持の方の練習例 %>
+
+            </ul>
+            <%# ↑練習メニューのメインエリア %>
+
         </div>
     </div>
 </div>
