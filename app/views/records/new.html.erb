@@ -88,6 +88,7 @@
     <% end %>
   <% end %>
 
+  <%# 全てのベストタイム登録されていれば表示 %>
   <% if FiveKmRecord.where(user_id:current_user.id).present? &&
         TenKmRecord.where(user_id:current_user.id).present?  &&
         HalfRecord.where(user_id:current_user.id).present?   &&
