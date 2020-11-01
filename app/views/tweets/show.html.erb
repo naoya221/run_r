@@ -2,7 +2,7 @@
   <div class="tweet-show-flex">
 
     <div>
-      <%# メイン（選択したランニングコース）の情報 %>
+      <%# ↓メイン（選択したランニングコース）の情報 %>
       <div>
         <img src=<%= @tweet.place_image %> class = "tweet-show-place-image">
       </div>
@@ -77,9 +77,9 @@
           <%= @tweet.content %>
         </div>
       </div>
-      <%# メイン（選択したランニングコース）の情報 %>
+      <%# ↑メイン（選択したランニングコース）の情報 %>
 
-      <%# コメント関係 %>
+      <%# ↓コメント関係 %>
       <div class="message-container">
         <div class="titles mb-1">コメント一覧</div>
         <br>
@@ -123,7 +123,7 @@
           <% end %>
         </div>
       </div>
-      <%# コメント関係 %>
+      <%# ↑コメント関係 %>
 
       <br><br><br>
 
@@ -136,7 +136,7 @@
       </div>
     </div>
 
-    <%# 関連コース（実際はランダムに7つ表示） %>
+    <%# ↓関連コース（実際はランダムに7つ表示） %>
     <div class="mini-contents">
       <h4 class="randam-title">他のコース</h4>
 
@@ -158,7 +158,7 @@
         <% end %>
       </div>
     </div>
-    <%# 関連コース %>
+    <%# ↑関連コース %>
 
   </div>
 </div>

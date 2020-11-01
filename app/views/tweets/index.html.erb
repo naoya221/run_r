@@ -1,4 +1,4 @@
-<%# トップページスライド %>
+<%# ↓トップページスライド %>
 <div class="slide-content row">
   <div class="slide-image">
     <ul class="slider mt-5">
@@ -29,11 +29,11 @@
     <strong class="text-dark">練習メニューや走力レベル</strong>を確認できます。<br><br>
   </div>
 </div>
-<%# %>
+<%# ↑トップページスライド %>
 
 <div class="slide-border"></div>
 
-<%# 検索エリア %>
+<%# ↓検索エリア %>
 <div class="d-flex justify-content-center">
   <div class="search-group">
     <%= form_with(url: search_tweets_path, local: true, method: :get, class: "search-form") do |f| %>
@@ -52,7 +52,7 @@
     </div>
   </div>
 </div>
-<%# %>
+<%# ↑%>
 
 <% if user_signed_in? %>
   <div class="tweet-btn-group">
