@@ -23,6 +23,7 @@
     </div>
   <% end %>
 
+  <%# ↓走力レベル一覧表 %>
   <div class="row">
     <% @vdot_records.each do |vdot_record| %>
       <div class="col-xl-3 col-lg-4 col-sm-6">
@@ -69,6 +70,7 @@
       </div>
     <% end %>
   </div>
+  <%# ↑走力レベル一覧表 %>
 
   <br><br><br>
 
@@ -95,23 +97,25 @@
       </div>
     <% end%>
 
+  <%# 各ペースの説明（ドロップダウン） %>
+  <ul id="root" @click="isShow = !isShow">
+    <li class="list-unstyled drop-down-title d-flex justify-content-between">
+      各ペース（ E　M　T40　T20 ）とは？
+      <i class="fa fa-caret-down drop-down-icon" aria-hidden="true"></i>
+    </li>
 
-<ul id="root" @click="isShow = !isShow">
-  <li class="list-unstyled drop-down-title d-flex justify-content-between">
-    各ペース（ E　M　T40　T20 ）とは？
-    <i class="fa fa-caret-down drop-down-icon" aria-hidden="true"></i>
-  </li>
+    <transition name="slide">
+      <ul class="child list-unstyled drop-down-group" v-if="isShow">
+          <li class="drop-down-list"><strong>E</strong>　 ：健康志向やダイエット目的の方に。<br>　　　疲れている時や気分転換のランニングにもおすすめ。</li><br>
+          <li class="drop-down-list"><strong>M</strong>　：フルマラソン本番時のペース。<br>　　　本番を想定した、長い距離（20km前後）の練習に。</li><br>
+          <li class="drop-down-list"><strong>T20</strong>：5~10kmのレースにて、脚よりも呼吸が辛くなる方向けの練習。<br>　　　20分間かなり速いペースで走ります。</li><br>
+          <li class="drop-down-list"><strong>T40</strong>：10km~ハーフのレースにて、脚よりも呼吸が辛くなる方向けの練習。<br>　　　40分間速いペースで走ります。</li><br>
+      </ul>
+    </transition>
+  </ul>
+  <%#  %>
 
-  <transition name="slide">
-    <ul class="child list-unstyled drop-down-group" v-if="isShow">
-        <li class="drop-down-list"><strong>E</strong>　 ：健康志向やダイエット目的の方に。<br>　　　疲れている時や気分転換のランニングにもおすすめ。</li><br>
-        <li class="drop-down-list"><strong>M</strong>　：フルマラソン本番時のペース。<br>　　　本番を想定した、長い距離（20km前後）の練習に。</li><br>
-        <li class="drop-down-list"><strong>T20</strong>：5~10kmのレースにて、脚よりも呼吸が辛くなる方向けの練習。<br>　　　20分間かなり速いペースで走ります。</li><br>
-        <li class="drop-down-list"><strong>T40</strong>：10km~ハーフのレースにて、脚よりも呼吸が辛くなる方向けの練習。<br>　　　40分間速いペースで走ります。</li><br>
-    </ul>
-  </transition>
-</ul>
-
+  <%# ↓走力別の目安ペース一覧表 %>
   <div class="row">
     <% @vdot_paces.all.each do |vdot_pace| %>
       <div class="col-xl-3 col-lg-4 col-sm-6">
@@ -156,6 +160,7 @@
       </div>
     <% end %>
   </div>
+  <%# ↑走力別の目安ペース一覧表 %>
 
 </div>
 
