@@ -1,7 +1,8 @@
 <div class="tweet-show-container f-f-monospace">
   <div class="tweet-show-flex">
 
-    <div class="">
+    <div>
+      <%# メイン（選択したランニングコース）の情報 %>
       <div>
         <img src=<%= @tweet.place_image %> class = "tweet-show-place-image">
       </div>
@@ -76,7 +77,9 @@
           <%= @tweet.content %>
         </div>
       </div>
+      <%# メイン（選択したランニングコース）の情報 %>
 
+      <%# コメント関係 %>
       <div class="message-container">
         <div class="titles mb-1">コメント一覧</div>
         <br>
@@ -120,21 +123,24 @@
           <% end %>
         </div>
       </div>
+      <%# コメント関係 %>
+
       <br><br><br>
 
+      <%# 住所・地図 %>
       <div class="address">
         <strong>　　住所 ：　</strong><%= @tweet.address %>
       <div id='map' class="map"></div>
+      <%#  %>
 
       </div>
     </div>
 
+    <%# 関連コース（実際はランダムに7つ表示） %>
     <div class="mini-contents">
-
       <h4 class="randam-title">他のコース</h4>
 
       <div class="randam-tweet">
-
         <% @random.each do |tweet| %>
           <div class="mini-group">
             <div class="mini-place-image">
@@ -151,8 +157,8 @@
           </div>
         <% end %>
       </div>
-
     </div>
+    <%# 関連コース %>
 
   </div>
 </div>
@@ -161,23 +167,24 @@
 <script type="text/javascript">
     function initMap() {
 
-        var test ={ lat: <%= @tweet.latitude %>, lng: <%= @tweet.longitude %> };
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 15,
-            center: test
+        // 緯度・経度取得
+        const test ={ lat: <%= @tweet.latitude %>, lng: <%= @tweet.longitude %> };
+        const map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: test
         });
-        var transitLayer = new google.maps.TransitLayer();
+        const transitLayer = new google.maps.TransitLayer();
         transitLayer.setMap(map);
 
-        var contentString = '住所：<%= @tweet.address %>';
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
+        const contentString = '住所：<%= @tweet.address %>';
+        const infowindow = new google.maps.InfoWindow({
+              content: contentString
         });
 
-        var marker = new google.maps.Marker({
-            position:test,
-            map: map,
-            title: contentString
+        const marker = new google.maps.Marker({
+              position:test,
+              map: map,
+              title: contentString
         });
 
         marker.addListener('click', function() {

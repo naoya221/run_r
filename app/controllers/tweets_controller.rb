@@ -34,7 +34,7 @@ class TweetsController < ApplicationController
   end
 
   def show
-    @tweet = Tweet.find(params[:id]
+    @tweet = Tweet.find(params[:id])
 
     # 選択したコースへのコメントを取得
     @tweet_messages = @tweet.messages.includes(:user).order('created_at DESC')
