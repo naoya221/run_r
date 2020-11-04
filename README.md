@@ -48,7 +48,7 @@ https://runreco.com<br>
 ### 通知機能
 ・お知らせページにて通知を確認できる。（いいね、コメント、フォロー時）<br>
 
-### その他の機能・
+### その他の機能
 ・ランキング機能（投稿注目の人気コースにて、いいね数が多い順に表示）<br>
 ・ランニングコース投稿一覧の検索機能（タグ検索可）<br>
 ・ページネーション機能（kaminari）<br>
@@ -59,7 +59,7 @@ https://runreco.com<br>
 
 # 環境・使用技術
 ### フロントエンド
-・HTML/CSS<br>
+・HTML<br>
 ・SCSS<br>
 ・JavaScript,　jQuery,　Vue.js<br>
 ・Bootstrap 4.5.0<br>
@@ -69,7 +69,7 @@ https://runreco.com<br>
 ・Ruby on Rails　6.0.0<br>
 
 ### 開発環境
-・MySQL2<br>
+・MySQL<br>
 ・Docker/Docker-compose<br>
 
 ### 本番環境
