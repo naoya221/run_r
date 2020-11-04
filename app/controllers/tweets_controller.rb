@@ -13,7 +13,7 @@ class TweetsController < ApplicationController
 
   def index
     # コースを全て取得。コースが8つでページネーション
-    @tweets = Tweet.includes(:user).page(params[:page]).per(8).order('created_at DESC')
+    @tweets = Tweet.includes([:user, :likes, :messages]).page(params[:page]).per(8).order('created_at DESC')
   end
 
   def new
@@ -99,7 +99,7 @@ class TweetsController < ApplicationController
   # 各ランニングコース（人気・初心者向け・経験者向け）を取得
   def get_recommended_tweets
     # いいねが最も多い順に、投稿を4つ取得
-    tweets_ranking_sort = Tweet.all.sort { |a, b| b.liked_users.count <=> a.liked_users.count}
+    tweets_ranking_sort = Tweet.includes([:user, :likes, :messages]).sort { |a, b| b.liked_users.count <=> a.liked_users.count}
     tweets_ranking = tweets_ranking_sort[0..3]
 
     # 初心者向けのコースをランダムに4つ取得

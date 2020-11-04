@@ -1,7 +1,7 @@
 class NotificationsController < ApplicationController
   def index
     # ログイン者の通知を表示
-    @notifications = current_user.passive_notifications
+    @notifications = current_user.passive_notifications.includes([:visitor])
   end
 
   def destroy

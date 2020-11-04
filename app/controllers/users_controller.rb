@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     # 選択したユーザーによる、コース投稿を全て取得。コースが8つでページネーション
-    @tweets = @user.tweets.page(params[:page]).per(8).order('created_at DESC')
+    @tweets = @user.tweets.includes([:likes, :messages]).page(params[:page]).per(8).order('created_at DESC')
 
     # 各ベストタイムのレコードを取得
     get_record(params[:id])
