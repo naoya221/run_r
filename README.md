@@ -33,8 +33,10 @@ https://runreco.com<br>
 ・ユーザー情報の登録・編集<br>
 ・ユーザー同士のフォロー機能（非同期通信）<br>
 ・ベストタイム（5km、10km、ハーフ、フル）の登録・編集・削除<br>
-・登録したベストタイムから、各距離の走力をグラフ化して表示<br>
-・登録したベストタイムから、ランニング時の目安ペースを提示（練習メニュー例の中に表示しています）<br>
+※以下3つは登録したベストタイムによって表示が変わります<br>
+　・各距離の走力をグラフ化して表示<br>
+　・次に目指すべきタイムを提示<br>
+　・練習メニュー例の提示<br>
 <br>
 ![画面収録 2020-11-02 15 29 26 mov](https://user-images.githubusercontent.com/68312425/97836768-552b6b80-1d20-11eb-9a3a-9df7c1c660b3.gif)<br>
 <br><br>
@@ -76,7 +78,7 @@ https://runreco.com<br>
 ・AWS(ALB, EC2, S3, Route53, VPC)<br>
 ・Nginx<br>
 ・CircleCIにてDocker-composeよりコンテナを構築し、<br>
-・Capistranoにより自動デプロイ<br>
+　Capistranoにより自動デプロイ<br>
 ・MariaDB<br>
 
 ### テスト
