@@ -80,7 +80,7 @@ https://runreco.com<br>
 ・MariaDB<br>
 
 ### テスト
-・Rspec (単体・結合）<br>
+・Rspec (単体・結合　計167項目）<br>
 ・CircleCIにてDocker-composeよりコンテナを構築し、自動テスト<br>
 
 ### その他使用技術
