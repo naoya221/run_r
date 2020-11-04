@@ -14,7 +14,7 @@ RSpec.describe 'vdotページのコンテンツ閲覧', type: :system do
     find_link('走力一覧').click
     # 説明案内が表示されている
     expect(page).to have_content 'ベストタイムを登録すると、該当する走力レベル部分が'
-    expect(page).to have_content '※未登録ではレベル30にマーク'
+    expect(page).to have_content '※未登録ではレベル1にマーク'
     # 走力レベル一覧が表示されている（以下レベル1のみチェック）
     expect(page).to have_content('レベル：1')
     expect(page).to have_content('５km')
@@ -57,6 +57,6 @@ RSpec.describe 'vdotページのコンテンツ閲覧', type: :system do
     expect(page).to have_content '各ペース（ E　M　T40　T20 ）とは？'
     # 未ログイン時の説明案内が表示されていない
     expect(page).to have_no_content 'ベストタイムを登録すると、該当する走力レベル部分が'
-    expect(page).to have_no_content '※未登録ではレベル30にマーク'
+    expect(page).to have_no_content '※未登録ではレベル1にマーク'
   end
 end
