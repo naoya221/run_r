@@ -43,30 +43,30 @@
             <% if user_signed_in? %>
               <%# ヘッダーナビボタン（ログイン時） %>
               <li class="nav-item header-item link">
-                <%= link_to "お知らせ", notifications_path, class: "text-white nav-link" %>
+                <%= link_to "お知らせ", notifications_path, class: "text-white nav-link header-nav-link" %>
               </li>
               <li class="nav-item header-item link">
-                <%= link_to "#{current_user.nickname}", user_path(current_user.id), class: "text-white nav-link" %>
+                <%= link_to "#{current_user.nickname}", user_path(current_user.id), class: "text-white nav-link header-nav-link" %>
               </li>
               <li class="nav-item header-item link">
-                <%= link_to "走力一覧", user_vdots_path(current_user), class: "text-white nav-link" %>
+                <%= link_to "走力一覧", user_vdots_path(current_user), class: "text-white nav-link header-nav-link" %>
               </li>
               <li class="nav-item header-item link">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white nav-link" %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white nav-link header-nav-link" %>
               </li>
             <% else %>
               <%# ヘッダーナビボタン（未ログイン時） %>
               <li class="nav-item header-item link">
-                <%= link_to "走力一覧", vdots_path, class: "text-white nav-link" %>
+                <%= link_to "走力一覧", vdots_path, class: "text-white nav-link header-nav-link" %>
               </li>
               <li class="nav-item header-item link">
-                <%= link_to "かんたんログイン", new_user_session_path, class: "text-white nav-link" %>
+                <%= link_to "かんたんログイン", new_user_session_path, class: "text-white nav-link header-nav-link" %>
               </li>
               <li class="nav-item header-item link">
-                <%= link_to "ログイン", new_user_session_path, class: "text-white nav-link" %>
+                <%= link_to "ログイン", new_user_session_path, class: "text-white nav-link header-nav-link" %>
               </li>
               <li class="nav-item header-item link">
-                <%= link_to "新規登録",new_user_registration_path, class: "text-white nav-link" %>
+                <%= link_to "新規登録",new_user_registration_path, class: "text-white nav-link header-nav-link" %>
               </li>
             <% end %>
 
