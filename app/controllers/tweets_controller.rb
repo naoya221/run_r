@@ -13,7 +13,7 @@ class TweetsController < ApplicationController
 
   def index
     # コースを全て取得。コースが8つでページネーション
-    @tweets = Tweet.includes([:user, :likes, :messages]).page(params[:page]).per(8).order('created_at DESC')
+    @tweets = Tweet.includes([:user, :likes]).page(params[:page]).per(8).order('created_at DESC')
   end
 
   def new
@@ -73,13 +73,13 @@ class TweetsController < ApplicationController
   # 検索ワードを含むコースを全て取得。コースが8つでページネーション
   # ※検索対象のカラムはtweetモデルのメソッドに設定してある
   def search
-    @tweets = Tweet.search(params[:keyword]).page(params[:page]).per(8).order('created_at DESC')
+    @tweets = Tweet.search(params[:keyword]).includes([:user, :messages, :likes]).page(params[:page]).per(8).order('created_at DESC')
   end
 
   # 選択したタグを含むコースを全て取得。コースが8つでページネーション
   def tag_search
     @tag = Tag.find(params[:tag_id])
-    @tweets = @tag.tweets.all.page(params[:page]).per(8).order('created_at DESC')
+    @tweets = @tag.tweets.includes([:user, :messages, :likes]).page(params[:page]).per(8).order('created_at DESC')
   end
 
   private
