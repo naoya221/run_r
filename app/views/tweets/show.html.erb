@@ -67,7 +67,7 @@
       <div class="row show-tag">
         <% @tweet_tags.each do |tag| %>
             <%= link_to tag_tweets_path(tag_id: tag.id) do %>
-              <div class="tag text-dark link"><%= "＃#{tag.name}" %></div>
+              <div class="tag link"><%= "＃#{tag.name}" %></div>
             <% end %>
         <% end %>
       </div>
