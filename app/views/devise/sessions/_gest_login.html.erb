@@ -1,0 +1,7 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= f.hidden_field :email,value: "thank@you", autofocus: true, autocomplete: "email" %>
+  <%= f.hidden_field :password, value: "123456", autocomplete: "current-password" %>
+  <div class="">
+    <%= f.submit "かんたんログイン", class: "btn btn-dark text-white pr-5 pl-5" %>
+  </div>
+<% end %>

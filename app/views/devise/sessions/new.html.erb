@@ -8,6 +8,14 @@
     <% end %>
   </div>
 
+  <%# かんたんログインボタン %>
+  <div class="mb-5">
+    <div class="form-list mb-4">
+      入力なしでログインできます
+    </div>
+    <%= render "gest_login" %>
+  </div>
+
   <div class="d-flex justify-content-center">
     <div class="forms-content">
 
@@ -27,14 +35,9 @@
           </div>
       <% end %>
 
-      <div class="actions mt-4">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <%= f.hidden_field :email,value: "thank@you", autofocus: true, autocomplete: "email" %>
-          <%= f.hidden_field :password, value: "123456", autocomplete: "current-password" %>
-          <div class="actions">
-            <%= f.submit "かんたんログイン", class: "btn btn-dark text-white pr-5 pl-5" %>
-          </div>
-        <% end %>
+      <%# かんたんログインボタン %>
+      <div class="mt-4">
+        <%= render "gest_login" %>
       </div>
 
       <div class="d-flex justify-content-center">
