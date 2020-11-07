@@ -81,7 +81,7 @@ RSpec.describe 'ログイン', type: :system do
       fill_in 'user_email', with: @user.email
       fill_in 'user_password', with: @user.password
       # ログインボタンを押す
-      all('input[name="commit"]')[0].click
+      all('input[name="commit"]')[1].click
       # トップページへ遷移する
       expect(current_path).to eq root_path
       # 新規登録ボタン・ログインボタンが表示されていない
