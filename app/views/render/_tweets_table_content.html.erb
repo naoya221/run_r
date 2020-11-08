@@ -1,16 +1,20 @@
 <script>
-  // 投稿にカーソルを重ねると説明文表示
-  $(function(){
-    $(".mini-slide-content").hide();
-    $(".mini-slide").hover(
-      function() {
-          let ind= $('.mini-slide').index(this);
-          $('.mini-slide-content').eq(ind).show('slow');
-      },
-      function(){
-          let ind = $('.mini-slide').index(this);
-          $('.mini-slide-content').eq(ind).hide();
-		  }
-    );
-  })
+  $(document).ready(function(){
+
+    // 投稿にカーソルを重ねると説明文表示
+    $(function(){
+      $(".mini-slide-content").hide();
+      $(".mini-slide").hover(
+        function() {
+            let ind= $('.mini-slide').index(this);
+            $('.mini-slide-content').eq(ind).show('slow');
+        },
+        function(){
+            let ind = $('.mini-slide').index(this);
+            $('.mini-slide-content').eq(ind).hide();
+        }
+      );
+    })
+
+  });
 </script>
