@@ -1,13 +1,11 @@
 <script>
-  $(document).ready(function(){
-
     // 投稿にカーソルを重ねると説明文表示
     $(function(){
       $(".mini-slide-content").hide();
       $(".mini-slide").hover(
         function() {
             let ind= $('.mini-slide').index(this);
-            $('.mini-slide-content').eq(ind).show('slow');
+            $('.mini-slide-content').eq(ind).show(500);
         },
         function(){
             let ind = $('.mini-slide').index(this);
@@ -15,6 +13,4 @@
         }
       );
     })
-
-  });
 </script>
