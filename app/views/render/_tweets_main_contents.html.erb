@@ -18,14 +18,16 @@
     <% end%>
 
     <div class="row justify-content-center">
-      <% tweets.each do |tweet| %>
+      <% tweets.each_with_index do |tweet,ind| %>
         <div class="mini-content col-md-6 col-lg-3">
           <%= link_to tweet do %>
             <div class="mini-slide">
-              <img src="<%= tweet.place_image %>" class="mini-slide-image link">
+              <img src="<%= tweet.place_image %>" class="mini-slide-image">
+                <p class="mini-slide-content">
+                  <%= tweet.content %>
+                </p>
             </div>
           <% end %>
-
           <div class="mini-slide-bottom">
             <strong><%= tweet.place_name.truncate(15)  %></strong>
               <div class="d-flex justify-content-between">
@@ -67,3 +69,7 @@
 <%# 全投稿一覧の表示 %>
 <%= render "render/tweets_all_content" %>
 <%# %>
+
+<%# // 投稿にカーソルを重ねると説明文表示 %>
+<%= render "render/tweets_table_content" %>
+<%#  %>

@@ -14,7 +14,10 @@
     <div class="mini-content col-md-6 col-lg-3">
       <%= link_to tweet do %>
         <div class="mini-slide">
-          <img src="<%= tweet.place_image %>" class="mini-slide-image link">
+          <img src="<%= tweet.place_image %>" class="mini-slide-image">
+          <p class="mini-slide-content">
+            <%= tweet.content %>
+          </p>
         </div>
       <% end %>
 
