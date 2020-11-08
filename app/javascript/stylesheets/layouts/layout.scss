@@ -168,6 +168,22 @@ footer {
   color: #47c43c;
 }
 
+.mini-slide {
+  position: relative;
+}
+
+.mini-slide-content {
+  position: absolute;
+  bottom: 5px;
+  left: 25px;
+  color: white;
+  background-color: rgba(128, 128, 128, 0.6);
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 10px;
+  max-width: 200px;
+}
+
 @media (max-width: 800px) {
 
   .forms-container {
