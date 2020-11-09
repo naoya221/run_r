@@ -24,7 +24,7 @@
             <div class="mini-slide">
               <img src="<%= tweet.place_image %>" class="mini-slide-image">
                 <p class="mini-slide-content">
-                  <%= tweet.content %>
+                  <%= tweet.content.truncate(44) %>
                 </p>
             </div>
           <% end %>
